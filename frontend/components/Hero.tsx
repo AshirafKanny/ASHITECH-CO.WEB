@@ -111,7 +111,7 @@ export default function Hero() {
         />
       </svg>
       <span className="left-orbit-circle pointer-events-none absolute left-14 top-1/2 h-5 w-5 rounded-full border-2 border-white" />
-      <div className="spin-right-loop pointer-events-none absolute right-14 top-24 h-24 w-24 rounded-full bg-[radial-gradient(circle,#ffffff_2px,transparent_2px)] bg-size-[9px_9px] opacity-45" />
+      <div className="spin-right-loop pointer-events-none absolute right-0 top-0 h-24 w-24 rounded-full bg-[radial-gradient(circle,#ffffff_2px,transparent_2px)] bg-size-[9px_9px] opacity-45" />
       <div className="spin-right-loop pointer-events-none absolute bottom-12 left-[43%] h-24 w-24 rounded-full bg-[radial-gradient(circle,#ffffff_2px,transparent_2px)] bg-size-[9px_9px] opacity-45" />
       <span className="pointer-events-none absolute left-[7%] top-[40%] h-4 w-4 rounded-full border border-white" />
     </section>
