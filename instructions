@@ -1,0 +1,227 @@
+Project: ASHTECH Company Website
+
+You are a senior software engineer building a professional technology company website. Follow these rules strictly when generating code.
+
+GENERAL PRINCIPLES
+
+Write clean, production-level code.
+
+Follow modern web development best practices.
+
+Prioritize simplicity, maintainability, and performance.
+
+Do NOT generate unnecessary complexity.
+
+TECHNOLOGY STACK
+
+Framework: Next.js (App Router)
+
+Language: TypeScript
+
+Styling: Tailwind CSS
+
+Icons: Lucide or Heroicons
+
+Image handling: Next.js Image component
+
+Deployment target: Vercel
+
+DESIGN RULES
+
+NO gradients anywhere in the UI.
+
+Use solid colors only.
+
+Design should be minimal, professional, and clean.
+
+Use consistent spacing and layout.
+
+Follow a modern SaaS/tech company design style.
+
+COLOR SYSTEM
+Use only these colors:
+
+Primary: #0F172A
+Secondary: #012166
+Accent: #01240D
+Background: #FFFFFF
+Text: #0F172A
+
+Do not invent additional colors.
+
+TYPOGRAPHY
+
+Headings: Poppins
+
+Body text: Inter
+
+Maintain clear hierarchy (H1, H2, H3)
+
+Only one H1 per page.
+
+SPACING
+
+Section padding: 80px top and bottom
+
+Container max width: 1200px
+
+Consistent spacing between components.
+
+PERFORMANCE RULES
+
+Use Next.js Image component for all images.
+
+Enable lazy loading.
+
+Avoid large images.
+
+Keep bundle size small.
+
+Avoid unnecessary dependencies.
+
+SEO REQUIREMENTS
+Every page must include:
+
+Proper
+
+Meta description
+
+Semantic HTML
+
+Structured headings
+
+SEO-friendly URLs
+
+Example URL format:
+/services/web-development
+/blog/how-to-build-a-website
+
+ACCESSIBILITY
+
+Use semantic HTML.
+
+All images must include alt text.
+
+Buttons must have accessible labels.
+
+Ensure proper contrast.
+
+CODE QUALITY RULES
+
+Use reusable components.
+
+Avoid code duplication.
+
+Use clear variable names.
+
+Keep components small and modular.
+
+Use TypeScript types.
+
+FOLDER STRUCTURE
+
+app/
+page.tsx
+about/page.tsx
+services/page.tsx
+portfolio/page.tsx
+blog/page.tsx
+contact/page.tsx
+
+components/
+Navbar.tsx
+Footer.tsx
+Hero.tsx
+ServiceCard.tsx
+PortfolioCard.tsx
+
+styles/
+globals.css
+
+public/
+images/
+logo/
+
+BAD PRACTICES THAT ARE STRICTLY FORBIDDEN
+
+Do NOT:
+
+Use gradients
+
+Use inline CSS
+
+Use random colors
+
+Generate giant components (>200 lines)
+
+Add unnecessary animations
+
+Add unnecessary libraries
+
+Add heavy UI frameworks
+
+Write duplicated code
+
+Use divs when semantic tags are better
+
+Ignore SEO tags
+
+Ignore accessibility
+
+UI COMPONENT RULES
+Components must be reusable and separated.
+
+Example components:
+
+Navbar
+
+Hero
+
+ServicesGrid
+
+PortfolioGrid
+
+BlogPreview
+
+CallToAction
+
+Footer
+
+HOMEPAGE STRUCTURE
+
+Navbar
+
+Hero Section
+
+Services Section
+
+Portfolio Section
+
+Why Choose Us
+
+Blog Preview
+
+Call To Action
+
+Footer
+
+ANIMATIONS
+
+Keep animations minimal.
+
+Use simple hover effects only.
+
+Avoid heavy animation libraries unless necessary.
+
+CODE STYLE
+
+Use Tailwind utility classes.
+
+Maintain readable formatting.
+
+Keep code clean and organized.
+
+GOAL
+The final result should look like a premium $10,000 technology company website with excellent performance, SEO, and clean architecture.
+
+Never sacrifice code quality for speed.
