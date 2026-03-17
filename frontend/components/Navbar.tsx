@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Rocket, Search, X } from "lucide-react";
-import { useState } from "react";
+import { Facebook, Instagram, Menu, Rocket, Search, Send, X } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -16,7 +16,30 @@ const navItems = [
 export default function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isDesktopMenuOpen) {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsDesktopMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isDesktopMenuOpen]);
 
   return (
     <header
@@ -36,13 +59,14 @@ export default function Navbar() {
 
         <button
           type="button"
-          className={`rounded-md p-2 md:hidden ${
-            isHome ? "border border-white/70 text-white" : "border border-[#0F172A] text-[#0F172A]"
+          className={`rounded-md p-3 md:hidden ${
+            isHome ? "text-white" : "text-[#0F172A]"
           }`}
           aria-label="Toggle navigation menu"
-          onClick={() => setIsOpen((value) => !value)}
+          aria-expanded={isMobileNavOpen}
+          onClick={() => setIsMobileNavOpen((value) => !value)}
         >
-          {isOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
+          {isMobileNavOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
         </button>
 
         <ul className="hidden items-center gap-7 text-white md:flex">
@@ -67,20 +91,25 @@ export default function Navbar() {
               <Search size={18} aria-hidden="true" />
             </button>
           </li>
-          {isHome ? (
-            <li>
-              <Link
-                href="/contact"
-                className="rounded-full border border-white px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-[#0F172A]"
-              >
-                Get A Quote
-              </Link>
-            </li>
-          ) : null}
+          <li>
+            <button
+              type="button"
+              aria-label="Toggle site menu"
+              aria-expanded={isDesktopMenuOpen}
+              className={`rounded-md p-3 transition-colors ${
+                isHome
+                  ? "text-white hover:text-[#F97316]"
+                  : "text-[#0F172A] hover:text-[#F97316]"
+              }`}
+              onClick={() => setIsDesktopMenuOpen((value) => !value)}
+            >
+              {isDesktopMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+            </button>
+          </li>
         </ul>
       </nav>
 
-      {isOpen ? (
+      {isMobileNavOpen ? (
         <div className={`border-t md:hidden ${isHome ? "border-white/20 bg-[#171422]" : "border-[#0F172A] bg-white"}`}>
           <ul className="site-container grid gap-4 py-4 text-white">
             {navItems.map((item) => (
@@ -88,7 +117,7 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   className="block text-white! text-sm font-medium"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => setIsMobileNavOpen(false)}
                 >
                   {item.name}
                 </Link>
@@ -107,6 +136,97 @@ export default function Navbar() {
           </ul>
         </div>
       ) : null}
+
+      <div
+        className={`fixed inset-0 z-50 hidden md:block ${
+          isDesktopMenuOpen ? "pointer-events-auto" : "pointer-events-none"
+        }`}
+        aria-hidden={!isDesktopMenuOpen}
+      >
+        <button
+          type="button"
+          className={`absolute inset-0 origin-right bg-[#04070f]/60 backdrop-blur-[2px] transition-all duration-500 ease-out ${
+            isDesktopMenuOpen ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
+          }`}
+          aria-label="Close appointment drawer"
+          onClick={() => setIsDesktopMenuOpen(false)}
+        />
+
+        <aside
+          className={`absolute right-0 top-0 flex h-full w-full max-w-95 flex-col bg-[#2d3650] px-8 pb-10 pt-6 text-white shadow-2xl transition-transform duration-300 ease-out ${
+            isDesktopMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+          aria-label="Appointment drawer"
+        >
+          <div className="mb-12 flex justify-end">
+            <button
+              type="button"
+              className="p-1 text-white transition-colors hover:text-[#ff6b3d]"
+              aria-label="Close appointment drawer"
+              onClick={() => setIsDesktopMenuOpen(false)}
+            >
+              <X size={22} aria-hidden="true" />
+            </button>
+          </div>
+
+          <div className="flex flex-1 flex-col">
+            <h2 className="mb-8 text-[2rem] font-semibold leading-tight">Get Appointment</h2>
+
+            <form className="flex flex-1 flex-col gap-4" onSubmit={(event) => event.preventDefault()}>
+              <input
+                type="text"
+                placeholder="Name"
+                className="h-12 rounded-md border border-white/10 bg-transparent px-4 text-sm text-white outline-none transition-colors placeholder:text-white/60 focus:border-[#ff6b3d]"
+              />
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="h-12 rounded-md border border-white/10 bg-transparent px-4 text-sm text-white outline-none transition-colors placeholder:text-white/60 focus:border-[#ff6b3d]"
+              />
+              <textarea
+                placeholder="Message"
+                rows={5}
+                className="min-h-34 rounded-md border border-white/10 bg-transparent px-4 py-3 text-sm text-white outline-none transition-colors placeholder:text-white/60 focus:border-[#ff6b3d]"
+              />
+
+              <button
+                type="submit"
+                className="mt-2 inline-flex h-12 items-center justify-center rounded-full bg-[#ff6b3d] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#ff7d54]"
+              >
+                Submit Now
+              </button>
+            </form>
+
+            <div className="mt-10 flex items-center gap-3">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+                className="grid h-11 w-11 place-items-center rounded-full bg-white text-[#2d3650] transition-transform hover:-translate-y-0.5"
+              >
+                <Facebook size={18} aria-hidden="true" />
+              </a>
+              <a
+                href="mailto:hello@ashitech.com"
+                aria-label="Email"
+                className="grid h-11 w-11 place-items-center rounded-full bg-white text-[#2d3650] transition-transform hover:-translate-y-0.5"
+              >
+                <Send size={18} aria-hidden="true" />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="grid h-11 w-11 place-items-center rounded-full bg-white text-[#2d3650] transition-transform hover:-translate-y-0.5"
+              >
+                <Instagram size={18} aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
     </header>
   );
 }

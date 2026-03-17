@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import CoreFeaturesSection from "../components/CoreFeaturesSection";
+import AboutStatsSection from "../components/AboutStatsSection";
 import ServiceCard from "../components/ServiceCard";
 import PortfolioCard from "../components/PortfolioCard";
 import BlogPreview from "../components/BlogPreview";
@@ -76,6 +78,8 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <CoreFeaturesSection />
+        <AboutStatsSection />
 
         <section className="py-20" aria-labelledby="services-heading">
           <div className="site-container">

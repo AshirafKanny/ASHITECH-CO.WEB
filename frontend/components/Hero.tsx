@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MoveRight, Play } from "lucide-react";
+import { Play } from "lucide-react";
 
 export default function Hero() {
   return (
     <section
-      className="relative overflow-hidden bg-[#171422] pb-16 pt-36 text-white lg:pb-20"
+      className="relative overflow-hidden bg-[#171422] pb-16 pt-32 text-white lg:pb-20"
       aria-labelledby="hero-heading"
     >
+      <div className="hero-blink-overlay pointer-events-none absolute inset-0 z-30" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_88%_8%,rgba(249,115,22,0.9),rgba(23,20,34,0)_36%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_14%_90%,rgba(249,115,22,0.22),rgba(23,20,34,0)_28%)]" />
       <svg
@@ -39,29 +40,31 @@ export default function Hero() {
       <div className="wave-glow-shadow pointer-events-none absolute -right-4 -top-4 h-56 w-56 rounded-full bg-[#F97316]/90" />
 
       <div className="site-container relative z-10 grid gap-10 xl:grid-cols-[1fr_1.15fr] xl:items-center">
-        <div className="pt-8">
-          <p className="text-base font-semibold text-white/90">25 Years of Experience in web design solutions</p>
+        <div className="pt-6 xl:-ml-4">
+          <p className="text-base font-semibold text-white/90">AshiTech will help you build your dream website </p>
           <h1
             id="hero-heading"
-            className="mt-5 max-w-xl text-5xl font-bold leading-[1.02] tracking-[-0.02em] text-white md:text-6xl"
+            className="hero-title-reveal mt-5 max-w-2xl text-4xl font-bold leading-[1.02] tracking-[-0.02em] text-white md:text-6xl"
           >
-            Digital web design solutions agency
+            <span className="whitespace-nowrap">Digital web design</span>
+            <br />
+            <span className="whitespace-nowrap">solutions agency</span>
           </h1>
 
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="hero-cta-reveal mt-10 flex flex-wrap gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-[#F97316] px-7 py-3 font-semibold text-white transition-colors hover:bg-[#EA580C]"
+              className="hero-btn-sweep hero-btn-sweep-primary inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold text-white"
             >
               Get Started Us
-              <MoveRight size={16} aria-hidden="true" />
+              <span className="hero-btn-arrow" aria-hidden="true">&raquo;</span>
             </Link>
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 rounded-full border border-[#1E3A8A] px-7 py-3 font-semibold text-white transition-colors hover:border-[#F97316]"
+              className="hero-btn-sweep hero-btn-sweep-secondary inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold text-white"
             >
               Explore Services
-              <MoveRight size={16} aria-hidden="true" />
+              <span className="hero-btn-arrow" aria-hidden="true">&raquo;</span>
             </Link>
           </div>
 

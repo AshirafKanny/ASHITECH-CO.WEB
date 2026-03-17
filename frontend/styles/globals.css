@@ -162,6 +162,226 @@ a {
   animation: hero-bg-wave-drift-alt 11s ease-in-out infinite;
 }
 
+@keyframes hero-overlay-blink {
+  0%,
+  62.5% {
+    opacity: 0;
+  }
+  68.75% {
+    opacity: 1;
+  }
+  75%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.hero-blink-overlay {
+  background: #000000;
+  opacity: 0;
+  animation: hero-overlay-blink 8s linear infinite;
+}
+
+@keyframes hero-title-return {
+  0%,
+  62.5% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  68.75%,
+  73.6% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  74.8% {
+    opacity: 0.35;
+    transform: translateY(10px);
+  }
+  75.6% {
+    opacity: 0.72;
+    transform: translateY(4px);
+  }
+  76.4%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-content-stagger-b {
+  0%,
+  62.5% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  68.75%,
+  94% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  98.5%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-cta-return {
+  0%,
+  62.5% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  68.75%,
+  72.95% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  73.55% {
+    opacity: 0.3;
+    transform: translateY(12px);
+  }
+  74.05% {
+    opacity: 0.68;
+    transform: translateY(5px);
+  }
+  74.55%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-reveal {
+  will-change: opacity, transform;
+}
+
+.hero-title-reveal {
+  animation: hero-title-return 8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.hero-reveal-b {
+  animation: hero-content-stagger-b 8s ease-out infinite;
+}
+
+.hero-cta-reveal {
+  animation: hero-cta-return 8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.hero-btn-sweep {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: border-color 280ms ease, color 280ms ease;
+}
+
+.hero-btn-sweep::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+}
+
+.hero-btn-sweep-primary {
+  background: #f97316;
+}
+
+.hero-btn-sweep-primary::before {
+  background: #000000;
+}
+
+.hero-btn-sweep-primary:hover::before,
+.hero-btn-sweep-primary:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.hero-btn-sweep-secondary {
+  border: 1px solid #1e3a8a;
+  background: transparent;
+}
+
+.hero-btn-sweep-secondary::before {
+  background: #f97316;
+}
+
+.hero-btn-sweep-secondary:hover,
+.hero-btn-sweep-secondary:focus-visible {
+  border-color: #f97316;
+}
+
+.hero-btn-sweep-secondary:hover::before,
+.hero-btn-sweep-secondary:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.hero-btn-arrow {
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1;
+  transform: translateX(0);
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-btn-sweep:hover .hero-btn-arrow,
+.hero-btn-sweep:focus-visible .hero-btn-arrow {
+  transform: translateX(4px);
+}
+
+.feature-card-hover {
+  position: relative;
+  overflow: hidden;
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 300ms ease;
+}
+
+.feature-card-hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, #ff5e2e 0%, #ff8b5f 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.feature-card-hover:hover,
+.feature-card-hover:focus-within {
+  transform: translateY(-8px);
+  background-color: #ffffff;
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.14);
+}
+
+.feature-card-hover:hover::before,
+.feature-card-hover:focus-within::before {
+  transform: scaleX(1);
+}
+
+.feature-card-icon {
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1), color 260ms ease;
+}
+
+.feature-card-title {
+  transition: color 260ms ease;
+}
+
+.feature-card-hover:hover .feature-card-icon,
+.feature-card-hover:focus-within .feature-card-icon {
+  transform: translateY(-2px) scale(1.06);
+  color: #ff4f1d;
+}
+
+.feature-card-hover:hover .feature-card-title,
+.feature-card-hover:focus-within .feature-card-title {
+  color: #0b1222;
+}
+
 @keyframes hero-type-a {
   0%,
   4% {
