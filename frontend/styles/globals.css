@@ -382,6 +382,44 @@ a {
   color: #0b1222;
 }
 
+@keyframes about-image-backdrop-swing-left {
+  0%,
+  100% {
+    transform: translateX(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateX(-14px) rotate(-8deg);
+  }
+}
+
+@keyframes about-image-backdrop-swing-right {
+  0%,
+  100% {
+    transform: translateX(0) rotate(4deg);
+  }
+  50% {
+    transform: translateX(14px) rotate(8deg);
+  }
+}
+
+.about-image-backdrop {
+  position: absolute;
+  inset: -1rem -1.1rem -1rem 1.1rem;
+  z-index: 0;
+  background: #ff5e2e;
+  transform-origin: center;
+  will-change: transform;
+  border-radius: 2px;
+}
+
+.about-image-backdrop-left {
+  animation: about-image-backdrop-swing-left 4.6s ease-in-out infinite;
+}
+
+.about-image-backdrop-right {
+  animation: about-image-backdrop-swing-right 4.6s ease-in-out infinite;
+}
+
 @keyframes hero-type-a {
   0%,
   4% {

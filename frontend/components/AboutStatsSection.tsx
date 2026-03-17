@@ -1,5 +1,85 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { CircleDot, Handshake, Rocket, Trophy } from "lucide-react";
+import { CheckCircle2, Handshake, Rocket, Trophy } from "lucide-react";
+
+function CountingStatCard({ stat }: { stat: (typeof stats)[0] }) {
+  const Icon = stat.icon;
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  const targetValue = parseInt(stat.value.replace("+", ""), 10);
+  const duration = 2000; // 2 seconds
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime: number;
+    let animationId: number;
+
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      setCount(Math.floor(progress * targetValue));
+
+      if (progress < 1) {
+        animationId = requestAnimationFrame(animate);
+      }
+    };
+
+    animationId = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+    };
+  }, [isVisible, targetValue]);
+
+  return (
+    <article
+      ref={ref}
+      className="rounded-xl border border-[#D0DAEA] bg-white px-5 py-6 shadow-sm transition-shadow duration-300 hover:shadow-md"
+    >
+      <span className="inline-grid h-10 w-10 place-items-center rounded-full bg-[#FFF0E8]">
+        <Icon size={20} strokeWidth={1.8} className="text-[#ff5e2e]" aria-hidden="true" />
+      </span>
+      <p className="mt-4 text-3xl font-bold leading-none text-[#1E293B]">
+        {count}
+        <span className="text-[#ff5e2e]">+</span>
+      </p>
+      <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-[#ff5e2e]">{stat.label}</p>
+      <p className="mt-2.5 text-[11.5px] leading-5 text-[#7A8899]">
+        Trusted results from partners worldwide.
+      </p>
+    </article>
+  );
+}
 
 const missionItems = [
   {
@@ -20,58 +100,70 @@ const missionItems = [
 ];
 
 const stats = [
-  { icon: Rocket, value: "2365+", label: "Projects complete" },
-  { icon: Handshake, value: "5234+", label: "Global clients" },
-  { icon: Trophy, value: "8532+", label: "Happy customers" },
+  { icon: Rocket, value: "2365+", label: "Projects Complete" },
+  { icon: Handshake, value: "5234+", label: "Global Clients" },
+  { icon: Trophy, value: "8532+", label: "Happy Customers" },
 ];
 
 export default function AboutStatsSection() {
   return (
-    <section className="bg-[#ECEFF4] py-24" aria-labelledby="about-stats-heading">
+    <section className="bg-white py-20 lg:py-28" aria-labelledby="about-stats-heading">
       <div className="site-container">
-        <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="relative mx-auto w-fit lg:mx-0">
-            <div className="absolute -inset-2 -z-10 rotate-[-4deg] bg-[#ff5e2e]" aria-hidden="true" />
+
+        {/* Row 1 — image left, mission/vision right */}
+        <div className="grid items-center gap-12 lg:grid-cols-[auto_1fr] lg:gap-20">
+
+          {/* Image column */}
+          <div className="relative isolate mx-auto w-fit shrink-0 lg:mx-0">
+            <div className="about-image-backdrop about-image-backdrop-left" aria-hidden="true" />
             <Image
               src="/images/ashitech.webp"
-              alt="ASHITECH team member working with a tablet"
-              width={360}
-              height={430}
-              className="h-90 w-72.5 object-cover"
+              alt="ASHITECH team member working"
+              width={300}
+              height={380}
+              className="relative z-10 block h-96 w-64 object-cover"
+              priority
             />
+            {/* Decorative wavy line — left side */}
             <svg
-              className="pointer-events-none absolute -left-18 top-1/2 h-52 w-12 -translate-y-1/2"
-              viewBox="0 0 48 220"
+              className="pointer-events-none absolute -left-14 top-1/2 h-48 w-10 -translate-y-1/2 opacity-80"
+              viewBox="0 0 40 200"
               fill="none"
               aria-hidden="true"
             >
               <path
-                d="M34 0C20 22 20 42 34 56C48 70 48 92 34 110C20 128 20 150 34 166C48 182 48 202 34 220"
+                d="M30 0C16 20 16 40 30 54C44 68 44 88 30 104C16 120 16 142 30 158C44 174 44 190 30 200"
                 stroke="#ff5e2e"
-                strokeWidth="2"
+                strokeWidth="2.5"
                 strokeLinecap="round"
               />
             </svg>
           </div>
 
+          {/* Text column */}
           <div>
-            <p className="text-xs font-semibold tracking-wide text-[#ff5e2e]">... About digital solution</p>
-            <h2 id="about-stats-heading" className="mt-3 max-w-lg text-4xl font-bold leading-tight text-[#1E293B]">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff5e2e]">
+              &#183;&#183;&#183; About Digital Solution
+            </p>
+            <h2
+              id="about-stats-heading"
+              className="mt-3 max-w-md text-3xl font-bold leading-snug text-[#1E293B] lg:text-4xl"
+            >
               Best web design solutions agency to growth
             </h2>
 
-            <div className="mt-7">
+            <div className="mt-8 divide-y divide-[#D6DEEA]">
               {missionItems.map((item) => (
-                <article
-                  key={item.title}
-                  className="flex gap-4 border-b border-[#D6DEEA] py-5 last:border-b-0 last:pb-0"
-                >
-                  <span className="mt-0.5 grid h-7 w-7 place-items-center rounded-full border border-[#1E293B] text-[#ff5e2e]">
-                    <CircleDot size={15} strokeWidth={2.2} aria-hidden="true" />
+                <article key={item.title} className="flex gap-4 py-5 first:pt-0 last:pb-0">
+                  <span
+                    className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#ff5e2e] text-white"
+                    aria-hidden="true"
+                  >
+                    <CheckCircle2 size={13} strokeWidth={2.5} />
                   </span>
                   <div>
-                    <h3 className="text-lg font-semibold text-[#1E293B]">{item.title}</h3>
-                    <p className="mt-2 max-w-xl text-sm leading-6 text-[#5B677A]">{item.description}</p>
+                    <h3 className="text-base font-semibold text-[#1E293B]">{item.title}</h3>
+                    <p className="mt-1.5 max-w-md text-sm leading-6 text-[#5B677A]">{item.description}</p>
                   </div>
                 </article>
               ))}
@@ -79,54 +171,52 @@ export default function AboutStatsSection() {
           </div>
         </div>
 
-        <div className="mt-20 grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr]">
+        {/* Row 2 — stats left, image right */}
+        <div className="mt-20 grid items-center gap-12 lg:mt-24 lg:grid-cols-[1fr_auto] lg:gap-20">
+
+          {/* Stats + heading column */}
           <div>
-            <p className="text-xs font-semibold tracking-wide text-[#ff5e2e]">... Company Statistics</p>
-            <h3 className="mt-3 max-w-lg text-4xl font-bold leading-tight text-[#1E293B]">
-              We&apos;ve some achievement from global partners
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff5e2e]">
+              &#183;&#183;&#183; Company Statistics
+            </p>
+            <h3 className="mt-3 max-w-md text-3xl font-bold leading-snug text-[#1E293B] lg:text-4xl">
+              We&apos;ve some achievement from our global partners
             </h3>
 
-            <div className="mt-7 grid gap-4 sm:grid-cols-3">
-              {stats.map((stat) => {
-                const Icon = stat.icon;
-
-                return (
-                  <article key={stat.label} className="rounded-md border border-[#D0DAEA] bg-[#F3F6FB] px-4 py-5">
-                    <Icon size={21} strokeWidth={1.9} className="text-[#ff5e2e]" aria-hidden="true" />
-                    <p className="mt-4 text-[1.75rem] font-semibold leading-none text-[#1E293B]">{stat.value}</p>
-                    <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-[#ff5e2e]">{stat.label}</p>
-                    <p className="mt-3 text-[11px] leading-5 text-[#68758A]">
-                      On the other denounce with righteous indign.
-                    </p>
-                  </article>
-                );
-              })}
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              {stats.map((stat) => (
+                <CountingStatCard key={stat.label} stat={stat} />
+              ))}
             </div>
           </div>
 
-          <div className="relative mx-auto w-fit lg:mx-0 lg:justify-self-end">
+          {/* Image column */}
+          <div className="relative isolate mx-auto w-fit shrink-0 lg:mx-0 lg:justify-self-end">
+            <div className="about-image-backdrop about-image-backdrop-right" aria-hidden="true" />
             <Image
               src="/images/ashitech.webp"
-              alt="ASHITECH consultant meeting with a client"
-              width={360}
-              height={430}
-              className="h-90 w-72.5 object-cover"
+              alt="ASHITECH consultant with client"
+              width={300}
+              height={380}
+              className="relative z-10 block h-96 w-64 object-cover"
             />
+            {/* Decorative wavy line — right side */}
             <svg
-              className="pointer-events-none absolute -right-16 top-1/2 h-52 w-12 -translate-y-1/2"
-              viewBox="0 0 48 220"
+              className="pointer-events-none absolute -right-14 top-1/2 h-48 w-10 -translate-y-1/2 opacity-80"
+              viewBox="0 0 40 200"
               fill="none"
               aria-hidden="true"
             >
               <path
-                d="M14 0C28 22 28 42 14 56C0 70 0 92 14 110C28 128 28 150 14 166C0 182 0 202 14 220"
+                d="M10 0C24 20 24 40 10 54C-4 68 -4 88 10 104C24 120 24 142 10 158C-4 174 -4 190 10 200"
                 stroke="#ff5e2e"
-                strokeWidth="2"
+                strokeWidth="2.5"
                 strokeLinecap="round"
               />
             </svg>
           </div>
         </div>
+
       </div>
     </section>
   );
