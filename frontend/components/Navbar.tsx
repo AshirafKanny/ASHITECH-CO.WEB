@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Facebook, Instagram, Menu, Rocket, Search, Send, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -18,6 +18,10 @@ export default function Navbar() {
   const isHome = pathname === "/";
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false);
+  const [isScrollPinned, setIsScrollPinned] = useState(false);
+  const [navTranslateY, setNavTranslateY] = useState(0);
+  const lastScrollRef = useRef(0);
+  const pinTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (!isDesktopMenuOpen) {
@@ -41,13 +45,65 @@ export default function Navbar() {
     };
   }, [isDesktopMenuOpen]);
 
+  useEffect(() => {
+    const clearPinTimer = () => {
+      if (pinTimerRef.current !== null) {
+        window.clearTimeout(pinTimerRef.current);
+        pinTimerRef.current = null;
+      }
+    };
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const scrollDelta = scrollY - lastScrollRef.current;
+      lastScrollRef.current = scrollY;
+
+      if (scrollY <= 8) {
+        clearPinTimer();
+        setIsScrollPinned(false);
+        setNavTranslateY(0);
+        return;
+      }
+
+      if (!isScrollPinned) {
+        // Follow the scroll direction
+        setNavTranslateY((prev) => {
+          const newTranslate = prev + scrollDelta;
+          return Math.min(Math.max(newTranslate, -100), 0);
+        });
+
+        // Clear existing timer and set new one
+        clearPinTimer();
+        pinTimerRef.current = window.setTimeout(() => {
+          setIsScrollPinned(true);
+          setNavTranslateY(0);
+          pinTimerRef.current = null;
+        }, 200);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      clearPinTimer();
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isScrollPinned]);
+
+  const headerPositionClass = isScrollPinned
+    ? isHome
+      ? "fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-[#171422]/95 backdrop-blur"
+      : "fixed inset-x-0 top-0 z-40 border-b border-[#0F172A] bg-white/95 backdrop-blur"
+    : isHome
+      ? "absolute inset-x-0 top-0 z-30 border-b border-white/10"
+      : "relative border-b border-[#0F172A]";
+
+  const headerMotionClass = `transform transition-transform duration-200 ease-out`;
+
   return (
     <header
-      className={`${
-        isHome
-          ? "absolute inset-x-0 top-0 z-30 border-b border-white/10"
-          : "relative border-b border-[#0F172A]"
-      }`}
+      className={`${headerPositionClass} ${headerMotionClass}`}
+      style={{ transform: `translateY(${navTranslateY}%)` }}
     >
       <nav className="site-container flex items-center justify-between py-5" aria-label="Main navigation">
         <Link href="/" className={`inline-flex items-center gap-2 text-xl font-semibold ${isHome ? "text-white" : "text-[#0F172A]"}`}>

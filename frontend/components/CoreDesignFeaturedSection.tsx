@@ -46,8 +46,8 @@ export default function CoreDesignFeaturedSection() {
   return (
     <section className="relative overflow-hidden bg-[#1f1f25] py-32 text-white lg:py-44" aria-labelledby="core-design-featured-heading">
       <div className="pointer-events-none absolute inset-y-0 left-0 w-80 bg-[radial-gradient(circle_at_left_center,rgba(249,115,22,0.2),rgba(31,31,37,0)_72%)]" />
-      <div className="pointer-events-none absolute right-0 top-0 h-56 w-56 bg-[radial-gradient(circle,rgba(249,115,22,0.6),rgba(31,31,37,0)_70%)]" />
-      <div className="pointer-events-none absolute right-24 top-18 h-24 w-24 rounded-full bg-[radial-gradient(circle,#ffffff_1.4px,transparent_1.4px)] bg-size-[9px_9px] opacity-45" />
+      <div className="pointer-events-none absolute right-0 top-0 h-128 w-lg bg-[radial-gradient(circle_at_72%_18%,rgba(249,115,22,0.82),rgba(31,31,37,0.9)_40%,rgba(31,31,37,0)_78%)]" />
+      <div className="spin-right-loop pointer-events-none absolute right-24 top-48 h-28 w-28 rounded-full bg-[radial-gradient(circle,#ffffff_1.4px,transparent_1.4px)] bg-size-[9px_9px] opacity-45" />
 
       <svg
         className="pointer-events-none absolute bottom-0 left-0 h-72 w-96"
@@ -82,16 +82,21 @@ export default function CoreDesignFeaturedSection() {
           <div className="grid gap-10 lg:grid-cols-[1.2fr_auto_1.2fr] lg:items-center">
             <div className="grid justify-items-center gap-6 lg:justify-items-end lg:pt-16">
               {leftCards.map((card) => (
-                <ServiceFeatureCard key={card.title} {...card} />
+                <div
+                  key={card.title}
+                  className={card.title === "Website maintenance Services" ? "lg:-translate-x-12" : ""}
+                >
+                  <ServiceFeatureCard {...card} />
+                </div>
               ))}
             </div>
 
             <div className="flex flex-col items-center px-4">
-              <svg className="mb-4 h-20 w-96" viewBox="0 0 240 56" fill="none" aria-hidden="true">
-                <path id="featured-curve-path" d="M18 42C56 4 184 4 222 42" />
+              <svg className="mb-4 h-24 w-md" viewBox="0 0 280 96" fill="none" aria-hidden="true">
+                <path id="featured-curve-path" d="M24 78C78 10 202 10 256 78" />
                 <text fill="white" fontSize="18" fontWeight="600" letterSpacing="0.03em">
                   <textPath href="#featured-curve-path" startOffset="50%" textAnchor="middle">
-                    Our awesome digital web design solution
+                    Awesome digital web design
                   </textPath>
                 </text>
               </svg>
@@ -109,14 +114,24 @@ export default function CoreDesignFeaturedSection() {
 
             <div className="grid justify-items-center gap-6 lg:justify-items-start lg:pt-16">
               {rightCards.map((card) => (
-                <ServiceFeatureCard key={card.title} {...card} />
+                <div
+                  key={card.title}
+                  className={card.title === "User Experience and Design" ? "lg:translate-x-12" : ""}
+                >
+                  <ServiceFeatureCard {...card} />
+                </div>
               ))}
             </div>
           </div>
 
-          <div className="mt-10 grid justify-items-center gap-6 sm:grid-cols-2 lg:mx-auto lg:max-w-2xl">
+          <div className="relative z-20 mt-0 grid justify-items-center gap-6 sm:grid-cols-2 lg:-mt-36 lg:mx-auto lg:max-w-2xl">
             {bottomCards.map((card) => (
-              <ServiceFeatureCard key={card.title} {...card} />
+              <div
+                key={card.title}
+                className={card.title === "eCommerce and product selling" ? "lg:-translate-y-8" : ""}
+              >
+                <ServiceFeatureCard {...card} />
+              </div>
             ))}
           </div>
         </div>
