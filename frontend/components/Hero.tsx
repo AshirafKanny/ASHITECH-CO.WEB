@@ -9,6 +9,9 @@ export default function Hero() {
       aria-labelledby="hero-heading"
     >
       <div className="hero-blink-overlay pointer-events-none absolute inset-0 z-30" aria-hidden="true" />
+      <div className="hero-breath-wave hero-breath-wave-one pointer-events-none absolute -left-36 top-10 z-5 h-128 w-lg rounded-full" aria-hidden="true" />
+      <div className="hero-breath-wave hero-breath-wave-two pointer-events-none absolute left-[20%] -top-16 z-5 h-104 w-104 rounded-full" aria-hidden="true" />
+      <div className="hero-breath-wave hero-breath-wave-three pointer-events-none absolute -right-36 bottom-2 z-5 h-140 w-140 rounded-full" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_88%_8%,rgba(249,115,22,0.9),rgba(23,20,34,0)_36%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_14%_90%,rgba(249,115,22,0.22),rgba(23,20,34,0)_28%)]" />
       <svg

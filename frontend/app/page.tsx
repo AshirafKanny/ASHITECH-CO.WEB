@@ -7,6 +7,9 @@ import RecentProjectsSection from "../components/RecentProjectsSection";
 import WorkingProcessSection from "../components/WorkingProcessSection";
 import SeoSplitCtaSection from "../components/SeoSplitCtaSection";
 import PricingPackagesSection from "../components/PricingPackagesSection";
+import TestimonialsFeedbackSection from "../components/TestimonialsFeedbackSection";
+import ContactMessageSection from "../components/ContactMessageSection";
+import LatestNewsBlogSection from "../components/LatestNewsBlogSection";
 import AboutStatsSection from "../components/AboutStatsSection";
 import ServiceCard from "../components/ServiceCard";
 import PortfolioCard from "../components/PortfolioCard";
@@ -90,6 +93,9 @@ export default function Home() {
         <WorkingProcessSection />
         <SeoSplitCtaSection />
         <PricingPackagesSection />
+        <TestimonialsFeedbackSection />
+        <ContactMessageSection />
+        <LatestNewsBlogSection />
 
         <section className="py-20" aria-labelledby="services-heading">
           <div className="site-container">
