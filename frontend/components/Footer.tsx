@@ -91,7 +91,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-[#DCE2EC] py-6 text-center text-lg text-[#2A344A]">
-        &copy; Copyright 2022 Oxence. All right reserved
+        &copy; Copyright 2022 AshiTech. All right reserved
       </div>
     </footer>
   );
