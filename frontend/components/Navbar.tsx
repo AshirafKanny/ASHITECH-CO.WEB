@@ -91,10 +91,12 @@ export default function Navbar() {
   }, [isScrollPinned]);
 
   const headerPositionClass = isScrollPinned
-    ? "fixed inset-x-0 top-0 z-40 border-b border-[#E5E7EB] bg-white/95 backdrop-blur"
+    ? isHome
+      ? "fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-[#171422]/95 backdrop-blur"
+      : "fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-[#171422]/95 backdrop-blur"
     : isHome
-      ? "absolute inset-x-0 top-0 z-30 border-b border-[#E5E7EB] bg-white"
-      : "relative border-b border-[#E5E7EB] bg-white";
+      ? "absolute inset-x-0 top-0 z-30 border-b border-white/10"
+      : "relative border-b border-white/10 bg-[#171422]";
 
   const headerMotionClass = `transform transition-transform duration-200 ease-out`;
 
@@ -106,14 +108,15 @@ export default function Navbar() {
       <nav className="site-container flex items-center justify-between py-5" aria-label="Main navigation">
         <Link
           href="/"
-          className="text-3xl font-extrabold tracking-tight text-[#0F172A] sm:text-4xl"
+          className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
+          style={{ color: "#ffffff" }}
         >
           ASHITECH
         </Link>
 
         <button
           type="button"
-          className="rounded-md p-3 text-[#0F172A] md:hidden"
+          className="rounded-md p-3 text-white md:hidden"
           aria-label="Toggle navigation menu"
           aria-expanded={isMobileNavOpen}
           onClick={() => setIsMobileNavOpen((value) => !value)}
@@ -126,7 +129,8 @@ export default function Navbar() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="text-sm font-medium text-[#0F172A] transition-colors hover:text-[#F97316]"
+                className="text-sm font-medium text-white transition-colors hover:text-[#F97316]"
+                style={{ color: "#ffffff" }}
               >
                 {item.name}
               </Link>
@@ -136,7 +140,8 @@ export default function Navbar() {
             <button
               type="button"
               aria-label="Search"
-              className="text-[#0F172A] hover:text-[#012166]"
+              className="text-white hover:text-[#F97316]"
+              style={{ color: "#ffffff" }}
             >
               <Search size={18} aria-hidden="true" />
             </button>
@@ -146,7 +151,8 @@ export default function Navbar() {
               type="button"
               aria-label="Toggle site menu"
               aria-expanded={isDesktopMenuOpen}
-              className="rounded-md p-3 text-[#0F172A] transition-colors hover:text-[#F97316]"
+              className="rounded-md p-3 text-white transition-colors hover:text-[#F97316]"
+              style={{ color: "#ffffff" }}
               onClick={() => setIsDesktopMenuOpen((value) => !value)}
             >
               {isDesktopMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
@@ -156,13 +162,13 @@ export default function Navbar() {
       </nav>
 
       {isMobileNavOpen ? (
-        <div className="border-t border-[#E5E7EB] bg-white md:hidden">
-          <ul className="site-container grid gap-4 py-4 text-[#0F172A]">
+        <div className="border-t border-white/20 bg-[#171422] md:hidden">
+          <ul className="site-container grid gap-4 py-4 text-white">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="block text-sm font-medium text-[#0F172A]"
+                  className="block text-sm font-medium text-white"
                   onClick={() => setIsMobileNavOpen(false)}
                 >
                   {item.name}
@@ -172,7 +178,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/contact"
-                className="inline-flex w-fit rounded-full border border-[#0F172A] px-5 py-2 text-sm font-semibold text-[#0F172A]"
+                className="inline-flex w-fit rounded-full border border-white px-5 py-2 text-sm font-semibold text-white"
               >
                 Get A Quote
               </Link>
