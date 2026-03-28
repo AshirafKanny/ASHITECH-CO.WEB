@@ -48,7 +48,7 @@ export default function ContactMessageSection() {
 
       <div className="site-container relative z-10 grid gap-12 lg:grid-cols-[1fr_0.96fr] lg:items-start">
         <div>
-          <h2 id="contact-message-heading" className="max-w-xl text-5xl font-bold leading-tight text-white">
+          <h2 id="contact-message-heading" className="max-w-xl text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
             Have any project on
             <br />
             mind! feel free contact
@@ -74,12 +74,12 @@ export default function ContactMessageSection() {
                         title="ashirafkanny04@gmail.com"
                       >
                         <p className="text-base font-medium text-white/90">{item.label}</p>
-                        <p className="mt-0.5 text-2xl text-white transition-colors hover:text-[#ff6b3d]">{item.value}</p>
+                        <p className="mt-0.5 break-all text-xl text-white transition-colors hover:text-[#ff6b3d] sm:text-2xl">{item.value}</p>
                       </a>
                     ) : (
                       <div>
                         <p className="text-base font-medium text-white/90">{item.label}</p>
-                        <p className="mt-0.5 text-2xl text-white">{item.value}</p>
+                        <p className="mt-0.5 text-xl text-white sm:text-2xl">{item.value}</p>
                       </div>
                     )}
                   </li>

@@ -45,7 +45,7 @@ export default function PricingPackagesSection() {
 
         <h2
           id="pricing-packages-heading"
-          className="mx-auto mt-4 max-w-2xl text-center text-5xl font-bold text-[#1E293B]"
+          className="mx-auto mt-4 max-w-2xl text-center text-3xl font-bold text-[#1E293B] sm:text-4xl md:text-5xl"
         >
           Website Design Packages
         </h2>
@@ -57,7 +57,7 @@ export default function PricingPackagesSection() {
               className="group relative min-h-66 overflow-hidden rounded-sm border border-white/70 bg-white px-7 py-6 shadow-[0_8px_20px_rgba(15,23,42,0.06)]"
             >
               <span
-                className="pointer-events-none absolute -right-20 -top-12 rotate-30 bg-[#ff5e2e] px-16 py-1.5 text-xs font-semibold uppercase tracking-wide text-white opacity-0 transition-all duration-300 group-hover:-right-10 group-hover:top-4 group-hover:opacity-100"
+                className="pointer-events-none absolute -right-20 -top-12 hidden rotate-30 bg-[#ff5e2e] px-16 py-1.5 text-xs font-semibold uppercase tracking-wide text-white opacity-0 transition-all duration-300 group-hover:-right-10 group-hover:top-4 group-hover:opacity-100 md:block"
                 aria-hidden="true"
               >
                 Popular Package
@@ -67,7 +67,7 @@ export default function PricingPackagesSection() {
                 {item.name}
               </h3>
 
-              <div className="mt-5 flex items-start gap-6">
+              <div className="mt-5 flex flex-col gap-5 md:flex-row md:items-start md:gap-6">
                 <ul className="flex-1 space-y-2.5 text-base text-[#697588]">
                   {features.map((feature) => (
                     <li key={`${item.name}-${feature}`} className="flex items-start gap-2">
@@ -77,8 +77,8 @@ export default function PricingPackagesSection() {
                   ))}
                 </ul>
 
-                <div className="w-44 shrink-0 text-right">
-                  <p className="text-4xl font-bold leading-none text-[#ff5e2e]">
+                <div className="w-full shrink-0 text-left md:w-44 md:text-right">
+                  <p className="text-3xl font-bold leading-none text-[#ff5e2e] md:text-4xl">
                     {item.price}
                     <span className="ml-0.5 text-sm font-medium text-[#677388]">/monthly</span>
                   </p>
@@ -86,7 +86,7 @@ export default function PricingPackagesSection() {
 
                   <button
                     type="button"
-                    className="pricing-package-btn mt-4 inline-flex h-10 items-center justify-center rounded-full border border-[#ff5e2e] px-4 text-xs font-semibold text-[#ff5e2e]"
+                    className="pricing-package-btn mt-4 inline-flex h-10 w-full items-center justify-center rounded-full border border-[#ff5e2e] px-4 text-xs font-semibold text-[#ff5e2e] md:w-auto"
                   >
                     <span className="relative z-10">Choose Package&nbsp;&raquo;</span>
                   </button>

@@ -54,7 +54,7 @@ export default function TestimonialsFeedbackSection() {
               &#183;&#183;&#183;{" "}
               <span className="underline decoration-[#ff5e2e] underline-offset-2">Clients Testimonials</span>
             </p>
-            <h2 id="testimonials-heading" className="mt-4 text-5xl font-bold text-[#1E293B]">
+            <h2 id="testimonials-heading" className="mt-4 text-3xl font-bold text-[#1E293B] md:text-5xl">
               Clients feedback
             </h2>
           </div>
@@ -99,12 +99,12 @@ export default function TestimonialsFeedbackSection() {
               </div>
 
               <div className="pt-1">
-                <p className="max-w-lg text-lg leading-8 text-[#636f80]">{item.quote}</p>
+                <p className="max-w-lg text-base leading-7 text-[#636f80] md:text-lg md:leading-8">{item.quote}</p>
                 <div className="mt-4 flex items-center gap-4">
                   <span className="h-1 w-10 bg-[#ff5e2e]" aria-hidden="true" />
-                  <h3 className="whitespace-nowrap text-3xl font-semibold text-[#ff5e2e]">{item.name}</h3>
+                  <h3 className="text-2xl font-semibold text-[#ff5e2e] md:whitespace-nowrap md:text-3xl">{item.name}</h3>
                 </div>
-                <p className="mt-1 text-lg text-[#374459]">{item.role}</p>
+                <p className="mt-1 text-base text-[#374459] md:text-lg">{item.role}</p>
               </div>
             </article>
           ))}

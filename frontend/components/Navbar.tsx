@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Facebook, Instagram, Menu, Rocket, Search, Send, X } from "lucide-react";
+import { Facebook, Instagram, Menu, Search, Send, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const navItems = [
@@ -91,12 +91,10 @@ export default function Navbar() {
   }, [isScrollPinned]);
 
   const headerPositionClass = isScrollPinned
-    ? isHome
-      ? "fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-[#171422]/95 backdrop-blur"
-      : "fixed inset-x-0 top-0 z-40 border-b border-[#0F172A] bg-white/95 backdrop-blur"
+    ? "fixed inset-x-0 top-0 z-40 border-b border-[#E5E7EB] bg-white/95 backdrop-blur"
     : isHome
-      ? "absolute inset-x-0 top-0 z-30 border-b border-white/10"
-      : "relative border-b border-[#0F172A]";
+      ? "absolute inset-x-0 top-0 z-30 border-b border-[#E5E7EB] bg-white"
+      : "relative border-b border-[#E5E7EB] bg-white";
 
   const headerMotionClass = `transform transition-transform duration-200 ease-out`;
 
@@ -106,18 +104,16 @@ export default function Navbar() {
       style={{ transform: `translateY(${navTranslateY}%)` }}
     >
       <nav className="site-container flex items-center justify-between py-5" aria-label="Main navigation">
-        <Link href="/" className={`inline-flex items-center gap-2 text-xl font-semibold ${isHome ? "text-white" : "text-[#0F172A]"}`}>
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-[#F97316] text-white">
-            <Rocket size={18} aria-hidden="true" />
-          </span>
+        <Link
+          href="/"
+          className="text-3xl font-extrabold tracking-tight text-[#0F172A] sm:text-4xl"
+        >
           ASHITECH
         </Link>
 
         <button
           type="button"
-          className={`rounded-md p-3 md:hidden ${
-            isHome ? "text-white" : "text-[#0F172A]"
-          }`}
+          className="rounded-md p-3 text-[#0F172A] md:hidden"
           aria-label="Toggle navigation menu"
           aria-expanded={isMobileNavOpen}
           onClick={() => setIsMobileNavOpen((value) => !value)}
@@ -125,14 +121,12 @@ export default function Navbar() {
           {isMobileNavOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
         </button>
 
-        <ul className="hidden items-center gap-7 text-white md:flex">
+        <ul className="hidden items-center gap-7 md:flex">
           {navItems.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
-                className={`text-white! text-sm font-medium transition-colors ${
-                  isHome ? "hover:text-[#F97316]" : "hover:text-[#F97316]"
-                }`}
+                className="text-sm font-medium text-[#0F172A] transition-colors hover:text-[#F97316]"
               >
                 {item.name}
               </Link>
@@ -142,7 +136,7 @@ export default function Navbar() {
             <button
               type="button"
               aria-label="Search"
-              className={`${isHome ? "text-white hover:text-[#F97316]" : "text-[#0F172A] hover:text-[#012166]"}`}
+              className="text-[#0F172A] hover:text-[#012166]"
             >
               <Search size={18} aria-hidden="true" />
             </button>
@@ -152,11 +146,7 @@ export default function Navbar() {
               type="button"
               aria-label="Toggle site menu"
               aria-expanded={isDesktopMenuOpen}
-              className={`rounded-md p-3 transition-colors ${
-                isHome
-                  ? "text-white hover:text-[#F97316]"
-                  : "text-[#0F172A] hover:text-[#F97316]"
-              }`}
+              className="rounded-md p-3 text-[#0F172A] transition-colors hover:text-[#F97316]"
               onClick={() => setIsDesktopMenuOpen((value) => !value)}
             >
               {isDesktopMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
@@ -166,13 +156,13 @@ export default function Navbar() {
       </nav>
 
       {isMobileNavOpen ? (
-        <div className={`border-t md:hidden ${isHome ? "border-white/20 bg-[#171422]" : "border-[#0F172A] bg-white"}`}>
-          <ul className="site-container grid gap-4 py-4 text-white">
+        <div className="border-t border-[#E5E7EB] bg-white md:hidden">
+          <ul className="site-container grid gap-4 py-4 text-[#0F172A]">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="block text-white! text-sm font-medium"
+                  className="block text-sm font-medium text-[#0F172A]"
                   onClick={() => setIsMobileNavOpen(false)}
                 >
                   {item.name}
@@ -182,9 +172,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/contact"
-                className={`inline-flex w-fit rounded-full px-5 py-2 text-sm font-semibold ${
-                  isHome ? "border border-white text-white" : "border border-[#0F172A] text-[#0F172A]"
-                }`}
+                className="inline-flex w-fit rounded-full border border-[#0F172A] px-5 py-2 text-sm font-semibold text-[#0F172A]"
               >
                 Get A Quote
               </Link>
@@ -201,7 +189,7 @@ export default function Navbar() {
       >
         <button
           type="button"
-          className={`absolute inset-0 origin-right bg-[#04070f]/60 backdrop-blur-[2px] transition-all duration-500 ease-out ${
+          className={`absolute inset-0 origin-right bg-[#000000]/64 backdrop-blur-[1px] transition-all duration-500 ease-out ${
             isDesktopMenuOpen ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
           }`}
           aria-label="Close appointment drawer"
@@ -209,7 +197,7 @@ export default function Navbar() {
         />
 
         <aside
-          className={`absolute right-0 top-0 flex h-full w-full max-w-95 flex-col bg-[#2d3650] px-8 pb-10 pt-6 text-white shadow-2xl transition-transform duration-300 ease-out ${
+          className={`absolute right-0 top-0 flex h-full w-full max-w-[320px] flex-col bg-[#171422] px-9 pb-10 pt-6 text-white shadow-[0_0_30px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out lg:max-w-87.5 ${
             isDesktopMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
           aria-label="Appointment drawer"
@@ -226,34 +214,34 @@ export default function Navbar() {
           </div>
 
           <div className="flex flex-1 flex-col">
-            <h2 className="mb-8 text-[2rem] font-semibold leading-tight">Get Appointment</h2>
+            <h2 className="mb-8 text-center text-[2rem] font-semibold leading-tight">Get Appointment</h2>
 
             <form className="flex flex-1 flex-col gap-4" onSubmit={(event) => event.preventDefault()}>
               <input
                 type="text"
                 placeholder="Name"
-                className="h-12 rounded-md border border-white/10 bg-transparent px-4 text-sm text-white outline-none transition-colors placeholder:text-white/60 focus:border-[#ff6b3d]"
+                className="h-12 rounded-md border border-white/14 bg-transparent px-5 text-sm text-white outline-none transition-colors placeholder:text-white/65 focus:border-[#ff6b3d]"
               />
               <input
                 type="email"
                 placeholder="Email Address"
-                className="h-12 rounded-md border border-white/10 bg-transparent px-4 text-sm text-white outline-none transition-colors placeholder:text-white/60 focus:border-[#ff6b3d]"
+                className="h-12 rounded-md border border-white/14 bg-transparent px-5 text-sm text-white outline-none transition-colors placeholder:text-white/65 focus:border-[#ff6b3d]"
               />
               <textarea
                 placeholder="Message"
                 rows={5}
-                className="min-h-34 rounded-md border border-white/10 bg-transparent px-4 py-3 text-sm text-white outline-none transition-colors placeholder:text-white/60 focus:border-[#ff6b3d]"
+                className="min-h-34 rounded-md border border-white/14 bg-transparent px-5 py-3 text-sm text-white outline-none transition-colors placeholder:text-white/65 focus:border-[#ff6b3d]"
               />
 
               <button
                 type="submit"
-                className="mt-2 inline-flex h-12 items-center justify-center rounded-full bg-[#ff6b3d] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#ff7d54]"
+                className="mt-2 inline-flex h-12 w-full items-center justify-center rounded-full bg-[#ff6b3d] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#ff7d54]"
               >
                 Submit Now
               </button>
             </form>
 
-            <div className="mt-10 flex items-center gap-3">
+            <div className="mt-10 flex items-center justify-center gap-3">
               <a
                 href="https://facebook.com"
                 target="_blank"

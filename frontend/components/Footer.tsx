@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Beaker, Facebook, Linkedin, Rocket, Twitter } from "lucide-react";
+import { Beaker, Facebook, Linkedin, Twitter } from "lucide-react";
 
 const linksColA = [
   "Wed Design (UI/UX)",
@@ -18,11 +18,8 @@ export default function Footer() {
       <div className="site-container py-16">
         <div className="grid gap-10 lg:grid-cols-[1.08fr_1.02fr_0.92fr]">
           <div>
-            <Link href="/" className="inline-flex items-center gap-3">
-              <span className="grid h-13 w-13 place-items-center rounded-full bg-[#ff6b3d]/18 text-[#ff6b3d]">
-                <Rocket size={28} aria-hidden="true" />
-              </span>
-              <span className="text-4xl font-bold tracking-tight text-[#1F2A3F]">OXENCE</span>
+            <Link href="/" className="inline-flex items-center">
+              <span className="text-5xl font-extrabold tracking-tight text-[#1F2A3F] sm:text-6xl">ASHITECH</span>
             </Link>
 
             <p className="mt-6 max-w-md text-base leading-8 text-[#6A7486]">

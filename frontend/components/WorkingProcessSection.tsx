@@ -32,25 +32,45 @@ const processSteps = [
 
 export default function WorkingProcessSection() {
   return (
-    <section className="relative bg-white py-24 text-center" aria-labelledby="working-process-heading">
+    <section className="relative bg-white py-16 text-center md:py-24" aria-labelledby="working-process-heading">
       <div className="site-container">
         {/* Top label with dots */}
         <div className="mb-4 flex items-center justify-center gap-3">
-          <span className="text-[#FF6B4B] text-3xl">···</span>
-          <span className="text-xl font-semibold text-[#FF6B4B]">Working Process</span>
-          <span className="text-[#FF6B4B] text-3xl">···</span>
+          <span className="text-2xl text-[#FF6B4B] md:text-3xl">···</span>
+          <span className="text-sm font-semibold text-[#FF6B4B] md:text-xl">Working Process</span>
+          <span className="text-2xl text-[#FF6B4B] md:text-3xl">···</span>
         </div>
 
         {/* Main heading */}
         <h2
           id="working-process-heading"
-          className="mx-auto mb-44 max-w-2xl text-5xl font-bold text-[#0F172A]"
+          className="mx-auto mb-12 max-w-2xl text-3xl font-bold text-[#0F172A] md:mb-44 md:text-5xl"
         >
           How does we works
         </h2>
 
+        {/* Mobile stacked process */}
+        <div className="mx-auto max-w-md space-y-10 md:hidden">
+          {processSteps.map((step) => (
+            <article key={step.number} className="relative rounded-xl border border-[#E5E7EB] px-5 pb-6 pt-12 text-left">
+              <span className="pointer-events-none absolute left-4 top-3 text-4xl font-semibold text-[#0F172A]/12">
+                {step.number}
+              </span>
+
+              <div className="mx-auto mb-5 h-24 w-24">
+                <div className="relative h-full w-full overflow-hidden rounded-full border-3 border-[#FF6B4B]">
+                  <Image src={step.image} alt={step.title} fill className="rounded-full object-cover" />
+                </div>
+              </div>
+
+              <h3 className="text-center text-lg font-bold text-[#0F172A]">{step.title}</h3>
+              <p className="mt-2 text-center text-sm leading-6 text-[#666]">{step.description}</p>
+            </article>
+          ))}
+        </div>
+
         {/* Connected process steps with curved layout */}
-        <div className="relative mt-20 h-120">
+        <div className="relative mt-20 hidden h-120 md:block">
           {/* Curved dotted line SVG */}
           <svg
             className="pointer-events-none absolute inset-0 z-0 h-full w-full"
