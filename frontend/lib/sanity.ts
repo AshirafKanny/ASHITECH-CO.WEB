@@ -112,7 +112,7 @@ function normalizePost(post: Partial<BlogPost>, index: number): BlogPost {
     excerpt: post.excerpt ?? fallback.excerpt,
     publishedAt: post.publishedAt ?? fallback.publishedAt,
     mainImageUrl: post.mainImageUrl ?? fallback.mainImageUrl,
-    authorName: post.authorName ?? "ASHITECH Team",
+    authorName: post.authorName ?? "KENI WEB DESIGN Team",
     authorImageUrl: post.authorImageUrl ?? "/author1.webp",
     bodyText: post.bodyText ?? post.excerpt ?? fallback.bodyText,
   };

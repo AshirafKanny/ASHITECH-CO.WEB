@@ -6,8 +6,8 @@ import Footer from "../../components/Footer";
 import { formatBlogDate, getBlogPosts } from "../../lib/sanity";
 
 export const metadata: Metadata = {
-  title: "Blog | ASHITECH",
-  description: "Read practical website design and development insights from ASHITECH.",
+  title: "Blog | KENI WEB DESIGN",
+  description: "Read practical website design and development insights from KENI WEB DESIGN.",
 };
 
 export default async function BlogPage() {

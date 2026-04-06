@@ -16,7 +16,7 @@ import Footer from "../components/Footer";
 export const metadata: Metadata = {
   title: "Home",
   description:
-    "ASHITECH delivers premium web design and development services for businesses that need results.",
+    "KENI WEB DESIGN delivers premium web design and development services for businesses that need results.",
 };
 
 export default function Home() {

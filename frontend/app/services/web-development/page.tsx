@@ -3,7 +3,7 @@ import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 
 export const metadata: Metadata = {
-  title: "Web Development Service | ASHITECH",
+  title: "Web Development Service | KENI WEB DESIGN",
   description: "Professional web development services for fast, scalable, and modern company websites.",
 };
 
@@ -18,7 +18,7 @@ export default function WebDevelopmentServicePage() {
               Web Development
             </h1>
             <p className="mt-8 leading-8 text-[#0F172A]">
-              ASHITECH develops robust websites using modern frontend architecture, performance-minded
+              KENI WEB DESIGN develops robust websites using modern frontend architecture, performance-minded
               implementation, and clean code that scales with your business.
             </p>
           </div>

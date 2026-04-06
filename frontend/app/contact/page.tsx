@@ -3,8 +3,8 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
 export const metadata: Metadata = {
-  title: "Contact | ASHITECH",
-  description: "Contact ASHITECH to discuss your website design and development project.",
+  title: "Contact | KENI WEB DESIGN",
+  description: "Contact KENI WEB DESIGN to discuss your website design and development project.",
 };
 
 export default function ContactPage() {

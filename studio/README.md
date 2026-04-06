@@ -1,4 +1,4 @@
-# ASHITECH Sanity Studio
+# KENI WEB DESIGN Sanity Studio
 
 ## 1. Install
 

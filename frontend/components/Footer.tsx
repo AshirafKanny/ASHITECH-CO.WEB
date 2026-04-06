@@ -19,7 +19,7 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.08fr_1.02fr_0.92fr]">
           <div>
             <Link href="/" className="inline-flex items-center">
-              <span className="text-5xl font-extrabold tracking-tight text-[#1F2A3F] sm:text-6xl">ASHITECH</span>
+              <span className="text-5xl font-extrabold tracking-tight text-[#1F2A3F] sm:text-6xl">KENI WEB DESIGN</span>
             </Link>
 
             <p className="mt-6 max-w-md text-base leading-8 text-[#6A7486]">
@@ -91,7 +91,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-[#DCE2EC] py-6 text-center text-lg text-[#2A344A]">
-        &copy; Copyright 2022 AshiTech. All right reserved
+        &copy; Copyright 2022 KENI WEB DESIGN. All right reserved
       </div>
     </footer>
   );

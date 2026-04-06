@@ -3,7 +3,7 @@ import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 
 export const metadata: Metadata = {
-  title: "Performance for SEO | ASHITECH Blog",
+  title: "Performance for SEO | KENI WEB DESIGN Blog",
   description: "Learn how site performance improves SEO and user engagement.",
 };
 

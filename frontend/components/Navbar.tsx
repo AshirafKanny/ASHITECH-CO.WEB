@@ -111,7 +111,7 @@ export default function Navbar() {
           className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
           style={{ color: "#ffffff" }}
         >
-          ASHITECH
+          KENI WEB DESIGN
         </Link>
 
         <button
@@ -258,7 +258,7 @@ export default function Navbar() {
                 <Facebook size={18} aria-hidden="true" />
               </a>
               <a
-                href="mailto:hello@ashitech.com"
+                href="mailto:hello@keniwebdesign.com"
                 aria-label="Email"
                 className="grid h-11 w-11 place-items-center rounded-full bg-white text-[#2d3650] transition-transform hover:-translate-y-0.5"
               >

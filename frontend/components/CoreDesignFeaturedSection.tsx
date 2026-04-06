@@ -104,7 +104,7 @@ export default function CoreDesignFeaturedSection() {
               <div className="overflow-hidden rounded-[999px] bg-[#d9d0c6]">
                 <Image
                   src="/images/ashitech.webp"
-                  alt="ASHITECH featured central service showcase"
+                  alt="KENI WEB DESIGN featured central service showcase"
                   width={340}
                   height={510}
                   className="h-127.5 w-72 object-cover"

@@ -18,11 +18,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "ASHITECH | Website Design Company",
-    template: "%s | ASHITECH",
+    default: "KENI WEB DESIGN | Website Design Company",
+    template: "%s | KENI WEB DESIGN",
   },
   description:
-    "ASHITECH is a professional website design company building high-performance websites for modern businesses.",
+    "KENI WEB DESIGN is a professional website design company building high-performance websites for modern businesses.",
 };
 
 export default function RootLayout({

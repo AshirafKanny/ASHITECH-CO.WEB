@@ -5,7 +5,7 @@ import { schemaTypes } from "./schemaTypes";
 
 export default defineConfig({
   name: "default",
-  title: "ASHITECH CMS",
+  title: "KENI WEB DESIGN CMS",
 
   projectId: "4cd3mior",
   dataset: "production",

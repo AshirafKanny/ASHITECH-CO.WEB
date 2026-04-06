@@ -3,7 +3,7 @@ import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 
 export const metadata: Metadata = {
-  title: "How to Build a Website | ASHITECH Blog",
+  title: "How to Build a Website | KENI WEB DESIGN Blog",
   description: "Step-by-step guide to planning and building a conversion-focused company website.",
 };
 

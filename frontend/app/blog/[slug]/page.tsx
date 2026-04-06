@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   }
 
   return {
-    title: `${post.title} | ASHITECH Blog`,
+    title: `${post.title} | KENI WEB DESIGN Blog`,
     description: post.excerpt,
   };
 }

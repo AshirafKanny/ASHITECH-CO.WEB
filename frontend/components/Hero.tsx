@@ -44,15 +44,15 @@ export default function Hero() {
       <div className="wave-glow-shadow pointer-events-none absolute -right-4 -top-4 h-56 w-56 rounded-full bg-[#F97316]/90" />
 
       <div className="site-container relative z-10 grid gap-10 xl:grid-cols-[1fr_1.15fr] xl:items-center">
-        <div className="pt-6 xl:-ml-4">
-          <p className="text-base font-semibold text-white/90">AshiTech will help you build your dream website </p>
+        <div className="relative z-20 pt-6 xl:-ml-4">
+          <p className="text-base font-semibold text-white/90">We create modern, fast and SEO-optimized websites |KENI WEB DESIGN </p>
           <h1
             id="hero-heading"
             className="hero-title-reveal mt-5 max-w-2xl text-4xl font-bold leading-[1.02] tracking-[-0.02em] text-white md:text-6xl"
           >
-            <span className="whitespace-nowrap">Digital web design</span>
+            <span>Website Design In Kampala</span>
             <br />
-            <span className="whitespace-nowrap">solutions agency</span>
+            <span>That Grows Your Business</span>
           </h1>
 
           <div className="hero-cta-reveal mt-10 flex flex-wrap gap-4">
@@ -79,7 +79,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative">
+        <div className="relative z-10">
           <div className="overflow-hidden border border-white/10">
             <Image
               src="/images/ashitech.webp"

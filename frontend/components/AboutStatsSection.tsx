@@ -118,7 +118,7 @@ export default function AboutStatsSection() {
             <div className="about-image-backdrop about-image-backdrop-left" aria-hidden="true" />
             <Image
               src="/images/ashitech.webp"
-              alt="ASHITECH team member working"
+              alt="KENI WEB DESIGN team member working"
               width={300}
               height={380}
               className="relative z-10 block h-96 w-64 object-cover"
@@ -195,7 +195,7 @@ export default function AboutStatsSection() {
             <div className="about-image-backdrop about-image-backdrop-right" aria-hidden="true" />
             <Image
               src="/images/ashitech.webp"
-              alt="ASHITECH consultant with client"
+              alt="KENI WEB DESIGN consultant with client"
               width={300}
               height={380}
               className="relative z-10 block h-96 w-64 object-cover"

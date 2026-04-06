@@ -3,7 +3,7 @@ import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 
 export const metadata: Metadata = {
-  title: "Modern UI Patterns | ASHITECH Blog",
+  title: "Modern UI Patterns | KENI WEB DESIGN Blog",
   description: "Practical UI patterns for professional B2B and service websites.",
 };
 
