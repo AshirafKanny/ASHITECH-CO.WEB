@@ -782,7 +782,34 @@ a {
   .whatsapp-fab {
     right: 14px;
     bottom: 14px;
-    padding-right: 0.75rem;
+    gap: 0;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .whatsapp-fab:hover,
+  .whatsapp-fab:focus-visible {
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .whatsapp-fab__icon-wrap {
+    height: auto;
+    width: auto;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .whatsapp-fab__image {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .whatsapp-fab__wave {
+    display: none;
   }
 
   .whatsapp-fab__label {
