@@ -1,10 +1,34 @@
 import type { Metadata } from "next";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import { absoluteUrl, defaultSeoImagePath } from "../../lib/seo";
 
 export const metadata: Metadata = {
-  title: "Contact | KENI WEB DESIGN",
+  title: "Contact",
   description: "Contact KENI WEB DESIGN to discuss your website design and development project.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact",
+    description: "Contact KENI WEB DESIGN to discuss your website design and development project.",
+    url: "/contact",
+    type: "website",
+    images: [
+      {
+        url: absoluteUrl(defaultSeoImagePath),
+        width: 1200,
+        height: 630,
+        alt: "Contact KENI WEB DESIGN",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact",
+    description: "Contact KENI WEB DESIGN to discuss your website design and development project.",
+    images: [absoluteUrl(defaultSeoImagePath)],
+  },
 };
 
 export default function ContactPage() {

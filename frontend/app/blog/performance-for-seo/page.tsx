@@ -1,10 +1,34 @@
 import type { Metadata } from "next";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import { absoluteUrl, defaultSeoImagePath } from "../../../lib/seo";
 
 export const metadata: Metadata = {
-  title: "Performance for SEO | KENI WEB DESIGN Blog",
+  title: "Performance for SEO",
   description: "Learn how site performance improves SEO and user engagement.",
+  alternates: {
+    canonical: "/blog/performance-for-seo",
+  },
+  openGraph: {
+    title: "Performance for SEO",
+    description: "Learn how site performance improves SEO and user engagement.",
+    url: "/blog/performance-for-seo",
+    type: "article",
+    images: [
+      {
+        url: absoluteUrl(defaultSeoImagePath),
+        width: 1200,
+        height: 630,
+        alt: "Performance for SEO",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Performance for SEO",
+    description: "Learn how site performance improves SEO and user engagement.",
+    images: [absoluteUrl(defaultSeoImagePath)],
+  },
 };
 
 export default function PerformanceForSeoPage() {

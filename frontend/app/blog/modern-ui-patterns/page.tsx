@@ -1,10 +1,34 @@
 import type { Metadata } from "next";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import { absoluteUrl, defaultSeoImagePath } from "../../../lib/seo";
 
 export const metadata: Metadata = {
-  title: "Modern UI Patterns | KENI WEB DESIGN Blog",
+  title: "Modern UI Patterns",
   description: "Practical UI patterns for professional B2B and service websites.",
+  alternates: {
+    canonical: "/blog/modern-ui-patterns",
+  },
+  openGraph: {
+    title: "Modern UI Patterns",
+    description: "Practical UI patterns for professional B2B and service websites.",
+    url: "/blog/modern-ui-patterns",
+    type: "article",
+    images: [
+      {
+        url: absoluteUrl(defaultSeoImagePath),
+        width: 1200,
+        height: 630,
+        alt: "Modern UI patterns",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Modern UI Patterns",
+    description: "Practical UI patterns for professional B2B and service websites.",
+    images: [absoluteUrl(defaultSeoImagePath)],
+  },
 };
 
 export default function ModernUiPatternsPage() {

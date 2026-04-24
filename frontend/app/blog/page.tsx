@@ -4,10 +4,34 @@ import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { formatBlogDate, getBlogPosts } from "../../lib/sanity";
+import { absoluteUrl, defaultSeoImagePath } from "../../lib/seo";
 
 export const metadata: Metadata = {
-  title: "Blog | KENI WEB DESIGN",
+  title: "Blog",
   description: "Read practical website design and development insights from KENI WEB DESIGN.",
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    title: "Blog",
+    description: "Read practical website design and development insights from KENI WEB DESIGN.",
+    url: "/blog",
+    type: "website",
+    images: [
+      {
+        url: absoluteUrl(defaultSeoImagePath),
+        width: 1200,
+        height: 630,
+        alt: "KENI WEB DESIGN blog",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog",
+    description: "Read practical website design and development insights from KENI WEB DESIGN.",
+    images: [absoluteUrl(defaultSeoImagePath)],
+  },
 };
 
 export default async function BlogPage() {

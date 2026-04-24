@@ -5,10 +5,34 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import WorkingProcessSection from "../../components/WorkingProcessSection";
+import { absoluteUrl, defaultSeoImagePath } from "../../lib/seo";
 
 export const metadata: Metadata = {
-  title: "Services | KENI WEB DESIGN",
+  title: "Services",
   description: "Explore KENI WEB DESIGN web design, development, and strategy services for technology companies.",
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "Services",
+    description: "Explore KENI WEB DESIGN web design, development, and strategy services for technology companies.",
+    url: "/services",
+    type: "website",
+    images: [
+      {
+        url: absoluteUrl(defaultSeoImagePath),
+        width: 1200,
+        height: 630,
+        alt: "KENI WEB DESIGN services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Services",
+    description: "Explore KENI WEB DESIGN web design, development, and strategy services for technology companies.",
+    images: [absoluteUrl(defaultSeoImagePath)],
+  },
 };
 
 const popularServices = [

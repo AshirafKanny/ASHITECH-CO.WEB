@@ -1,10 +1,34 @@
 import type { Metadata } from "next";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import { absoluteUrl, defaultSeoImagePath } from "../../../lib/seo";
 
 export const metadata: Metadata = {
-  title: "Web Development Service | KENI WEB DESIGN",
+  title: "Web Development Service",
   description: "Professional web development services for fast, scalable, and modern company websites.",
+  alternates: {
+    canonical: "/services/web-development",
+  },
+  openGraph: {
+    title: "Web Development Service",
+    description: "Professional web development services for fast, scalable, and modern company websites.",
+    url: "/services/web-development",
+    type: "website",
+    images: [
+      {
+        url: absoluteUrl(defaultSeoImagePath),
+        width: 1200,
+        height: 630,
+        alt: "Web development service",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web Development Service",
+    description: "Professional web development services for fast, scalable, and modern company websites.",
+    images: [absoluteUrl(defaultSeoImagePath)],
+  },
 };
 
 export default function WebDevelopmentServicePage() {

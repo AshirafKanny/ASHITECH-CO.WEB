@@ -32,9 +32,9 @@ const bottomCards: FeatureCard[] = [
 
 function ServiceFeatureCard({ title, icon: Icon }: FeatureCard) {
   return (
-    <article className="group flex min-h-64 w-full max-w-64 flex-col items-center justify-center rounded-md bg-[#181821] px-8 py-10 text-center transition-transform duration-300 hover:-translate-y-2">
+    <article className="group flex min-h-56 w-full max-w-72 flex-col items-center justify-center rounded-md bg-[#181821] px-6 py-8 text-center transition-transform duration-300 hover:-translate-y-2 sm:min-h-64 sm:max-w-64 sm:px-8 sm:py-10">
       <Icon size={50} strokeWidth={1.4} className="text-[#ff5e2e]" aria-hidden="true" />
-      <h3 className="mt-8 text-4xl font-semibold leading-12 text-white">{title}</h3>
+      <h3 className="mt-6 text-2xl font-semibold leading-tight text-white sm:mt-8 sm:text-4xl sm:leading-12">{title}</h3>
       <span className="mt-6 inline-flex text-white transition-transform duration-300 group-hover:translate-x-2" aria-hidden="true">
         <ArrowRight size={36} strokeWidth={1.8} />
       </span>
@@ -78,9 +78,9 @@ export default function CoreDesignFeaturedSection() {
           What we provide for website
         </h2>
 
-        <div className="mx-auto mt-24 w-full px-0">
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_auto_1.2fr] lg:items-center">
-            <div className="grid justify-items-center gap-6 lg:justify-items-end lg:pt-16">
+        <div className="mx-auto mt-16 w-full px-0 sm:mt-24">
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.2fr_auto_1.2fr] lg:items-center">
+            <div className="grid w-full justify-items-center gap-6 lg:justify-items-end lg:pt-16">
               {leftCards.map((card) => (
                 <div
                   key={card.title}
@@ -91,8 +91,8 @@ export default function CoreDesignFeaturedSection() {
               ))}
             </div>
 
-            <div className="flex flex-col items-center px-4">
-              <svg className="mb-4 h-24 w-md" viewBox="0 0 280 96" fill="none" aria-hidden="true">
+            <div className="flex w-full flex-col items-center px-2 sm:px-4">
+              <svg className="mb-4 h-24 w-full max-w-md" viewBox="0 0 280 96" fill="none" aria-hidden="true">
                 <path id="featured-curve-path" d="M24 78C78 10 202 10 256 78" />
                 <text fill="white" fontSize="18" fontWeight="600" letterSpacing="0.03em">
                   <textPath href="#featured-curve-path" startOffset="50%" textAnchor="middle">
@@ -112,7 +112,7 @@ export default function CoreDesignFeaturedSection() {
               </div>
             </div>
 
-            <div className="grid justify-items-center gap-6 lg:justify-items-start lg:pt-16">
+            <div className="grid w-full justify-items-center gap-6 lg:justify-items-start lg:pt-16">
               {rightCards.map((card) => (
                 <div
                   key={card.title}

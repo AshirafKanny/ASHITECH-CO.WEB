@@ -1,10 +1,34 @@
 import type { Metadata } from "next";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import { absoluteUrl, defaultSeoImagePath } from "../../../lib/seo";
 
 export const metadata: Metadata = {
-  title: "How to Build a Website | KENI WEB DESIGN Blog",
+  title: "How to Build a Website",
   description: "Step-by-step guide to planning and building a conversion-focused company website.",
+  alternates: {
+    canonical: "/blog/how-to-build-a-website",
+  },
+  openGraph: {
+    title: "How to Build a Website",
+    description: "Step-by-step guide to planning and building a conversion-focused company website.",
+    url: "/blog/how-to-build-a-website",
+    type: "article",
+    images: [
+      {
+        url: absoluteUrl(defaultSeoImagePath),
+        width: 1200,
+        height: 630,
+        alt: "How to build a website",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Build a Website",
+    description: "Step-by-step guide to planning and building a conversion-focused company website.",
+    images: [absoluteUrl(defaultSeoImagePath)],
+  },
 };
 
 export default function BlogArticlePage() {

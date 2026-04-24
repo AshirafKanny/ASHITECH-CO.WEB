@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 import { formatBlogDate, getBlogPostBySlug, getBlogSlugs } from "../../../lib/sanity";
+import { absoluteUrl, defaultSeoImagePath } from "../../../lib/seo";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
@@ -25,8 +26,33 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   }
 
   return {
-    title: `${post.title} | KENI WEB DESIGN Blog`,
+    title: post.title,
     description: post.excerpt,
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: `/blog/${slug}`,
+      type: "article",
+      publishedTime: post.publishedAt,
+      authors: [post.authorName],
+      images: [
+        {
+          url: post.mainImageUrl || absoluteUrl(defaultSeoImagePath),
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [post.mainImageUrl || absoluteUrl(defaultSeoImagePath)],
+    },
   };
 }
 
@@ -38,8 +64,23 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const blogPostingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.publishedAt,
+    author: {
+      "@type": "Person",
+      name: post.authorName,
+    },
+    image: [post.mainImageUrl || absoluteUrl(defaultSeoImagePath)],
+    mainEntityOfPage: absoluteUrl(`/blog/${slug}`),
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }} />
       <Navbar />
       <main>
         <article className="py-18" aria-labelledby="blog-post-title">
