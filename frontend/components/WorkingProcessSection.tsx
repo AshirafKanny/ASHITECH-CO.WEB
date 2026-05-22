@@ -33,6 +33,11 @@ const processSteps = [
 export default function WorkingProcessSection() {
   return (
     <section className="relative bg-white py-16 text-center md:py-24" aria-labelledby="working-process-heading">
+      <div className="working-clouds" aria-hidden="true" />
+      <div className="working-clouds working-clouds-alt" aria-hidden="true" />
+      <div className="working-lightning working-lightning-one" aria-hidden="true" />
+      <div className="working-lightning working-lightning-two" aria-hidden="true" />
+      <div className="working-lightning working-lightning-three" aria-hidden="true" />
       <div className="site-container">
         {/* Top label with dots */}
         <div className="mb-4 flex items-center justify-center gap-3">

@@ -23,9 +23,9 @@ export default function Footer() {
               <Image
                 src="/keniwebdesign-01.png"
                 alt="KENI WEB DESIGN logo"
-                width={240}
-                height={80}
-                className="h-12 w-auto sm:h-14"
+                width={320}
+                height={120}
+                className="h-16 w-auto sm:h-20"
               />
               <span className="sr-only">KENI WEB DESIGN</span>
             </Link>
@@ -40,7 +40,7 @@ export default function Footer() {
                 <a
                   key={`social-${index}`}
                   href="#"
-                  className="grid h-12 w-12 place-items-center rounded-full bg-white text-[#ff6b3d] transition-colors hover:bg-[#ff6b3d] hover:text-white"
+                  className="footer-social-icon grid h-12 w-12 place-items-center rounded-full bg-white text-[#ff6b3d] transition-colors hover:bg-[#ff6b3d] hover:text-white"
                   aria-label="Social profile"
                 >
                   <Icon size={18} aria-hidden="true" />
