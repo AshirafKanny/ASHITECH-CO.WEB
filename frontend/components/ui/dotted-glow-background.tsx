@@ -1,4 +1,5 @@
 import React from "react";
+
 import { cn } from "@/lib/utils";
 
 type DottedGlowBackgroundProps = {
@@ -19,41 +20,37 @@ type DottedGlowBackgroundProps = {
 export function DottedGlowBackground({
   className,
   opacity = 1,
-  gap = 12,
+  gap = 10,
   radius = 1.6,
   colorLightVar = "--color-neutral-500",
   glowColorLightVar = "--color-neutral-600",
   colorDarkVar = "--color-neutral-500",
   glowColorDarkVar = "--color-sky-800",
   backgroundOpacity = 0,
+  speedMin = 0.3,
+  speedMax = 1.6,
+  speedScale = 1,
 }: DottedGlowBackgroundProps) {
-  const dotRadius = Math.max(0.5, radius);
-  const backgroundImage = `radial-gradient(circle, var(--dotted-glow-dot-color) ${dotRadius}px, transparent ${dotRadius}px)`;
+  const animationDuration = Math.max(6, Math.round((speedMin + speedMax) * 6 * speedScale));
+  const backgroundSize = `${gap}px ${gap}px`;
+  const dotSize = `${radius}px ${radius}px`;
 
   return (
     <div
       aria-hidden="true"
-      className={cn(
-        "absolute inset-0",
-        "[--dotted-glow-dot-color:var(--dotted-glow-dot-color-light)]",
-        "[--dotted-glow-glow-color:var(--dotted-glow-glow-color-light)]",
-        "dark:[--dotted-glow-dot-color:var(--dotted-glow-dot-color-dark)]",
-        "dark:[--dotted-glow-glow-color:var(--dotted-glow-glow-color-dark)]",
-        className
-      )}
+      className={cn("absolute inset-0", className)}
       style={
         {
-          "--dotted-glow-dot-color-light": `var(${colorLightVar})`,
-          "--dotted-glow-dot-color-dark": `var(${colorDarkVar})`,
-          "--dotted-glow-glow-color-light": `var(${glowColorLightVar})`,
-          "--dotted-glow-glow-color-dark": `var(${glowColorDarkVar})`,
-          backgroundImage,
-          backgroundSize: `${gap}px ${gap}px`,
-          backgroundColor: `rgba(0, 0, 0, ${backgroundOpacity})`,
           opacity,
-          boxShadow: "0 0 160px var(--dotted-glow-glow-color)",
+          backgroundSize,
+          backgroundPosition: "center",
+          backgroundImage: `radial-gradient(${dotSize} at center, color-mix(in srgb, var(${colorLightVar}) 70%, transparent) 0%, transparent 70%), radial-gradient(${gap * 1.8}px at 20% 20%, color-mix(in srgb, var(${glowColorLightVar}) 60%, transparent) 0%, transparent 70%)`,
+          backgroundColor: `color-mix(in srgb, var(${colorDarkVar}) ${backgroundOpacity * 100}%, transparent)`,
+          animation: `dottedGlowFloat ${animationDuration}s ease-in-out infinite`,
         } as React.CSSProperties
       }
+      data-theme-light={colorLightVar}
+      data-theme-dark={colorDarkVar}
     />
   );
 }

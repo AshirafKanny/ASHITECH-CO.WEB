@@ -48,7 +48,9 @@ export default function Hero() {
 
       {/* Aceternity UI BackgroundLines overlay, transparent and behind content */}
       <div className="pointer-events-none absolute inset-0 z-10">
-        <BackgroundLines className="h-full w-full bg-transparent!" svgOptions={{ duration: 14 }} />
+        <BackgroundLines className="h-full w-full bg-transparent!" svgOptions={{ duration: 14 }}>
+          <span className="sr-only" aria-hidden="true" />
+        </BackgroundLines>
       </div>
 
       {/* Main hero content */}
