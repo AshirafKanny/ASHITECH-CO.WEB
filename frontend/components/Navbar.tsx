@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const navItems = [
@@ -16,6 +17,7 @@ const navItems = [
 export default function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [isScrollPinned, setIsScrollPinned] = useState(false);
   const [navTranslateY, setNavTranslateY] = useState(0);
   const lastScrollRef = useRef(0);
@@ -81,7 +83,7 @@ export default function Navbar() {
       className={`${headerPositionClass} ${headerMotionClass}`}
       style={{ transform: `translateY(${navTranslateY}%)` }}
     >
-      <nav className="site-container grid grid-cols-[auto_1fr] items-center overflow-visible py-2" aria-label="Main navigation">
+      <nav className="site-container grid grid-cols-[auto_1fr_auto] items-center overflow-visible py-2" aria-label="Main navigation">
         <Link href="/" className="flex items-center">
           <Image
             src="/keniwebdesign-01.png"
@@ -94,7 +96,7 @@ export default function Navbar() {
           <span className="sr-only">KENI WEB DESIGN</span>
         </Link>
 
-        <ul className="flex flex-wrap items-center justify-center gap-6">
+        <ul className="hidden items-center justify-center gap-6 md:flex">
           {navItems.map((item) => (
             <li key={item.href}>
               <Link
@@ -106,7 +108,35 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
+
+        <button
+          type="button"
+          className="justify-self-end rounded-md p-2 text-[#1F2A3F] md:hidden"
+          aria-label="Toggle navigation menu"
+          aria-expanded={isMobileNavOpen}
+          onClick={() => setIsMobileNavOpen((value) => !value)}
+        >
+          {isMobileNavOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+        </button>
       </nav>
+
+      {isMobileNavOpen ? (
+        <div className="border-t border-black/10 bg-white md:hidden">
+          <ul className="site-container grid gap-4 py-4 text-[#1F2A3F]">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="block text-sm font-medium"
+                  onClick={() => setIsMobileNavOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
     </header>
   );
 }
