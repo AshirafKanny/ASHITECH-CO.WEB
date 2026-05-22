@@ -2,7 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+
 import { CheckCircle2, Handshake, Rocket, Trophy } from "lucide-react";
+import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
+import { CometCard } from "@/components/ui/comet-card";
+import { Globe3D } from "@/components/ui/3d-globe";
 
 function CountingStatCard({ stat }: { stat: (typeof stats)[0] }) {
   const Icon = stat.icon;
@@ -62,22 +66,26 @@ function CountingStatCard({ stat }: { stat: (typeof stats)[0] }) {
   }, [isVisible, targetValue]);
 
   return (
-    <article
-      ref={ref}
-      className="rounded-xl border border-[#D0DAEA] bg-white px-5 py-6 shadow-sm transition-shadow duration-300 hover:shadow-md"
-    >
-      <span className="inline-grid h-10 w-10 place-items-center rounded-full bg-[#FFF0E8]">
-        <Icon size={20} strokeWidth={1.8} className="text-[#ff5e2e]" aria-hidden="true" />
-      </span>
-      <p className="mt-4 text-3xl font-bold leading-none text-[#1E293B]">
-        {count}
-        <span className="text-[#ff5e2e]">+</span>
-      </p>
-      <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-[#ff5e2e]">{stat.label}</p>
-      <p className="mt-2.5 text-[11.5px] leading-5 text-[#7A8899]">
-        Trusted results from partners worldwide.
-      </p>
-    </article>
+    <CometCard>
+      <article
+        ref={ref}
+        className="feature-card-hover flex min-h-34 flex-col items-center justify-center rounded-lg bg-[#1F2121] px-3 py-6 text-center"
+      >
+        <span className="feature-card-icon grid h-11 w-11 place-items-center text-[#ff5e2e]">
+          <Icon size={24} strokeWidth={1.6} aria-hidden="true" />
+        </span>
+        <p className="mt-4 text-3xl font-bold leading-none text-white">
+          {count}
+          <span className="text-[#ff5e2e]">+</span>
+        </p>
+        <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-[#ff5e2e]">
+          {stat.label}
+        </p>
+        <p className="mt-2.5 text-[11.5px] leading-5 text-white/70">
+          Trusted results from partners worldwide.
+        </p>
+      </article>
+    </CometCard>
   );
 }
 
@@ -105,16 +113,65 @@ const stats = [
   { icon: Trophy, value: "8532+", label: "Happy Customers" },
 ];
 
+const sampleMarkers = [
+  { lat: 40.7128, lng: -74.006, src: "https://assets.aceternity.com/avatars/1.webp", label: "New York" },
+  { lat: 51.5074, lng: -0.1278, src: "https://assets.aceternity.com/avatars/2.webp", label: "London" },
+  { lat: 35.6762, lng: 139.6503, src: "https://assets.aceternity.com/avatars/3.webp", label: "Tokyo" },
+  { lat: -33.8688, lng: 151.2093, src: "https://assets.aceternity.com/avatars/4.webp", label: "Sydney" },
+  { lat: 48.8566, lng: 2.3522, src: "https://assets.aceternity.com/avatars/5.webp", label: "Paris" },
+  { lat: 28.6139, lng: 77.209, src: "https://assets.aceternity.com/avatars/6.webp", label: "New Delhi" },
+  { lat: 55.7558, lng: 37.6173, src: "https://assets.aceternity.com/avatars/7.webp", label: "Moscow" },
+  { lat: -22.9068, lng: -43.1729, src: "https://assets.aceternity.com/avatars/8.webp", label: "Rio de Janeiro" },
+  { lat: 31.2304, lng: 121.4737, src: "https://assets.aceternity.com/avatars/9.webp", label: "Shanghai" },
+  { lat: 25.2048, lng: 55.2708, src: "https://assets.aceternity.com/avatars/10.webp", label: "Dubai" },
+  { lat: -34.6037, lng: -58.3816, src: "https://assets.aceternity.com/avatars/11.webp", label: "Buenos Aires" },
+  { lat: 1.3521, lng: 103.8198, src: "https://assets.aceternity.com/avatars/12.webp", label: "Singapore" },
+  { lat: 37.5665, lng: 126.978, src: "https://assets.aceternity.com/avatars/13.webp", label: "Seoul" },
+];
+
 export default function AboutStatsSection() {
   return (
-    <section className="bg-white py-20 lg:py-28" aria-labelledby="about-stats-heading">
-      <div className="site-container">
+    <section
+      className="relative overflow-hidden bg-white py-20 lg:py-28"
+      aria-labelledby="about-stats-heading"
+    >
+      {/* 3D Globe background */}
+      <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
+        <Globe3D
+          markers={sampleMarkers}
+          className="h-[520px] w-[520px] opacity-35 sm:h-[620px] sm:w-[620px]"
+          config={{
+            atmosphereColor: "#4da6ff",
+            atmosphereIntensity: 20,
+            bumpScale: 5,
+            autoRotateSpeed: 0.3,
+            showAtmosphere: false,
+            backgroundColor: null,
+            enableZoom: false,
+            enablePan: false,
+            minDistance: 5,
+            maxDistance: 15,
+            radius: 2.6,
+            ambientIntensity: 0.7,
+            pointLightIntensity: 1.5,
+          }}
+        />
+      </div>
 
+      <div className="site-container relative z-10">
         {/* Row 1 — image left, mission/vision right */}
         <div className="grid items-center gap-12 lg:grid-cols-[auto_1fr] lg:gap-20">
-
           {/* Image column */}
           <div className="relative isolate mx-auto w-fit shrink-0 lg:mx-0">
+            <div
+              className="pointer-events-none absolute -inset-6 z-0 opacity-70 rounded-[28px]"
+              aria-hidden="true"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle_at_top,rgba(15,23,42,0.14),transparent 55%),radial-gradient(circle_at_20%_30%,rgba(30,41,59,0.2),transparent 45%),radial-gradient(circle_at_80%_60%,rgba(15,23,42,0.24),transparent 50%),radial-gradient(circle,rgba(15,23,42,0.28) 1px,transparent 1px)",
+                backgroundSize: "auto, auto, auto, 14px 14px",
+              }}
+            />
             <div className="about-image-backdrop about-image-backdrop-left" aria-hidden="true" />
             <Image
               src="/images/ashitech.webp"
@@ -141,57 +198,99 @@ export default function AboutStatsSection() {
           </div>
 
           {/* Text column */}
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff5e2e]">
-              &#183;&#183;&#183; About Digital Solution
-            </p>
-            <h2
-              id="about-stats-heading"
-              className="mt-3 max-w-md text-3xl font-bold leading-snug text-[#1E293B] lg:text-4xl"
-            >
-              Best web design solutions agency to growth
-            </h2>
+          <div className="relative overflow-hidden">
+            <div
+              className="pointer-events-none absolute inset-0 z-0 opacity-70"
+              aria-hidden="true"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle_at_top,rgba(15,23,42,0.12),transparent 55%),radial-gradient(circle_at_20%_30%,rgba(30,41,59,0.18),transparent 40%),radial-gradient(circle_at_80%_60%,rgba(15,23,42,0.22),transparent 45%),radial-gradient(circle,rgba(15,23,42,0.25) 1px,transparent 1px)",
+                backgroundSize: "auto, auto, auto, 14px 14px",
+              }}
+            />
+            <div className="pointer-events-none absolute inset-0 z-0">
+              <BackgroundBeamsWithCollision className="h-full w-full bg-transparent">
+                <span className="sr-only" aria-hidden="true" />
+              </BackgroundBeamsWithCollision>
+            </div>
+            <div className="relative z-10">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff5e2e]">
+                &#183;&#183;&#183; About Digital Solution
+              </p>
+              <h2
+                id="about-stats-heading"
+                className="mt-3 max-w-md text-3xl font-bold leading-snug text-[#1E293B] lg:text-4xl"
+              >
+                Best web design solutions agency to growth
+              </h2>
 
-            <div className="mt-8 divide-y divide-[#D6DEEA]">
-              {missionItems.map((item) => (
-                <article key={item.title} className="flex gap-4 py-5 first:pt-0 last:pb-0">
-                  <span
-                    className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#ff5e2e] text-white"
-                    aria-hidden="true"
-                  >
-                    <CheckCircle2 size={13} strokeWidth={2.5} />
-                  </span>
-                  <div>
-                    <h3 className="text-base font-semibold text-[#1E293B]">{item.title}</h3>
-                    <p className="mt-1.5 max-w-md text-sm leading-6 text-[#5B677A]">{item.description}</p>
-                  </div>
-                </article>
-              ))}
+              <div className="mt-8 divide-y divide-[#D6DEEA]">
+                {missionItems.map((item) => (
+                  <article key={item.title} className="flex gap-4 py-5 first:pt-0 last:pb-0">
+                    <span
+                      className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#ff5e2e] text-white"
+                      aria-hidden="true"
+                    >
+                      <CheckCircle2 size={13} strokeWidth={2.5} />
+                    </span>
+                    <div>
+                      <h3 className="text-base font-semibold text-[#1E293B]">{item.title}</h3>
+                      <p className="mt-1.5 max-w-md text-sm leading-6 text-[#5B677A]">
+                        {item.description}
+                      </p>
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
         {/* Row 2 — stats left, image right */}
         <div className="mt-20 grid items-center gap-12 lg:mt-24 lg:grid-cols-[1fr_auto] lg:gap-20">
-
           {/* Stats + heading column */}
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff5e2e]">
-              &#183;&#183;&#183; Company Statistics
-            </p>
-            <h3 className="mt-3 max-w-md text-3xl font-bold leading-snug text-[#1E293B] lg:text-4xl">
-              We&apos;ve some achievement from our global partners
-            </h3>
+          <div className="relative overflow-hidden">
+            <div
+              className="pointer-events-none absolute inset-0 z-0 opacity-70"
+              aria-hidden="true"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle_at_top,rgba(15,23,42,0.12),transparent 55%),radial-gradient(circle_at_20%_30%,rgba(30,41,59,0.18),transparent 40%),radial-gradient(circle_at_80%_60%,rgba(15,23,42,0.22),transparent 45%),radial-gradient(circle,rgba(15,23,42,0.25) 1px,transparent 1px)",
+                backgroundSize: "auto, auto, auto, 14px 14px",
+              }}
+            />
+            <div className="pointer-events-none absolute inset-0 z-0">
+              <BackgroundBeamsWithCollision className="h-full w-full bg-transparent">
+                <span className="sr-only" aria-hidden="true" />
+              </BackgroundBeamsWithCollision>
+            </div>
+            <div className="relative z-10">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff5e2e]">
+                &#183;&#183;&#183; Company Statistics
+              </p>
+              <h3 className="mt-3 max-w-md text-3xl font-bold leading-snug text-[#1E293B] lg:text-4xl">
+                We&apos;ve some achievement from our global partners
+              </h3>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {stats.map((stat) => (
-                <CountingStatCard key={stat.label} stat={stat} />
-              ))}
+              <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                {stats.map((stat) => (
+                  <CountingStatCard key={stat.label} stat={stat} />
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Image column */}
           <div className="relative isolate mx-auto w-fit shrink-0 lg:mx-0 lg:justify-self-end">
+            <div
+              className="pointer-events-none absolute -inset-6 z-0 opacity-70 rounded-[28px]"
+              aria-hidden="true"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle_at_top,rgba(15,23,42,0.14),transparent 55%),radial-gradient(circle_at_20%_30%,rgba(30,41,59,0.2),transparent 45%),radial-gradient(circle_at_80%_60%,rgba(15,23,42,0.24),transparent 50%),radial-gradient(circle,rgba(15,23,42,0.28) 1px,transparent 1px)",
+                backgroundSize: "auto, auto, auto, 14px 14px",
+              }}
+            />
             <div className="about-image-backdrop about-image-backdrop-right" aria-hidden="true" />
             <Image
               src="/images/ashitech.webp"
@@ -216,7 +315,6 @@ export default function AboutStatsSection() {
             </svg>
           </div>
         </div>
-
       </div>
     </section>
   );
