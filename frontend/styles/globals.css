@@ -696,6 +696,7 @@ a {
 
   .hero-word-swap {
     font-size: clamp(1.6rem, 8vw, 2.3rem);
+    font-family: var(--font-heading), "Poppins", "Geist", sans-serif;
   }
 }
 

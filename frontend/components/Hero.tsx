@@ -59,7 +59,7 @@ export default function Hero() {
           <p className="text-base font-semibold text-white/90">We create modern, fast and SEO-optimized websites |KENI WEB DESIGN </p>
           <h1
             id="hero-heading"
-            className="hero-title-reveal mt-5 text-6xl font-extrabold leading-[1.02] tracking-[-0.02em] text-white md:text-7xl"
+            className="hero-title-reveal mt-5 text-4xl font-extrabold leading-[1.02] tracking-[-0.02em] text-white sm:text-5xl md:text-7xl"
           >
             <span>Affordable Web Design</span>
             <br />
