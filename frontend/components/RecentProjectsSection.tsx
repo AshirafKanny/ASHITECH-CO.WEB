@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
 
 const items = [
   {
@@ -17,12 +21,43 @@ const items = [
     imageSrc: "/images/project3.webp",
     imageAlt: "Creative website design showcase",
   },
+  {
+    title: "Brand Identity Refresh",
+    imageSrc: "/images/project4.webp",
+    imageAlt: "Brand identity project showcase",
+  },
+  {
+    title: "Portfolio Showcase",
+    imageSrc: "/images/project5.webp",
+    imageAlt: "Portfolio showcase project",
+  },
+  {
+    title: "SaaS Product Website",
+    imageSrc: "/images/project6.webp",
+    imageAlt: "SaaS product website project",
+  },
 ];
 
 export default function RecentProjectsSection() {
   return (
-    <section className="bg-[#ECEFF4] py-20 lg:py-24" aria-labelledby="recent-projects-heading">
-      <div className="mx-auto w-full max-w-7xl px-4">
+    <section className="relative overflow-hidden bg-[#ECEFF4] py-20 lg:py-24" aria-labelledby="recent-projects-heading">
+      <div className="absolute inset-0" aria-hidden="true">
+        <DottedGlowBackground
+          className="pointer-events-none opacity-20"
+          opacity={1}
+          gap={12}
+          radius={1.6}
+          colorLightVar="--color-neutral-500"
+          glowColorLightVar="--color-neutral-600"
+          colorDarkVar="--color-neutral-500"
+          glowColorDarkVar="--color-sky-800"
+          backgroundOpacity={0}
+          speedMin={0.3}
+          speedMax={1.6}
+          speedScale={1}
+        />
+      </div>
+      <div className="mx-auto w-full max-w-7xl px-4 relative z-10">
         <p className="text-center text-xs font-bold uppercase tracking-[0.16em] text-[#ff5e2e]">
           &#183;&#183;&#183;{" "}
           <span className="underline decoration-[#ff5e2e] underline-offset-2">Recent Projects</span>
@@ -36,30 +71,53 @@ export default function RecentProjectsSection() {
           Look at latest works gallery
         </h2>
 
-        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {items.map((item) => (
-            <article key={item.title} className="recent-project-card overflow-hidden bg-white shadow-[0_2px_12px_rgba(15,23,42,0.06)]">
-              <div className="recent-project-media relative h-72 w-full bg-[#2f2a74]">
-                <Image src={item.imageSrc} alt={item.imageAlt} fill className="object-cover" />
-                <div className="recent-project-overlay" aria-hidden="true" />
-                <button
-                  type="button"
-                  aria-label={`Open project: ${item.title}`}
-                  className="recent-project-cta absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-[#ff5e2e] shadow-lg"
+            <CardContainer key={item.title} className="inter-var">
+              <CardBody className="group/card relative h-full w-full rounded-xl border border-black/[0.08] bg-gray-50 p-4 shadow-[0_2px_12px_rgba(15,23,42,0.08)]">
+                <CardItem
+                  translateZ="50"
+                  className="text-xl font-bold text-[#273248]"
                 >
-                  <ArrowRight size={24} strokeWidth={2} aria-hidden="true" />
-                </button>
-              </div>
-
-              <div className="px-5 pb-2.5 pt-3 text-center">
-                <h3 className="text-[1.65rem] font-normal leading-tight text-[#273248]">{item.title}</h3>
-                <p className="mt-1.5 text-base font-normal text-[#ff5e2e]">
-                  <span aria-hidden="true">&#8212;</span>
-                  <span className="mx-4">Design Responsive</span>
-                  <span aria-hidden="true">&#8212;</span>
-                </p>
-              </div>
-            </article>
+                  {item.title}
+                </CardItem>
+                <CardItem
+                  as="p"
+                  translateZ="60"
+                  className="mt-2 text-sm text-[#ff5e2e]"
+                >
+                  Design Responsive
+                </CardItem>
+                <CardItem translateZ="100" className="mt-4 w-full">
+                  <Image
+                    src={item.imageSrc}
+                    alt={item.imageAlt}
+                    width={480}
+                    height={360}
+                    className="h-60 w-full rounded-xl object-cover group-hover/card:shadow-xl"
+                  />
+                </CardItem>
+                <div className="mt-6 flex items-center justify-between">
+                  <CardItem
+                    translateZ={20}
+                    as="button"
+                    type="button"
+                    className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-semibold text-[#273248]"
+                    aria-label={`Open project: ${item.title}`}
+                  >
+                    View Project
+                    <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
+                  </CardItem>
+                  <CardItem
+                    translateZ={20}
+                    as="span"
+                    className="rounded-xl bg-[#ff5e2e] px-4 py-2 text-xs font-bold text-white"
+                  >
+                    Explore
+                  </CardItem>
+                </div>
+              </CardBody>
+            </CardContainer>
           ))}
         </div>
 

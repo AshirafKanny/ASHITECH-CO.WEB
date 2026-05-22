@@ -69,19 +69,19 @@ function CountingStatCard({ stat }: { stat: (typeof stats)[0] }) {
     <CometCard>
       <article
         ref={ref}
-        className="feature-card-hover flex min-h-34 flex-col items-center justify-center rounded-lg bg-[#1F2121] px-3 py-6 text-center"
+        className="feature-card-hover group flex min-h-34 flex-col items-center justify-center rounded-lg bg-[#1F2121] px-3 py-6 text-center"
       >
-        <span className="feature-card-icon grid h-11 w-11 place-items-center text-[#ff5e2e]">
+        <span className="feature-card-icon grid h-11 w-11 place-items-center text-[#ff5e2e] transition-colors group-hover:text-black">
           <Icon size={24} strokeWidth={1.6} aria-hidden="true" />
         </span>
-        <p className="mt-4 text-3xl font-bold leading-none text-white">
+        <p className="mt-4 text-3xl font-bold leading-none text-white transition-colors group-hover:text-black">
           {count}
-          <span className="text-[#ff5e2e]">+</span>
+          <span className="text-[#ff5e2e] transition-colors group-hover:text-black">+</span>
         </p>
-        <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-[#ff5e2e]">
+        <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-[#ff5e2e] transition-colors group-hover:text-black">
           {stat.label}
         </p>
-        <p className="mt-2.5 text-[11.5px] leading-5 text-white/70">
+        <p className="mt-2.5 text-[11.5px] leading-5 text-white/70 transition-colors group-hover:text-black">
           Trusted results from partners worldwide.
         </p>
       </article>
@@ -132,7 +132,7 @@ const sampleMarkers = [
 export default function AboutStatsSection() {
   return (
     <section
-      className="relative overflow-hidden bg-white py-20 lg:py-28"
+      className="relative overflow-hidden bg-[#05070d] py-20 lg:py-28"
       aria-labelledby="about-stats-heading"
     >
       {/* 3D Globe background */}
@@ -198,7 +198,7 @@ export default function AboutStatsSection() {
           </div>
 
           {/* Text column */}
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden px-6 py-6 text-white">
             <div
               className="pointer-events-none absolute inset-0 z-0 opacity-70"
               aria-hidden="true"
@@ -219,12 +219,12 @@ export default function AboutStatsSection() {
               </p>
               <h2
                 id="about-stats-heading"
-                className="mt-3 max-w-md text-3xl font-bold leading-snug text-[#1E293B] lg:text-4xl"
+                className="mt-3 max-w-md text-3xl font-bold leading-snug text-white lg:text-4xl"
               >
                 Best web design solutions agency to growth
               </h2>
 
-              <div className="mt-8 divide-y divide-[#D6DEEA]">
+              <div className="mt-8 divide-y divide-white/10">
                 {missionItems.map((item) => (
                   <article key={item.title} className="flex gap-4 py-5 first:pt-0 last:pb-0">
                     <span
@@ -234,8 +234,8 @@ export default function AboutStatsSection() {
                       <CheckCircle2 size={13} strokeWidth={2.5} />
                     </span>
                     <div>
-                      <h3 className="text-base font-semibold text-[#1E293B]">{item.title}</h3>
-                      <p className="mt-1.5 max-w-md text-sm leading-6 text-[#5B677A]">
+                      <h3 className="text-base font-semibold text-white">{item.title}</h3>
+                      <p className="mt-1.5 max-w-md text-sm leading-6 text-white/70">
                         {item.description}
                       </p>
                     </div>
@@ -249,7 +249,7 @@ export default function AboutStatsSection() {
         {/* Row 2 — stats left, image right */}
         <div className="mt-20 grid items-center gap-12 lg:mt-24 lg:grid-cols-[1fr_auto] lg:gap-20">
           {/* Stats + heading column */}
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden px-6 py-6 text-white">
             <div
               className="pointer-events-none absolute inset-0 z-0 opacity-70"
               aria-hidden="true"
@@ -268,7 +268,7 @@ export default function AboutStatsSection() {
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff5e2e]">
                 &#183;&#183;&#183; Company Statistics
               </p>
-              <h3 className="mt-3 max-w-md text-3xl font-bold leading-snug text-[#1E293B] lg:text-4xl">
+              <h3 className="mt-3 max-w-md text-3xl font-bold leading-snug text-white lg:text-4xl">
                 We&apos;ve some achievement from our global partners
               </h3>
 

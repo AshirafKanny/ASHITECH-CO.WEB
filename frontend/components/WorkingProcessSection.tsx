@@ -46,7 +46,7 @@ export default function WorkingProcessSection() {
           id="working-process-heading"
           className="mx-auto mb-12 max-w-2xl text-3xl font-bold text-[#0F172A] md:mb-44 md:text-5xl"
         >
-          How does we works
+          How do we work
         </h2>
 
         {/* Mobile stacked process */}

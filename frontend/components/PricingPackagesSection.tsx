@@ -1,8 +1,8 @@
 const packages = [
-  { name: "BASIC PLAN", price: "$248" },
-  { name: "STANDARD PLAN", price: "$352" },
-  { name: "GOLDER PLAN", price: "$583" },
-  { name: "PLATINUM PLAN", price: "$834" },
+  { name: "BASIC PLAN", price: "UGX 800,000", oldPrice: "UGX 900,000" },
+  { name: "STANDARD PLAN", price: "UGX 1,500,000", oldPrice: "UGX 1,700,000" },
+  { name: "GOLDER PLAN", price: "UGX 2,500,000", oldPrice: "UGX 2,800,000" },
+  { name: "PLATINUM PLAN", price: "UGX 4,000,000", oldPrice: "UGX 4,500,000" },
 ];
 
 const features = [
@@ -15,7 +15,7 @@ const features = [
 
 export default function PricingPackagesSection() {
   return (
-    <section className="relative overflow-hidden bg-[#ECEFF4] py-24" aria-labelledby="pricing-packages-heading">
+    <section className="relative overflow-hidden bg-[#0b0f1a]/75 py-24" aria-labelledby="pricing-packages-heading">
       <div
         className="pointer-events-none absolute left-1/2 -top-14 h-84 w-6xl -translate-x-1/2 bg-[url('/pricing-bg-dots.webp')] bg-top bg-no-repeat opacity-65"
         style={{ backgroundSize: "100% auto" }}
@@ -45,7 +45,7 @@ export default function PricingPackagesSection() {
 
         <h2
           id="pricing-packages-heading"
-          className="mx-auto mt-4 max-w-2xl text-center text-3xl font-bold text-[#1E293B] sm:text-4xl md:text-5xl"
+          className="mx-auto mt-4 max-w-2xl text-center text-3xl font-bold text-white sm:text-4xl md:text-5xl"
         >
           Website Design Packages
         </h2>
@@ -54,8 +54,9 @@ export default function PricingPackagesSection() {
           {packages.map((item) => (
             <article
               key={item.name}
-              className="group relative min-h-66 overflow-hidden rounded-sm border border-white/70 bg-white px-7 py-6 shadow-[0_8px_20px_rgba(15,23,42,0.06)]"
+              className="pricing-glass group relative min-h-66 overflow-hidden rounded-sm border border-white/10 bg-[#0b0f1a]/90 px-7 py-6 text-white shadow-[0_18px_40px_rgba(3,7,18,0.35)]"
             >
+              <div className="pricing-glass-sheen pointer-events-none absolute inset-0" aria-hidden="true" />
               <span
                 className="pointer-events-none absolute -right-20 -top-12 hidden rotate-30 bg-[#ff5e2e] px-16 py-1.5 text-xs font-semibold uppercase tracking-wide text-white opacity-0 transition-all duration-300 group-hover:-right-10 group-hover:top-4 group-hover:opacity-100 md:block"
                 aria-hidden="true"
@@ -63,12 +64,12 @@ export default function PricingPackagesSection() {
                 Popular Package
               </span>
 
-              <h3 className="border-b border-[#DEE5EF] pb-3 text-center text-base font-semibold tracking-[0.28em] text-[#313b4f]">
+              <h3 className="border-b border-white/10 pb-3 text-center text-base font-semibold tracking-[0.28em] text-white/80">
                 {item.name}
               </h3>
 
               <div className="mt-5 flex flex-col gap-5 md:flex-row md:items-start md:gap-6">
-                <ul className="flex-1 space-y-2.5 text-base text-[#697588]">
+                <ul className="flex-1 space-y-2.5 text-base text-white/70">
                   {features.map((feature) => (
                     <li key={`${item.name}-${feature}`} className="flex items-start gap-2">
                       <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#ff5e2e]" aria-hidden="true" />
@@ -78,11 +79,14 @@ export default function PricingPackagesSection() {
                 </ul>
 
                 <div className="w-full shrink-0 text-left md:w-44 md:text-right">
+                  <p className="text-sm font-semibold text-white/50 line-through">
+                    {item.oldPrice}
+                  </p>
                   <p className="text-3xl font-bold leading-none text-[#ff5e2e] md:text-4xl">
                     {item.price}
-                    <span className="ml-0.5 text-sm font-medium text-[#677388]">/monthly</span>
+                    <span className="ml-0.5 text-sm font-medium text-white/60">/monthly</span>
                   </p>
-                  <p className="mt-1 text-xs font-semibold text-[#1E293B]">Save 25%</p>
+                  <p className="mt-1 text-xs font-semibold text-white/70">Save 25%</p>
 
                   <button
                     type="button"
