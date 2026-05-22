@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Inter, Poppins, Geist } from "next/font/google";
 import "../styles/globals.css";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import FloatingPhone from "../components/FloatingPhone";
 import { absoluteUrl, defaultSeoImagePath, getSiteUrl } from "../lib/seo";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const poppins = Poppins({
   variable: "--font-heading",
@@ -77,7 +80,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={cn("font-sans", geist.variable)}>
       <body className={`${poppins.variable} ${inter.variable} antialiased`}>
         {children}
         <FloatingPhone />
