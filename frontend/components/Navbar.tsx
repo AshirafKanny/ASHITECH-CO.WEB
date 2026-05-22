@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Facebook, Instagram, Menu, Search, Send, X } from "lucide-react";
@@ -106,12 +107,16 @@ export default function Navbar() {
       style={{ transform: `translateY(${navTranslateY}%)` }}
     >
       <nav className="site-container flex items-center justify-between py-5" aria-label="Main navigation">
-        <Link
-          href="/"
-          className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
-          style={{ color: "#ffffff" }}
-        >
-          KENI WEB DESIGN
+        <Link href="/" className="flex items-center" style={{ color: "#ffffff" }}>
+          <Image
+            src="/keniwebdesign-01.png"
+            alt="KENI WEB DESIGN logo"
+            width={190}
+            height={60}
+            priority
+            className="h-10 w-auto sm:h-12"
+          />
+          <span className="sr-only">KENI WEB DESIGN</span>
         </Link>
 
         <button

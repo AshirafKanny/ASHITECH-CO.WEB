@@ -25,6 +25,10 @@ export const metadata: Metadata = {
     default: "KENI WEB DESIGN | Website Design Company",
     template: "%s | KENI WEB DESIGN",
   },
+  icons: {
+    icon: "/keniwebdesign-01.png",
+    apple: "/keniwebdesign-01.png",
+  },
   description:
     "KENI WEB DESIGN is a professional website design company building high-performance websites for modern businesses.",
   alternates: {

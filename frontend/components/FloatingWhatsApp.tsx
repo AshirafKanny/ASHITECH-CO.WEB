@@ -19,7 +19,7 @@ export default function FloatingWhatsApp() {
           alt=""
           width={24}
           height={24}
-          className="whatsapp-fab__image h-6 w-6 object-contain"
+          className="whatsapp-fab__image object-contain"
         />
       </span>
       <span className="whatsapp-fab__label">Chat on WhatsApp</span>

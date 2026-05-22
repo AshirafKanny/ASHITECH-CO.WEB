@@ -23,4 +23,4 @@ export function absoluteUrl(pathname = "/"): string {
   return new URL(pathname, getSiteUrl()).toString();
 }
 
-export const defaultSeoImagePath = "/images/ashitech.webp";
+export const defaultSeoImagePath = "/keniwebdesign-01.png";

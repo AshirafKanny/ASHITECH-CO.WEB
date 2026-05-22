@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Beaker, Facebook, Linkedin, Twitter } from "lucide-react";
 
@@ -19,7 +20,14 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.08fr_1.02fr_0.92fr]">
           <div>
             <Link href="/" className="inline-flex items-center">
-              <span className="text-5xl font-extrabold tracking-tight text-[#1F2A3F] sm:text-6xl">KENI WEB DESIGN</span>
+              <Image
+                src="/keniwebdesign-01.png"
+                alt="KENI WEB DESIGN logo"
+                width={240}
+                height={80}
+                className="h-12 w-auto sm:h-14"
+              />
+              <span className="sr-only">KENI WEB DESIGN</span>
             </Link>
 
             <p className="mt-6 max-w-md text-base leading-8 text-[#6A7486]">
