@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const packages = [
   { name: "BASIC PLAN", price: "UGX 800,000", oldPrice: "UGX 900,000" },
   { name: "STANDARD PLAN", price: "UGX 1,500,000", oldPrice: "UGX 1,700,000" },
@@ -88,12 +90,12 @@ export default function PricingPackagesSection() {
                   </p>
                   <p className="mt-1 text-xs font-semibold text-white/70">Save 25%</p>
 
-                  <button
-                    type="button"
+                  <Link
+                    href={`/contact?plan=${encodeURIComponent(item.name)}`}
                     className="pricing-package-btn mt-4 inline-flex h-10 w-full items-center justify-center rounded-full border border-[#ff5e2e] px-4 text-xs font-semibold text-[#ff5e2e] md:w-auto"
                   >
                     <span className="relative z-10">Choose Package&nbsp;&raquo;</span>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </article>

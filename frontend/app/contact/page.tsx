@@ -31,7 +31,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactPage() {
+const planOptions = [
+  "BASIC PLAN",
+  "STANDARD PLAN",
+  "GOLDER PLAN",
+  "PLATINUM PLAN",
+];
+
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ plan?: string }>;
+}) {
+  const resolvedSearchParams = await searchParams;
+  const selectedPlan = resolvedSearchParams?.plan ?? "";
+
   return (
     <>
       <Navbar />
@@ -44,6 +58,11 @@ export default function ContactPage() {
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[#0F172A]">
               Share your project goals and we will respond with the right next steps.
             </p>
+            {selectedPlan && (
+              <p className="mt-3 text-sm font-medium text-[#0F172A]">
+                Selected package: <span className="font-semibold">{selectedPlan}</span>
+              </p>
+            )}
             <form className="mt-10 max-w-2xl space-y-5" aria-label="Contact form">
               <div>
                 <label htmlFor="name" className="mb-2 block text-sm font-medium text-[#0F172A]">
@@ -68,6 +87,24 @@ export default function ContactPage() {
                   required
                   className="w-full rounded-lg border border-[#0F172A] px-4 py-3 text-[#0F172A] outline-none focus:border-[#012166]"
                 />
+              </div>
+              <div>
+                <label htmlFor="plan" className="mb-2 block text-sm font-medium text-[#0F172A]">
+                  Package
+                </label>
+                <select
+                  id="plan"
+                  name="plan"
+                  defaultValue={selectedPlan}
+                  className="w-full rounded-lg border border-[#0F172A] px-4 py-3 text-[#0F172A] outline-none focus:border-[#012166]"
+                >
+                  <option value="">Select a package</option>
+                  {planOptions.map((plan) => (
+                    <option key={plan} value={plan}>
+                      {plan}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div>
                 <label htmlFor="message" className="mb-2 block text-sm font-medium text-[#0F172A]">
