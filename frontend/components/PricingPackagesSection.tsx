@@ -58,6 +58,15 @@ export default function PricingPackagesSection() {
               key={item.name}
               className="pricing-glass group relative min-h-66 overflow-hidden rounded-sm border border-white/10 bg-[#0b0f1a]/90 px-7 py-6 text-white shadow-[0_18px_40px_rgba(3,7,18,0.35)]"
             >
+              {/* Full-card clickable layer — covers the entire card and links to contact with plan */}
+              <Link
+                href={`/contact?plan=${encodeURIComponent(item.name)}`}
+                className="absolute inset-0 z-10"
+                aria-label={`Choose ${item.name} package`}
+              >
+                <span className="sr-only">Choose {item.name} package</span>
+              </Link>
+
               <div className="pricing-glass-sheen pointer-events-none absolute inset-0" aria-hidden="true" />
               <span
                 className="pointer-events-none absolute -right-20 -top-12 hidden rotate-30 bg-[#ff5e2e] px-16 py-1.5 text-xs font-semibold uppercase tracking-wide text-white opacity-0 transition-all duration-300 group-hover:-right-10 group-hover:top-4 group-hover:opacity-100 md:block"
