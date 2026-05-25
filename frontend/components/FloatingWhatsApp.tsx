@@ -11,18 +11,17 @@ export default function FloatingWhatsApp() {
       aria-label="Chat with us on WhatsApp"
       className="whatsapp-fab"
     >
-      <span className="whatsapp-fab__wave whatsapp-fab__wave--one" aria-hidden="true" />
-      <span className="whatsapp-fab__wave whatsapp-fab__wave--two" aria-hidden="true" />
       <span className="whatsapp-fab__icon-wrap" aria-hidden="true">
         <Image
-          src="/pot/whatsappp.webp"
+          src="/WhatsApp_icon.webp"
           alt=""
-          width={24}
-          height={24}
+          width={64}
+          height={64}
+          quality={100}
+          unoptimized
           className="whatsapp-fab__image object-contain"
         />
       </span>
-      <span className="whatsapp-fab__label">Chat on WhatsApp</span>
     </a>
   );
 }

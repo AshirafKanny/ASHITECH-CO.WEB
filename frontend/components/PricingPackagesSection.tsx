@@ -1,19 +1,5 @@
 import Link from "next/link";
-
-const packages = [
-  { name: "BASIC PLAN", price: "UGX 800,000", oldPrice: "UGX 900,000" },
-  { name: "STANDARD PLAN", price: "UGX 1,500,000", oldPrice: "UGX 1,700,000" },
-  { name: "GOLDER PLAN", price: "UGX 2,500,000", oldPrice: "UGX 2,800,000" },
-  { name: "PLATINUM PLAN", price: "UGX 4,000,000", oldPrice: "UGX 4,500,000" },
-];
-
-const features = [
-  "Landing page design (no pages)",
-  "HTML+CSS design (12 pages)",
-  "Social Media Marketing",
-  "Domin hosting provider",
-  "Online support (24/7)",
-];
+import { pricingFeatures, pricingPackages } from "@/lib/pricing";
 
 export default function PricingPackagesSection() {
   return (
@@ -53,7 +39,7 @@ export default function PricingPackagesSection() {
         </h2>
 
         <div className="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-2">
-          {packages.map((item) => (
+          {pricingPackages.map((item) => (
             <article
               key={item.name}
               className="pricing-glass group relative min-h-66 overflow-hidden rounded-sm border border-white/10 bg-[#0b0f1a]/90 px-7 py-6 text-white shadow-[0_18px_40px_rgba(3,7,18,0.35)]"
@@ -81,7 +67,7 @@ export default function PricingPackagesSection() {
 
               <div className="mt-5 flex flex-col gap-5 md:flex-row md:items-start md:gap-6">
                 <ul className="flex-1 space-y-2.5 text-base text-white/70">
-                  {features.map((feature) => (
+                  {pricingFeatures.map((feature) => (
                     <li key={`${item.name}-${feature}`} className="flex items-start gap-2">
                       <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#ff5e2e]" aria-hidden="true" />
                       <span>{feature}</span>

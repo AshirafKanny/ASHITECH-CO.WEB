@@ -139,12 +139,12 @@ export default function AboutStatsSection() {
       <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
         <Globe3D
           markers={sampleMarkers}
-          className="h-[520px] w-[520px] opacity-35 sm:h-[620px] sm:w-[620px]"
+          className="h-130 w-130 opacity-35 sm:h-155 sm:w-155"
           config={{
             atmosphereColor: "#4da6ff",
             atmosphereIntensity: 20,
             bumpScale: 5,
-            autoRotateSpeed: 0.3,
+            autoRotateSpeed: 0.8,
             showAtmosphere: false,
             backgroundColor: null,
             enableZoom: false,
@@ -181,6 +181,10 @@ export default function AboutStatsSection() {
               className="relative z-10 block h-96 w-64 object-cover"
               priority
             />
+            <div className="relative z-10 mt-4 text-center text-white">
+              <p className="text-lg font-semibold">Ashiraf Kenny</p>
+              <p className="mt-1 text-sm font-bold">CEO</p>
+            </div>
             {/* Decorative wavy line — left side */}
             <svg
               className="pointer-events-none absolute -left-14 top-1/2 h-48 w-10 -translate-y-1/2 opacity-80"
@@ -293,12 +297,16 @@ export default function AboutStatsSection() {
             />
             <div className="about-image-backdrop about-image-backdrop-right" aria-hidden="true" />
             <Image
-              src="/images/ashitech.webp"
+              src="/stuff.webp"
               alt="KENI WEB DESIGN consultant with client"
               width={300}
               height={380}
               className="relative z-10 block h-96 w-64 object-cover"
             />
+            <div className="relative z-10 mt-4 text-right text-white lg:text-center">
+              <p className="text-lg font-semibold">Isaac Timo</p>
+              <p className="mt-1 text-sm font-medium">Manager</p>
+            </div>
             {/* Decorative wavy line — right side */}
             <svg
               className="pointer-events-none absolute -right-14 top-1/2 h-48 w-10 -translate-y-1/2 opacity-80"

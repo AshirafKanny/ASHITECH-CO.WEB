@@ -6,6 +6,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import WorkingProcessSection from "../../components/WorkingProcessSection";
 import { absoluteUrl, defaultSeoImagePath } from "../../lib/seo";
+import { serviceItems } from "../../lib/services";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -39,26 +40,32 @@ const popularServices = [
   {
     title: "Website Creation from Figma, XD or Photoshop",
     image: "/service-four1.webp",
+    slug: serviceItems[0].slug,
   },
   {
     title: "Mobile App Development and Website Design",
     image: "/service-four2.webp",
+    slug: serviceItems[1].slug,
   },
   {
     title: "eCommerce and Product Selling Development",
     image: "/service-four3.webp",
+    slug: serviceItems[2].slug,
   },
   {
     title: "Responsive Websites (UI/UX) Design",
     image: "/service-four4.webp",
+    slug: serviceItems[3].slug,
   },
   {
     title: "SEO (Search Engine Optimization)",
     image: "/service-four5.webp",
+    slug: serviceItems[4].slug,
   },
   {
     title: "Digital Product Design and Development",
     image: "/service-four6.webp",
+    slug: serviceItems[5].slug,
   },
 ];
 
@@ -86,11 +93,11 @@ export default function ServicesPage() {
       <Navbar />
       <main>
         <section className="relative overflow-hidden bg-[#ECEFF4] pb-16 pt-30 md:pb-24 md:pt-34" aria-labelledby="services-page-heading">
-          <div className="pointer-events-none absolute -left-48 -top-44 h-[34rem] w-[34rem] rounded-full bg-white/55" aria-hidden="true" />
-          <span className="pointer-events-none absolute left-18 top-28 rotate-[16deg] text-7xl leading-none text-[#111827]/75" aria-hidden="true">~</span>
+          <div className="pointer-events-none absolute -left-48 -top-44 h-136 w-136 rounded-full bg-white/55" aria-hidden="true" />
+          <span className="pointer-events-none absolute left-18 top-28 rotate-16 text-7xl leading-none text-[#111827]/75" aria-hidden="true">~</span>
           <span className="pointer-events-none absolute right-20 top-44 text-lg text-[#f59e0b]" aria-hidden="true">o</span>
           <span className="pointer-events-none absolute left-60 top-64 text-2xl text-[#22c3ff]" aria-hidden="true">o</span>
-          <span className="pointer-events-none absolute right-18 top-64 rotate-[18deg] text-7xl leading-none text-[#111827]/80" aria-hidden="true">~</span>
+          <span className="pointer-events-none absolute right-18 top-64 rotate-18 text-7xl leading-none text-[#111827]/80" aria-hidden="true">~</span>
 
           <div className="site-container relative z-10 text-center">
             <h1 id="services-page-heading" className="text-3xl font-bold tracking-tight text-[#27314a] sm:text-4xl md:text-[2.8rem]">
@@ -153,19 +160,19 @@ export default function ServicesPage() {
             <div className="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
               {popularServices.map((service) => (
                 <article key={service.title} className="rounded-lg bg-[#f5f7fb] p-8 text-center">
-                  <div className="mx-auto max-w-[18.5rem]">
+                  <div className="mx-auto max-w-74">
                     <Image src={service.image} alt={service.title} width={380} height={250} className="h-52 w-full object-contain" />
                   </div>
 
                   <h3 className="mt-6 text-2xl font-bold leading-tight text-[#1f2b45] md:text-[1.65rem]">{service.title}</h3>
 
-                  <button
-                    type="button"
+                  <Link
+                    href={`/services/${service.slug}`}
                     className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md border border-[#bfddff] px-6 py-2.5 text-base font-semibold text-[#1f2b45] transition-colors hover:bg-[#edf5ff] md:text-lg"
                   >
                     Service Details
                     <span aria-hidden="true">&raquo;</span>
-                  </button>
+                  </Link>
                 </article>
               ))}
             </div>
