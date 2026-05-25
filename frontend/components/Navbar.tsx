@@ -30,8 +30,11 @@ export default function SiteNavbar() {
   return (
     <div className="relative w-full">
       <Navbar>
-        <NavBody onMouseLeave={() => setIsServicesOpen(false)}>
-          <NavbarLogo />
+        <NavBody
+          onMouseLeave={() => setIsServicesOpen(false)}
+          className="hidden md:flex"
+        >
+          <NavbarLogo imageClassName="h-8 w-auto" />
           <div className="flex items-center gap-6">
             <NavItems items={navItems} />
             <div className="relative hidden md:block">
@@ -79,8 +82,8 @@ export default function SiteNavbar() {
         </NavBody>
 
         <MobileNav>
-          <MobileNavHeader>
-            <NavbarLogo />
+          <MobileNavHeader className="h-14">
+            <NavbarLogo imageClassName="h-7 w-auto" />
             <MobileNavToggle
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
