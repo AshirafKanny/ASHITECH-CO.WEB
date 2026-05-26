@@ -25,6 +25,10 @@ export default function ContactForm({ selectedPlan = "" }: ContactFormProps) {
     try {
       const formData = new FormData(event.currentTarget);
       formData.set("_subject", "New Website Inquiry");
+      const email = formData.get("email");
+      if (email) {
+        formData.set("_replyto", String(email));
+      }
 
       const response = await fetch(FORM_ENDPOINT, {
         method: "POST",

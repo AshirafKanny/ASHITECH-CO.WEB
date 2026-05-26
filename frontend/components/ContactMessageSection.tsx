@@ -32,6 +32,10 @@ export default function ContactMessageSection() {
     try {
       const formData = new FormData(event.currentTarget);
       formData.set("_subject", "New Website Inquiry");
+      const email = formData.get("email");
+      if (email) {
+        formData.set("_replyto", String(email));
+      }
 
       const response = await fetch("https://formspree.io/f/xpqnynno", {
         method: "POST",
@@ -143,12 +147,14 @@ export default function ContactMessageSection() {
               type="text"
               name="name"
               placeholder="Full Name"
+              required
               className="h-10 w-full rounded-sm border border-[#CCD8E9] bg-transparent px-4 text-xs text-[#1E293B] outline-none placeholder:text-[#1E293B]"
             />
             <input
               type="email"
               name="email"
               placeholder="Email Address"
+              required
               className="h-10 w-full rounded-sm border border-[#CCD8E9] bg-transparent px-4 text-xs text-[#1E293B] outline-none placeholder:text-[#1E293B]"
             />
             <input
@@ -161,6 +167,7 @@ export default function ContactMessageSection() {
               rows={5}
               name="message"
               placeholder="Write Message"
+              required
               className="w-full rounded-sm border border-[#CCD8E9] bg-transparent px-4 py-3 text-xs text-[#1E293B] outline-none placeholder:text-[#1E293B]"
             />
 
