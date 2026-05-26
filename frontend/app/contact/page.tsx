@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { absoluteUrl, defaultSeoImagePath } from "../../lib/seo";
+import ContactForm from "../../components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -31,21 +32,13 @@ export const metadata: Metadata = {
   },
 };
 
-const planOptions = [
-  "BASIC PLAN",
-  "STANDARD PLAN",
-  "GOLDER PLAN",
-  "PLATINUM PLAN",
-];
-
 export default async function ContactPage({
   searchParams,
 }: {
-  searchParams?: Promise<{ plan?: string; success?: string }>;
+  searchParams?: Promise<{ plan?: string }>;
 }) {
   const resolvedSearchParams = await searchParams;
   const selectedPlan = resolvedSearchParams?.plan ?? "";
-  const isSuccess = resolvedSearchParams?.success === "1";
 
   return (
     <>
@@ -64,81 +57,7 @@ export default async function ContactPage({
                 Selected package: <span className="font-semibold">{selectedPlan}</span>
               </p>
             )}
-            {isSuccess ? (
-              <div className="mt-6 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm font-medium text-green-800">
-                Thanks! Your message has been sent successfully. We will reply soon.
-              </div>
-            ) : null}
-            <form
-              className="mt-10 max-w-2xl space-y-5"
-              aria-label="Contact form"
-              action="https://formspree.io/f/xpqnynno"
-              method="POST"
-            >
-              <input type="hidden" name="_subject" value="New Website Inquiry" />
-              <input type="hidden" name="_next" value="/contact?success=1" />
-              <div>
-                <label htmlFor="name" className="mb-2 block text-sm font-medium text-[#0F172A]">
-                  Full Name
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  className="w-full rounded-lg border border-[#0F172A] px-4 py-3 text-[#0F172A] outline-none focus:border-[#012166]"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="mb-2 block text-sm font-medium text-[#0F172A]">
-                  Email Address
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  className="w-full rounded-lg border border-[#0F172A] px-4 py-3 text-[#0F172A] outline-none focus:border-[#012166]"
-                />
-              </div>
-              <div>
-                <label htmlFor="plan" className="mb-2 block text-sm font-medium text-[#0F172A]">
-                  Package
-                </label>
-                <select
-                  id="plan"
-                  name="plan"
-                  defaultValue={selectedPlan}
-                  className="w-full rounded-lg border border-[#0F172A] px-4 py-3 text-[#0F172A] outline-none focus:border-[#012166]"
-                >
-                  <option value="">Select a package</option>
-                  {planOptions.map((plan) => (
-                    <option key={plan} value={plan}>
-                      {plan}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label htmlFor="message" className="mb-2 block text-sm font-medium text-[#0F172A]">
-                  Project Details
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={6}
-                  required
-                  className="w-full rounded-lg border border-[#0F172A] px-4 py-3 text-[#0F172A] outline-none focus:border-[#012166]"
-                />
-              </div>
-              <button
-                type="submit"
-                aria-label="Send message"
-                className="rounded-lg bg-[#012166] px-6 py-3 font-medium text-white transition-colors hover:bg-[#0F172A]"
-              >
-                Send Message
-              </button>
-            </form>
+            <ContactForm selectedPlan={selectedPlan} />
           </div>
         </section>
       </main>

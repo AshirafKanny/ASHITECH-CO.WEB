@@ -1,7 +1,7 @@
 "use client";
 
 import { Mail, MapPin, PhoneCall } from "lucide-react";
-import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 
 const contactItems = [
   {
@@ -23,8 +23,34 @@ const contactItems = [
 ];
 
 export default function ContactMessageSection() {
-  const searchParams = useSearchParams();
-  const isSuccess = searchParams?.get("contact") === "success";
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus("sending");
+
+    try {
+      const formData = new FormData(event.currentTarget);
+      formData.set("_subject", "New Website Inquiry");
+
+      const response = await fetch("https://formspree.io/f/xpqnynno", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Formspree submission failed");
+      }
+
+      event.currentTarget.reset();
+      setStatus("success");
+    } catch (error) {
+      setStatus("error");
+    }
+  };
 
   return (
     <section className="relative overflow-hidden bg-[#171422] py-24 text-white" aria-labelledby="contact-message-heading">
@@ -98,19 +124,21 @@ export default function ContactMessageSection() {
         <div className="rounded-lg bg-[#f5f5f6] px-8 py-8 text-[#1E293B] shadow-[0_14px_32px_rgba(10,12,24,0.22)] lg:mt-8">
           <h3 className="text-center text-3xl font-semibold">Send us Message</h3>
 
-          {isSuccess ? (
+          {status === "success" ? (
             <div className="mt-4 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-xs font-semibold text-green-800">
               Thanks! Your message has been sent successfully. We will reply soon.
+            </div>
+          ) : null}
+          {status === "error" ? (
+            <div className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-xs font-semibold text-red-700">
+              Something went wrong. Please try again.
             </div>
           ) : null}
 
           <form
             className="mt-6 space-y-3"
-            action="https://formspree.io/f/xpqnynno"
-            method="POST"
+            onSubmit={handleSubmit}
           >
-            <input type="hidden" name="_subject" value="New Website Inquiry" />
-            <input type="hidden" name="_next" value="/?contact=success#contact-message-heading" />
             <input
               type="text"
               name="name"

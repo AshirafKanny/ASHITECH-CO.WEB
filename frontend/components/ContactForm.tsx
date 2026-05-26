@@ -1,0 +1,127 @@
+"use client";
+
+import { useState } from "react";
+
+const FORM_ENDPOINT = "https://formspree.io/f/xpqnynno";
+
+type ContactFormProps = {
+  selectedPlan?: string;
+};
+
+const planOptions = [
+  "BASIC PLAN",
+  "STANDARD PLAN",
+  "GOLDER PLAN",
+  "PLATINUM PLAN",
+];
+
+export default function ContactForm({ selectedPlan = "" }: ContactFormProps) {
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus("sending");
+
+    try {
+      const formData = new FormData(event.currentTarget);
+      formData.set("_subject", "New Website Inquiry");
+
+      const response = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Formspree submission failed");
+      }
+
+      event.currentTarget.reset();
+      setStatus("success");
+    } catch (error) {
+      setStatus("error");
+    }
+  };
+
+  return (
+    <div className="mt-10 max-w-2xl">
+      {status === "success" ? (
+        <div className="rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm font-medium text-green-800">
+          Thanks! Your message has been sent successfully. We will reply soon.
+        </div>
+      ) : null}
+      {status === "error" ? (
+        <div className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+          Something went wrong. Please try again.
+        </div>
+      ) : null}
+
+      <form className="mt-6 space-y-5" aria-label="Contact form" onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="name" className="mb-2 block text-sm font-medium text-[#0F172A]">
+            Full Name
+          </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            className="w-full rounded-lg border border-[#0F172A] px-4 py-3 text-[#0F172A] outline-none focus:border-[#012166]"
+          />
+        </div>
+        <div>
+          <label htmlFor="email" className="mb-2 block text-sm font-medium text-[#0F172A]">
+            Email Address
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            className="w-full rounded-lg border border-[#0F172A] px-4 py-3 text-[#0F172A] outline-none focus:border-[#012166]"
+          />
+        </div>
+        <div>
+          <label htmlFor="plan" className="mb-2 block text-sm font-medium text-[#0F172A]">
+            Package
+          </label>
+          <select
+            id="plan"
+            name="plan"
+            defaultValue={selectedPlan}
+            className="w-full rounded-lg border border-[#0F172A] px-4 py-3 text-[#0F172A] outline-none focus:border-[#012166]"
+          >
+            <option value="">Select a package</option>
+            {planOptions.map((plan) => (
+              <option key={plan} value={plan}>
+                {plan}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label htmlFor="message" className="mb-2 block text-sm font-medium text-[#0F172A]">
+            Project Details
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows={6}
+            required
+            className="w-full rounded-lg border border-[#0F172A] px-4 py-3 text-[#0F172A] outline-none focus:border-[#012166]"
+          />
+        </div>
+        <button
+          type="submit"
+          aria-label="Send message"
+          className="rounded-lg bg-[#012166] px-6 py-3 font-medium text-white transition-colors hover:bg-[#0F172A] disabled:cursor-not-allowed disabled:opacity-70"
+          disabled={status === "sending"}
+        >
+          {status === "sending" ? "Sending..." : "Send Message"}
+        </button>
+      </form>
+    </div>
+  );
+}
