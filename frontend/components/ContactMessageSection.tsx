@@ -1,4 +1,7 @@
+"use client";
+
 import { Mail, MapPin, PhoneCall } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 
 const contactItems = [
   {
@@ -20,6 +23,9 @@ const contactItems = [
 ];
 
 export default function ContactMessageSection() {
+  const searchParams = useSearchParams();
+  const isSuccess = searchParams?.get("contact") === "success";
+
   return (
     <section className="relative overflow-hidden bg-[#171422] py-24 text-white" aria-labelledby="contact-message-heading">
       <div className="hero-breath-wave hero-breath-wave-one pointer-events-none absolute -left-36 top-6 z-5 h-120 w-lg rounded-full" aria-hidden="true" />
@@ -92,24 +98,40 @@ export default function ContactMessageSection() {
         <div className="rounded-lg bg-[#f5f5f6] px-8 py-8 text-[#1E293B] shadow-[0_14px_32px_rgba(10,12,24,0.22)] lg:mt-8">
           <h3 className="text-center text-3xl font-semibold">Send us Message</h3>
 
-          <form className="mt-6 space-y-3">
+          {isSuccess ? (
+            <div className="mt-4 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-xs font-semibold text-green-800">
+              Thanks! Your message has been sent successfully. We will reply soon.
+            </div>
+          ) : null}
+
+          <form
+            className="mt-6 space-y-3"
+            action="https://formspree.io/f/xpqnynno"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="New Website Inquiry" />
+            <input type="hidden" name="_next" value="/?contact=success#contact-message-heading" />
             <input
               type="text"
+              name="name"
               placeholder="Full Name"
               className="h-10 w-full rounded-sm border border-[#CCD8E9] bg-transparent px-4 text-xs text-[#1E293B] outline-none placeholder:text-[#1E293B]"
             />
             <input
               type="email"
+              name="email"
               placeholder="Email Address"
               className="h-10 w-full rounded-sm border border-[#CCD8E9] bg-transparent px-4 text-xs text-[#1E293B] outline-none placeholder:text-[#1E293B]"
             />
             <input
               type="text"
+              name="website"
               placeholder="Website"
               className="h-10 w-full rounded-sm border border-[#CCD8E9] bg-transparent px-4 text-xs text-[#1E293B] outline-none placeholder:text-[#1E293B]"
             />
             <textarea
               rows={5}
+              name="message"
               placeholder="Write Message"
               className="w-full rounded-sm border border-[#CCD8E9] bg-transparent px-4 py-3 text-xs text-[#1E293B] outline-none placeholder:text-[#1E293B]"
             />

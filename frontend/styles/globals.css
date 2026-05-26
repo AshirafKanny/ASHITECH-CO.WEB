@@ -1123,11 +1123,11 @@ img, picture, video, svg {
   align-items: center;
   gap: 0.7rem;
   border: 0;
-  padding: 0.5rem 0.95rem 0.5rem 0.45rem;
-  border-radius: 9999px;
-  background: #0b63f3;
-  color: #ffffff;
-  box-shadow: 0 12px 28px rgba(8, 73, 170, 0.35);
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  box-shadow: none;
   transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease;
   cursor: pointer;
 }
@@ -1135,19 +1135,19 @@ img, picture, video, svg {
 .phone-fab:hover,
 .phone-fab:focus-visible {
   transform: translateY(-2px);
-  background: #0756d6;
-  box-shadow: 0 16px 34px rgba(8, 73, 170, 0.42);
+  background: transparent;
+  box-shadow: none;
 }
 
 .phone-fab__icon-wrap {
   position: relative;
   z-index: 2;
   display: grid;
-  height: 2.75rem;
-  width: 2.75rem;
+  height: 4rem;
+  width: 4rem;
   place-items: center;
-  border-radius: 9999px;
-  background: #084fbe;
+  border-radius: 0;
+  background: transparent;
 }
 
 .phone-fab__label {
@@ -1157,6 +1157,16 @@ img, picture, video, svg {
   font-weight: 700;
   line-height: 1;
   white-space: nowrap;
+}
+
+.phone-fab__image {
+  height: 4rem;
+  width: 4rem;
+}
+
+.phone-fab__icon-wrap {
+  animation: whatsapp-cta-wave 2.8s ease-in-out infinite;
+  transform-origin: 70% 70%;
 }
 
 .phone-fab__wave {
@@ -1250,12 +1260,13 @@ img, picture, video, svg {
 
 @media (max-width: 768px) {
   .phone-fab-wrap {
+    display: grid;
     left: 14px;
     bottom: 14px;
   }
 
   .phone-fab {
-    padding-right: 0.75rem;
+    display: inline-flex;
   }
 
   .phone-fab__label {

@@ -1,7 +1,7 @@
 "use client";
 
-import { Phone } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 const contactNumbers = [
   {
@@ -48,12 +48,17 @@ export default function FloatingPhone() {
         className="phone-fab"
         onClick={() => setIsOpen((value) => !value)}
       >
-        <span className="phone-fab__wave phone-fab__wave--one" aria-hidden="true" />
-        <span className="phone-fab__wave phone-fab__wave--two" aria-hidden="true" />
         <span className="phone-fab__icon-wrap" aria-hidden="true">
-          <Phone size={22} strokeWidth={2.2} />
+          <Image
+            src="/phone-icon.webp"
+            alt=""
+            width={64}
+            height={64}
+            className="phone-fab__image object-contain"
+            quality={100}
+            unoptimized
+          />
         </span>
-        <span className="phone-fab__label">Call Us</span>
       </button>
     </div>
   );

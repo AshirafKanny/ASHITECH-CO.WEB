@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import CoreFeaturesSection from "../components/CoreFeaturesSection";
@@ -80,7 +81,9 @@ export default function Home() {
         <SeoSplitCtaSection />
         <PricingPackagesSection />
         <TestimonialsFeedbackSection />
-        <ContactMessageSection />
+        <Suspense fallback={null}>
+          <ContactMessageSection />
+        </Suspense>
         <LatestNewsBlogSection />
       </main>
       <Footer />

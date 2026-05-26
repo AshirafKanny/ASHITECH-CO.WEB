@@ -77,6 +77,11 @@ export default function SiteNavbar() {
             href="tel:+256744429808"
             className="hidden items-center gap-2 rounded-md bg-[#0070f3] px-8 py-2 text-sm font-light text-white shadow-[0_4px_14px_0_rgb(0,118,255,39%)] transition duration-200 ease-linear hover:bg-[rgba(0,118,255,0.9)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] xl:inline-flex"
           >
+            <img
+              src="/phone-ico-r.webp"
+              alt=""
+              className="h-5 w-5"
+            />
             <span className="text-white">0744429808, 0761856198</span>
           </a>
         </NavBody>

@@ -41,10 +41,11 @@ const planOptions = [
 export default async function ContactPage({
   searchParams,
 }: {
-  searchParams?: Promise<{ plan?: string }>;
+  searchParams?: Promise<{ plan?: string; success?: string }>;
 }) {
   const resolvedSearchParams = await searchParams;
   const selectedPlan = resolvedSearchParams?.plan ?? "";
+  const isSuccess = resolvedSearchParams?.success === "1";
 
   return (
     <>
@@ -63,7 +64,19 @@ export default async function ContactPage({
                 Selected package: <span className="font-semibold">{selectedPlan}</span>
               </p>
             )}
-            <form className="mt-10 max-w-2xl space-y-5" aria-label="Contact form">
+            {isSuccess ? (
+              <div className="mt-6 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm font-medium text-green-800">
+                Thanks! Your message has been sent successfully. We will reply soon.
+              </div>
+            ) : null}
+            <form
+              className="mt-10 max-w-2xl space-y-5"
+              aria-label="Contact form"
+              action="https://formspree.io/f/xpqnynno"
+              method="POST"
+            >
+              <input type="hidden" name="_subject" value="New Website Inquiry" />
+              <input type="hidden" name="_next" value="/contact?success=1" />
               <div>
                 <label htmlFor="name" className="mb-2 block text-sm font-medium text-[#0F172A]">
                   Full Name
