@@ -135,17 +135,6 @@ export default function ContactMessageSection() {
         <div className="rounded-lg bg-[#f5f5f6] px-8 py-8 text-[#1E293B] shadow-[0_14px_32px_rgba(10,12,24,0.22)] lg:mt-8">
           <h3 className="text-center text-3xl font-semibold">Send us Message</h3>
 
-          {status === "success" ? (
-            <div className="mt-4 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-xs font-semibold text-green-800">
-              Thanks! Your message has been sent successfully. We will reply soon.
-            </div>
-          ) : null}
-          {status === "error" ? (
-            <div className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-xs font-semibold text-red-700">
-              Something went wrong. Please try again.
-            </div>
-          ) : null}
-
           <form
             className="mt-6 space-y-3"
             onSubmit={handleSubmit}
@@ -184,6 +173,17 @@ export default function ContactMessageSection() {
             >
               Send Messages &raquo;
             </button>
+
+            {status === "success" ? (
+              <div className="mt-4 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-xs font-semibold text-green-800">
+                Thanks! Your message has been sent successfully. We will reply soon.
+              </div>
+            ) : null}
+            {status === "error" ? (
+              <div className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-xs font-semibold text-red-700">
+                Something went wrong. Please try again.
+              </div>
+            ) : null}
           </form>
         </div>
       </div>

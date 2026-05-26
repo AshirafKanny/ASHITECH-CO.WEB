@@ -58,17 +58,6 @@ export default function ContactForm({ selectedPlan = "" }: ContactFormProps) {
 
   return (
     <div className="mt-10 max-w-2xl">
-      {status === "success" ? (
-        <div className="rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm font-medium text-green-800">
-          Thanks! Your message has been sent successfully. We will reply soon.
-        </div>
-      ) : null}
-      {status === "error" ? (
-        <div className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
-          Something went wrong. Please try again.
-        </div>
-      ) : null}
-
       <form className="mt-6 space-y-5" aria-label="Contact form" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name" className="mb-2 block text-sm font-medium text-[#0F172A]">
@@ -124,14 +113,27 @@ export default function ContactForm({ selectedPlan = "" }: ContactFormProps) {
             className="w-full rounded-lg border border-[#0F172A] px-4 py-3 text-[#0F172A] outline-none focus:border-[#012166]"
           />
         </div>
-        <button
-          type="submit"
-          aria-label="Send message"
-          className="rounded-lg bg-[#012166] px-6 py-3 font-medium text-white transition-colors hover:bg-[#0F172A] disabled:cursor-not-allowed disabled:opacity-70"
-          disabled={status === "sending"}
-        >
-          {status === "sending" ? "Sending..." : "Send Message"}
-        </button>
+        <div>
+          <button
+            type="submit"
+            aria-label="Send message"
+            className="rounded-lg bg-[#012166] px-6 py-3 font-medium text-white transition-colors hover:bg-[#0F172A] disabled:cursor-not-allowed disabled:opacity-70"
+            disabled={status === "sending"}
+          >
+            {status === "sending" ? "Sending..." : "Send Message"}
+          </button>
+
+          {status === "success" ? (
+            <div className="mt-4 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm font-medium text-green-800">
+              Thanks! Your message has been sent successfully. We will reply soon.
+            </div>
+          ) : null}
+          {status === "error" ? (
+            <div className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+              Something went wrong. Please try again.
+            </div>
+          ) : null}
+        </div>
       </form>
     </div>
   );
