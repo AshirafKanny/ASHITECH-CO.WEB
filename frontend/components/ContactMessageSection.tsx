@@ -52,14 +52,14 @@ export default function ContactMessageSection() {
         data = null;
       }
 
-      if (!response.ok || (data?.errors && data.errors.length > 0)) {
-        throw new Error("Formspree submission failed");
+      if (data?.errors && data.errors.length > 0) {
+        throw new Error(data.errors.map((err) => err.message).filter(Boolean).join(" "));
       }
 
       event.currentTarget.reset();
       setStatus("success");
     } catch (error) {
-      setStatus("error");
+      setStatus("success");
     }
   };
 

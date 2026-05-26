@@ -85,11 +85,12 @@ export default function TestimonialsFeedbackSection() {
           {visibleTestimonials.map((item, index) => (
             <article key={`${item.name}-${index}`} className={`flex gap-6 ${index === 1 ? "md:border-l md:border-[#D2DAE7] md:pl-12" : ""}`}>
               <div className="relative h-28 w-28 shrink-0">
-                <div className="h-full w-full overflow-hidden rounded-full">
+                <div className="relative h-full w-full overflow-hidden rounded-full">
                   <Image
                     src={item.image}
                     alt={item.name}
                     fill
+                    sizes="112px"
                     className={item.image === "/images/ashitech.webp" ? "rounded-full object-cover object-center" : "object-cover"}
                   />
                 </div>

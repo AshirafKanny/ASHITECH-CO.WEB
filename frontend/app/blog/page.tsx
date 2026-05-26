@@ -54,7 +54,13 @@ export default async function BlogPage() {
               {posts.map((post) => (
                 <article key={post.id} className="overflow-hidden rounded-xl border border-[#D7DDE8] bg-white shadow-[0_8px_22px_rgba(15,23,42,0.06)]">
                   <div className="relative h-54 w-full overflow-hidden">
-                    <Image src={post.mainImageUrl} alt={post.title} fill className="object-cover" />
+                    <Image
+                      src={post.mainImageUrl}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover"
+                    />
                   </div>
 
                   <div className="p-6">
@@ -63,7 +69,13 @@ export default async function BlogPage() {
 
                     <div className="mt-4 flex items-center gap-3">
                       <div className="relative h-10 w-10 overflow-hidden rounded-full">
-                        <Image src={post.authorImageUrl} alt={post.authorName} fill className="object-cover" />
+                        <Image
+                          src={post.authorImageUrl}
+                          alt={post.authorName}
+                          fill
+                          sizes="40px"
+                          className="object-cover"
+                        />
                       </div>
                       <p className="text-sm text-[#6A7486]">
                         Post by <span className="font-semibold text-[#2A344A]">{post.authorName}</span>

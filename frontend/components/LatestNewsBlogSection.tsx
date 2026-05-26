@@ -23,7 +23,13 @@ export default async function LatestNewsBlogSection() {
           {blogs.map((blog) => (
             <article key={blog.id} className="grid grid-cols-1 items-start gap-4 sm:grid-cols-[10.5rem_1fr] sm:gap-5">
               <div className="relative h-52 w-full overflow-hidden sm:h-42 sm:w-42">
-                <Image src={blog.mainImageUrl} alt={blog.title} fill className="object-cover" />
+                <Image
+                  src={blog.mainImageUrl}
+                  alt={blog.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 168px"
+                  className="object-cover"
+                />
               </div>
 
               <div>
@@ -40,7 +46,13 @@ export default async function LatestNewsBlogSection() {
 
                 <div className="mt-1.5 flex items-center gap-3">
                   <div className="relative -mt-2 h-11 w-11 overflow-hidden rounded-full">
-                    <Image src={blog.authorImageUrl} alt={blog.authorName} fill className="object-cover" />
+                    <Image
+                      src={blog.authorImageUrl}
+                      alt={blog.authorName}
+                      fill
+                      sizes="44px"
+                      className="object-cover"
+                    />
                   </div>
 
                   <div>

@@ -23,17 +23,17 @@ const items = [
   },
   {
     title: "Brand Identity Refresh",
-    imageSrc: "/images/project4.webp",
+    imageSrc: "/images/project1.webp",
     imageAlt: "Brand identity project showcase",
   },
   {
     title: "Portfolio Showcase",
-    imageSrc: "/images/project5.webp",
+    imageSrc: "/images/project2.webp",
     imageAlt: "Portfolio showcase project",
   },
   {
     title: "SaaS Product Website",
-    imageSrc: "/images/project6.webp",
+    imageSrc: "/images/project3.webp",
     imageAlt: "SaaS product website project",
   },
 ];

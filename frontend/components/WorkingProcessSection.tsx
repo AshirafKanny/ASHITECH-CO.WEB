@@ -64,7 +64,13 @@ export default function WorkingProcessSection() {
 
               <div className="mx-auto mb-5 h-24 w-24">
                 <div className="relative h-full w-full overflow-hidden rounded-full border-3 border-[#FF6B4B]">
-                  <Image src={step.image} alt={step.title} fill className="rounded-full object-cover" />
+                  <Image
+                    src={step.image}
+                    alt={step.title}
+                    fill
+                    sizes="96px"
+                    className="rounded-full object-cover"
+                  />
                 </div>
               </div>
 
@@ -105,6 +111,7 @@ export default function WorkingProcessSection() {
                     src={processSteps[0].image}
                     alt={processSteps[0].title}
                     fill
+                    sizes="160px"
                     className="rounded-full object-cover"
                   />
                 </div>
@@ -128,6 +135,7 @@ export default function WorkingProcessSection() {
                     src={processSteps[1].image}
                     alt={processSteps[1].title}
                     fill
+                    sizes="160px"
                     className="rounded-full object-cover"
                   />
                 </div>
@@ -151,6 +159,7 @@ export default function WorkingProcessSection() {
                     src={processSteps[2].image}
                     alt={processSteps[2].title}
                     fill
+                    sizes="160px"
                     className="rounded-full object-cover"
                   />
                 </div>
@@ -174,6 +183,7 @@ export default function WorkingProcessSection() {
                     src={processSteps[3].image}
                     alt={processSteps[3].title}
                     fill
+                    sizes="160px"
                     className="rounded-full object-cover"
                   />
                 </div>
