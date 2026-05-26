@@ -38,7 +38,14 @@ export default function ContactForm({ selectedPlan = "" }: ContactFormProps) {
         body: formData,
       });
 
-      if (!response.ok) {
+      let data: { errors?: Array<{ message?: string }> } | null = null;
+      try {
+        data = await response.json();
+      } catch {
+        data = null;
+      }
+
+      if (!response.ok || (data?.errors && data.errors.length > 0)) {
         throw new Error("Formspree submission failed");
       }
 
