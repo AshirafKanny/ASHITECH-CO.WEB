@@ -114,7 +114,7 @@ export default function SiteNavbar() {
               <Link
                 key={item.link}
                 href={item.link}
-                className="text-sm font-medium text-[#1F2A3F]"
+                className="inline-flex w-full items-center justify-center rounded-md bg-[#0070f3] px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_14px_0_rgb(0,118,255,39%)] transition duration-200 ease-linear hover:bg-[rgba(0,118,255,0.9)]"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
@@ -123,7 +123,7 @@ export default function SiteNavbar() {
             <div className="pt-2">
               <Link
                 href="/services"
-                className="block text-sm font-medium text-[#1F2A3F]"
+                className="inline-flex w-full items-center justify-center rounded-md bg-[#0070f3] px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_14px_0_rgb(0,118,255,39%)] transition duration-200 ease-linear hover:bg-[rgba(0,118,255,0.9)]"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Services
@@ -133,7 +133,7 @@ export default function SiteNavbar() {
                   <Link
                     key={service.slug}
                     href={`/services/${service.slug}`}
-                    className="text-sm text-[#51607a]"
+                    className="inline-flex w-full items-center justify-center rounded-md border border-[#0070f3]/40 bg-blue-50 px-3 py-2 text-sm font-semibold text-[#0b4ec5] transition duration-200 ease-linear hover:bg-blue-100"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {service.title}
