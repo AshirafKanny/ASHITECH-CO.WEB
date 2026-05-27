@@ -37,8 +37,23 @@ export const metadata: Metadata = {
 export default async function BlogPage() {
   const posts = await getBlogPosts();
 
+  const blogJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "KENI WEB DESIGN Blog",
+    url: absoluteUrl("/blog"),
+    blogPost: posts.map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      datePublished: post.publishedAt,
+      url: absoluteUrl(`/blog/${post.slug}`),
+      image: post.mainImageUrl,
+    })),
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }} />
       <Navbar />
       <main>
         <section className="bg-white py-20" aria-labelledby="blog-heading">

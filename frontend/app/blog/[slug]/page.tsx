@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 import { formatBlogDate, getBlogPostBySlug, getBlogSlugs } from "../../../lib/sanity";
@@ -56,6 +57,65 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   };
 }
 
+function renderBody(bodyText: string) {
+  const lines = bodyText.split("\n").map((line) => line.trim());
+  const elements: Array<JSX.Element> = [];
+  let listItems: string[] = [];
+
+  const flushList = () => {
+    if (listItems.length === 0) return;
+    const items = listItems;
+    listItems = [];
+    elements.push(
+      <ul key={`list-${elements.length}`} className="mt-4 grid gap-2 text-base text-[#2D374D]">
+        {items.map((item, index) => (
+          <li key={`${item}-${index}`} className="rounded-lg border border-[#E4E8F1] bg-[#F8FAFC] px-4 py-2">
+            {item}
+          </li>
+        ))}
+      </ul>,
+    );
+  };
+
+  lines.forEach((line) => {
+    if (!line) {
+      flushList();
+      return;
+    }
+    if (line.startsWith("### ")) {
+      flushList();
+      elements.push(
+        <h3 key={`h3-${elements.length}`} className="mt-6 text-2xl font-semibold text-[#1E293B]">
+          {line.replace("### ", "")}
+        </h3>,
+      );
+      return;
+    }
+    if (line.startsWith("## ")) {
+      flushList();
+      elements.push(
+        <h2 key={`h2-${elements.length}`} className="mt-8 text-3xl font-bold text-[#1E293B]">
+          {line.replace("## ", "")}
+        </h2>,
+      );
+      return;
+    }
+    if (line.startsWith("- ")) {
+      listItems.push(line.replace("- ", ""));
+      return;
+    }
+    flushList();
+    elements.push(
+      <p key={`p-${elements.length}`} className="text-lg leading-8 text-[#2D374D]">
+        {line}
+      </p>,
+    );
+  });
+
+  flushList();
+  return elements;
+}
+
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
@@ -73,6 +133,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     author: {
       "@type": "Person",
       name: post.authorName,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "KENI WEB DESIGN",
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl("/keniwebdesign-01.png"),
+      },
     },
     image: [post.mainImageUrl || absoluteUrl(defaultSeoImagePath)],
     mainEntityOfPage: absoluteUrl(`/blog/${slug}`),
@@ -117,13 +185,38 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
 
             <div className="mt-8 space-y-5 text-lg leading-8 text-[#2D374D]">
-              {post.bodyText
-                .split("\n")
-                .filter((paragraph) => paragraph.trim().length > 0)
-                .map((paragraph, index) => (
-                  <p key={`${post.id}-${index}`}>{paragraph}</p>
-                ))}
+              {renderBody(post.bodyText)}
             </div>
+
+            <section className="mt-12 rounded-2xl border border-[#E4E8F1] bg-[#F8FAFC] p-6" aria-label="Related links">
+              <h2 className="text-xl font-semibold text-[#1E293B]">Related links</h2>
+              <div className="mt-4 flex flex-wrap gap-3">
+                <Link
+                  href="/services"
+                  className="rounded-full border border-[#dbe4f3] bg-white px-5 py-2 text-sm font-semibold text-[#1E293B] hover:border-[#ff5e2e] hover:text-[#ff5e2e]"
+                >
+                  Web design services
+                </Link>
+                <Link
+                  href="/seo-services-uganda"
+                  className="rounded-full border border-[#dbe4f3] bg-white px-5 py-2 text-sm font-semibold text-[#1E293B] hover:border-[#ff5e2e] hover:text-[#ff5e2e]"
+                >
+                  SEO services Uganda
+                </Link>
+                <Link
+                  href="/portfolio"
+                  className="rounded-full border border-[#dbe4f3] bg-white px-5 py-2 text-sm font-semibold text-[#1E293B] hover:border-[#ff5e2e] hover:text-[#ff5e2e]"
+                >
+                  Portfolio
+                </Link>
+                <Link
+                  href="/contact"
+                  className="rounded-full border border-[#dbe4f3] bg-white px-5 py-2 text-sm font-semibold text-[#1E293B] hover:border-[#ff5e2e] hover:text-[#ff5e2e]"
+                >
+                  Talk to our team
+                </Link>
+              </div>
+            </section>
           </div>
         </article>
       </main>

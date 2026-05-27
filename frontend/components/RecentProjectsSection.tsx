@@ -1,42 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
-
-const items = [
-  {
-    title: "Mobile Application Design",
-    imageSrc: "/images/project1.webp",
-    imageAlt: "Mobile application design showcase",
-  },
-  {
-    title: "Software Landing Pages",
-    imageSrc: "/images/project2.webp",
-    imageAlt: "Software landing page showcase",
-  },
-  {
-    title: "Creative Website design",
-    imageSrc: "/images/project3.webp",
-    imageAlt: "Creative website design showcase",
-  },
-  {
-    title: "Brand Identity Refresh",
-    imageSrc: "/images/project1.webp",
-    imageAlt: "Brand identity project showcase",
-  },
-  {
-    title: "Portfolio Showcase",
-    imageSrc: "/images/project2.webp",
-    imageAlt: "Portfolio showcase project",
-  },
-  {
-    title: "SaaS Product Website",
-    imageSrc: "/images/project3.webp",
-    imageAlt: "SaaS product website project",
-  },
-];
+import { portfolioProjects } from "@/lib/portfolio";
+const items = portfolioProjects.slice(0, 6);
 
 export default function RecentProjectsSection() {
   return (
@@ -73,7 +43,7 @@ export default function RecentProjectsSection() {
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {items.map((item) => (
-            <CardContainer key={item.title} className="inter-var">
+            <CardContainer key={item.slug} className="inter-var">
               <CardBody className="group/card relative h-full w-full rounded-xl border border-black/[0.08] bg-gray-50 p-4 shadow-[0_2px_12px_rgba(15,23,42,0.08)]">
                 <CardItem
                   translateZ="50"
@@ -86,7 +56,7 @@ export default function RecentProjectsSection() {
                   translateZ="60"
                   className="mt-2 text-sm text-[#ff5e2e]"
                 >
-                  Design Responsive
+                  {item.category}
                 </CardItem>
                 <CardItem translateZ="100" className="mt-4 w-full">
                   <Image
@@ -100,12 +70,12 @@ export default function RecentProjectsSection() {
                 <div className="mt-6 flex items-center justify-between">
                   <CardItem
                     translateZ={20}
-                    as="button"
-                    type="button"
+                    as={Link}
+                    href={`/case-studies/${item.slug}`}
                     className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-semibold text-[#273248]"
-                    aria-label={`Open project: ${item.title}`}
+                    aria-label={`Open case study: ${item.title}`}
                   >
-                    View Project
+                    View Case Study
                     <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
                   </CardItem>
                   <CardItem

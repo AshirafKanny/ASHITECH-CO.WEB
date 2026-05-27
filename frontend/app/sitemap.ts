@@ -2,17 +2,37 @@ import type { MetadataRoute } from "next";
 import { getBlogSlugs } from "../lib/sanity";
 import { absoluteUrl } from "../lib/seo";
 import { serviceItems } from "../lib/services";
+import { portfolioProjects } from "../lib/portfolio";
 
-const staticRoutes = ["/", "/services", "/portfolio", "/blog", "/contact", "/pricing"];
+const staticRoutes = [
+  "/",
+  "/services",
+  "/portfolio",
+  "/blog",
+  "/contact",
+  "/pricing",
+  "/website-design-uganda",
+  "/website-design-kampala",
+  "/seo-services-uganda",
+  "/ecommerce-websites-uganda",
+  "/school-websites-uganda",
+  "/hotel-websites-uganda",
+  "/ngo-websites-uganda",
+  "/business-websites-uganda",
+  "/website-maintenance-uganda",
+  "/branding-services-uganda",
+];
 
 const toUniqueRoutes = (routes: string[]) => Array.from(new Set(routes));
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const serviceRoutes = serviceItems.map((service) => `/services/${service.slug}`);
+  const caseStudyRoutes = portfolioProjects.map((project) => `/case-studies/${project.slug}`);
   const staticEntries: MetadataRoute.Sitemap = toUniqueRoutes([
     ...staticRoutes,
     ...serviceRoutes,
+    ...caseStudyRoutes,
   ]).map((route) => ({
     url: absoluteUrl(route),
     lastModified: now,

@@ -37,6 +37,9 @@ export default function PricingPackagesSection() {
         >
           Website Design Packages
         </h2>
+        <p className="mt-4 text-center text-sm font-semibold text-white/70">
+          Limited onboarding slots this month. Book early to secure your timeline.
+        </p>
 
         <div className="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-2">
           {pricingPackages.map((item) => (

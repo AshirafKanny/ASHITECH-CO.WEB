@@ -18,11 +18,11 @@ type FeatureItem = {
 
 const features: FeatureItem[] = [
   { title: "Responsive design", icon: Laptop },
-  { title: "Powerful Customization", icon: Settings },
-  { title: "Cool & modern animations", icon: Gauge },
-  { title: "SEO Friendly Coding", icon: SearchCheck },
-  { title: "Best Technical supports", icon: Wrench },
-  { title: "Varied Layouts & parallax", icon: LayoutTemplate },
+  { title: "Custom website builds", icon: Settings },
+  { title: "Modern UI and motion", icon: Gauge },
+  { title: "SEO-ready structure", icon: SearchCheck },
+  { title: "Reliable support", icon: Wrench },
+  { title: "Flexible layouts", icon: LayoutTemplate },
 ];
 
 export default function CoreFeaturesSection() {
@@ -59,7 +59,7 @@ export default function CoreFeaturesSection() {
           id="core-features-heading"
           className="mt-4 text-center text-4xl font-bold tracking-[-0.02em] text-[#0F172A]"
         >
-          Amazing web design features
+          Web design features built for growth
         </h2>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">

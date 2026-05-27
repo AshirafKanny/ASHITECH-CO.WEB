@@ -58,6 +58,37 @@ export default async function ContactPage({
               </p>
             )}
             <ContactForm selectedPlan={selectedPlan} />
+
+            <section className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]" aria-label="Local office">
+              <div className="rounded-2xl border border-[#E4E8F1] bg-[#F8FAFC] p-6">
+                <h2 className="text-2xl font-semibold text-[#0F172A]">Visit our Kampala office</h2>
+                <p className="mt-3 text-base leading-7 text-[#4B5563]">
+                  Kansanga, UK Mall, Kampala, Uganda
+                </p>
+                <div className="mt-4 space-y-2 text-sm font-semibold text-[#0F172A]">
+                  <p>Phone (Airtel): 0744429808</p>
+                  <p>Phone (MTN): 0761856198</p>
+                </div>
+                <a
+                  href="https://maps.app.goo.gl/kUZ7XeRiaQ1dxrMt8"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-5 inline-flex items-center justify-center rounded-full border border-[#ff5e2e] px-6 py-2.5 text-sm font-semibold text-[#ff5e2e] hover:bg-[#fff4f0]"
+                >
+                  Open in Google Maps
+                </a>
+              </div>
+
+              <div className="overflow-hidden rounded-2xl border border-[#E4E8F1] bg-white">
+                <iframe
+                  title="KENI WEB DESIGN location map"
+                  src="https://www.google.com/maps?q=Kansanga%20UK%20Mall%20Kampala%20Uganda&output=embed"
+                  className="h-80 w-full"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </section>
           </div>
         </section>
       </main>

@@ -5,6 +5,7 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { absoluteUrl, defaultSeoImagePath } from "../../lib/seo";
+import { portfolioProjects } from "../../lib/portfolio";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -34,61 +35,16 @@ export const metadata: Metadata = {
   },
 };
 
-const projectCards = [
-  {
-    title: "Saas Landing PSD Template",
-    imageSrc: "/pot/project-two1.webp",
-    imageAlt: "Saas landing template preview",
-    frameClassName: "bg-[#6058ef]",
-  },
-  {
-    title: "Fintex- eWallet PSD Template",
-    imageSrc: "/pot/project-two2.webp",
-    imageAlt: "Fintex ewallet template preview",
-    frameClassName: "bg-[#0f172a]",
-  },
-  {
-    title: "Job Finding Mobile Applications",
-    imageSrc: "/pot/project-two3.webp",
-    imageAlt: "Job finding mobile app preview",
-    frameClassName: "bg-[#1e1b4b]",
-  },
-  {
-    title: "Oxence Website development Template",
-    imageSrc: "/pot/project-two7.webp",
-    imageAlt: "Oxence website development template preview",
-    frameClassName: "bg-[#ff6b3d]",
-  },
-  {
-    title: "Web Design Landing PSD Template",
-    imageSrc: "/pot/project-two10.webp",
-    imageAlt: "Web design landing template preview",
-    frameClassName: "bg-[#57d1cc]",
-  },
-  {
-    title: "Social Media Marketing Web Template",
-    imageSrc: "/pot/project-two11.webp",
-    imageAlt: "Social media marketing template preview",
-    frameClassName: "bg-[#6f86a6]",
-  },
-  {
-    title: "Oxence Website development Services Template",
-    imageSrc: "/pot/project-two12.webp",
-    imageAlt: "Oxence website services template preview",
-    frameClassName: "bg-[#0b63f3]",
-  },
-  {
-    title: "Bcoach Education & Coach Web Template",
-    imageSrc: "/pot/project-two13.webp",
-    imageAlt: "Education and coach web template preview",
-    frameClassName: "bg-[#12ce8f]",
-  },
-  {
-    title: "University College Web Template",
-    imageSrc: "/pot/project-two14.webp",
-    imageAlt: "University college web template preview",
-    frameClassName: "bg-[#a28a68]",
-  },
+const frameColors = [
+  "bg-[#6058ef]",
+  "bg-[#0f172a]",
+  "bg-[#1e1b4b]",
+  "bg-[#ff6b3d]",
+  "bg-[#57d1cc]",
+  "bg-[#6f86a6]",
+  "bg-[#0b63f3]",
+  "bg-[#12ce8f]",
+  "bg-[#a28a68]",
 ];
 
 export default function PortfolioPage() {
@@ -144,9 +100,9 @@ export default function PortfolioPage() {
             </div>
 
             <div className="mt-8 grid gap-7 md:grid-cols-2 xl:grid-cols-3">
-              {projectCards.map((project) => (
-                <article key={project.title} className="recent-project-card overflow-hidden rounded-sm border border-[#e5e7eb] bg-white shadow-[0_2px_14px_rgba(15,23,42,0.04)]">
-                  <div className={`recent-project-media relative p-7 ${project.frameClassName}`}>
+              {portfolioProjects.map((project, index) => (
+                <article key={project.slug} className="recent-project-card overflow-hidden rounded-sm border border-[#e5e7eb] bg-white shadow-[0_2px_14px_rgba(15,23,42,0.04)]">
+                  <div className={`recent-project-media relative p-7 ${frameColors[index % frameColors.length]}`}>
                     <Image
                       src={project.imageSrc}
                       alt={project.imageAlt}
@@ -156,17 +112,26 @@ export default function PortfolioPage() {
                     />
 
                     <div className="recent-project-overlay" aria-hidden="true" />
-                    <button
-                      type="button"
-                      aria-label={`Open project: ${project.title}`}
+                    <Link
+                      href={`/case-studies/${project.slug}`}
+                      aria-label={`Open case study: ${project.title}`}
                       className="recent-project-cta absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-[#0b63f3] shadow-lg"
                     >
                       <ArrowRight size={30} strokeWidth={2} aria-hidden="true" />
-                    </button>
+                    </Link>
                   </div>
 
                   <div className="px-8 py-7 text-center">
-                    <h3 className="text-2xl font-bold leading-tight text-[#2d364f] md:text-[1.95rem]">{project.title}</h3>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ff5e2e]">{project.category}</p>
+                    <h3 className="mt-2 text-2xl font-bold leading-tight text-[#2d364f] md:text-[1.95rem]">{project.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-[#5b6577]">{project.summary}</p>
+                    <Link
+                      href={`/case-studies/${project.slug}`}
+                      className="mt-5 inline-flex items-center justify-center gap-2 text-sm font-semibold text-[#0b63f3]"
+                    >
+                      View case study
+                      <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
+                    </Link>
                   </div>
                 </article>
               ))}

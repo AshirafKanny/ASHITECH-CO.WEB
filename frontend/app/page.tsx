@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import HomeIntroSection from "../components/HomeIntroSection";
+import WhyChooseSection from "../components/WhyChooseSection";
+import TrustSignalsSection from "../components/TrustSignalsSection";
+import HomeFaqSection from "../components/HomeFaqSection";
+import TrustBadgesSection from "../components/TrustBadgesSection";
+import ScheduleCallSection from "../components/ScheduleCallSection";
 import CoreFeaturesSection from "../components/CoreFeaturesSection";
 import CoreDesignFeaturedSection from "../components/CoreDesignFeaturedSection";
 import RecentProjectsSection from "../components/RecentProjectsSection";
@@ -73,6 +79,10 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <TrustBadgesSection />
+        <HomeIntroSection />
+        <WhyChooseSection />
+        <TrustSignalsSection />
         <CoreFeaturesSection />
         <AboutStatsSection />
         <CoreDesignFeaturedSection />
@@ -80,10 +90,12 @@ export default function Home() {
         <WorkingProcessSection />
         <SeoSplitCtaSection />
         <PricingPackagesSection />
+        <ScheduleCallSection />
         <TestimonialsFeedbackSection />
         <Suspense fallback={null}>
           <ContactMessageSection />
         </Suspense>
+        <HomeFaqSection />
         <LatestNewsBlogSection />
       </main>
       <Footer />

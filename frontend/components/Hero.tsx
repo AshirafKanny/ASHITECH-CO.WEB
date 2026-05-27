@@ -60,23 +60,25 @@ export default function Hero() {
             id="hero-heading"
             className="hero-title-reveal mt-5 text-4xl font-extrabold leading-[1.02] tracking-[-0.02em] text-white sm:text-5xl md:text-7xl"
           >
-            <span>Affordable Web Design</span>
+            <span>Professional Website Design</span>
             <br />
-            <span>In Kampala Uganda</span>
+            <span>Company in Uganda</span>
             <br />
-            <span>That Grows</span>
+            <span>Helping Kampala</span>
             <br />
-            <span>Your Business</span>
+            <span>Businesses Grow</span>
           </h1>
 
-          <p className="mt-4 inline-block text-lg sm:text-xl font-semibold text-white bg-blue-600/90 px-4 py-2 rounded-md shadow-lg">We create modern, fast and SEO-optimized websites |KENI WEB DESIGN</p>
+          <p className="mt-4 inline-block rounded-md bg-blue-600/90 px-4 py-2 text-lg font-semibold text-white shadow-lg sm:text-xl">
+            Modern, fast, SEO-optimized websites that convert visitors into customers.
+          </p>
 
           <div className="hero-cta-reveal mt-10 flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
               className="hero-btn-sweep hero-btn-sweep-primary inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold text-white"
             >
-              Get Started Us
+              Get a Free Quote
               <span className="hero-btn-arrow" aria-hidden="true">&raquo;</span>
             </Link>
             <Link

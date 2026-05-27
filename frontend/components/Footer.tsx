@@ -35,6 +35,20 @@ export default function Footer() {
               totam rem aperiam eaqu quae ab illo inventore veritatis et quasi architecto beatae
             </p>
 
+            <div className="mt-5 text-sm leading-6 text-[#6A7486]">
+              <p className="font-semibold text-[#2A344A]">Kampala Office</p>
+              <p>Kansanga, UK Mall, Kampala, Uganda</p>
+              <p>Phone: 0744429808 / 0761856198</p>
+              <a
+                href="https://maps.app.goo.gl/kUZ7XeRiaQ1dxrMt8"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-2 inline-flex text-sm font-semibold text-[#ff6b3d] hover:underline"
+              >
+                View on Google Maps
+              </a>
+            </div>
+
             <div className="mt-7 flex items-center gap-3">
               {[Facebook, Twitter, Linkedin, Beaker].map((Icon, index) => (
                 <a

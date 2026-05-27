@@ -3,6 +3,7 @@ import { Inter, Poppins, Geist } from "next/font/google";
 import "../styles/globals.css";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import FloatingPhone from "../components/FloatingPhone";
+import StickyCtaBar from "../components/StickyCtaBar";
 import { absoluteUrl, defaultSeoImagePath, getSiteUrl } from "../lib/seo";
 import { cn } from "@/lib/utils";
 
@@ -79,10 +80,48 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const localBusinessJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "KENI WEB DESIGN",
+    url: getSiteUrl(),
+    logo: absoluteUrl(defaultSeoImagePath),
+    image: absoluteUrl(defaultSeoImagePath),
+    telephone: "+256744429808",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Kansanga, UK Mall",
+      addressLocality: "Kampala",
+      addressCountry: "UG",
+    },
+    hasMap: "https://maps.app.goo.gl/kUZ7XeRiaQ1dxrMt8",
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+256744429808",
+        contactType: "customer service",
+        areaServed: "UG",
+      },
+      {
+        "@type": "ContactPoint",
+        telephone: "+256761856198",
+        contactType: "customer service",
+        areaServed: "UG",
+      },
+    ],
+    areaServed: ["Kampala", "Uganda", "East Africa"],
+    serviceType: ["Web Design", "Web Development", "SEO"],
+  };
+
   return (
     <html lang="en" className={cn("font-sans", geist.variable)}>
       <body className={`${poppins.variable} ${inter.variable} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
         {children}
+        <StickyCtaBar />
         <FloatingPhone />
         <FloatingWhatsApp />
       </body>
