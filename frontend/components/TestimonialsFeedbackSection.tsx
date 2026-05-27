@@ -7,15 +7,15 @@ import { useMemo, useState } from "react";
 const testimonials = [
   {
     image: "/testimonial1.webp",
-    name: "Kiwana Collins",
-    role: "CEO & Founder",
-    quote: "Sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore dolore magna aliquasum susendise ultrices",
+    name: "Joan N.",
+    role: "Retail Owner, Kampala",
+    quote: "Our new site loads fast on mobile and we now receive steady inquiries from Google search.",
   },
   {
     image: "/testimonial2.webp",
-    name: "Tomusange Marvin",
-    role: "Business Consultant",
-    quote: "Quis autem vel eum iure reprehe nderitue voluptate esseuam nihile molestias equatur veillum dolorem eum voluptas nulla",
+    name: "Michael K.",
+    role: "Hotel Manager",
+    quote: "The booking-focused design helped us increase direct inquiries and reduce reliance on OTAs.",
   },
   {
     image: "/images/ashitech.webp",

@@ -68,6 +68,27 @@ export default function HomeFaqSection() {
             </article>
           ))}
         </div>
+
+        <div className="mt-8 rounded-2xl border border-[#E4E8F1] bg-white p-6">
+          <h3 className="text-lg font-semibold text-[#1E293B]">Related resources</h3>
+          <div className="mt-4 flex flex-wrap gap-3 text-sm font-semibold text-[#1E293B]">
+            <Link href="/blog" className="hover:text-[#ff5e2e]">
+              Blog insights
+            </Link>
+            <Link href="/pricing" className="hover:text-[#ff5e2e]">
+              Pricing packages
+            </Link>
+            <Link href="/website-design-uganda" className="hover:text-[#ff5e2e]">
+              Website design Uganda
+            </Link>
+            <Link href="/seo-services-uganda" className="hover:text-[#ff5e2e]">
+              SEO services Uganda
+            </Link>
+            <Link href="/portfolio" className="hover:text-[#ff5e2e]">
+              Portfolio
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );

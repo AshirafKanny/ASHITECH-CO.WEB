@@ -68,16 +68,16 @@ export default function RecentProjectsSection() {
                   />
                 </CardItem>
                 <div className="mt-6 flex items-center justify-between">
-                  <CardItem
-                    translateZ={20}
-                    as={Link}
-                    href={`/case-studies/${item.slug}`}
-                    className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-semibold text-[#273248]"
-                    aria-label={`Open case study: ${item.title}`}
-                  >
-                    View Case Study
-                    <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
-                  </CardItem>
+                  <Link href={`/case-studies/${item.slug}`} aria-label={`Open case study: ${item.title}`}>
+                    <CardItem
+                      translateZ={20}
+                      as="div"
+                      className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-semibold text-[#273248]"
+                    >
+                      View Case Study
+                      <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
+                    </CardItem>
+                  </Link>
                   <CardItem
                     translateZ={20}
                     as="span"

@@ -55,8 +55,6 @@ export default function FloatingPhone() {
             width={64}
             height={64}
             className="phone-fab__image object-contain"
-            quality={100}
-            unoptimized
           />
         </span>
       </button>

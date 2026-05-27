@@ -3,15 +3,21 @@ import Link from "next/link";
 import { Beaker, Facebook, Linkedin, Twitter } from "lucide-react";
 
 const linksColA = [
-  "Wed Design (UI/UX)",
-  "Web development",
-  "SEO Optimization",
-  "Product Engineering",
-  "Technical Support",
-  "Landing Pages Design",
+  { label: "Web Design Uganda", href: "/website-design-uganda" },
+  { label: "Web Design Kampala", href: "/website-design-kampala" },
+  { label: "SEO Services Uganda", href: "/seo-services-uganda" },
+  { label: "Ecommerce Websites Uganda", href: "/ecommerce-websites-uganda" },
+  { label: "Website Maintenance Uganda", href: "/website-maintenance-uganda" },
+  { label: "Branding Services Uganda", href: "/branding-services-uganda" },
 ];
 
-const linksColB = ["About company", "Meet our teams", "Case Stories", "Latest News", "Contact"];
+const linksColB = [
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Case Studies", href: "/case-studies/kampala-legal-firm-website" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
+];
 
 export default function Footer() {
   return (
@@ -31,8 +37,8 @@ export default function Footer() {
             </Link>
 
             <p className="mt-6 max-w-md text-base leading-8 text-[#6A7486]">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremq dantium,
-              totam rem aperiam eaqu quae ab illo inventore veritatis et quasi architecto beatae
+              KENI WEB DESIGN helps Kampala businesses grow with modern web design, SEO-ready structure, and
+              conversion-focused strategy. We build fast, mobile-first websites that turn visitors into customers.
             </p>
 
             <div className="mt-5 text-sm leading-6 text-[#6A7486]">
@@ -68,22 +74,22 @@ export default function Footer() {
             <div className="mt-6 grid grid-cols-2 gap-x-8 gap-y-3 text-base text-[#6A7486]">
               <ul className="space-y-3">
                 {linksColA.map((item) => (
-                  <li key={item}>
-                    <a href="#" className="inline-flex items-center gap-3 hover:text-[#ff6b3d]">
+                  <li key={item.label}>
+                    <Link href={item.href} className="inline-flex items-center gap-3 hover:text-[#ff6b3d]">
                       <span className="h-1.5 w-1.5 rounded-full bg-[#A9B0BD]" aria-hidden="true" />
-                      {item}
-                    </a>
+                      {item.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
 
               <ul className="space-y-3">
                 {linksColB.map((item) => (
-                  <li key={item}>
-                    <a href="#" className="inline-flex items-center gap-3 hover:text-[#ff6b3d]">
+                  <li key={item.label}>
+                    <Link href={item.href} className="inline-flex items-center gap-3 hover:text-[#ff6b3d]">
                       <span className="h-1.5 w-1.5 rounded-full bg-[#A9B0BD]" aria-hidden="true" />
-                      {item}
-                    </a>
+                      {item.label}
+                    </Link>
                   </li>
                 ))}
               </ul>

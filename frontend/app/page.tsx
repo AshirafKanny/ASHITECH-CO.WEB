@@ -8,6 +8,8 @@ import TrustSignalsSection from "../components/TrustSignalsSection";
 import HomeFaqSection from "../components/HomeFaqSection";
 import TrustBadgesSection from "../components/TrustBadgesSection";
 import ScheduleCallSection from "../components/ScheduleCallSection";
+import ClientLogosSection from "../components/ClientLogosSection";
+import CertificationsSection from "../components/CertificationsSection";
 import CoreFeaturesSection from "../components/CoreFeaturesSection";
 import CoreDesignFeaturedSection from "../components/CoreDesignFeaturedSection";
 import RecentProjectsSection from "../components/RecentProjectsSection";
@@ -80,6 +82,7 @@ export default function Home() {
       <main>
         <Hero />
         <TrustBadgesSection />
+        <ClientLogosSection />
         <HomeIntroSection />
         <WhyChooseSection />
         <TrustSignalsSection />
@@ -92,6 +95,7 @@ export default function Home() {
         <PricingPackagesSection />
         <ScheduleCallSection />
         <TestimonialsFeedbackSection />
+        <CertificationsSection />
         <Suspense fallback={null}>
           <ContactMessageSection />
         </Suspense>

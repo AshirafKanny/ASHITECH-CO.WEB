@@ -17,8 +17,6 @@ export default function FloatingWhatsApp() {
           alt=""
           width={64}
           height={64}
-          quality={100}
-          unoptimized
           className="whatsapp-fab__image object-contain"
         />
       </span>

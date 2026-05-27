@@ -65,6 +65,17 @@ export default function TrustSignalsSection() {
                 </span>
               ))}
             </div>
+            <div className="mt-5 flex flex-wrap gap-2">
+              <Link href="/website-design-uganda" className="text-xs font-semibold text-[#ff5e2e] hover:underline">
+                Website design Uganda
+              </Link>
+              <Link href="/website-design-kampala" className="text-xs font-semibold text-[#ff5e2e] hover:underline">
+                Web design Kampala
+              </Link>
+              <Link href="/seo-services-uganda" className="text-xs font-semibold text-[#ff5e2e] hover:underline">
+                SEO services Uganda
+              </Link>
+            </div>
           </div>
 
           <div className="rounded-2xl border border-[#E4E8F1] bg-white p-6">
@@ -76,6 +87,17 @@ export default function TrustSignalsSection() {
                   {item}
                 </span>
               ))}
+            </div>
+            <div className="mt-5 flex flex-wrap gap-3 text-xs font-semibold text-[#1E293B]">
+              <Link href="/portfolio" className="hover:text-[#ff5e2e]">
+                View portfolio
+              </Link>
+              <Link href="/case-studies/kampala-legal-firm-website" className="hover:text-[#ff5e2e]">
+                Read a case study
+              </Link>
+              <Link href="/contact" className="hover:text-[#ff5e2e]">
+                Get a quote
+              </Link>
             </div>
           </div>
         </div>

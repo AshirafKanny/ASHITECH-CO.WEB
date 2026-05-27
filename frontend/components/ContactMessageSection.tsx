@@ -6,7 +6,7 @@ import { useState } from "react";
 const contactItems = [
   {
     label: "Location",
-    value: "UK MALL Kansanga 2nd floor",
+    value: "Kansanga, UK Mall, Kampala, Uganda",
     icon: MapPin,
   },
   {
@@ -17,7 +17,7 @@ const contactItems = [
   },
   {
     label: "Phone No",
-    value: "0744429808",
+    value: "0744429808 / 0761856198",
     icon: PhoneCall,
   },
 ];

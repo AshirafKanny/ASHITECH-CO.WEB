@@ -95,6 +95,12 @@ export default function Hero() {
             <span className="h-2.5 w-2.5 rounded-full border border-white/80" />
             <span className="h-2.5 w-2.5 rounded-full border border-white/80" />
           </div>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-xs font-semibold text-white/80">
+            <span className="rounded-full border border-white/25 px-4 py-1.5">120+ sites delivered</span>
+            <span className="rounded-full border border-white/25 px-4 py-1.5">Kampala-based team</span>
+            <span className="rounded-full border border-white/25 px-4 py-1.5">4.9/5 client rating</span>
+          </div>
         </div>
 
         <button

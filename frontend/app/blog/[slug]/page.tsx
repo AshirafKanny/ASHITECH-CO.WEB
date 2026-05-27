@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type React from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -59,7 +60,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 function renderBody(bodyText: string) {
   const lines = bodyText.split("\n").map((line) => line.trim());
-  const elements: Array<JSX.Element> = [];
+  const elements: Array<React.ReactElement> = [];
   let listItems: string[] = [];
 
   const flushList = () => {

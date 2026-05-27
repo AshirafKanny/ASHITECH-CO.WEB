@@ -1,12 +1,24 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 
 import { CheckCircle2, Handshake, Rocket, Trophy } from "lucide-react";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import { CometCard } from "@/components/ui/comet-card";
-import { Globe3D } from "@/components/ui/3d-globe";
+const Globe3D = dynamic(
+  () => import("@/components/ui/3d-globe").then((mod) => mod.Globe3D),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className="h-130 w-130 rounded-full bg-[#0b1f4b]/40 opacity-40 sm:h-155 sm:w-155"
+        aria-hidden="true"
+      />
+    ),
+  },
+);
 
 function CountingStatCard({ stat }: { stat: (typeof stats)[0] }) {
   const Icon = stat.icon;
@@ -108,9 +120,9 @@ const missionItems = [
 ];
 
 const stats = [
-  { icon: Rocket, value: "2365+", label: "Projects Complete" },
-  { icon: Handshake, value: "5234+", label: "Global Clients" },
-  { icon: Trophy, value: "8532+", label: "Happy Customers" },
+  { icon: Rocket, value: "120+", label: "Websites Delivered" },
+  { icon: Handshake, value: "60+", label: "Local Clients" },
+  { icon: Trophy, value: "4.9", label: "Average Rating" },
 ];
 
 const sampleMarkers = [
@@ -273,7 +285,7 @@ export default function AboutStatsSection() {
                 &#183;&#183;&#183; Company Statistics
               </p>
               <h3 className="mt-3 max-w-md text-3xl font-bold leading-snug text-white lg:text-4xl">
-                We&apos;ve some achievement from our global partners
+                Trusted results from Kampala businesses and growing brands
               </h3>
 
               <div className="mt-8 grid gap-4 sm:grid-cols-3">

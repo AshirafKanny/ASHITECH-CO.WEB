@@ -16,8 +16,22 @@ export default function HomeIntroSection() {
           </h2>
           <p className="mt-4 text-base leading-7 text-[#5b6577] sm:text-lg">
             KENI WEB DESIGN builds modern, mobile-ready websites that help local businesses win more clients.
-            We specialize in website design Uganda companies rely on, web design Kampala startups can scale with,
-            and ecommerce website Uganda stores that need faster sales. Our team blends UI/UX, SEO services Uganda
+            We specialize in {" "}
+            <Link href="/website-design-uganda" className="font-semibold text-[#ff5e2e] hover:underline">
+              website design Uganda
+            </Link>{" "}
+            companies rely on, {" "}
+            <Link href="/website-design-kampala" className="font-semibold text-[#ff5e2e] hover:underline">
+              web design Kampala
+            </Link>{" "}
+            startups can scale with, and {" "}
+            <Link href="/ecommerce-websites-uganda" className="font-semibold text-[#ff5e2e] hover:underline">
+              ecommerce website Uganda
+            </Link>{" "}
+            stores that need faster sales. Our team blends UI/UX, {" "}
+            <Link href="/seo-services-uganda" className="font-semibold text-[#ff5e2e] hover:underline">
+              SEO services Uganda
+            </Link>{" "}
             expertise, and conversion strategy to turn traffic into booked calls.
           </p>
           <div className="mt-6 flex flex-wrap gap-3 text-sm font-semibold text-[#1E293B]">
