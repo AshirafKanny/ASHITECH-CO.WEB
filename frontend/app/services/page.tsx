@@ -5,6 +5,7 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import WorkingProcessSection from "../../components/WorkingProcessSection";
+import ScrollReveal from "@/components/ScrollReveal";
 import { absoluteUrl, defaultSeoImagePath } from "../../lib/seo";
 import { serviceItems } from "../../lib/services";
 
@@ -92,7 +93,8 @@ export default function ServicesPage() {
     <>
       <Navbar />
       <main>
-        <section className="relative overflow-hidden bg-[#ECEFF4] pb-16 pt-30 md:pb-24 md:pt-34" aria-labelledby="services-page-heading">
+        <ScrollReveal>
+          <section className="relative overflow-hidden bg-[#ECEFF4] pb-16 pt-30 md:pb-24 md:pt-34" aria-labelledby="services-page-heading">
           <div className="pointer-events-none absolute -left-48 -top-44 h-136 w-136 rounded-full bg-white/55" aria-hidden="true" />
           <span className="pointer-events-none absolute left-18 top-28 rotate-16 text-7xl leading-none text-[#111827]/75" aria-hidden="true">~</span>
           <span className="pointer-events-none absolute right-20 top-44 text-lg text-[#f59e0b]" aria-hidden="true">o</span>
@@ -110,9 +112,11 @@ export default function ServicesPage() {
               <span className="text-[#0b63f3] underline underline-offset-3">Popular Services</span>
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
-        <section className="bg-[#f4f5f7] py-18 md:py-24" aria-labelledby="services-intro-heading">
+        <ScrollReveal>
+          <section className="bg-[#f4f5f7] py-18 md:py-24" aria-labelledby="services-intro-heading">
           <div className="site-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <article>
               <p className="inline-flex items-center gap-3 text-base font-semibold text-[#0b63f3] md:text-lg">
@@ -147,11 +151,15 @@ export default function ServicesPage() {
               />
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
-        <WorkingProcessSection />
+        <ScrollReveal>
+          <WorkingProcessSection />
+        </ScrollReveal>
 
-        <section className="bg-[#020b18] py-18 md:py-24" aria-labelledby="popular-web-services-heading">
+        <ScrollReveal>
+          <section className="bg-[#020b18] py-18 md:py-24" aria-labelledby="popular-web-services-heading">
           <div className="site-container">
             <h2 id="popular-web-services-heading" className="text-center text-3xl font-bold text-white md:text-[2.3rem]">
               Popular Web Services
@@ -177,9 +185,11 @@ export default function ServicesPage() {
               ))}
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
-        <section className="relative overflow-hidden bg-[#f4f5f7] py-18 md:py-24" aria-labelledby="pricing-plan-heading">
+        <ScrollReveal>
+          <section className="relative overflow-hidden bg-[#f4f5f7] py-18 md:py-24" aria-labelledby="pricing-plan-heading">
           <div className="pointer-events-none absolute -left-20 bottom-0 h-80 w-80 rounded-full bg-white/60" aria-hidden="true" />
           <div className="pointer-events-none absolute right-0 top-16 h-80 w-80 rounded-full bg-white/45" aria-hidden="true" />
 
@@ -233,9 +243,11 @@ export default function ServicesPage() {
               ))}
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
-        <section className="bg-[#020b18] py-16 md:py-20" aria-labelledby="services-cta-heading">
+        <ScrollReveal>
+          <section className="bg-[#020b18] py-16 md:py-20" aria-labelledby="services-cta-heading">
           <div className="site-container grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
             <article>
               <h2 id="services-cta-heading" className="text-3xl font-bold text-white md:text-[2.4rem]">
@@ -257,7 +269,8 @@ export default function ServicesPage() {
               <span aria-hidden="true">&raquo;</span>
             </Link>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
       </main>
       <Footer />
     </>

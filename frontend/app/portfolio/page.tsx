@@ -6,6 +6,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { absoluteUrl, defaultSeoImagePath } from "../../lib/seo";
 import { portfolioProjects } from "../../lib/portfolio";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -52,7 +53,8 @@ export default function PortfolioPage() {
     <>
       <Navbar />
       <main>
-        <section className="relative overflow-hidden bg-[#ECEFF4] pb-16 pt-30 md:pb-22 md:pt-34" aria-labelledby="portfolio-hero-heading">
+        <ScrollReveal>
+          <section className="relative overflow-hidden bg-[#ECEFF4] pb-16 pt-30 md:pb-22 md:pt-34" aria-labelledby="portfolio-hero-heading">
           <div className="pointer-events-none absolute -left-48 -top-44 h-[34rem] w-[34rem] rounded-full bg-white/55" aria-hidden="true" />
           <span className="pointer-events-none absolute left-18 top-28 rotate-[16deg] text-7xl leading-none text-[#111827]/75" aria-hidden="true">~</span>
           <span className="pointer-events-none absolute right-20 top-44 text-lg text-[#f59e0b]" aria-hidden="true">o</span>
@@ -70,9 +72,11 @@ export default function PortfolioPage() {
               <span className="text-[#0b63f3] underline underline-offset-3">Project Grid</span>
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
-        <section className="bg-[#f4f5f7] py-14 md:py-18" aria-labelledby="portfolio-grid-heading">
+        <ScrollReveal>
+          <section className="bg-[#f4f5f7] py-14 md:py-18" aria-labelledby="portfolio-grid-heading">
           <div className="site-container">
             <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-center">
               <h2 id="portfolio-grid-heading" className="max-w-xl text-3xl font-bold leading-tight text-[#27314a] md:text-[2.4rem]">
@@ -137,9 +141,11 @@ export default function PortfolioPage() {
               ))}
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
-        <section className="bg-[#020b18] py-16 md:py-20" aria-labelledby="portfolio-cta-heading">
+        <ScrollReveal>
+          <section className="bg-[#020b18] py-16 md:py-20" aria-labelledby="portfolio-cta-heading">
           <div className="site-container grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
             <article>
               <h2 id="portfolio-cta-heading" className="text-3xl font-bold text-white md:text-[2.4rem]">
@@ -161,7 +167,8 @@ export default function PortfolioPage() {
               <span aria-hidden="true">&raquo;</span>
             </Link>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
       </main>
       <Footer />
     </>

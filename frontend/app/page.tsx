@@ -21,6 +21,7 @@ import ContactMessageSection from "../components/ContactMessageSection";
 import LatestNewsBlogSection from "../components/LatestNewsBlogSection";
 import AboutStatsSection from "../components/AboutStatsSection";
 import Footer from "../components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 import { absoluteUrl, defaultSeoImagePath, getSiteUrl } from "../lib/seo";
 
 export const metadata: Metadata = {
@@ -81,26 +82,62 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <TrustBadgesSection />
-        <ClientLogosSection />
-        <HomeIntroSection />
-        <WhyChooseSection />
-        <TrustSignalsSection />
-        <CoreFeaturesSection />
-        <AboutStatsSection />
-        <CoreDesignFeaturedSection />
-        <RecentProjectsSection />
-        <WorkingProcessSection />
-        <SeoSplitCtaSection />
-        <PricingPackagesSection />
-        <ScheduleCallSection />
-        <TestimonialsFeedbackSection />
-        <CertificationsSection />
-        <Suspense fallback={null}>
-          <ContactMessageSection />
-        </Suspense>
-        <HomeFaqSection />
-        <LatestNewsBlogSection />
+        <ScrollReveal>
+          <TrustBadgesSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <ClientLogosSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <HomeIntroSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <WhyChooseSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <TrustSignalsSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <CoreFeaturesSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <AboutStatsSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <CoreDesignFeaturedSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <RecentProjectsSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <WorkingProcessSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <SeoSplitCtaSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <PricingPackagesSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <ScheduleCallSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <TestimonialsFeedbackSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <CertificationsSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Suspense fallback={null}>
+            <ContactMessageSection />
+          </Suspense>
+        </ScrollReveal>
+        <ScrollReveal>
+          <HomeFaqSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <LatestNewsBlogSection />
+        </ScrollReveal>
       </main>
       <Footer />
     </>
