@@ -45,6 +45,12 @@ body {
   }
 }
 
+@media (max-width: 767px) {
+  .mobile-nav-link-white {
+    color: #ffffff !important;
+  }
+}
+
 h1,
 h2,
 h3,

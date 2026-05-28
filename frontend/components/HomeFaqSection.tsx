@@ -187,20 +187,39 @@ export default function HomeFaqSection() {
 
         <div className="mt-8 rounded-2xl border border-[#E4E8F1] bg-white p-6">
           <h3 className="text-lg font-semibold text-[#1E293B]">Related resources</h3>
-          <div className="mt-4 flex flex-wrap gap-3 text-sm font-semibold text-[#1E293B]">
-            <Link href="/blog" className="hover:text-[#ff5e2e]">
+          <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            <Link
+              href="/blog"
+              className="inline-flex items-center justify-center rounded-full border border-[#dbe4f3] bg-white px-4 py-2 text-sm font-semibold text-[#1E293B] hover:bg-[#fff4f0]"
+            >
               Blog insights
             </Link>
-            <Link href="/pricing" className="hover:text-[#ff5e2e]">
+
+            <Link
+              href="/pricing"
+              className="inline-flex items-center justify-center rounded-full border border-[#dbe4f3] bg-white px-4 py-2 text-sm font-semibold text-[#1E293B] hover:bg-[#fff4f0]"
+            >
               Pricing packages
             </Link>
-            <Link href="/website-design-uganda" className="hover:text-[#ff5e2e]">
+
+            <Link
+              href="/website-design-uganda"
+              className="inline-flex items-center justify-center rounded-full border border-[#dbe4f3] bg-white px-4 py-2 text-sm font-semibold text-[#1E293B] hover:bg-[#fff4f0]"
+            >
               Website design Uganda
             </Link>
-            <Link href="/seo-services-uganda" className="hover:text-[#ff5e2e]">
+
+            <Link
+              href="/seo-services-uganda"
+              className="inline-flex items-center justify-center rounded-full border border-[#dbe4f3] bg-white px-4 py-2 text-sm font-semibold text-[#1E293B] hover:bg-[#fff4f0]"
+            >
               SEO services Uganda
             </Link>
-            <Link href="/portfolio" className="hover:text-[#ff5e2e]">
+
+            <Link
+              href="/portfolio"
+              className="inline-flex items-center justify-center rounded-full border border-[#dbe4f3] bg-white px-4 py-2 text-sm font-semibold text-[#1E293B] hover:bg-[#fff4f0]"
+            >
               Portfolio
             </Link>
           </div>

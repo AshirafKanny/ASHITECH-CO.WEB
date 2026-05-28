@@ -101,20 +101,20 @@ export default function SiteNavbar() {
           >
             <a
               href="tel:+256744429808"
-              className="inline-flex items-center gap-2 rounded-md bg-[#0070f3] px-8 py-2 text-sm font-light text-white shadow-[0_4px_14px_0_rgb(0,118,255,39%)] transition duration-200 ease-linear hover:bg-[rgba(0,118,255,0.9)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)]"
+              className="inline-flex items-center gap-2 rounded-md bg-[#0070f3] px-8 py-2 text-sm font-light text-white shadow-[0_4px_14px_0_rgb(0,118,255,39%)] transition duration-200 ease-linear hover:bg-[rgba(0,118,255,0.9)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] mobile-nav-link-white"
             >
               <img
                 src="/phone-icon.webp"
                 alt=""
                 className="h-4 w-4"
               />
-              <span>0744429808, 0761856198</span>
+              <span className="mobile-nav-link-white">0744429808, 0761856198</span>
             </a>
             {navItems.map((item) => (
               <Link
                 key={item.link}
                 href={item.link}
-                className="inline-flex w-full items-center justify-center rounded-md bg-[#0070f3] px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_14px_0_rgb(0,118,255,39%)] transition duration-200 ease-linear hover:bg-[rgba(0,118,255,0.9)]"
+                className="inline-flex w-full items-center justify-center rounded-md bg-[#0070f3] px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_14px_0_rgb(0,118,255,39%)] transition duration-200 ease-linear hover:bg-[rgba(0,118,255,0.9)] mobile-nav-link-white"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
@@ -123,7 +123,7 @@ export default function SiteNavbar() {
             <div className="pt-2">
               <Link
                 href="/services"
-                className="inline-flex w-full items-center justify-center rounded-md bg-[#0070f3] px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_14px_0_rgb(0,118,255,39%)] transition duration-200 ease-linear hover:bg-[rgba(0,118,255,0.9)]"
+                className="inline-flex w-full items-center justify-center rounded-md bg-[#0070f3] px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_14px_0_rgb(0,118,255,39%)] transition duration-200 ease-linear hover:bg-[rgba(0,118,255,0.9)] mobile-nav-link-white"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Services
@@ -133,7 +133,7 @@ export default function SiteNavbar() {
                   <Link
                     key={service.slug}
                     href={`/services/${service.slug}`}
-                    className="inline-flex w-full items-center justify-center rounded-md border border-[#0070f3]/40 bg-blue-50 px-3 py-2 text-sm font-semibold text-[#0b4ec5] transition duration-200 ease-linear hover:bg-blue-100"
+                    className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-transparent px-3 py-2 text-sm font-semibold text-white transition duration-200 ease-linear hover:bg-white/5"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {service.title}
