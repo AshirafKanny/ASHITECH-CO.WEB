@@ -84,6 +84,20 @@ export default function ContactForm({ selectedPlan = "" }: ContactFormProps) {
           />
         </div>
         <div>
+          <label htmlFor="phone" className="mb-2 block text-sm font-medium text-[#0F172A]">
+            Phone Number
+          </label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            required
+            className="w-full rounded-lg border border-[#0F172A] px-4 py-3 text-[#0F172A] outline-none focus:border-[#012166]"
+          />
+        </div>
+        <div>
           <label htmlFor="plan" className="mb-2 block text-sm font-medium text-[#0F172A]">
             Package
           </label>

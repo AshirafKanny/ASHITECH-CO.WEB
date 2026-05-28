@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export type SeoLandingSection = {
   heading: string;
@@ -78,10 +79,11 @@ export default function SeoLandingTemplate({ content, slug }: SeoLandingTemplate
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
-      <section
-        className="relative overflow-hidden bg-[#0b1220] pb-18 pt-30 text-white"
-        aria-labelledby="landing-hero-heading"
-      >
+      <ScrollReveal>
+        <section
+          className="relative overflow-hidden bg-[#0b1220] pb-18 pt-30 text-white"
+          aria-labelledby="landing-hero-heading"
+        >
         <div
           className="absolute inset-0 bg-cover bg-center opacity-35"
           style={{ backgroundImage: `url('${content.heroImage}')` }}
@@ -113,9 +115,11 @@ export default function SeoLandingTemplate({ content, slug }: SeoLandingTemplate
             </Link>
           </div>
         </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
-      <section className="bg-white py-14" aria-label="Introduction">
+      <ScrollReveal>
+        <section className="bg-white py-14" aria-label="Introduction">
         <div className="site-container grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-5 text-base leading-7 text-[#5b6577]">
             {content.intro.map((paragraph) => (
@@ -143,10 +147,12 @@ export default function SeoLandingTemplate({ content, slug }: SeoLandingTemplate
             </div>
           </div>
         </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {content.sections.map((section) => (
-        <section key={section.heading} className="bg-white py-12" aria-label={section.heading}>
+        <ScrollReveal key={section.heading}>
+          <section className="bg-white py-12" aria-label={section.heading}>
           <div className="site-container">
             <h2 className="text-2xl font-bold text-[#1E293B] sm:text-3xl">{section.heading}</h2>
             <div className="mt-4 space-y-4 text-base leading-7 text-[#5b6577]">
@@ -164,10 +170,12 @@ export default function SeoLandingTemplate({ content, slug }: SeoLandingTemplate
               </ul>
             ) : null}
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
       ))}
 
-      <section className="bg-[#0b1220] py-16 text-white" aria-label="Testimonials">
+      <ScrollReveal>
+        <section className="bg-[#0b1220] py-16 text-white" aria-label="Testimonials">
         <div className="site-container">
           <h2 className="text-2xl font-bold sm:text-3xl">Client feedback from Uganda</h2>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
@@ -180,9 +188,11 @@ export default function SeoLandingTemplate({ content, slug }: SeoLandingTemplate
             ))}
           </div>
         </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
-      <section className="bg-white py-16" aria-labelledby="landing-faq-heading">
+      <ScrollReveal>
+        <section className="bg-white py-16" aria-labelledby="landing-faq-heading">
         <div className="site-container">
           <h2 id="landing-faq-heading" className="text-2xl font-bold text-[#1E293B] sm:text-3xl">
             Frequently asked questions
@@ -196,9 +206,11 @@ export default function SeoLandingTemplate({ content, slug }: SeoLandingTemplate
             ))}
           </div>
         </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
-      <section className="bg-[#F8FAFC] py-14" aria-label="Related links">
+      <ScrollReveal>
+        <section className="bg-[#F8FAFC] py-14" aria-label="Related links">
         <div className="site-container">
           <h2 className="text-xl font-semibold text-[#1E293B]">Related pages</h2>
           <div className="mt-4 flex flex-wrap gap-3">
@@ -213,9 +225,11 @@ export default function SeoLandingTemplate({ content, slug }: SeoLandingTemplate
             ))}
           </div>
         </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
-      <section className="bg-[#0b1220] py-16 text-white" aria-label="Final call to action">
+      <ScrollReveal>
+        <section className="bg-[#0b1220] py-16 text-white" aria-label="Final call to action">
         <div className="site-container grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <h2 className="text-3xl font-bold">{content.cta.headline}</h2>
@@ -228,7 +242,8 @@ export default function SeoLandingTemplate({ content, slug }: SeoLandingTemplate
             {content.cta.buttonText}
           </Link>
         </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </main>
   );
 }

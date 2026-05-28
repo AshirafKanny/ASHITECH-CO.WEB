@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { absoluteUrl, defaultSeoImagePath } from "@/lib/seo";
 import { getPortfolioProject, portfolioProjects } from "@/lib/portfolio";
+import ScrollReveal from "@/components/ScrollReveal";
 
 type CaseStudyPageProps = {
   params: Promise<{ slug: string }>;
@@ -80,7 +81,8 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudyJsonLd) }} />
       <Navbar />
       <main>
-        <section className="relative overflow-hidden bg-[#0b1220] pb-18 pt-30 text-white" aria-labelledby="case-study-heading">
+        <ScrollReveal>
+          <section className="relative overflow-hidden bg-[#0b1220] pb-18 pt-30 text-white" aria-labelledby="case-study-heading">
           <div className="absolute inset-0 bg-gradient-to-br from-[#0b1220] via-[#111827] to-[#1f2937]" aria-hidden="true" />
           <div className="site-container relative z-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
@@ -125,9 +127,11 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               />
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
-        <section className="bg-white py-16" aria-label="Case study overview">
+        <ScrollReveal>
+          <section className="bg-white py-16" aria-label="Case study overview">
           <div className="site-container grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="rounded-2xl border border-[#E4E8F1] bg-[#F8FAFC] p-6">
               <h2 className="text-xl font-semibold text-[#1E293B]">Project overview</h2>
@@ -159,9 +163,11 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               </div>
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
-        <section className="bg-[#F8FAFC] py-16" aria-label="Impact">
+        <ScrollReveal>
+          <section className="bg-[#F8FAFC] py-16" aria-label="Impact">
           <div className="site-container">
             <h2 className="text-2xl font-semibold text-[#1E293B]">Business impact</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -172,9 +178,11 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               ))}
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
-        <section className="bg-white py-16" aria-label="More case studies">
+        <ScrollReveal>
+          <section className="bg-white py-16" aria-label="More case studies">
           <div className="site-container">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <h2 className="text-2xl font-semibold text-[#1E293B]">Explore more projects</h2>
@@ -204,7 +212,8 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 ))}
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
       </main>
       <Footer />
     </>

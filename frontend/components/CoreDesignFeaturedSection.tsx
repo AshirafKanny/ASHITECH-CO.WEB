@@ -32,7 +32,7 @@ const bottomCards: FeatureCard[] = [
 
 function ServiceFeatureCard({ title, icon: Icon }: FeatureCard) {
   return (
-    <article className="core-feature-card group flex min-h-56 w-full max-w-72 flex-col items-center justify-center rounded-md bg-[#181821]/85 px-6 py-8 text-center transition-transform duration-300 hover:-translate-y-2 sm:min-h-64 sm:max-w-64 sm:px-8 sm:py-10">
+    <article className="core-feature-card group flex min-h-56 w-full max-w-72 flex-col items-center justify-center rounded-md px-6 py-8 text-center transition-transform duration-300 hover:-translate-y-2 sm:min-h-64 sm:max-w-64 sm:px-8 sm:py-10">
       <Icon size={50} strokeWidth={1.4} className="text-[#ff5e2e]" aria-hidden="true" />
       <h3 className="mt-6 text-2xl font-semibold leading-tight text-white sm:mt-8 sm:text-4xl sm:leading-12">{title}</h3>
       <span className="mt-6 inline-flex text-white transition-transform duration-300 group-hover:translate-x-2" aria-hidden="true">

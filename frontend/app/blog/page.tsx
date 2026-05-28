@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { formatBlogDate, getBlogPosts } from "../../lib/sanity";
 import { absoluteUrl, defaultSeoImagePath } from "../../lib/seo";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -56,7 +57,8 @@ export default async function BlogPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }} />
       <Navbar />
       <main>
-        <section className="bg-white py-20" aria-labelledby="blog-heading">
+        <ScrollReveal>
+          <section className="bg-white py-20" aria-labelledby="blog-heading">
           <div className="site-container">
             <h1 id="blog-heading" className="text-4xl font-bold text-[#0F172A] sm:text-5xl">
               Blog
@@ -110,7 +112,8 @@ export default async function BlogPage() {
               ))}
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
       </main>
       <Footer />
     </>

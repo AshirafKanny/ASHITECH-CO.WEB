@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 import { absoluteUrl, defaultSeoImagePath } from "../../../lib/seo";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const details = {
   title: "Web Development",
@@ -89,7 +90,8 @@ export default function WebDevelopmentServicePage() {
     <>
       <Navbar />
       <main>
-        <section className="pb-20" aria-labelledby="service-heading">
+        <ScrollReveal>
+          <section className="pb-20" aria-labelledby="service-heading">
           <div className="relative min-h-screen overflow-hidden bg-[#0b1222]">
             <div
               className="absolute inset-0 bg-cover bg-center"
@@ -198,7 +200,8 @@ export default function WebDevelopmentServicePage() {
               </section>
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
       </main>
       <Footer />
     </>

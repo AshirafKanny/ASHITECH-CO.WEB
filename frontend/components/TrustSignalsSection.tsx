@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { MagneticButton } from "@/components/ui/magnetic-button";
 
 const stats = [
   { value: "120+", label: "Websites delivered" },
@@ -35,12 +38,14 @@ export default function TrustSignalsSection() {
             </p>
           </div>
 
-          <Link
-            href="/portfolio"
-            className="inline-flex items-center justify-center rounded-full border border-[#ff5e2e] px-6 py-2.5 text-sm font-semibold text-[#ff5e2e] hover:bg-[#fff4f0]"
-          >
-            View recent projects
-          </Link>
+          <MagneticButton>
+            <Link
+              href="/portfolio"
+              className="inline-flex items-center justify-center rounded-full bg-linear-to-b from-[#ff7b4a] to-[#ff5e2e] px-6 py-2.5 text-sm font-semibold text-white ring-1 ring-white/20 ring-offset-1 ring-offset-[#ff5e2e] transition-transform duration-150 active:scale-98"
+            >
+              View recent projects
+            </Link>
+          </MagneticButton>
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

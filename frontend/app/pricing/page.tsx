@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import PricingPackagesSection from "../../components/PricingPackagesSection";
 import { absoluteUrl, defaultSeoImagePath } from "../../lib/seo";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -38,36 +39,40 @@ export default function PricingPage() {
     <>
       <Navbar />
       <main>
-        <section className="bg-[#05070d] py-20 text-white md:py-24" aria-labelledby="pricing-page-heading">
-          <div className="site-container text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#ff5e2e]">
-              &#183;&#183;&#183; Our Pricing Package &#183;&#183;&#183;
-            </p>
-            <h1 id="pricing-page-heading" className="mx-auto mt-4 max-w-3xl text-3xl font-bold sm:text-4xl md:text-5xl">
-              Website Design Packages For Every Growth Stage
-            </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/70 md:text-lg">
-              Choose a package that matches your goals, then send your content and I will tailor the final page for you.
-            </p>
+        <ScrollReveal>
+          <section className="bg-[#05070d] py-20 text-white md:py-24" aria-labelledby="pricing-page-heading">
+            <div className="site-container text-center">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#ff5e2e]">
+                &#183;&#183;&#183; Our Pricing Package &#183;&#183;&#183;
+              </p>
+              <h1 id="pricing-page-heading" className="mx-auto mt-4 max-w-3xl text-3xl font-bold sm:text-4xl md:text-5xl">
+                Website Design Packages For Every Growth Stage
+              </h1>
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/70 md:text-lg">
+                Choose a package that matches your goals, then send your content and I will tailor the final page for you.
+              </p>
 
-            <div className="mt-8 flex justify-center gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-[#ff5e2e] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#ff6d47]"
-              >
-                Request a Quote
-              </Link>
-              <Link
-                href="/services"
-                className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-              >
-                View Services
-              </Link>
+              <div className="mt-8 flex justify-center gap-4">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-full bg-[#ff5e2e] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#ff6d47]"
+                >
+                  Request a Quote
+                </Link>
+                <Link
+                  href="/services"
+                  className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                >
+                  View Services
+                </Link>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
-        <PricingPackagesSection />
+        <ScrollReveal>
+          <PricingPackagesSection />
+        </ScrollReveal>
       </main>
       <Footer />
     </>

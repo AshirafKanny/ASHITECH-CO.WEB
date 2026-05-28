@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { absoluteUrl, defaultSeoImagePath } from "../../lib/seo";
 import ContactForm from "../../components/ContactForm";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -44,7 +45,8 @@ export default async function ContactPage({
     <>
       <Navbar />
       <main>
-        <section className="py-20" aria-labelledby="contact-heading">
+        <ScrollReveal>
+          <section className="py-20" aria-labelledby="contact-heading">
           <div className="site-container">
             <h1 id="contact-heading" className="text-4xl font-bold text-[#0F172A] sm:text-5xl">
               Contact
@@ -59,7 +61,8 @@ export default async function ContactPage({
             )}
             <ContactForm selectedPlan={selectedPlan} />
 
-            <section className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]" aria-label="Local office">
+            <ScrollReveal>
+              <section className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]" aria-label="Local office">
               <div className="rounded-2xl border border-[#E4E8F1] bg-[#F8FAFC] p-6">
                 <h2 className="text-2xl font-semibold text-[#0F172A]">Visit our Kampala office</h2>
                 <p className="mt-3 text-base leading-7 text-[#4B5563]">
@@ -88,9 +91,11 @@ export default async function ContactPage({
                   referrerPolicy="no-referrer-when-downgrade"
                 />
               </div>
-            </section>
+              </section>
+            </ScrollReveal>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
       </main>
       <Footer />
     </>
