@@ -92,11 +92,11 @@ export default function ContactMessageSection() {
       <div className="site-container relative z-10 grid gap-12 lg:grid-cols-[1fr_0.96fr] lg:items-start">
         <div>
           <h2 id="contact-message-heading" className="max-w-xl text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-            Have any project on
+            Need a website or digital
             <br />
-            mind! feel free contact
+            solution? Contact us anytime
             <br />
-            with us or <span className="text-[#ff6b3d]">say hello</span>
+            or <span className="text-[#ff6b3d]">say hello</span>
           </h2>
 
           <div className="mt-12 max-w-xl border border-white/12 bg-[#191726]/45 px-8 py-8">
@@ -150,6 +150,15 @@ export default function ContactMessageSection() {
               type="email"
               name="email"
               placeholder="Email Address"
+              required
+              className="h-10 w-full rounded-sm border border-[#CCD8E9] bg-transparent px-4 text-xs text-[#1E293B] outline-none placeholder:text-[#1E293B]"
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              inputMode="tel"
+              autoComplete="tel"
               required
               className="h-10 w-full rounded-sm border border-[#CCD8E9] bg-transparent px-4 text-xs text-[#1E293B] outline-none placeholder:text-[#1E293B]"
             />

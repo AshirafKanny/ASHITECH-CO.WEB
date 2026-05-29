@@ -1115,20 +1115,23 @@ img, picture, video, svg {
 .featured-scroll-mask {
   height: 31.875rem;
   width: 18rem;
+  overflow: hidden;
 }
 
 .featured-scroll-track {
   display: flex;
   flex-direction: column;
+  gap: 0;
+  will-change: transform;
   animation: featured-scroll-vertical 16s linear infinite;
 }
 
 .featured-scroll-image {
   width: 18rem;
-  height: auto;
-  max-height: 31.875rem;
+  height: 31.875rem;
   object-fit: cover;
   display: block;
+  flex: 0 0 auto;
 }
 
 .whatsapp-fab {

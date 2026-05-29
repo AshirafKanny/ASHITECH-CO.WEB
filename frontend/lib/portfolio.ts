@@ -5,6 +5,7 @@ export type PortfolioProject = {
   summary: string;
   imageSrc: string;
   imageAlt: string;
+  exploreUrl?: string;
   industry: string;
   challenge: string;
   solution: string;
@@ -17,11 +18,12 @@ export type PortfolioProject = {
 export const portfolioProjects: PortfolioProject[] = [
   {
     slug: "kampala-legal-firm-website",
-    title: "Kampala Legal Firm Website",
+    title: "Tourism and WildLife Website",
     category: "Professional Services",
     summary: "A modern, trust-first website for a legal firm focused on lead generation and local SEO visibility.",
-    imageSrc: "/pot/project-two1.webp",
-    imageAlt: "Legal firm website preview",
+    imageSrc: "/hikes1.webp",
+    imageAlt: "Tourism and wildlife website preview",
+    exploreUrl: "https://www.adventuresandhikes.com/",
     industry: "Legal services",
     challenge:
       "The firm relied on referrals and had no digital presence. Their old site did not load well on mobile and did not rank for local searches.",
@@ -41,8 +43,9 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Boutique Hotel Booking Site",
     category: "Hospitality",
     summary: "A booking-focused hotel website that highlights rooms, amenities, and local experiences.",
-    imageSrc: "/pot/project-two2.webp",
+    imageSrc: "/LLL9.webp",
     imageAlt: "Hotel website preview",
+    exploreUrl: "https://www.kampala-hotels-ug.com/en/",
     industry: "Hospitality",
     challenge:
       "The hotel depended on third-party booking platforms and lacked direct booking inquiries from their website.",
@@ -62,8 +65,9 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Primary School Admissions Site",
     category: "Education",
     summary: "A school website that simplifies admissions and improves communication with parents.",
-    imageSrc: "/pot/project-two3.webp",
+    imageSrc: "/LLL4.webp",
     imageAlt: "School website preview",
+    exploreUrl: "https://primary-school-project.vercel.app/",
     industry: "Education",
     challenge:
       "Parents struggled to access admissions details and school updates on mobile devices.",
@@ -83,8 +87,9 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Ecommerce Fashion Store",
     category: "Ecommerce",
     summary: "An ecommerce store built for mobile shoppers with fast checkout and SEO-ready product pages.",
-    imageSrc: "/pot/project-two7.webp",
+    imageSrc: "/LLL7.webp",
     imageAlt: "Ecommerce store preview",
+    exploreUrl: "https://fashionclinik.com/",
     industry: "Retail",
     challenge:
       "The brand relied on social media sales and needed a reliable store with better product discovery and checkout flow.",
@@ -104,8 +109,9 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "NGO Impact Storytelling Site",
     category: "Nonprofit",
     summary: "A storytelling-focused NGO website highlighting programs, impact, and donor trust signals.",
-    imageSrc: "/pot/project-two10.webp",
+    imageSrc: "/LLL5.webp",
     imageAlt: "NGO website preview",
+    exploreUrl: "https://techforcommunity.org/",
     industry: "Nonprofit",
     challenge:
       "The organization needed a credible online presence to attract partners and donors.",
@@ -125,8 +131,9 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Construction Company Portfolio",
     category: "Construction",
     summary: "A portfolio-driven website showcasing projects, capabilities, and bidding credibility.",
-    imageSrc: "/pot/project-two11.webp",
+    imageSrc: "/LLL6.webp",
     imageAlt: "Construction portfolio preview",
+    exploreUrl: "https://www.pfmstone.com/",
     industry: "Construction",
     challenge:
       "The company needed to show project history and win trust with government and commercial clients.",

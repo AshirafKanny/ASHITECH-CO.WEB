@@ -107,6 +107,14 @@ export default function Footer() {
                 className="h-12 w-full rounded-sm bg-white px-6 text-sm text-[#2A344A] outline-none placeholder:text-[#8A92A1]"
               />
 
+              <input
+                type="tel"
+                placeholder="Enter phone number"
+                inputMode="tel"
+                autoComplete="tel"
+                className="h-12 w-full rounded-sm bg-white px-6 text-sm text-[#2A344A] outline-none placeholder:text-[#8A92A1]"
+              />
+
               <button
                 type="submit"
                 className="inline-flex h-12 items-center justify-center rounded-full bg-[#ff6b3d] px-9 text-sm font-semibold text-white transition-colors hover:bg-[#ff7d54]"

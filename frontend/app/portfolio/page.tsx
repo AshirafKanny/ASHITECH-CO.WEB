@@ -117,8 +117,10 @@ export default function PortfolioPage() {
 
                     <div className="recent-project-overlay" aria-hidden="true" />
                     <Link
-                      href={`/case-studies/${project.slug}`}
-                      aria-label={`Open case study: ${project.title}`}
+                      href={project.exploreUrl ?? `/case-studies/${project.slug}`}
+                      aria-label={`Explore project: ${project.title}`}
+                      target={project.exploreUrl ? "_blank" : undefined}
+                      rel={project.exploreUrl ? "noreferrer" : undefined}
                       className="recent-project-cta absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-[#0b63f3] shadow-lg"
                     >
                       <ArrowRight size={30} strokeWidth={2} aria-hidden="true" />

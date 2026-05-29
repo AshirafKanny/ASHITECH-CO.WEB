@@ -78,13 +78,20 @@ export default function RecentProjectsSection() {
                       <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
                     </CardItem>
                   </Link>
-                  <CardItem
-                    translateZ={20}
-                    as="span"
-                    className="rounded-xl bg-[#ff5e2e] px-4 py-2 text-xs font-bold text-white"
+                  <Link
+                    href={item.exploreUrl ?? `/case-studies/${item.slug}`}
+                    aria-label={`Explore project: ${item.title}`}
+                    target={item.exploreUrl ? "_blank" : undefined}
+                    rel={item.exploreUrl ? "noreferrer" : undefined}
                   >
-                    Explore
-                  </CardItem>
+                    <CardItem
+                      translateZ={20}
+                      as="div"
+                      className="rounded-xl bg-[#ff5e2e] px-4 py-2 text-xs font-bold text-white transition-colors hover:bg-[#ff6b3d]"
+                    >
+                      Explore
+                    </CardItem>
+                  </Link>
                 </div>
               </CardBody>
             </CardContainer>
