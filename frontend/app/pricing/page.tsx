@@ -40,15 +40,20 @@ export default function PricingPage() {
       <Navbar />
       <main>
         <ScrollReveal>
-          <section className="bg-[#05070d] py-20 text-white md:py-24" aria-labelledby="pricing-page-heading">
-            <div className="site-container text-center">
+          <section
+            className="relative overflow-hidden bg-cover bg-center text-white"
+            aria-labelledby="pricing-page-heading"
+            style={{ backgroundImage: "url('/currency-bann.webp')", minHeight: '100vh' }}
+          >
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-[2px]" aria-hidden="true" />
+            <div className="site-container relative z-20 text-center py-28 md:py-40">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#ff5e2e]">
                 &#183;&#183;&#183; Our Pricing Package &#183;&#183;&#183;
               </p>
-              <h1 id="pricing-page-heading" className="mx-auto mt-4 max-w-3xl text-3xl font-bold sm:text-4xl md:text-5xl">
+              <h1 id="pricing-page-heading" className="mx-auto mt-4 max-w-4xl text-6xl sm:text-7xl md:text-[96px] lg:text-[110px] font-black leading-tight">
                 Website Design Packages For Every Growth Stage
               </h1>
-              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/70 md:text-lg">
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/85 md:text-lg">
                 Choose a package that matches your goals, then send your content and I will tailor the final page for you.
               </p>
 

@@ -7,8 +7,19 @@ export default async function LatestNewsBlogSection() {
   const blogs = await getBlogPosts(4);
 
   return (
-    <section className="bg-white py-16 md:py-18" aria-labelledby="latest-news-heading">
-      <div className="site-container">
+    <section className="relative overflow-hidden bg-white py-16 md:py-18" aria-labelledby="latest-news-heading">
+      <div className="absolute inset-0 sky-bg pointer-events-none" aria-hidden>
+        <div className="cloud cloud-1" />
+        <div className="cloud cloud-2" />
+        <div className="cloud cloud-3" />
+        <div className="cloud cloud-4" />
+        <div className="stars">
+          {Array.from({ length: 30 }).map((_, i) => (
+            <span key={i} className={`star star-${i + 1}`} />
+          ))}
+        </div>
+      </div>
+      <div className="site-container relative z-10">
         <p className="text-center text-xs font-semibold uppercase tracking-[0.16em] text-[#ff5e2e]">
           &#183;&#183;&#183;{" "}
           <span className="underline decoration-[#ff5e2e] underline-offset-2">Get Every Updates</span>
