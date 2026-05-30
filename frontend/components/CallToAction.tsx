@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function CallToAction() {
   return (
@@ -11,12 +12,9 @@ export default function CallToAction() {
           Tell us your goals and timeline. Our team will map a clear strategy and deliver
           a high-performing website that represents your brand professionally.
         </p>
-        <Link
-          href="/contact"
-          className="mt-8 inline-block rounded-lg bg-white px-6 py-3 font-medium text-[#0F172A] transition-colors hover:bg-[#012166] hover:text-white"
-        >
+        <Button href="/contact" variant="primary" className="mt-8 inline-block rounded-lg bg-white px-6 py-3 font-medium text-[#0F172A] transition-colors hover:bg-[#012166] hover:text-white">
           Book Discovery Call
-        </Link>
+        </Button>
       </div>
     </section>
   );

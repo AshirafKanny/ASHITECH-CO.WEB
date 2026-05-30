@@ -54,22 +54,30 @@ export default function PortfolioPage() {
       <Navbar />
       <main>
         <ScrollReveal>
-          <section className="relative overflow-hidden bg-[#ECEFF4] pb-16 pt-30 md:pb-22 md:pt-34" aria-labelledby="portfolio-hero-heading">
-          <div className="pointer-events-none absolute -left-48 -top-44 h-[34rem] w-[34rem] rounded-full bg-white/55" aria-hidden="true" />
-          <span className="pointer-events-none absolute left-18 top-28 rotate-[16deg] text-7xl leading-none text-[#111827]/75" aria-hidden="true">~</span>
-          <span className="pointer-events-none absolute right-20 top-44 text-lg text-[#f59e0b]" aria-hidden="true">o</span>
-          <span className="pointer-events-none absolute left-60 top-64 text-2xl text-[#22c3ff]" aria-hidden="true">o</span>
-          <span className="pointer-events-none absolute right-18 top-64 rotate-[18deg] text-7xl leading-none text-[#111827]/80" aria-hidden="true">~</span>
+          <section className="relative overflow-hidden pb-20 pt-30 md:pb-24 md:pt-36" aria-labelledby="portfolio-hero-heading">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/slides1.webp')" }}
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-[#0b1220]/70" aria-hidden="true" />
 
-          <div className="site-container relative z-10 text-center">
-            <h1 id="portfolio-hero-heading" className="text-3xl font-bold tracking-tight text-[#27314a] sm:text-4xl md:text-[2.8rem]">
-              Project Grid
+          <div className="site-container relative z-10 text-center text-white">
+            <h1 id="portfolio-hero-heading" className="mx-auto max-w-5xl text-3xl font-bold tracking-tight sm:text-4xl md:text-6xl">
+              Website Design Projects in Uganda
             </h1>
 
-            <div className="mt-5 flex items-center justify-center gap-2 text-sm text-[#313b4f] sm:text-base">
-              <Link href="/" className="transition-colors hover:text-[#0ea5e9]">Home</Link>
+            <p className="mx-auto mt-5 max-w-4xl text-base leading-7 text-white/85 sm:text-lg md:text-xl md:leading-8">
+              Explore our portfolio of modern, responsive, and SEO-optimized websites built for businesses in Kampala and across Uganda. At Keni Web Design, we create professional digital experiences that help brands grow online, attract customers, and increase conversions.
+              <br />
+              <br />
+              From business websites and ecommerce platforms to modern UI/UX solutions, our projects showcase creativity, performance, and results-driven web development.
+            </p>
+
+            <div className="mt-8 flex items-center justify-center gap-2 text-sm text-white/80 sm:text-base">
+              <Link href="/" className="transition-colors hover:text-white">Home</Link>
               <ChevronRight size={18} aria-hidden="true" />
-              <span className="text-[#0b63f3] underline underline-offset-3">Project Grid</span>
+              <span className="text-white">Portfolio</span>
             </div>
           </div>
           </section>
@@ -80,7 +88,7 @@ export default function PortfolioPage() {
           <div className="site-container">
             <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-center">
               <h2 id="portfolio-grid-heading" className="max-w-xl text-3xl font-bold leading-tight text-[#27314a] md:text-[2.4rem]">
-                Let&apos;s See Our Popular Website Template
+                Recent Website Development Projects in Uganda
               </h2>
 
               <div className="flex flex-wrap gap-3 text-sm font-semibold text-[#374151] md:text-base">
@@ -95,7 +103,7 @@ export default function PortfolioPage() {
                   <button
                     type="button"
                     key={item.label}
-                    className={`rounded-md px-4 py-2 transition-colors ${item.isActive ? "bg-white text-[#22b8ff] shadow-sm" : "text-[#374151] hover:bg-white"}`}
+                    className={`app-animated-button rounded-md px-4 py-2 transition-colors ${item.isActive ? "bg-white text-[#22b8ff] shadow-sm" : "text-[#374151] hover:bg-white"}`}
                   >
                     {item.label}
                   </button>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { MagneticButton } from "@/components/ui/magnetic-button";
+import { Button } from "@/components/ui/button";
 
 const stats = [
   { value: "120+", label: "Websites delivered" },
@@ -23,8 +24,9 @@ const technologies = ["Next.js", "WordPress", "Shopify", "React", "Figma", "Goog
 
 export default function TrustSignalsSection() {
   return (
-    <section className="bg-white py-16" aria-labelledby="trust-signals-heading">
-      <div className="site-container">
+    <section className="trust-signals-section relative overflow-hidden bg-white py-16" aria-labelledby="trust-signals-heading">
+      <div className="trust-signals-grid-bg" aria-hidden="true" />
+      <div className="site-container relative z-10">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ff5e2e]">
@@ -39,12 +41,9 @@ export default function TrustSignalsSection() {
           </div>
 
           <MagneticButton>
-            <Link
-              href="/portfolio"
-              className="inline-flex items-center justify-center rounded-full bg-linear-to-b from-[#ff7b4a] to-[#ff5e2e] px-6 py-2.5 text-sm font-semibold text-white ring-1 ring-white/20 ring-offset-1 ring-offset-[#ff5e2e] transition-transform duration-150 active:scale-98"
-            >
+            <Button href="/portfolio" variant="primary" className="inline-flex items-center justify-center bg-linear-to-b from-[#ff7b4a] to-[#ff5e2e] ring-1 ring-white/20 ring-offset-1 ring-offset-[#ff5e2e] transition-transform duration-150 active:scale-98">
               View recent projects
-            </Link>
+            </Button>
           </MagneticButton>
         </div>
 

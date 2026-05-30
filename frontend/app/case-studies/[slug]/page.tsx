@@ -101,6 +101,14 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 ))}
               </div>
               <div className="mt-8 flex flex-wrap gap-4">
+                {project.exploreUrl ? (
+                  <Link
+                    href={project.exploreUrl}
+                    className="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-2.5 text-sm font-semibold text-white hover:border-white"
+                  >
+                    Explore live project
+                  </Link>
+                ) : null}
                 <Link
                   href="/contact"
                   className="inline-flex items-center justify-center rounded-full bg-[#ff5e2e] px-6 py-2.5 text-sm font-semibold text-white hover:bg-[#ff6b3d]"

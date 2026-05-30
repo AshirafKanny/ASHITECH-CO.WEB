@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import { Button } from "@/components/ui/button";
 
 export type SeoLandingSection = {
   heading: string;
@@ -89,8 +90,35 @@ export default function SeoLandingTemplate({ content, slug }: SeoLandingTemplate
           style={{ backgroundImage: `url('${content.heroImage}')` }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-[#0b1220]/80" aria-hidden="true" />
-        <div className="site-container relative z-10">
+        <div className="absolute inset-0 bg-[#0b1220]/80" aria-hidden="true" style={{ zIndex: 1 }} />
+
+        {/* Animated water background behind hero content */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden style={{ zIndex: 6 }}>
+          <div className="trust-water-bg absolute inset-0" style={{ zIndex: 6 }}>
+            {Array.from({ length: 12 }).map((_, i) => (
+              <span key={i} className={`water-drop drop-${i + 1}`} />
+            ))}
+
+            <div className="water-pool" aria-hidden>
+              <div className="wave-layer wave-anim-1">
+                <svg className="wave-svg" viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0,40 C150,120 350,0 600,40 C850,80 1050,20 1200,40 L1200,120 L0,120 Z" />
+                </svg>
+              </div>
+              <div className="wave-layer wave-anim-2">
+                <svg className="wave-svg" viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0,60 C200,20 400,90 600,60 C800,30 1000,85 1200,60 L1200,120 L0,120 Z" />
+                </svg>
+              </div>
+              <div className="wave-layer wave-anim-3">
+                <svg className="wave-svg" viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0,50 C180,10 360,110 600,50 C840,-10 1020,90 1200,50 L1200,120 L0,120 Z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="site-container relative z-20">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ff5e2e]">
             Kampala . Uganda . East Africa
           </p>
@@ -101,18 +129,17 @@ export default function SeoLandingTemplate({ content, slug }: SeoLandingTemplate
             {content.heroSubtitle}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href={content.cta.buttonHref}
-              className="inline-flex items-center justify-center rounded-full bg-[#ff5e2e] px-6 py-2.5 text-sm font-semibold text-white hover:bg-[#ff6b3d]"
-            >
+            <Button href={content.cta.buttonHref} variant="primary" className="inline-flex items-center justify-center">
               {content.cta.buttonText}
-            </Link>
-            <Link
-              href="/portfolio"
-              className="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-2.5 text-sm font-semibold text-white hover:border-white"
-            >
+            </Button>
+            <Button href="/portfolio" variant="secondary" className="inline-flex items-center justify-center border border-white/40 px-6 py-2.5 text-sm font-semibold">
               View portfolio
-            </Link>
+            </Button>
+          </div>
+          <div className="mt-5">
+            <Button href="/contact" variant="secondary" className="inline-flex items-center justify-center bg-[#0b63f3] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#0755d4]">
+              Talk to Expert about this service
+            </Button>
           </div>
         </div>
         </section>
@@ -138,12 +165,9 @@ export default function SeoLandingTemplate({ content, slug }: SeoLandingTemplate
               <span className="rounded-lg border border-[#dbe4f3] px-4 py-3">Fast performance</span>
             </div>
             <div className="mt-6">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-full border border-[#ff5e2e] px-6 py-2.5 text-sm font-semibold text-[#ff5e2e] hover:bg-[#fff4f0]"
-              >
+              <Button href="/contact" variant="secondary" className="inline-flex items-center justify-center rounded-full border border-[#ff5e2e] px-6 py-2.5 text-sm font-semibold text-[#ff5e2e] hover:bg-[#fff4f0]">
                 Talk to our team
-              </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -235,12 +259,9 @@ export default function SeoLandingTemplate({ content, slug }: SeoLandingTemplate
             <h2 className="text-3xl font-bold">{content.cta.headline}</h2>
             <p className="mt-4 max-w-3xl text-base leading-7 text-white/80">{content.cta.body}</p>
           </div>
-          <Link
-            href={content.cta.buttonHref}
-            className="inline-flex items-center justify-center rounded-full bg-[#ff5e2e] px-7 py-3 text-sm font-semibold text-white hover:bg-[#ff6b3d]"
-          >
+          <Button href={content.cta.buttonHref} variant="primary" className="inline-flex items-center justify-center">
             {content.cta.buttonText}
-          </Link>
+          </Button>
         </div>
         </section>
       </ScrollReveal>

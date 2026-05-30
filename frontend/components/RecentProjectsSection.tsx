@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
 import { portfolioProjects } from "@/lib/portfolio";
@@ -68,34 +69,33 @@ export default function RecentProjectsSection() {
                   />
                 </CardItem>
                 <div className="mt-6 flex items-center justify-between">
-                  <Link href={`/case-studies/${item.slug}`} aria-label={`Open case study: ${item.title}`}>
-                    <CardItem
-                      translateZ={20}
-                      as="div"
-                      className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-semibold text-[#273248]"
-                    >
-                      View Case Study
-                      <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
-                    </CardItem>
-                  </Link>
-                  <Link
+                  <Button href={`/case-studies/${item.slug}`} variant="secondary" className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-semibold text-[#273248]" aria-label={`Open case study: ${item.title}`}>
+                    View Case Study
+                    <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
+                  </Button>
+                  <Button
                     href={item.exploreUrl ?? `/case-studies/${item.slug}`}
                     aria-label={`Explore project: ${item.title}`}
                     target={item.exploreUrl ? "_blank" : undefined}
-                    rel={item.exploreUrl ? "noreferrer" : undefined}
+                    rel={item.exploreUrl ? "noopener noreferrer" : undefined}
+                    variant="primary"
+                    className="rounded-xl px-4 py-2 text-xs font-bold text-white transition-colors"
                   >
-                    <CardItem
-                      translateZ={20}
-                      as="div"
-                      className="rounded-xl bg-[#ff5e2e] px-4 py-2 text-xs font-bold text-white transition-colors hover:bg-[#ff6b3d]"
-                    >
-                      Explore
-                    </CardItem>
-                  </Link>
+                    Explore
+                  </Button>
                 </div>
               </CardBody>
             </CardContainer>
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center justify-center rounded-full bg-[#0b63f3] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#0956d0]"
+          >
+            Explore more
+          </Link>
         </div>
 
         <div className="mt-10 flex justify-center gap-2" aria-hidden="true">

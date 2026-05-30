@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { pricingFeatures, pricingPackages } from "@/lib/pricing";
 
 export default function PricingPackagesSection() {
@@ -48,13 +49,13 @@ export default function PricingPackagesSection() {
               className="pricing-glass group relative min-h-66 overflow-hidden rounded-sm border border-white/10 bg-[#0b0f1a]/90 px-7 py-6 text-white shadow-[0_18px_40px_rgba(3,7,18,0.35)]"
             >
               {/* Full-card clickable layer — covers the entire card and links to contact with plan */}
-              <Link
-                href={`/contact?plan=${encodeURIComponent(item.name)}`}
-                className="absolute inset-0 z-10"
-                aria-label={`Choose ${item.name} package`}
-              >
-                <span className="sr-only">Choose {item.name} package</span>
-              </Link>
+                  <Link
+                    href={`/contact?plan=${encodeURIComponent(item.name)}`}
+                    className="absolute inset-0 z-10"
+                    aria-label={`Choose ${item.name} package`}
+                  >
+                    <span className="sr-only">Choose {item.name} package</span>
+                  </Link>
 
               <div className="pricing-glass-sheen pointer-events-none absolute inset-0" aria-hidden="true" />
               <span
@@ -88,12 +89,9 @@ export default function PricingPackagesSection() {
                   </p>
                   <p className="mt-1 text-xs font-semibold text-white/70">Save 25%</p>
 
-                  <Link
-                    href={`/contact?plan=${encodeURIComponent(item.name)}`}
-                    className="pricing-package-btn mt-4 inline-flex h-10 w-full items-center justify-center rounded-full border border-[#ff5e2e] px-4 text-xs font-semibold text-[#ff5e2e] md:w-auto"
-                  >
+                  <Button href={`/contact?plan=${encodeURIComponent(item.name)}`} variant="primary" className="pricing-package-btn mt-4 inline-flex h-10 w-full items-center justify-center rounded-full border border-[#ff5e2e] px-4 text-xs font-semibold text-[#ff5e2e] md:w-auto">
                     <span className="relative z-10">Choose Package&nbsp;&raquo;</span>
-                  </Link>
+                  </Button>
                 </div>
               </div>
             </article>

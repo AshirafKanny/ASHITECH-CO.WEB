@@ -1,7 +1,7 @@
 
-import Link from "next/link";
 import { Play } from "lucide-react";
 import { BackgroundLines } from "@/components/ui/background-lines";
+import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   return (
@@ -74,20 +74,14 @@ export default function Hero() {
           </p>
 
           <div className="hero-cta-reveal mt-10 flex flex-wrap justify-center gap-4">
-            <Link
-              href="/contact"
-              className="hero-btn-sweep hero-btn-sweep-primary inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold text-white"
-            >
-              Get a Free Quote
-              <span className="hero-btn-arrow" aria-hidden="true">&raquo;</span>
-            </Link>
-            <Link
-              href="/services"
-              className="hero-btn-sweep hero-btn-sweep-secondary inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold text-white"
-            >
-              Explore Services
-              <span className="hero-btn-arrow" aria-hidden="true">&raquo;</span>
-            </Link>
+              <Button href="/contact" variant="primary" className="hero-btn-sweep hero-btn-sweep-primary inline-flex items-center gap-2">
+                Get a Free Quote
+                <span className="hero-btn-arrow" aria-hidden="true">»</span>
+              </Button>
+              <Button href="/services" variant="secondary" className="hero-btn-sweep hero-btn-sweep-secondary inline-flex items-center gap-2">
+                Explore Services
+                <span className="hero-btn-arrow" aria-hidden="true">»</span>
+              </Button>
           </div>
 
           <div className="mt-10 flex items-center justify-center gap-3" aria-hidden="true">
@@ -106,7 +100,7 @@ export default function Hero() {
         <button
           type="button"
           aria-label="Play company intro video"
-          className="mt-12 inline-flex items-center gap-3 rounded-full border border-white/60 px-5 py-2 text-sm font-semibold text-white/90 transition-colors hover:border-white hover:text-white"
+          className="app-animated-button mt-12 inline-flex items-center gap-3 rounded-full border border-white/60 px-5 py-2 text-sm font-semibold text-white/90 transition-colors hover:border-white hover:text-white"
         >
           <span className="grid h-10 w-10 place-items-center rounded-full bg-[#F97316] text-white">
             <Play size={20} fill="currentColor" aria-hidden="true" />

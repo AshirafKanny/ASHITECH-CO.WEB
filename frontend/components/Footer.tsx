@@ -117,7 +117,7 @@ export default function Footer() {
 
               <button
                 type="submit"
-                className="inline-flex h-12 items-center justify-center rounded-full bg-[#ff6b3d] px-9 text-sm font-semibold text-white transition-colors hover:bg-[#ff7d54]"
+                className="app-animated-button inline-flex h-12 items-center justify-center rounded-full bg-[#ff6b3d] px-9 text-sm font-semibold text-white transition-colors hover:bg-[#ff7d54]"
               >
                 Subscribe Now&nbsp;&raquo;
               </button>

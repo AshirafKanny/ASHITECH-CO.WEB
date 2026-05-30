@@ -178,7 +178,7 @@ export default function ContactMessageSection() {
 
             <button
               type="submit"
-              className="mx-auto mt-3 inline-flex h-11 w-48 items-center justify-center rounded-full bg-[#ff6b3d] text-xs font-semibold text-white transition-colors hover:bg-[#ff7d54]"
+              className="app-animated-button mx-auto mt-3 inline-flex h-11 w-48 items-center justify-center rounded-full bg-[#ff6b3d] text-xs font-semibold text-white transition-colors hover:bg-[#ff7d54]"
             >
               Send Messages &raquo;
             </button>

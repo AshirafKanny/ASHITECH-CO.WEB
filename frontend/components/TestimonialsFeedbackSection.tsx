@@ -64,7 +64,7 @@ export default function TestimonialsFeedbackSection() {
               type="button"
               onClick={handlePrev}
               aria-label="Previous testimonials"
-              className="grid h-13 w-13 place-items-center rounded-full bg-[#ff6b3d] text-white shadow-[0_10px_22px_rgba(255,107,61,0.28)] outline-none ring-0 transition-transform hover:-translate-y-0.5 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
+              className="app-animated-button grid h-13 w-13 place-items-center rounded-full bg-[#ff6b3d] text-white shadow-[0_10px_22px_rgba(255,107,61,0.28)] outline-none ring-0 transition-transform hover:-translate-y-0.5 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
             >
               <ArrowLeft size={24} aria-hidden="true" />
             </button>
@@ -72,7 +72,7 @@ export default function TestimonialsFeedbackSection() {
               type="button"
               onClick={handleNext}
               aria-label="Next testimonials"
-              className="grid h-13 w-13 place-items-center rounded-full bg-white/65 text-[#ff6b3d] outline-none ring-0 transition-colors hover:bg-white focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
+              className="app-animated-button grid h-13 w-13 place-items-center rounded-full bg-white/65 text-[#ff6b3d] outline-none ring-0 transition-colors hover:bg-white focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
             >
               <ArrowRight size={24} aria-hidden="true" />
             </button>

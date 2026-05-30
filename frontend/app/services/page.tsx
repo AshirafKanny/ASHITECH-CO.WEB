@@ -111,6 +111,15 @@ export default function ServicesPage() {
               <ChevronRight size={18} aria-hidden="true" />
               <span className="text-[#0b63f3] underline underline-offset-3">Popular Services</span>
             </div>
+
+            <div className="mt-8 flex justify-center">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-[#0b63f3] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#0755d4]"
+              >
+                Talk to Expert about this service
+              </Link>
+            </div>
           </div>
           </section>
         </ScrollReveal>
@@ -134,7 +143,7 @@ export default function ServicesPage() {
 
               <button
                 type="button"
-                className="mt-7 inline-flex items-center gap-2 rounded-md bg-[#0b63f3] px-6 py-2.5 text-base font-semibold text-white transition-colors hover:bg-[#0755d4]"
+                className="app-animated-button mt-7 inline-flex items-center gap-2 rounded-md bg-[#0b63f3] px-6 py-2.5 text-base font-semibold text-white transition-colors hover:bg-[#0755d4]"
               >
                 Learn More
                 <span aria-hidden="true">&raquo;</span>
@@ -233,7 +242,7 @@ export default function ServicesPage() {
 
                     <button
                       type="button"
-                      className="mt-6 inline-flex items-center gap-2 rounded-md border border-[#0b63f3] px-6 py-2.5 text-base font-semibold text-[#27314a] transition-colors hover:bg-[#eff6ff] md:text-lg"
+                      className="app-animated-button mt-6 inline-flex items-center gap-2 rounded-md border border-[#0b63f3] px-6 py-2.5 text-base font-semibold text-[#27314a] transition-colors hover:bg-[#eff6ff] md:text-lg"
                     >
                       Choose Package
                       <span aria-hidden="true">&raquo;</span>

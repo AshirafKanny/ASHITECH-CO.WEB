@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 import { absoluteUrl, defaultSeoImagePath } from "../../../lib/seo";
@@ -110,6 +111,14 @@ export default function WebDevelopmentServicePage() {
               <p className="mt-5 max-w-2xl text-base leading-7 text-blue-50/90 sm:text-lg">
                 {details.intro}
               </p>
+              <div className="mt-8">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-full bg-[#0b63f3] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#0755d4]"
+                >
+                  Talk to Expert about this service
+                </Link>
+              </div>
             </div>
           </div>
 

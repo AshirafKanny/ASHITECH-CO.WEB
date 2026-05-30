@@ -125,6 +125,283 @@ img, picture, video, svg {
   color: #ffffff;
 }
 
+.trust-signals-section {
+  isolation: isolate;
+}
+
+.trust-signals-grid-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle at 24% 22%, rgba(11, 99, 243, 0.12), rgba(255, 255, 255, 0) 45%),
+    radial-gradient(circle at 80% 75%, rgba(14, 165, 233, 0.1), rgba(255, 255, 255, 0) 40%);
+}
+
+.trust-signals-grid-bg::before,
+.trust-signals-grid-bg::after {
+  content: "";
+  position: absolute;
+  left: -30%;
+  right: -30%;
+  top: -40%;
+  bottom: -40%;
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.26) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.26) 1px, transparent 1px);
+  background-size: 42px 42px;
+  transform-origin: center;
+}
+
+.trust-signals-grid-bg::before {
+  opacity: 0.5;
+  transform: perspective(980px) rotateX(72deg) rotateZ(-2deg) translate3d(0, 0, 0) scale(1.08);
+  animation: trust-grid-camera-pan 11s linear infinite;
+}
+
+.trust-signals-grid-bg::after {
+  opacity: 0.34;
+  filter: blur(0.3px);
+  background-size: 60px 60px;
+  transform: perspective(980px) rotateX(72deg) rotateZ(1.5deg) translate3d(0, 0, 0) scale(1.16);
+  animation: trust-grid-camera-pan-alt 14s linear infinite;
+}
+
+@keyframes trust-grid-camera-pan {
+  0% {
+    transform: perspective(980px) rotateX(72deg) rotateZ(-2deg) translate3d(-2%, 6%, 0) scale(1.08);
+  }
+  50% {
+    transform: perspective(980px) rotateX(72deg) rotateZ(0deg) translate3d(3%, -7%, 0) scale(1.12);
+  }
+  100% {
+    transform: perspective(980px) rotateX(72deg) rotateZ(-2deg) translate3d(-2%, 6%, 0) scale(1.08);
+  }
+}
+
+@keyframes trust-grid-camera-pan-alt {
+  0% {
+    transform: perspective(980px) rotateX(72deg) rotateZ(1.5deg) translate3d(5%, -5%, 0) scale(1.16);
+  }
+  50% {
+    transform: perspective(980px) rotateX(72deg) rotateZ(-1deg) translate3d(-4%, 8%, 0) scale(1.2);
+  }
+  100% {
+    transform: perspective(980px) rotateX(72deg) rotateZ(1.5deg) translate3d(5%, -5%, 0) scale(1.16);
+  }
+}
+
+@keyframes button-border-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.app-animated-button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #0b63f3 !important;
+  color: #ffffff !important;
+  border: 1px solid transparent !important;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.app-animated-button::before {
+  content: "";
+  position: absolute;
+  left: -60%;
+  top: -60%;
+  width: 220%;
+  height: 220%;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    #7dd3fc,
+    #e0f2fe,
+    #38bdf8,
+    #93c5fd,
+    #7dd3fc
+  );
+  animation: button-border-rotate 2.4s linear infinite;
+  z-index: -2;
+}
+
+.app-animated-button::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: inherit;
+  background: #0b63f3;
+  z-index: -1;
+}
+
+.app-animated-button:hover {
+  filter: brightness(1.08);
+}
+
+.app-animated-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Trust section water animation */
+.trust-water-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.water-drop {
+  position: absolute;
+  top: -14vh;
+  width: 8px;
+  height: 28vh;
+  background: linear-gradient(180deg, rgba(59,130,246,1), rgba(14,165,233,0.95));
+  border-radius: 8px;
+  opacity: 1;
+  transform-origin: top center;
+  filter: blur(0.8px) drop-shadow(0 10px 20px rgba(14,165,233,0.12));
+  animation: drop-fall 2.4s cubic-bezier(.2,.7,.1,1) infinite;
+  animation: drop-fall 2.4s cubic-bezier(.25,.8,.25,1) infinite;
+}
+
+/* stagger each drop */
+.water-drop.drop-1 { left: 6%; animation-delay: 0s; }
+.water-drop.drop-2 { left: 14%; animation-delay: 0.2s; }
+.water-drop.drop-3 { left: 22%; animation-delay: 0.4s; }
+.water-drop.drop-4 { left: 30%; animation-delay: 0.6s; }
+.water-drop.drop-5 { left: 38%; animation-delay: 0.8s; }
+.water-drop.drop-6 { left: 46%; animation-delay: 1s; }
+.water-drop.drop-7 { left: 54%; animation-delay: 1.2s; }
+.water-drop.drop-8 { left: 62%; animation-delay: 1.4s; }
+.water-drop.drop-9 { left: 70%; animation-delay: 1.6s; }
+.water-drop.drop-10{ left: 78%; animation-delay: 1.8s; }
+.water-drop.drop-11{ left: 86%; animation-delay: 2s; }
+.water-drop.drop-12{ left: 94%; animation-delay: 2.2s; }
+
+@keyframes drop-fall {
+  0% { transform: translateY(-120%) scaleY(0.85); opacity: 0.95; }
+  65% { opacity: 0.9; }
+  85% { transform: translateY(0%) scaleY(1); opacity: 0.7; }
+  100% { transform: translateY(6%) scaleY(1.02); opacity: 0.45; }
+}
+
+.water-pool {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 28%;
+  display: block;
+  transform: translateZ(0);
+  pointer-events: none;
+}
+
+.water-pool .wave-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transform-origin: center bottom;
+  animation: pool-surface 5.6s ease-in-out infinite;
+}
+
+/* Horizontal wave drift to create visible moving waves */
+.water-pool .wave-layer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 200%;
+  height: 100%;
+  transform-origin: left bottom;
+}
+
+.wave-anim-1 { animation: wave-drift 14s linear infinite; opacity: 0.85; }
+.wave-anim-2 { animation: wave-drift 10s linear infinite reverse; opacity: 0.7; }
+.wave-anim-3 { animation: wave-drift 18s linear infinite; opacity: 0.6; }
+
+@keyframes wave-drift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Make wave fills stronger and more visible */
+.water-pool .wave-svg path:nth-child(1){ fill: rgba(59,130,246,0.22); }
+.water-pool .wave-svg path:nth-child(2){ fill: rgba(30,64,175,0.18); }
+.water-pool .wave-svg path:nth-child(3){ fill: rgba(96,165,250,0.12); }
+
+/* Ensure water sits behind content but above the hero background */
+.trust-water-bg { z-index: 2; }
+
+
+@keyframes pool-surface {
+  0% { transform: translateY(0) scaleX(1); }
+  50% { transform: translateY(-4px) scaleX(1.02); }
+  100% { transform: translateY(0) scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .water-drop,
+  .water-pool .wave-svg {
+    animation: none !important;
+  }
+}
+
+/* Rain overlay to give rainy weather appearance */
+.trust-water-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(120deg,
+    rgba(187,222,251,0.06) 0px,
+    rgba(187,222,251,0.06) 1px,
+    rgba(0,0,0,0) 2px);
+  background-size: 6px 12px;
+  opacity: 0.7;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  transform: translateZ(0);
+  animation: rain-slide 0.9s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rain-slide {
+  from { background-position: 0 0; }
+  to { background-position: -18px 36px; }
+}
+
+/* Fog overlay to deepen rainy mood */
+.trust-water-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(3,7,18,0.55), rgba(3,7,18,0.35));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Make wave fills stronger blue */
+.water-pool .wave-svg path:nth-child(1){ fill: rgba(59,130,246,0.16); }
+.water-pool .wave-svg path:nth-child(2){ fill: rgba(37,99,235,0.12); }
+.water-pool .wave-svg path:nth-child(1){ fill: rgba(59,130,246,0.28); }
+.water-pool .wave-svg path:nth-child(2){ fill: rgba(37,99,235,0.22); }
+
+.wave-layer { position: absolute; left: 0; right: 0; bottom: 0; height: 100%; overflow: hidden; }
+.wave-anim-1 .wave-svg { animation: wave-move 6s linear infinite; transform: translate3d(0,0,0); }
+.wave-anim-2 .wave-svg { animation: wave-move 8s linear infinite reverse; opacity: 0.9; transform: translate3d(0,0,0); }
+.wave-anim-3 .wave-svg { animation: wave-move 10s linear infinite; opacity: 0.75; transform: translate3d(0,0,0); }
+
+@keyframes wave-move {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-6%); }
+  100% { transform: translateX(0); }
+}
+
 @media (min-width: 900px) {
   .sticky-cta {
     display: none;
@@ -296,6 +573,15 @@ img, picture, video, svg {
   .logo-marquee__track {
     animation: none;
     transform: translateX(0);
+  }
+
+  .app-animated-button::before {
+    animation: none;
+  }
+
+  .trust-signals-grid-bg::before,
+  .trust-signals-grid-bg::after {
+    animation: none;
   }
 }
 
