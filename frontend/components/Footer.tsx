@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Youtube } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 const linksColA = [
   { label: "Web Design Uganda", href: "/website-design-uganda" },
@@ -26,10 +26,6 @@ export default function Footer() {
         <div className="footer-hole-grid footer-hole-grid-b" />
         <div className="footer-hole-haze" />
         <div className="footer-hole-core" />
-        <div className="footer-hole-camera">
-          <span className="footer-hole-camera__body" />
-          <span className="footer-hole-camera__lens" />
-        </div>
       </div>
 
       <div className="site-container relative z-10 py-14 lg:py-16">
@@ -110,17 +106,54 @@ export default function Footer() {
               Stay connected with us on social media for updates and insights.
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
-              {[Facebook, Twitter, Linkedin, Instagram, Youtube].map((Icon, index) => (
-                <a
-                  key={`follow-${index}`}
-                  href="#"
-                  className="footer-social-icon grid h-11 w-11 place-items-center rounded-full bg-white text-[#0F172A] transition-colors hover:bg-[#ff6b3d] hover:text-white"
-                  aria-label="Follow us"
-                >
-                  <Icon size={17} aria-hidden="true" />
-                </a>
-              ))}
+            <div className="mt-6 flex items-center gap-3">
+              <a
+                href="#"
+                className="footer-social-icon grid h-11 w-11 place-items-center rounded-full bg-white"
+                aria-label="Facebook"
+              >
+                <img src="/facebook.webp" alt="Facebook" className="h-6 w-6 object-contain" />
+              </a>
+
+              <a
+                href="https://x.com/ashirafkanny?s=21"
+                target="_blank"
+                rel="noreferrer"
+                className="footer-social-icon grid h-11 w-11 place-items-center rounded-full bg-white"
+                aria-label="X"
+              >
+                <img src="/xx.webp" alt="X" className="h-6 w-6 object-contain" />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/company/119583960/admin/dashboard/"
+                target="_blank"
+                rel="noreferrer"
+                className="footer-social-icon grid h-11 w-11 place-items-center rounded-full bg-white"
+                aria-label="LinkedIn"
+              >
+                <img src="/linkedin.webp" alt="LinkedIn" className="h-6 w-6 object-contain" />
+              </a>
+
+              <a
+                href="https://www.tiktok.com/@keni_webdesign?_r=1&_t=ZS-96pYZcq9Vhq"
+                target="_blank"
+                rel="noreferrer"
+                className="footer-social-icon grid h-11 w-11 place-items-center rounded-full bg-white"
+                aria-label="TikTok"
+              >
+                <img src="/tiktok.webp" alt="TikTok" className="h-6 w-6 object-contain" />
+              </a>
+
+              <a
+                href="https://www.youtube.com/@Keni-webdesign"
+                target="_blank"
+                rel="noreferrer"
+                className="footer-social-icon grid h-11 w-11 place-items-center rounded-full bg-white"
+                aria-label="YouTube"
+              >
+                <img src="/youtube.webp" alt="YouTube" className="h-6 w-6 object-contain" />
+              </a>
             </div>
           </div>
         </div>

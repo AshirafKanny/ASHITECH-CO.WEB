@@ -17,6 +17,7 @@ import {
 
 const navItems = [
   { name: "Home", link: "/" },
+  { name: "About Us", link: "/about-us" },
   { name: "Pricing", link: "/pricing" },
   { name: "Portfolio", link: "/portfolio" },
   { name: "Blog", link: "/blog" },
