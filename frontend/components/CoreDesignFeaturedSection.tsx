@@ -106,22 +106,14 @@ export default function CoreDesignFeaturedSection() {
               </svg>
 
               <div className="featured-scroll-mask overflow-hidden rounded-[999px] bg-[#d9d0c6]">
-                <div className="featured-scroll-track">
-                  <Image
-                    src="/LLL3.webp"
-                    alt="KENI WEB DESIGN featured central service showcase"
-                    width={340}
-                    height={510}
-                    className="featured-scroll-image"
-                  />
-                  <Image
-                    src="/LLL3.webp"
-                    alt="KENI WEB DESIGN featured central service showcase"
-                    width={340}
-                    height={510}
-                    className="featured-scroll-image"
-                  />
-                </div>
+                <Image
+                  src="/LLL3.webp"
+                  alt="KENI WEB DESIGN featured central service showcase"
+                  width={340}
+                  height={510}
+                  priority
+                  className="featured-scroll-image"
+                />
               </div>
             </div>
 

@@ -44,9 +44,23 @@ export default function TestimonialsFeedbackSection() {
   };
 
   return (
-    <section className="bg-white py-16" aria-labelledby="testimonials-heading">
-      <div className="site-container relative">
-        <span className="pointer-events-none absolute left-1/2 top-8 hidden h-[calc(100%-6rem)] w-px bg-[#D2DAE7] md:block" aria-hidden="true" />
+    <section className="relative overflow-hidden bg-[#081225] py-16 text-white" aria-labelledby="testimonials-heading">
+      <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+        <video
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          src="/congsv%20(1).mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        />
+        <div className="absolute inset-0 bg-[#081225]/72" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.18),rgba(8,18,37,0)_45%)]" />
+      </div>
+
+      <div className="site-container relative z-10">
+        <span className="pointer-events-none absolute left-1/2 top-8 hidden h-[calc(100%-6rem)] w-px bg-white/18 md:block" aria-hidden="true" />
 
         <div className="flex flex-wrap items-start justify-between gap-6">
           <div>
@@ -54,17 +68,17 @@ export default function TestimonialsFeedbackSection() {
               &#183;&#183;&#183;{" "}
               <span className="underline decoration-[#ff5e2e] underline-offset-2">Clients Testimonials</span>
             </p>
-            <h2 id="testimonials-heading" className="mt-4 text-3xl font-bold text-[#1E293B] md:text-5xl">
+            <h2 id="testimonials-heading" className="mt-4 text-3xl font-bold text-white md:text-5xl">
               Clients feedback
             </h2>
           </div>
 
           <div className="mt-3 flex items-center gap-3">
-            <button
+              <button
               type="button"
               onClick={handlePrev}
               aria-label="Previous testimonials"
-              className="app-animated-button grid h-13 w-13 place-items-center rounded-full bg-[#ff6b3d] text-white shadow-[0_10px_22px_rgba(255,107,61,0.28)] outline-none ring-0 transition-transform hover:-translate-y-0.5 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
+                className="app-animated-button grid h-13 w-13 place-items-center rounded-full bg-[#ff6b3d] text-white shadow-[0_10px_22px_rgba(255,107,61,0.28)] outline-none ring-0 transition-transform hover:-translate-y-0.5 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
             >
               <ArrowLeft size={24} aria-hidden="true" />
             </button>
@@ -79,11 +93,11 @@ export default function TestimonialsFeedbackSection() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-[#D2DAE7]" />
+        <div className="mt-10 border-t border-white/18" />
 
         <div className="grid gap-10 py-12 md:grid-cols-2 md:gap-12">
           {visibleTestimonials.map((item, index) => (
-            <article key={`${item.name}-${index}`} className={`flex gap-6 ${index === 1 ? "md:border-l md:border-[#D2DAE7] md:pl-12" : ""}`}>
+            <article key={`${item.name}-${index}`} className={`flex gap-6 rounded-2xl bg-white/6 p-5 backdrop-blur-md ${index === 1 ? "md:border-l md:border-white/18 md:pl-12" : ""}`}>
               <div className="relative h-28 w-28 shrink-0">
                 <div className="relative h-full w-full overflow-hidden rounded-full">
                   <Image
@@ -100,12 +114,12 @@ export default function TestimonialsFeedbackSection() {
               </div>
 
               <div className="pt-1">
-                <p className="max-w-lg text-base leading-7 text-[#636f80] md:text-lg md:leading-8">{item.quote}</p>
+                <p className="max-w-lg text-base leading-7 text-white/82 md:text-lg md:leading-8">{item.quote}</p>
                 <div className="mt-4 flex items-center gap-4">
                   <span className="h-1 w-10 bg-[#ff5e2e]" aria-hidden="true" />
-                  <h3 className="text-2xl font-semibold text-[#ff5e2e] md:whitespace-nowrap md:text-3xl">{item.name}</h3>
+                  <h3 className="text-2xl font-semibold text-[#7dd3fc] md:whitespace-nowrap md:text-3xl">{item.name}</h3>
                 </div>
-                <p className="mt-1 text-base text-[#374459] md:text-lg">{item.role}</p>
+                <p className="mt-1 text-base text-white/72 md:text-lg">{item.role}</p>
               </div>
             </article>
           ))}

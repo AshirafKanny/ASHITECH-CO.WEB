@@ -1,6 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
-import { Beaker, Facebook, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Youtube } from "lucide-react";
 
 const linksColA = [
   { label: "Web Design Uganda", href: "/website-design-uganda" },
@@ -21,113 +20,127 @@ const linksColB = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#ECEFF4] text-[#2D374D]">
-      <div className="site-container py-16">
-        <div className="grid gap-10 lg:grid-cols-[1.08fr_1.02fr_0.92fr]">
+    <footer className="relative isolate overflow-hidden bg-[#DCE8FF] text-[#2D374D]">
+      <div className="footer-hole-bg" aria-hidden="true">
+        <div className="footer-hole-grid footer-hole-grid-a" />
+        <div className="footer-hole-grid footer-hole-grid-b" />
+        <div className="footer-hole-haze" />
+        <div className="footer-hole-core" />
+        <div className="footer-hole-camera">
+          <span className="footer-hole-camera__body" />
+          <span className="footer-hole-camera__lens" />
+        </div>
+      </div>
+
+      <div className="site-container relative z-10 py-14 lg:py-16">
+        <div className="grid gap-12 lg:grid-cols-[1.15fr_0.95fr_0.85fr_1fr] lg:gap-10">
           <div>
             <Link href="/" className="inline-flex items-center">
-              <Image
-                src="/keniwebdesign-01.png"
-                alt="KENI WEB DESIGN logo"
-                width={320}
-                height={120}
-                className="h-16 w-auto sm:h-20"
-              />
-              <span className="sr-only">KENI WEB DESIGN</span>
+              <span className="text-xl font-bold tracking-tight text-[#1F2937] sm:text-2xl">Keni Web design</span>
             </Link>
 
-            <p className="mt-6 max-w-md text-base leading-8 text-[#6A7486]">
+            <p className="mt-5 max-w-md text-xs leading-6 text-[#4f5b70] sm:text-sm sm:leading-7">
               KENI WEB DESIGN helps Kampala businesses grow with modern web design, SEO-ready structure, and
               conversion-focused strategy. We build fast, mobile-first websites that turn visitors into customers.
             </p>
 
-            <div className="mt-5 text-sm leading-6 text-[#6A7486]">
-              <p className="font-semibold text-[#2A344A]">Kampala Office</p>
-              <p>Kansanga, UK Mall, Kampala, Uganda</p>
-              <p>Phone: 0744429808 / 0761856198</p>
+            <div className="mt-6 space-y-3 text-xs leading-5 text-[#4f5b70] sm:text-sm sm:leading-6">
+              <div className="flex items-start gap-3">
+                <MapPin className="mt-0.5 shrink-0" size={16} aria-hidden="true" />
+                <div>
+                  <p className="font-semibold text-[#2A344A]">Kampala Office</p>
+                  <p>Kansanga, UK Mall, Kampala, Uganda</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Phone className="mt-0.5 shrink-0" size={16} aria-hidden="true" />
+                <div>
+                  <p>0744429808</p>
+                  <p>0761856198</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Mail className="mt-0.5 shrink-0" size={16} aria-hidden="true" />
+                <a href="mailto:info@keniwebdesign.com" className="hover:text-[#ff6b3d]">
+                  info@keniwebdesign.com
+                </a>
+              </div>
               <a
                 href="https://maps.app.goo.gl/kUZ7XeRiaQ1dxrMt8"
                 target="_blank"
                 rel="noreferrer"
-                className="mt-2 inline-flex text-sm font-semibold text-[#ff6b3d] hover:underline"
+                className="inline-flex text-sm font-semibold text-[#ff6b3d] hover:underline"
               >
                 View on Google Maps
               </a>
             </div>
+          </div>
 
-            <div className="mt-7 flex items-center gap-3">
-              {[Facebook, Twitter, Linkedin, Beaker].map((Icon, index) => (
+          <div>
+            <h3 className="text-lg font-semibold text-[#1F2937] sm:text-xl">Services</h3>
+            <ul className="mt-5 space-y-3 text-xs text-[#4f5b70] sm:text-sm">
+              {linksColA.map((item) => (
+                <li key={item.label}>
+                  <Link href={item.href} className="inline-flex items-center gap-3 transition-colors hover:text-[#ff6b3d]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#A9B0BD]" aria-hidden="true" />
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold text-[#1F2937] sm:text-xl">Quick Links</h3>
+            <ul className="mt-5 space-y-3 text-xs text-[#4f5b70] sm:text-sm">
+              {linksColB.map((item) => (
+                <li key={item.label}>
+                  <Link href={item.href} className="inline-flex items-center gap-3 transition-colors hover:text-[#ff6b3d]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#A9B0BD]" aria-hidden="true" />
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold text-[#1F2937] sm:text-xl">Follow Us</h3>
+            <p className="mt-5 max-w-xs text-xs leading-6 text-[#4f5b70] sm:text-sm sm:leading-7">
+              Stay connected with us on social media for updates and insights.
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              {[Facebook, Twitter, Linkedin, Instagram, Youtube].map((Icon, index) => (
                 <a
-                  key={`social-${index}`}
+                  key={`follow-${index}`}
                   href="#"
-                  className="footer-social-icon grid h-12 w-12 place-items-center rounded-full bg-white text-[#ff6b3d] transition-colors hover:bg-[#ff6b3d] hover:text-white"
-                  aria-label="Social profile"
+                  className="footer-social-icon grid h-11 w-11 place-items-center rounded-full bg-white text-[#0F172A] transition-colors hover:bg-[#ff6b3d] hover:text-white"
+                  aria-label="Follow us"
                 >
-                  <Icon size={18} aria-hidden="true" />
+                  <Icon size={17} aria-hidden="true" />
                 </a>
               ))}
             </div>
           </div>
-
-          <div>
-            <h3 className="text-4xl font-semibold text-[#2A344A]">Quick Links</h3>
-            <div className="mt-6 grid grid-cols-2 gap-x-8 gap-y-3 text-base text-[#6A7486]">
-              <ul className="space-y-3">
-                {linksColA.map((item) => (
-                  <li key={item.label}>
-                    <Link href={item.href} className="inline-flex items-center gap-3 hover:text-[#ff6b3d]">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#A9B0BD]" aria-hidden="true" />
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-
-              <ul className="space-y-3">
-                {linksColB.map((item) => (
-                  <li key={item.label}>
-                    <Link href={item.href} className="inline-flex items-center gap-3 hover:text-[#ff6b3d]">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#A9B0BD]" aria-hidden="true" />
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="rounded-md border border-[#D3DCEC] px-8 py-9">
-            <h3 className="text-4xl font-semibold text-[#2A344A]">Newsletter</h3>
-            <p className="mt-2 text-base text-[#6A7486]">Sing up to get more every updates</p>
-
-            <form className="mt-5 space-y-4">
-              <input
-                type="email"
-                placeholder="Enter email"
-                className="h-12 w-full rounded-sm bg-white px-6 text-sm text-[#2A344A] outline-none placeholder:text-[#8A92A1]"
-              />
-
-              <input
-                type="tel"
-                placeholder="Enter phone number"
-                inputMode="tel"
-                autoComplete="tel"
-                className="h-12 w-full rounded-sm bg-white px-6 text-sm text-[#2A344A] outline-none placeholder:text-[#8A92A1]"
-              />
-
-              <button
-                type="submit"
-                className="app-animated-button inline-flex h-12 items-center justify-center rounded-full bg-[#ff6b3d] px-9 text-sm font-semibold text-white transition-colors hover:bg-[#ff7d54]"
-              >
-                Subscribe Now&nbsp;&raquo;
-              </button>
-            </form>
-          </div>
         </div>
       </div>
 
-      <div className="border-t border-[#DCE2EC] py-6 text-center text-lg text-[#2A344A]">
-        &copy; Copyright 2022 KENI WEB DESIGN. All right reserved
+      <div className="relative z-10 border-t border-[#C9D7F1] bg-[#DCE8FF]">
+        <div className="site-container flex flex-col gap-4 py-6 text-xs text-[#4f5b70] sm:text-sm lg:flex-row lg:items-center lg:justify-between">
+          <p>&copy; 2020 - 2026 - KENI WEB DESIGN. All rights reserved.</p>
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            <Link href="/privacy-policy" className="hover:text-[#ff6b3d]">
+              Privacy Policy
+            </Link>
+            <Link href="/terms-of-service" className="hover:text-[#ff6b3d]">
+              Terms of Service
+            </Link>
+            <Link href="/refund-policy" className="hover:text-[#ff6b3d]">
+              Refund Policy
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   );
