@@ -157,12 +157,12 @@ export default function HomeFaqSection() {
           </Link>
         </div>
 
-        <Accordion type="multiple" className="mt-10 grid gap-5 lg:grid-cols-2" defaultValue={[faqs[0].value]}>
+        <Accordion type="multiple" className="mt-10 grid items-start gap-5 lg:grid-cols-2" defaultValue={[faqs[0].value]}>
           {faqs.map((faq) => (
             <AccordionItem
               key={faq.value}
               value={faq.value}
-              className="rounded-2xl border border-[#E4E8F1] bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.06)]"
+              className="self-start rounded-2xl border border-[#E4E8F1] bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.06)]"
             >
               <AccordionTrigger className="group text-lg font-semibold text-[#1E293B]">
                 {faq.question}

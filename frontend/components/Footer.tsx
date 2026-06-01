@@ -132,7 +132,7 @@ export default function Footer() {
                 className="footer-social-icon grid h-11 w-11 place-items-center rounded-full bg-white"
                 aria-label="LinkedIn"
               >
-                <img src="/linkedin.webp" alt="LinkedIn" className="h-6 w-6 object-contain" />
+                <img src="/linkedin.webp" alt="LinkedIn" className="h-7 w-7 object-contain" />
               </a>
 
               <a
@@ -152,7 +152,7 @@ export default function Footer() {
                 className="footer-social-icon grid h-11 w-11 place-items-center rounded-full bg-white"
                 aria-label="YouTube"
               >
-                <img src="/youtube.webp" alt="YouTube" className="h-6 w-6 object-contain" />
+                <img src="/youtube.webp" alt="YouTube" className="h-7 w-7 object-contain" />
               </a>
             </div>
           </div>

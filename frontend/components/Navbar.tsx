@@ -5,6 +5,13 @@ import { ChevronDown, Phone } from "lucide-react";
 import { useState } from "react";
 import { serviceItems } from "@/lib/services";
 import {
+  Drawer,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import {
   Navbar,
   NavBody,
   NavItems,
@@ -27,6 +34,7 @@ const navItems = [
 export default function SiteNavbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
 
   return (
     <div className="relative w-full">
@@ -90,59 +98,108 @@ export default function SiteNavbar() {
         <MobileNav>
           <MobileNavHeader className="h-14">
             <NavbarLogo imageClassName="h-7 w-auto" />
-            <MobileNavToggle
-              isOpen={isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            />
-          </MobileNavHeader>
-
-          <MobileNavMenu
-            isOpen={isMobileMenuOpen}
-            onClose={() => setIsMobileMenuOpen(false)}
-          >
-            <a
-              href="tel:+256744429808"
-              className="inline-flex items-center gap-2 rounded-md bg-[#0070f3] px-8 py-2 text-sm font-light text-white shadow-[0_4px_14px_0_rgb(0,118,255,39%)] transition duration-200 ease-linear hover:bg-[rgba(0,118,255,0.9)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] mobile-nav-link-white"
+            <Drawer
+              direction="right"
+              open={isMobileMenuOpen}
+              onOpenChange={(open) => {
+                setIsMobileMenuOpen(open);
+                if (!open) {
+                  setIsMobileServicesOpen(false);
+                }
+              }}
             >
-              <img
-                src="/phone-icon.webp"
-                alt=""
-                className="h-4 w-4"
-              />
-              <span className="mobile-nav-link-white">0744429808, 0761856198</span>
-            </a>
-            {navItems.map((item) => (
-              <Link
-                key={item.link}
-                href={item.link}
-                className="inline-flex w-full items-center justify-center rounded-md bg-[#0070f3] px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_14px_0_rgb(0,118,255,39%)] transition duration-200 ease-linear hover:bg-[rgba(0,118,255,0.9)] mobile-nav-link-white"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <div className="pt-2">
-              <Link
-                href="/services"
-                className="inline-flex w-full items-center justify-center rounded-md bg-[#0070f3] px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_14px_0_rgb(0,118,255,39%)] transition duration-200 ease-linear hover:bg-[rgba(0,118,255,0.9)] mobile-nav-link-white"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Services
-              </Link>
-              <div className="mt-3 grid gap-2 pl-3">
-                {serviceItems.map((service) => (
-                  <Link
-                    key={service.slug}
-                    href={`/services/${service.slug}`}
-                    className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-transparent px-3 py-2 text-sm font-semibold text-white transition duration-200 ease-linear hover:bg-white/5"
-                    onClick={() => setIsMobileMenuOpen(false)}
+              <DrawerTrigger asChild>
+                <MobileNavToggle
+                  isOpen={isMobileMenuOpen}
+                  onClick={() => setIsMobileServicesOpen(false)}
+                />
+              </DrawerTrigger>
+
+              <DrawerContent className="bg-[#0b63f3] text-white">
+                <DrawerHeader className="border-white/15">
+                  <div className="flex items-center gap-3">
+                    <NavbarLogo imageClassName="h-8 w-auto" />
+                    <div>
+                      <p className="text-lg font-semibold text-white">Keni Web Design</p>
+                    </div>
+                  </div>
+                </DrawerHeader>
+
+                <div className="flex-1 overflow-y-auto px-4 py-4">
+                  <div className="flex flex-col gap-3">
+                    <a
+                      href="tel:+256744429808"
+                      className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#0b63f3]"
+                    >
+                      <img src="/phone-icon.webp" alt="" className="h-4 w-4" />
+                      <span className="text-[#0b63f3]">0744429808, 0761856198</span>
+                    </a>
+
+                    {navItems.map((item) => (
+                      <Link
+                        key={item.link}
+                        href={item.link}
+                        className="inline-flex w-full items-center justify-center rounded-md border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white"
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          setIsMobileServicesOpen(false);
+                        }}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+
+                    <div className="pt-2">
+                      <button
+                        type="button"
+                        className="inline-flex w-full items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#0b63f3]"
+                        aria-expanded={isMobileServicesOpen}
+                        onClick={() => setIsMobileServicesOpen((value) => !value)}
+                      >
+                        Services
+                        <ChevronDown
+                          size={16}
+                          aria-hidden="true"
+                          className={`ml-2 transition-transform duration-200 ${isMobileServicesOpen ? "rotate-180" : ""}`}
+                        />
+                      </button>
+
+                      {isMobileServicesOpen ? (
+                        <div className="mt-3 grid gap-2 pl-3">
+                          {serviceItems.map((service) => (
+                            <Link
+                              key={service.slug}
+                              href={`/services/${service.slug}`}
+                              className="inline-flex w-full items-center justify-center rounded-md border border-white/20 bg-white/10 px-3 py-2 text-sm font-semibold text-white"
+                              onClick={() => {
+                                setIsMobileMenuOpen(false);
+                                setIsMobileServicesOpen(false);
+                              }}
+                            >
+                              {service.title}
+                            </Link>
+                          ))}
+                        </div>
+                      ) : null}
+                    </div>
+                  </div>
+                </div>
+
+                <DrawerFooter className="border-white/15 bg-transparent">
+                  <button
+                    type="button"
+                    className="w-full rounded-md border border-white/20 px-4 py-2 text-sm font-semibold text-white"
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      setIsMobileServicesOpen(false);
+                    }}
                   >
-                    {service.title}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </MobileNavMenu>
+                    Close
+                  </button>
+                </DrawerFooter>
+              </DrawerContent>
+            </Drawer>
+          </MobileNavHeader>
         </MobileNav>
       </Navbar>
     </div>

@@ -3,7 +3,6 @@ import { Inter, Poppins, Geist } from "next/font/google";
 import "../styles/globals.css";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import FloatingPhone from "../components/FloatingPhone";
-import StickyCtaBar from "../components/StickyCtaBar";
 import { absoluteUrl, defaultSeoImagePath, getSiteUrl } from "../lib/seo";
 import { cn } from "@/lib/utils";
 
@@ -121,7 +120,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
         {children}
-        <StickyCtaBar />
         <FloatingPhone />
         <FloatingWhatsApp />
       </body>
