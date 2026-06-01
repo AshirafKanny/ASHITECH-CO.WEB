@@ -74,7 +74,7 @@ export function Drawer({ children, direction = "right", defaultOpen = false, ope
 
 type DrawerTriggerProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   asChild?: boolean;
-  children: React.ReactElement;
+  children: React.ReactElement<any>;
 };
 
 export function DrawerTrigger({ asChild, children, ...props }: DrawerTriggerProps) {
@@ -88,7 +88,7 @@ export function DrawerTrigger({ asChild, children, ...props }: DrawerTriggerProp
         setOpen(!open);
       },
       "aria-expanded": open,
-    });
+    } as any);
   }
 
   return (
@@ -105,7 +105,7 @@ export function DrawerTrigger({ asChild, children, ...props }: DrawerTriggerProp
 
 type DrawerCloseProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   asChild?: boolean;
-  children: React.ReactElement;
+  children: React.ReactElement<any>;
 };
 
 export function DrawerClose({ asChild, children, ...props }: DrawerCloseProps) {
@@ -118,7 +118,7 @@ export function DrawerClose({ asChild, children, ...props }: DrawerCloseProps) {
         children.props.onClick?.(event);
         setOpen(false);
       },
-    });
+    } as any);
   }
 
   return (
