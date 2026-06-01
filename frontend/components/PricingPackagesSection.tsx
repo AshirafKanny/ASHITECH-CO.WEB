@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { pricingFeatures, pricingPackages } from "@/lib/pricing";
+import { pricingPackages } from "@/lib/pricing";
 
 export default function PricingPackagesSection() {
   return (
@@ -71,7 +71,7 @@ export default function PricingPackagesSection() {
 
               <div className="mt-5 flex flex-col gap-5 md:flex-row md:items-start md:gap-6">
                 <ul className="flex-1 space-y-2.5 text-base text-white/70">
-                  {pricingFeatures.map((feature) => (
+                  {item.features.map((feature) => (
                     <li key={`${item.name}-${feature}`} className="flex items-start gap-2">
                       <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#ff5e2e]" aria-hidden="true" />
                       <span>{feature}</span>

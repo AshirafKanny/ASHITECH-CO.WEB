@@ -276,20 +276,20 @@ function RotatingGlobe({
   useMemo(() => {
     if (earthTexture) {
       earthTexture.colorSpace = THREE.SRGBColorSpace;
-      earthTexture.anisotropy = 16;
+      earthTexture.anisotropy = 8;
     }
     if (bumpTexture) {
-      bumpTexture.anisotropy = 8;
+      bumpTexture.anisotropy = 4;
     }
   }, [earthTexture, bumpTexture]);
 
   // Create geometries
   const geometry = useMemo(() => {
-    return new THREE.SphereGeometry(config.radius, 64, 64);
+    return new THREE.SphereGeometry(config.radius, 48, 32);
   }, [config.radius]);
 
   const wireframeGeometry = useMemo(() => {
-    return new THREE.SphereGeometry(config.radius * 1.002, 32, 16);
+    return new THREE.SphereGeometry(config.radius * 1.002, 24, 12);
   }, [config.radius]);
 
   return (
@@ -519,11 +519,11 @@ export function Globe3D({
     <div className={cn("relative h-[500px] w-full", className)}>
       <Canvas
         gl={{
-          antialias: true,
+          antialias: false,
           alpha: true,
           powerPreference: "high-performance",
         }}
-        dpr={[1, 2]}
+        dpr={[1, 1.5]}
         camera={{
           fov: 45,
           near: 0.1,

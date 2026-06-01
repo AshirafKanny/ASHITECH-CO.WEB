@@ -370,22 +370,6 @@ img, picture, video, svg {
   background: linear-gradient(#e6f5ff, #dff3ff 40%, #f8feff 100%);
   z-index: 0;
 }
-.sky-bg .cloud {
-  position: absolute;
-  background: rgba(255,255,255,0.9);
-  border-radius: 999px;
-  box-shadow: 0 20px 40px rgba(3,7,18,0.06);
-  opacity: 0.9;
-}
-.cloud-1 { width: 420px; height: 120px; top: 8%; left: -20%; animation: cloud-move 40s linear infinite; }
-.cloud-2 { width: 300px; height: 90px; top: 22%; left: -25%; animation: cloud-move 50s linear infinite; opacity: 0.85; }
-.cloud-3 { width: 500px; height: 150px; top: 40%; left: -30%; animation: cloud-move 70s linear infinite; opacity: 0.95; }
-.cloud-4 { width: 220px; height: 70px; top: 60%; left: -15%; animation: cloud-move 35s linear infinite; opacity: 0.8; }
-
-@keyframes cloud-move {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(140%); }
-}
 
 .stars { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
 .star { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.9); box-shadow: 0 0 8px rgba(255,255,255,0.6); opacity: 0.9; animation: star-twinkle 3s ease-in-out infinite; }

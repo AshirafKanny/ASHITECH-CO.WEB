@@ -25,24 +25,66 @@ export const CardContainer = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
+  const [enableTilt, setEnableTilt] = useState(true);
+  const frameRef = useRef<number | null>(null);
+  const latestMove = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const coarsePointer = window.matchMedia("(pointer: coarse)");
+
+    const updateSetting = () => {
+      setEnableTilt(!reduceMotion.matches && !coarsePointer.matches);
+    };
+
+    updateSetting();
+    reduceMotion.addEventListener("change", updateSetting);
+    coarsePointer.addEventListener("change", updateSetting);
+
+    return () => {
+      reduceMotion.removeEventListener("change", updateSetting);
+      coarsePointer.removeEventListener("change", updateSetting);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!enableTilt && containerRef.current) {
+      containerRef.current.style.transform = "rotateY(0deg) rotateX(0deg)";
+    }
+    return () => {
+      if (frameRef.current) {
+        cancelAnimationFrame(frameRef.current);
+      }
+    };
+  }, [enableTilt]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!enableTilt) return;
     if (!containerRef.current) return;
     const { left, top, width, height } =
       containerRef.current.getBoundingClientRect();
     const x = (e.clientX - left - width / 2) / 25;
     const y = (e.clientY - top - height / 2) / 25;
-    containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+    latestMove.current = { x, y };
+
+    if (frameRef.current) return;
+    frameRef.current = window.requestAnimationFrame(() => {
+      if (containerRef.current) {
+        containerRef.current.style.transform = `rotateY(${latestMove.current.x}deg) rotateX(${latestMove.current.y}deg)`;
+      }
+      frameRef.current = null;
+    });
   };
 
   const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!enableTilt) return;
     setIsMouseEntered(true);
     if (!containerRef.current) return;
   };
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
     setIsMouseEntered(false);
+    if (!containerRef.current) return;
     containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
   };
   return (

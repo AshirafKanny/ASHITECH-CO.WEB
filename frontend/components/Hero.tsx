@@ -58,7 +58,7 @@ export default function Hero() {
         <div className="relative max-w-3xl">
           <h1
             id="hero-heading"
-            className="hero-title-reveal mt-5 text-4xl font-extrabold leading-[1.02] tracking-[-0.02em] text-white sm:text-5xl md:text-7xl"
+            className="hero-title-reveal mt-5 text-balance text-4xl font-black leading-[1.02] tracking-[-0.02em] text-white sm:text-5xl md:text-7xl"
           >
             <span>Professional Website Design</span>
             <br />
@@ -69,8 +69,8 @@ export default function Hero() {
             <span>Businesses Grow</span>
           </h1>
 
-          <p className="mt-4 inline-block rounded-md bg-blue-600/90 px-4 py-2 text-lg font-semibold text-white shadow-lg sm:text-xl">
-            Modern, fast, SEO-optimized websites that convert visitors into customers.
+          <p className="mt-4 inline-block rounded-md border border-white/25 bg-[#0b63f3]/20 px-4 py-2 text-lg font-semibold text-white shadow-lg backdrop-blur-md sm:text-xl">
+            We build fast, SEO-optimized websites that help Ugandan businesses get more customers, enquiries, and sales.
           </p>
 
           <div className="hero-cta-reveal mt-10 flex flex-wrap justify-center gap-4">

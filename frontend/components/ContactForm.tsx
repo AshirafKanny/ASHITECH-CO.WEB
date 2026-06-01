@@ -11,7 +11,7 @@ type ContactFormProps = {
 const planOptions = [
   "BASIC PLAN",
   "STANDARD PLAN",
-  "GOLDER PLAN",
+  "GOLDEN PLAN",
   "PLATINUM PLAN",
 ];
 

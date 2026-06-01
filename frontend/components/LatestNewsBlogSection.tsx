@@ -9,10 +9,6 @@ export default async function LatestNewsBlogSection() {
   return (
     <section className="relative overflow-hidden bg-white py-16 md:py-18" aria-labelledby="latest-news-heading">
       <div className="absolute inset-0 sky-bg pointer-events-none" aria-hidden>
-        <div className="cloud cloud-1" />
-        <div className="cloud cloud-2" />
-        <div className="cloud cloud-3" />
-        <div className="cloud cloud-4" />
         <div className="stars">
           {Array.from({ length: 30 }).map((_, i) => (
             <span key={i} className={`star star-${i + 1}`} />

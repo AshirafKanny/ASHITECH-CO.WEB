@@ -142,32 +142,70 @@ const sampleMarkers = [
 ];
 
 export default function AboutStatsSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [showGlobe, setShowGlobe] = useState(false);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const smallScreen = window.matchMedia("(max-width: 1023px)");
+
+    if (reduceMotion.matches || smallScreen.matches) {
+      setShowGlobe(false);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowGlobe(true);
+        }
+      },
+      { rootMargin: "200px" }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       className="relative overflow-hidden bg-[#05070d] py-20 lg:py-28"
       aria-labelledby="about-stats-heading"
     >
       {/* 3D Globe background */}
       <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
-        <Globe3D
-          markers={sampleMarkers}
-          className="h-130 w-130 opacity-35 sm:h-155 sm:w-155"
-          config={{
-            atmosphereColor: "#4da6ff",
-            atmosphereIntensity: 20,
-            bumpScale: 5,
-            autoRotateSpeed: 0.8,
-            showAtmosphere: false,
-            backgroundColor: null,
-            enableZoom: false,
-            enablePan: false,
-            minDistance: 5,
-            maxDistance: 15,
-            radius: 2.6,
-            ambientIntensity: 0.7,
-            pointLightIntensity: 1.5,
-          }}
-        />
+        {showGlobe ? (
+          <Globe3D
+            markers={sampleMarkers}
+            className="h-130 w-130 opacity-35 sm:h-155 sm:w-155"
+            config={{
+              atmosphereColor: "#4da6ff",
+              atmosphereIntensity: 20,
+              bumpScale: 5,
+              autoRotateSpeed: 0.8,
+              showAtmosphere: false,
+              backgroundColor: null,
+              enableZoom: false,
+              enablePan: false,
+              minDistance: 5,
+              maxDistance: 15,
+              radius: 2.6,
+              ambientIntensity: 0.7,
+              pointLightIntensity: 1.5,
+            }}
+          />
+        ) : (
+          <div
+            className="h-130 w-130 rounded-full bg-[#0b1f4b]/40 opacity-30 sm:h-155 sm:w-155"
+            aria-hidden="true"
+          />
+        )}
       </div>
 
       <div className="site-container relative z-10">
