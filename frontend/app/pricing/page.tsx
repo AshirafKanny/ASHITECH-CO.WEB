@@ -43,14 +43,14 @@ export default function PricingPage() {
           <section
             className="relative overflow-hidden bg-cover bg-center text-white"
             aria-labelledby="pricing-page-heading"
-            style={{ backgroundImage: "url('/currency-bann.webp')", minHeight: '100vh' }}
+            style={{ backgroundImage: "url('/currency-bann.webp')", minHeight: "70vh" }}
           >
             <div className="absolute inset-0 bg-black/80 backdrop-blur-[2px]" aria-hidden="true" />
-            <div className="site-container relative z-20 text-center py-28 md:py-40">
+            <div className="site-container relative z-20 text-center py-20 md:py-28">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#ff5e2e]">
                 &#183;&#183;&#183; Our Pricing Package &#183;&#183;&#183;
               </p>
-              <h1 id="pricing-page-heading" className="mx-auto mt-4 max-w-4xl text-6xl sm:text-7xl md:text-[96px] lg:text-[110px] font-black leading-tight">
+              <h1 id="pricing-page-heading" className="mx-auto mt-4 max-w-4xl text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
                 Website Design Packages For Every Growth Stage
               </h1>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/85 md:text-lg">
