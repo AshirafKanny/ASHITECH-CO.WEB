@@ -62,7 +62,7 @@ export default function Footer() {
                 </a>
               </div>
               <a
-                href="https://maps.app.goo.gl/kUZ7XeRiaQ1dxrMt8"
+                href="https://maps.app.goo.gl/q8er9En2ANf4GTN3A"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex text-sm font-semibold text-[#ff6b3d] hover:underline"
@@ -108,7 +108,9 @@ export default function Footer() {
 
             <div className="mt-6 flex items-center gap-3">
               <a
-                href="#"
+                href="https://www.facebook.com/people/Keni-Web-design/100068349953706/?sk=directory_basic_info"
+                target="_blank"
+                rel="noreferrer"
                 className="footer-social-icon grid h-11 w-11 place-items-center rounded-full bg-white"
                 aria-label="Facebook"
               >
@@ -126,7 +128,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://www.linkedin.com/company/119583960/admin/dashboard/"
+                href="https://www.linkedin.com/company/keni-web-design/?viewAsMember=true"
                 target="_blank"
                 rel="noreferrer"
                 className="footer-social-icon grid h-11 w-11 place-items-center rounded-full bg-white"

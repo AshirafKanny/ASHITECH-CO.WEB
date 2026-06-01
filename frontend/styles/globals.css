@@ -400,6 +400,132 @@ img, picture, video, svg {
 .star-21{left:74%;top:34%}.star-22{left:82%;top:28%}.star-23{left:90%;top:30%}.star-24{left:6%;top:44%}.star-25{left:14%;top:46%}
 .star-26{left:22%;top:42%}.star-27{left:30%;top:48%}.star-28{left:48%;top:44%}.star-29{left:70%;top:46%}.star-30{left:88%;top:42%}
 
+/* Contact map section: blue sky with lightning */
+.contact-map-sky {
+  background: linear-gradient(180deg, #dbeafe 0%, #bfdbfe 40%, #e0f2fe 100%);
+}
+
+.contact-map-sky::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(59, 130, 246, 0.18), transparent 45%),
+    radial-gradient(circle at 78% 24%, rgba(14, 165, 233, 0.16), transparent 50%),
+    radial-gradient(circle at 50% 70%, rgba(125, 211, 252, 0.2), transparent 55%);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-map-sky::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.0) 46%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.0) 54%, rgba(255,255,255,0.0) 100%);
+  opacity: 0;
+  pointer-events: none;
+  animation: contact-lightning-flash 6.5s linear infinite;
+  z-index: 1;
+}
+
+.contact-map-sky .contact-lightning {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.contact-map-sky .contact-lightning-bolt {
+  position: absolute;
+  top: -12%;
+  width: 2px;
+  height: 130%;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0.15) 70%, rgba(255,255,255,0) 100%);
+  filter: drop-shadow(0 0 14px rgba(191, 219, 254, 0.95));
+  opacity: 0;
+  animation: contact-lightning-strike 6.2s ease-in-out infinite;
+}
+
+.contact-map-sky .contact-lightning-bolt.bolt-1 {
+  left: 42%;
+  transform: skewX(-8deg);
+  animation-delay: 1.6s;
+}
+
+.contact-map-sky .contact-lightning-bolt.bolt-2 {
+  left: 64%;
+  width: 1px;
+  transform: skewX(12deg);
+  animation-delay: 4.4s;
+}
+
+.contact-map-sky .contact-lightning::before,
+.contact-map-sky .contact-lightning::after {
+  content: "";
+  position: absolute;
+  top: -10%;
+  width: 2px;
+  height: 120%;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 35%, rgba(255,255,255,0.1) 70%, rgba(255,255,255,0) 100%);
+  filter: drop-shadow(0 0 12px rgba(191, 219, 254, 0.9));
+  opacity: 0;
+  animation: contact-lightning-strike 7s ease-in-out infinite;
+}
+
+.contact-map-sky .contact-lightning::before {
+  left: 18%;
+  transform: skewX(-12deg);
+  animation-delay: 0.8s;
+}
+
+.contact-map-sky .contact-lightning::after {
+  right: 22%;
+  transform: skewX(10deg);
+  animation-delay: 3.6s;
+}
+
+@keyframes contact-lightning-flash {
+  0%,
+  14%,
+  32%,
+  100% {
+    opacity: 0;
+  }
+  16% {
+    opacity: 0.5;
+  }
+  18% {
+    opacity: 0.2;
+  }
+  34% {
+    opacity: 0.4;
+  }
+  36% {
+    opacity: 0.15;
+  }
+}
+
+@keyframes contact-lightning-strike {
+  0%,
+  12%,
+  100% {
+    opacity: 0;
+  }
+  14% {
+    opacity: 0.95;
+  }
+  16% {
+    opacity: 0.3;
+  }
+  24% {
+    opacity: 0.85;
+  }
+  26% {
+    opacity: 0;
+  }
+}
+
 /* Rain overlay to give rainy weather appearance */
 .trust-water-bg::before {
   content: "";

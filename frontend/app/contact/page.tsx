@@ -90,25 +90,29 @@ export default async function ContactPage({
         </ScrollReveal>
 
         <ScrollReveal>
-          <section className="py-20" aria-label="Contact form and details">
-          <div className="site-container">
+          <section className="contact-map-sky relative overflow-hidden py-20" aria-label="Contact form and details">
+          <div className="contact-lightning" aria-hidden="true">
+            <span className="contact-lightning-bolt bolt-1" />
+            <span className="contact-lightning-bolt bolt-2" />
+          </div>
+          <div className="site-container relative z-10">
 
             <ScrollReveal>
               <section className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]" aria-label="Local office">
-              <div className="rounded-2xl border border-[#E4E8F1] bg-[#F8FAFC] p-6">
-                <h2 className="text-2xl font-semibold text-[#0F172A]">Visit our Kampala office</h2>
-                <p className="mt-3 text-base leading-7 text-[#4B5563]">
+              <div className="rounded-2xl border border-white/10 bg-[#0b1220] p-6 text-white shadow-[0_20px_60px_rgba(2,6,23,0.45)]">
+                <h2 className="text-2xl font-semibold text-white">Visit our Kampala office</h2>
+                <p className="mt-3 text-base leading-7 text-white/75">
                   Kansanga, UK Mall, Kampala, Uganda
                 </p>
-                <div className="mt-4 space-y-2 text-sm font-semibold text-[#0F172A]">
+                <div className="mt-4 space-y-2 text-sm font-semibold text-white/90">
                   <p>Phone (Airtel): 0744429808</p>
                   <p>Phone (MTN): 0761856198</p>
                 </div>
                 <a
-                  href="https://maps.app.goo.gl/kUZ7XeRiaQ1dxrMt8"
+                  href="https://maps.app.goo.gl/q8er9En2ANf4GTN3A"
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-5 inline-flex items-center justify-center rounded-full border border-[#ff5e2e] px-6 py-2.5 text-sm font-semibold text-[#ff5e2e] hover:bg-[#fff4f0]"
+                  className="mt-5 inline-flex items-center justify-center rounded-full bg-[#0b63f3] px-6 py-2.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(11,99,243,0.35)] transition hover:bg-[#0a56d0]"
                 >
                   Open in Google Maps
                 </a>
@@ -117,7 +121,7 @@ export default async function ContactPage({
               <div className="overflow-hidden rounded-2xl border border-[#E4E8F1] bg-white">
                 <iframe
                   title="KENI WEB DESIGN location map"
-                  src="https://www.google.com/maps?q=Kansanga%20UK%20Mall%20Kampala%20Uganda&output=embed"
+                  src="https://maps.google.com/maps?q=Keni%20web%20design%20Kampala&output=embed"
                   className="h-80 w-full"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

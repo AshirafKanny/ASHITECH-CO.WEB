@@ -93,7 +93,7 @@ export default function RootLayout({
       addressLocality: "Kampala",
       addressCountry: "UG",
     },
-    hasMap: "https://maps.app.goo.gl/kUZ7XeRiaQ1dxrMt8",
+    hasMap: "https://maps.app.goo.gl/q8er9En2ANf4GTN3A",
     contactPoint: [
       {
         "@type": "ContactPoint",

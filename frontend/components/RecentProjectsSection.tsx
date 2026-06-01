@@ -11,7 +11,7 @@ const items = portfolioProjects.slice(0, 6);
 
 export default function RecentProjectsSection() {
   return (
-    <section className="relative overflow-hidden bg-[#ECEFF4] py-20 lg:py-24" aria-labelledby="recent-projects-heading">
+    <section className="relative overflow-hidden bg-[#ECEFF4] py-12 lg:py-14" aria-labelledby="recent-projects-heading">
       <div className="absolute inset-0" aria-hidden="true">
         <DottedGlowBackground
           className="pointer-events-none opacity-20"
@@ -42,7 +42,7 @@ export default function RecentProjectsSection() {
           Look at latest works gallery
         </h2>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <div className="mt-8 grid gap-x-4 gap-y-2 lg:grid-cols-3">
           {items.map((item) => (
             <CardContainer key={item.slug} className="inter-var">
               <CardBody className="group/card relative h-full w-full rounded-xl border border-black/[0.08] bg-gray-50 p-4 shadow-[0_2px_12px_rgba(15,23,42,0.08)]">
