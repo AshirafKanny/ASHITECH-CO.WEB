@@ -10,7 +10,7 @@ export type BlogPost = {
   mainImageUrl: string;
   authorName: string;
   authorImageUrl: string;
-  bodyText: string;
+  body: Array<Record<string, unknown>>;
 };
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
@@ -19,6 +19,65 @@ const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION ?? "2025-01-01";
 const token = process.env.SANITY_API_READ_TOKEN;
 
 const hasSanityConfig = Boolean(projectId && dataset);
+
+const textToPortableText = (text: string): Array<Record<string, unknown>> => {
+  const lines = text.split("\n");
+  const blocks: Array<Record<string, unknown>> = [];
+  let listBuffer: string[] = [];
+
+  const flushList = () => {
+    if (listBuffer.length === 0) return;
+    listBuffer.forEach((item) => {
+      blocks.push({
+        _type: "block",
+        style: "normal",
+        listItem: "bullet",
+        level: 1,
+        children: [{ _type: "span", text: item }],
+      });
+    });
+    listBuffer = [];
+  };
+
+  lines.forEach((rawLine) => {
+    const line = rawLine.trim();
+    if (!line) {
+      flushList();
+      return;
+    }
+    if (line.startsWith("### ")) {
+      flushList();
+      blocks.push({
+        _type: "block",
+        style: "h3",
+        children: [{ _type: "span", text: line.replace("### ", "") }],
+      });
+      return;
+    }
+    if (line.startsWith("## ")) {
+      flushList();
+      blocks.push({
+        _type: "block",
+        style: "h2",
+        children: [{ _type: "span", text: line.replace("## ", "") }],
+      });
+      return;
+    }
+    if (line.startsWith("- ")) {
+      listBuffer.push(line.replace("- ", ""));
+      return;
+    }
+    flushList();
+    blocks.push({
+      _type: "block",
+      style: "normal",
+      children: [{ _type: "span", text: line }],
+    });
+  });
+
+  flushList();
+  return blocks;
+};
 
 const fallbackPosts: BlogPost[] = [
   {
@@ -31,7 +90,7 @@ const fallbackPosts: BlogPost[] = [
     mainImageUrl: "/blog1.webp",
     authorName: "KENI WEB DESIGN Team",
     authorImageUrl: "/author1.webp",
-    bodyText:
+    body: textToPortableText(
       "## Why a website is no longer optional\n" +
       "Ugandan customers now search online before they call, visit, or buy. If your business does not show up, you are invisible. A professional website gives your company credibility and makes it easy for clients to trust you quickly.\n\n" +
       "## Local visibility and Google searches\n" +
@@ -50,6 +109,7 @@ const fallbackPosts: BlogPost[] = [
       "Your website supports ads, social media campaigns, and SEO services Uganda companies rely on. It is the base for every digital marketing channel and helps you measure results.\n\n" +
       "## Final thought\n" +
       "If you want more inquiries, your website must be clear, fast, and optimized for Uganda search behavior. You can explore /services/web-development to start a strong foundation.",
+    ),
   },
   {
     id: "fallback-2",
@@ -61,7 +121,7 @@ const fallbackPosts: BlogPost[] = [
     mainImageUrl: "/blog2.webp",
     authorName: "KENI WEB DESIGN Team",
     authorImageUrl: "/author2.webp",
-    bodyText:
+    body: textToPortableText(
       "## Understanding website pricing in Uganda\n" +
       "Pricing varies because websites have different goals. A simple brochure site costs less than an ecommerce platform or a custom web app. The biggest factors are number of pages, design complexity, and features such as payment or booking systems.\n\n" +
       "## Typical ranges for common projects\n" +
@@ -81,6 +141,7 @@ const fallbackPosts: BlogPost[] = [
       "Your website should return value through inquiries, bookings, or sales. That is why conversion-focused design and SEO services Uganda businesses use are critical.\n\n" +
       "## Next steps\n" +
       "If you want a clear estimate, review /pricing or request a tailored quote. The best websites are built with long-term growth in mind.",
+    ),
   },
   {
     id: "fallback-3",
@@ -92,7 +153,7 @@ const fallbackPosts: BlogPost[] = [
     mainImageUrl: "/blog3.webp",
     authorName: "KENI WEB DESIGN Team",
     authorImageUrl: "/author3.webp",
-    bodyText:
+    body: textToPortableText(
       "## The right partner goes beyond visuals\n" +
       "A good website design company is not just a design studio. The best teams understand conversions, SEO, and how to position your business to win clients.\n\n" +
       "## Questions to ask before hiring\n" +
@@ -112,6 +173,7 @@ const fallbackPosts: BlogPost[] = [
       "Competition is rising across industries. To rank for keywords like web design Kampala and website design Uganda, your site must be structured for search and built to convert.\n\n" +
       "## Final guidance\n" +
       "Choose a team that treats your website as a business tool, not just a design project. Explore /portfolio to see real work and outcomes.",
+    ),
   },
   {
     id: "fallback-4",
@@ -123,7 +185,7 @@ const fallbackPosts: BlogPost[] = [
     mainImageUrl: "/blog4.webp",
     authorName: "KENI WEB DESIGN Team",
     authorImageUrl: "/author4.webp",
-    bodyText:
+    body: textToPortableText(
       "## Ecommerce is growing in Uganda\n" +
       "Customers now prefer ordering online, comparing prices, and paying digitally. An ecommerce website makes your products available 24/7 and expands your market beyond physical locations.\n\n" +
       "## Top benefits for Ugandan businesses\n" +
@@ -139,6 +201,7 @@ const fallbackPosts: BlogPost[] = [
       "Shoppers want proof. Reviews, delivery information, return policies, and secure checkout improve confidence and reduce cart abandonment.\n\n" +
       "## Ready to launch?\n" +
       "If you are selling products, explore /ecommerce-websites-uganda and /services/ecommerce-and-product-selling-development to understand what is required for a winning store.",
+    ),
   },
   {
     id: "fallback-5",
@@ -150,7 +213,7 @@ const fallbackPosts: BlogPost[] = [
     mainImageUrl: "/blog1.webp",
     authorName: "KENI WEB DESIGN Team",
     authorImageUrl: "/author1.webp",
-    bodyText:
+    body: textToPortableText(
       "## 1. Speed and performance lead the market\n" +
       "Fast websites rank higher and keep visitors engaged. Ugandan businesses are focusing on lighter pages, optimized images, and clean code.\n\n" +
       "## 2. Localized messaging\n" +
@@ -167,6 +230,7 @@ const fallbackPosts: BlogPost[] = [
       "Modern stacks like Next.js and optimized WordPress setups are popular because they improve performance and SEO.\n\n" +
       "## How to stay ahead\n" +
       "If you want to build a future-ready website, align your design with SEO and conversion best practices. Explore /website-design-uganda for a strategy built for 2026.",
+    ),
   },
   {
     id: "fallback-6",
@@ -178,7 +242,7 @@ const fallbackPosts: BlogPost[] = [
     mainImageUrl: "/blog2.webp",
     authorName: "KENI WEB DESIGN Team",
     authorImageUrl: "/author2.webp",
-    bodyText:
+    body: textToPortableText(
       "## Start with keyword intent\n" +
       "Focus on the exact phrases your customers type, such as web design Kampala or affordable website design Uganda. These phrases should appear in your headings and page copy naturally.\n\n" +
       "## Improve technical SEO\n" +
@@ -195,6 +259,7 @@ const fallbackPosts: BlogPost[] = [
       "SEO is not a one-time task. Use analytics to track top pages and update content regularly.\n\n" +
       "## Need help?\n" +
       "Explore /seo-services-uganda to see how professional SEO can accelerate growth in Uganda.",
+    ),
   },
   {
     id: "fallback-7",
@@ -206,7 +271,7 @@ const fallbackPosts: BlogPost[] = [
     mainImageUrl: "/blog3.webp",
     authorName: "KENI WEB DESIGN Team",
     authorImageUrl: "/author3.webp",
-    bodyText:
+    body: textToPortableText(
       "## Strong communication builds trust\n" +
       "Parents want quick access to term dates, fees, and updates. A school website makes that information accessible without long phone calls.\n\n" +
       "## Admissions and reputation\n" +
@@ -219,6 +284,7 @@ const fallbackPosts: BlogPost[] = [
       "With the right structure, your school can rank for local searches like schools in Kampala or private schools in Uganda.\n\n" +
       "## Next steps for schools\n" +
       "If your school needs a modern website, review /school-websites-uganda to see what a complete solution looks like.",
+    ),
   },
 ];
 
@@ -242,7 +308,7 @@ const blogPostsQuery = groq`*[_type in ["post", "blog"] && defined(slug.current)
   "mainImageUrl": coalesce(mainImage.asset->url, image.asset->url, coverImage.asset->url),
   "authorName": coalesce(author->name, authorName),
   "authorImageUrl": coalesce(author->image.asset->url, authorImage.asset->url),
-  "bodyText": coalesce(pt::text(body), content, excerpt, summary)
+  "body": body
 }`;
 
 const blogPostBySlugQuery = groq`*[_type in ["post", "blog"] && slug.current == $slug][0] {
@@ -254,7 +320,7 @@ const blogPostBySlugQuery = groq`*[_type in ["post", "blog"] && slug.current == 
   "mainImageUrl": coalesce(mainImage.asset->url, image.asset->url, coverImage.asset->url),
   "authorName": coalesce(author->name, authorName),
   "authorImageUrl": coalesce(author->image.asset->url, authorImage.asset->url),
-  "bodyText": coalesce(pt::text(body), content, excerpt, summary)
+  "body": body
 }`;
 
 function normalizePost(post: Partial<BlogPost>, index: number): BlogPost {
@@ -269,7 +335,7 @@ function normalizePost(post: Partial<BlogPost>, index: number): BlogPost {
     mainImageUrl: post.mainImageUrl ?? fallback.mainImageUrl,
     authorName: post.authorName ?? "KENI WEB DESIGN Team",
     authorImageUrl: post.authorImageUrl ?? "/author1.webp",
-    bodyText: post.bodyText ?? post.excerpt ?? fallback.bodyText,
+    body: Array.isArray(post.body) ? post.body : fallback.body,
   };
 }
 
@@ -305,7 +371,7 @@ export async function getBlogPosts(limit?: number): Promise<BlogPost[]> {
           mainImageUrl: typeof post.mainImageUrl === "string" ? post.mainImageUrl : undefined,
           authorName: typeof post.authorName === "string" ? post.authorName : undefined,
           authorImageUrl: typeof post.authorImageUrl === "string" ? post.authorImageUrl : undefined,
-          bodyText: typeof post.bodyText === "string" ? post.bodyText : undefined,
+          body: Array.isArray(post.body) ? post.body : undefined,
         },
         index,
       ),
@@ -343,7 +409,7 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
         mainImageUrl: typeof rawPost.mainImageUrl === "string" ? rawPost.mainImageUrl : undefined,
         authorName: typeof rawPost.authorName === "string" ? rawPost.authorName : undefined,
         authorImageUrl: typeof rawPost.authorImageUrl === "string" ? rawPost.authorImageUrl : undefined,
-        bodyText: typeof rawPost.bodyText === "string" ? rawPost.bodyText : undefined,
+        body: Array.isArray(rawPost.body) ? rawPost.body : undefined,
       },
       0,
     );

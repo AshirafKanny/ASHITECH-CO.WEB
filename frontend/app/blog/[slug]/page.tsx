@@ -3,9 +3,10 @@ import type React from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
-import { formatBlogDate, getBlogPostBySlug, getBlogSlugs } from "../../../lib/sanity";
+import { formatBlogDate, getBlogPostBySlug, getBlogPosts, getBlogSlugs } from "../../../lib/sanity";
 import { absoluteUrl, defaultSeoImagePath } from "../../../lib/seo";
 
 type BlogPostPageProps = {
@@ -58,68 +59,58 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   };
 }
 
-function renderBody(bodyText: string) {
-  const lines = bodyText.split("\n").map((line) => line.trim());
-  const elements: Array<React.ReactElement> = [];
-  let listItems: string[] = [];
-
-  const flushList = () => {
-    if (listItems.length === 0) return;
-    const items = listItems;
-    listItems = [];
-    elements.push(
-      <ul key={`list-${elements.length}`} className="mt-4 grid gap-2 text-base text-[#2D374D]">
-        {items.map((item, index) => (
-          <li key={`${item}-${index}`} className="rounded-lg border border-[#E4E8F1] bg-[#F8FAFC] px-4 py-2">
-            {item}
-          </li>
-        ))}
-      </ul>,
-    );
-  };
-
-  lines.forEach((line) => {
-    if (!line) {
-      flushList();
-      return;
-    }
-    if (line.startsWith("### ")) {
-      flushList();
-      elements.push(
-        <h3 key={`h3-${elements.length}`} className="mt-6 text-2xl font-semibold text-[#1E293B]">
-          {line.replace("### ", "")}
-        </h3>,
+const portableTextComponents: PortableTextComponents = {
+  block: {
+    h1: ({ children }) => (
+      <h1 className="mt-7 text-3xl font-extrabold leading-tight text-[#1E293B]">{children}</h1>
+    ),
+    h2: ({ children }) => (
+      <h2 className="mt-7 text-2xl font-extrabold leading-tight text-[#1E293B]">{children}</h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="mt-6 text-xl font-extrabold text-[#1E293B]">{children}</h3>
+    ),
+    blockquote: ({ children }) => (
+      <blockquote className="mt-5 border-l-4 border-[#ff5e2e] bg-[#F8FAFC] px-4 py-3 text-[#475569]">
+        {children}
+      </blockquote>
+    ),
+    normal: ({ children }) => (
+      <p className="mt-3 text-[16.5px] leading-7 text-[#2D374D]">{children}</p>
+    ),
+  },
+  list: {
+    bullet: ({ children }) => <ul className="mt-3 list-disc space-y-1.5 pl-6">{children}</ul>,
+    number: ({ children }) => <ol className="mt-3 list-decimal space-y-1.5 pl-6">{children}</ol>,
+  },
+  listItem: {
+    bullet: ({ children }) => <li className="leading-7 text-[#2D374D]">{children}</li>,
+    number: ({ children }) => <li className="leading-7 text-[#2D374D]">{children}</li>,
+  },
+  marks: {
+    link: ({ value, children }) => {
+      const href = typeof value?.href === "string" ? value.href : "#";
+      const isExternal = /^https?:\/\//i.test(href);
+      if (isExternal) {
+        return (
+          <a href={href} target="_blank" rel="noreferrer" className="text-[#ff5e2e] underline">
+            {children}
+          </a>
+        );
+      }
+      return (
+        <Link href={href} className="text-[#ff5e2e] underline">
+          {children}
+        </Link>
       );
-      return;
-    }
-    if (line.startsWith("## ")) {
-      flushList();
-      elements.push(
-        <h2 key={`h2-${elements.length}`} className="mt-8 text-3xl font-bold text-[#1E293B]">
-          {line.replace("## ", "")}
-        </h2>,
-      );
-      return;
-    }
-    if (line.startsWith("- ")) {
-      listItems.push(line.replace("- ", ""));
-      return;
-    }
-    flushList();
-    elements.push(
-      <p key={`p-${elements.length}`} className="text-lg leading-8 text-[#2D374D]">
-        {line}
-      </p>,
-    );
-  });
-
-  flushList();
-  return elements;
-}
+    },
+  },
+};
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
+  const morePosts = (await getBlogPosts(6)).filter((item) => item.slug !== slug).slice(0, 4);
 
   if (!post) {
     notFound();
@@ -185,8 +176,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               />
             </div>
 
-            <div className="mt-8 space-y-5 text-lg leading-8 text-[#2D374D]">
-              {renderBody(post.bodyText)}
+            <div className="prose prose-base sm:prose-lg max-w-none prose-headings:mt-6 prose-headings:mb-2 prose-p:my-3 prose-ul:my-3 prose-ol:my-3 prose-li:my-1 prose-blockquote:my-4 prose-headings:text-[#1E293B] prose-p:text-[#2D374D] prose-a:text-[#ff5e2e] prose-strong:text-[#1E293B] prose-li:text-[#2D374D] prose-li:marker:text-[#ff5e2e] prose-blockquote:text-[#475569]">
+              <PortableText value={post.body ?? []} components={portableTextComponents} />
             </div>
 
             <section className="mt-12 rounded-2xl border border-[#E4E8F1] bg-[#F8FAFC] p-6" aria-label="Related links">
@@ -218,6 +209,62 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </Link>
               </div>
             </section>
+
+            {morePosts.length > 0 ? (
+              <section className="mt-14" aria-label="More blogs">
+                <div className="flex items-center justify-between gap-4">
+                  <h2 className="text-2xl font-bold text-[#1E293B]">More blogs</h2>
+                  <Link href="/blog" className="text-sm font-semibold text-[#ff5e2e] hover:underline">
+                    View all
+                  </Link>
+                </div>
+
+                <div className="mt-8 grid gap-x-12 gap-y-10 md:grid-cols-2">
+                  {morePosts.map((blog) => (
+                    <article key={blog.id} className="grid grid-cols-1 items-start gap-4 sm:grid-cols-[10.5rem_1fr] sm:gap-5">
+                      <div className="relative h-52 w-full overflow-hidden sm:h-42 sm:w-42">
+                        <Image
+                          src={blog.mainImageUrl}
+                          alt={blog.title}
+                          fill
+                          sizes="(max-width: 640px) 100vw, 168px"
+                          className="object-cover"
+                        />
+                      </div>
+
+                      <div>
+                        <p className="flex items-center gap-2 text-xl font-medium text-[#ff5e2e]">
+                          {formatBlogDate(blog.publishedAt)}
+                        </p>
+
+                        <h3 className="mt-2 text-xl font-semibold leading-tight text-[#2A344A] sm:text-2xl">
+                          <Link href={`/blog/${blog.slug}`} className="hover:text-[#ff5e2e]">
+                            {blog.title}
+                          </Link>
+                        </h3>
+
+                        <div className="mt-1.5 flex items-center gap-3">
+                          <div className="relative -mt-2 h-11 w-11 overflow-hidden rounded-full">
+                            <Image
+                              src={blog.authorImageUrl}
+                              alt={blog.authorName}
+                              fill
+                              sizes="44px"
+                              className="object-cover"
+                            />
+                          </div>
+
+                          <div>
+                            <p className="text-lg text-[#778296]">Post by</p>
+                            <p className="text-2xl text-[#2A344A]">{blog.authorName}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            ) : null}
           </div>
         </article>
       </main>
