@@ -20,17 +20,27 @@ export default function ScrollReveal({
   y = 16,
   once = true,
 }: ScrollRevealProps) {
+  const [mounted, setMounted] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [disableAnimation, setDisableAnimation] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const mobileQuery = window.matchMedia("(max-width: 767px)");
     const updatePreference = () => setReduceMotion(mediaQuery.matches);
+    const updateMobile = () => setDisableAnimation(mobileQuery.matches);
     updatePreference();
+    updateMobile();
     mediaQuery.addEventListener("change", updatePreference);
-    return () => mediaQuery.removeEventListener("change", updatePreference);
+    mobileQuery.addEventListener("change", updateMobile);
+    return () => {
+      mediaQuery.removeEventListener("change", updatePreference);
+      mobileQuery.removeEventListener("change", updateMobile);
+    };
   }, []);
 
-  if (reduceMotion) {
+  if (!mounted || reduceMotion || disableAnimation) {
     return <div className={cn(className)}>{children}</div>;
   }
 

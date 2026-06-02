@@ -466,11 +466,7 @@ function Scene({ markers, config, onMarkerClick, onMarkerHover }: SceneProps) {
 function LoadingFallback() {
   return (
     <Html center>
-      <div className="flex shrink-0 flex-col items-center gap-3">
-        <span className="inline-block shrink-0 text-sm text-neutral-400">
-          Loading globe...
-        </span>
-      </div>
+      <div className="h-10 w-10 rounded-full bg-white/5" aria-hidden="true" />
     </Html>
   );
 }
