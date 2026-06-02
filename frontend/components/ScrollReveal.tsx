@@ -41,10 +41,10 @@ export default function ScrollReveal({
   return (
     <motion.div
       className={cn("will-change-transform", className)}
-      initial={{ opacity: 0, y }}
+      initial={{ opacity: 1, y }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: "easeOut", delay }}
-      viewport={{ once, amount: 0.35 }}
+      viewport={{ once, amount: 0.2, margin: "0px 0px -10% 0px" }}
     >
       {children}
     </motion.div>
