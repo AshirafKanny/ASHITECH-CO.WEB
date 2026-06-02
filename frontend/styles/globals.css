@@ -1840,8 +1840,9 @@ img, picture, video, svg {
 }
 
 .featured-scroll-image {
-  width: 18rem;
-  height: 31.875rem;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
   object-fit: cover;
   display: block;
 }

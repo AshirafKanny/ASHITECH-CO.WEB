@@ -53,7 +53,7 @@ export default function TestimonialsFeedbackSection() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
         />
         <div className="absolute inset-0 bg-[#081225]/72" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.18),rgba(8,18,37,0)_45%)]" />
