@@ -71,6 +71,15 @@ export default async function LatestNewsBlogSection() {
             </article>
           ))}
         </div>
+
+        <div className="mt-12 flex justify-center">
+          <Link
+            href="/blog"
+            className="inline-flex items-center justify-center rounded-full bg-[#ff5e2e] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#e74f20]"
+          >
+            Explore More Blogs
+          </Link>
+        </div>
       </div>
     </section>
   );
