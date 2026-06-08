@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, Phone } from "lucide-react";
 import { useState } from "react";
@@ -118,7 +119,14 @@ export default function SiteNavbar() {
               <DrawerContent className="bg-[#0b63f3] text-white">
                 <DrawerHeader className="border-white/15">
                   <div className="flex items-center gap-3">
-                    <NavbarLogo imageClassName="h-8 w-auto" />
+                    <Image
+                      src="/my_logor_500x500.webp"
+                      alt="KENI WEB DESIGN logo"
+                      width={44}
+                      height={44}
+                      className="h-11 w-11 rounded-xl object-cover"
+                      priority
+                    />
                     <div>
                       <p className="text-lg font-semibold text-white">Keni Web Design</p>
                     </div>
