@@ -122,9 +122,9 @@ export default function SiteNavbar() {
                     <Image
                       src="/my_logor_500x500.webp"
                       alt="KENI WEB DESIGN logo"
-                      width={44}
-                      height={44}
-                      className="h-11 w-11 rounded-xl object-cover"
+                      width={48}
+                      height={48}
+                      className="h-12 w-12 rounded-xl object-cover"
                       priority
                     />
                     <div>
