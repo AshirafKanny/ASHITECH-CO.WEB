@@ -1,15 +1,31 @@
 const LOCAL_DEV_URL = "http://localhost:3000";
 const DEFAULT_SITE_URL = "https://keniwebdesign.com";
+const PREFERRED_HOST = "keniwebdesign.com";
 
 function trimTrailingSlash(value: string): string {
   return value.endsWith("/") ? value.slice(0, -1) : value;
+}
+
+function normalizeSiteUrl(value: string): string {
+  try {
+    const url = new URL(trimTrailingSlash(value));
+
+    if (url.hostname === `www.${PREFERRED_HOST}`) {
+      url.hostname = PREFERRED_HOST;
+    }
+
+    return url.toString().replace(/\/$/, "");
+  } catch {
+    const trimmedValue = trimTrailingSlash(value);
+    return trimmedValue.replace(/^https?:\/\/www\./i, "https://");
+  }
 }
 
 export function getSiteUrl(): string {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
   if (siteUrl && siteUrl.trim().length > 0) {
-    return trimTrailingSlash(siteUrl.trim());
+    return normalizeSiteUrl(siteUrl.trim());
   }
 
   if (process.env.NODE_ENV === "development") {
@@ -18,7 +34,7 @@ export function getSiteUrl(): string {
 
   const vercelUrl = process.env.VERCEL_URL;
   if (process.env.VERCEL_ENV === "preview" && vercelUrl && vercelUrl.trim().length > 0) {
-    return `https://${trimTrailingSlash(vercelUrl.trim())}`;
+    return normalizeSiteUrl(`https://${trimTrailingSlash(vercelUrl.trim())}`);
   }
 
   return DEFAULT_SITE_URL;
