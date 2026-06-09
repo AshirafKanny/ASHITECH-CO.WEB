@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import AboutTeamSection from "@/components/AboutTeamSection";
 import SiteNavbar from "@/components/Navbar";
 
 export const metadata = {
@@ -111,7 +112,7 @@ export default function AboutUsPage() {
             priority
             className="object-cover object-center opacity-35"
           />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(74,144,255,0.45),_rgba(2,8,23,0.94)_55%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(74,144,255,0.45),rgba(2,8,23,0.94)_55%)]" />
           <div className="about-hero-grid absolute inset-0 opacity-60" aria-hidden="true" />
           <div className="about-hero-glow about-hero-glow-a" aria-hidden="true" />
           <div className="about-hero-glow about-hero-glow-b" aria-hidden="true" />
@@ -168,7 +169,7 @@ export default function AboutUsPage() {
               key={value.title}
               className="about-service-card rounded-[1.7rem] border border-blue-100 bg-white p-7 shadow-[0_18px_60px_rgba(15,23,42,0.08)]"
             >
-              <div className="mb-5 h-12 w-12 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-400 shadow-[0_16px_35px_rgba(59,130,246,0.25)] relative">
+              <div className="relative mb-5 h-12 w-12 rounded-2xl bg-linear-to-br from-blue-500 to-cyan-400 shadow-[0_16px_35px_rgba(59,130,246,0.25)]">
                 <span className="service-icon-tick" aria-hidden="true">✓</span>
               </div>
               <h3 className="text-2xl font-bold text-[#0f172a]">{value.title}</h3>
@@ -220,7 +221,7 @@ export default function AboutUsPage() {
                 alt="Computer on a table at Keni Web Design"
                 width={900}
                 height={1100}
-                className="h-[32rem] w-full rounded-[1.5rem] object-cover"
+                className="h-128 w-full rounded-[1.5rem] object-cover"
               />
               <div className="absolute inset-x-4 bottom-4 rounded-[1.25rem] border border-white/40 bg-white/85 p-5 backdrop-blur">
                 <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">Our Mission</p>
@@ -234,8 +235,10 @@ export default function AboutUsPage() {
         </div>
       </section>
 
+      <AboutTeamSection />
+
       <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.12),_rgba(255,255,255,0)_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),rgba(255,255,255,0)_55%)]" />
         <div className="site-container relative">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-blue-600">What We Do</p>
@@ -245,7 +248,7 @@ export default function AboutUsPage() {
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {services.map((service, index) => (
               <article key={service.title} className="about-service-card rounded-[1.7rem] border border-blue-100 bg-white p-7 shadow-[0_18px_60px_rgba(15,23,42,0.08)]" style={{ animationDelay: `${index * 0.08}s` }}>
-                <div className="mb-5 h-12 w-12 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-400 shadow-[0_16px_35px_rgba(59,130,246,0.25)] relative">
+                <div className="relative mb-5 h-12 w-12 rounded-2xl bg-linear-to-br from-blue-500 to-cyan-400 shadow-[0_16px_35px_rgba(59,130,246,0.25)]">
                   <span className="service-icon-tick" aria-hidden="true">✓</span>
                 </div>
                 <h3 className="text-2xl font-bold text-[#0f172a]">{service.title}</h3>
@@ -272,7 +275,7 @@ export default function AboutUsPage() {
                 "Reliable Support",
               ].map((item, index) => (
                 <div key={item} className="flex items-start gap-4 rounded-2xl border border-blue-50 bg-blue-50/60 p-4" style={{ animationDelay: `${index * 0.08}s` }}>
-                  <span className="mt-1 h-3 w-3 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400" />
+                  <span className="mt-1 h-3 w-3 rounded-full bg-linear-to-br from-blue-500 to-cyan-400" />
                   <div>
                     <h3 className="font-bold text-[#0f172a]">{item}</h3>
                     <p className="mt-1 text-sm leading-7 text-[#4b5566]">
