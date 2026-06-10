@@ -50,7 +50,7 @@ export default function Hero() {
       </svg>
       <div className="wave-glow-shadow pointer-events-none absolute -right-4 -top-4 h-56 w-56 rounded-full bg-[#0b1f4b]/85" />
 
-      <div className="pointer-events-none absolute right-3 top-14 z-0 flex md:hidden" aria-hidden="true">
+      <div className="pointer-events-none absolute right-3 top-14 z-20 flex md:hidden" aria-hidden="true">
         <div className="flex flex-col items-end gap-0.5 opacity-35">
           <div className="hero-gear-clockwise relative h-16 w-16">
             <Image
@@ -106,12 +106,6 @@ export default function Hero() {
         <BackgroundLines className="h-full w-full bg-transparent!" svgOptions={{ duration: 14 }}>
           <span className="sr-only" aria-hidden="true" />
         </BackgroundLines>
-      </div>
-
-      <div className="pointer-events-none absolute right-2 top-14 z-20 flex origin-top-right rotate-45 items-start justify-end sm:right-4 sm:top-16 lg:right-6 lg:top-20" aria-hidden="true">
-        <span className={`${oswald.className} keni-zoom`}>
-          Keni
-        </span>
       </div>
 
       {/* Main hero content */}
