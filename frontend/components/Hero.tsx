@@ -1,6 +1,7 @@
 
 import { Play } from "lucide-react";
 import { Oswald } from "next/font/google";
+import Image from "next/image";
 import { BackgroundLines } from "@/components/ui/background-lines";
 import { Button } from "@/components/ui/button";
 
@@ -48,6 +49,57 @@ export default function Hero() {
         />
       </svg>
       <div className="wave-glow-shadow pointer-events-none absolute -right-4 -top-4 h-56 w-56 rounded-full bg-[#0b1f4b]/85" />
+
+      <div className="pointer-events-none absolute right-3 top-14 z-0 flex md:hidden" aria-hidden="true">
+        <div className="flex flex-col items-end gap-0.5 opacity-35">
+          <div className="hero-gear-clockwise relative h-16 w-16">
+            <Image
+              src="/gear.webp"
+              alt=""
+              fill
+              sizes="64px"
+              className="object-contain"
+              aria-hidden="true"
+            />
+          </div>
+          <div className="hero-gear-counterclockwise relative h-14 w-14">
+            <Image
+              src="/gear.webp"
+              alt=""
+              fill
+              sizes="56px"
+              className="object-contain"
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="pointer-events-none absolute right-4 top-10 z-20 hidden md:block lg:right-10 lg:top-8">
+        <div className="flex flex-col items-end gap-0.5 lg:gap-1">
+          <div className="hero-gear-clockwise relative h-28 w-28 lg:h-40 lg:w-40 xl:h-48 xl:w-48">
+            <Image
+              src="/gear.webp"
+              alt=""
+              fill
+              sizes="(max-width: 1024px) 112px, 192px"
+              className="object-contain"
+              aria-hidden="true"
+              priority
+            />
+          </div>
+          <div className="hero-gear-counterclockwise relative h-24 w-24 lg:h-32 lg:w-32 xl:h-36 xl:w-36">
+            <Image
+              src="/gear.webp"
+              alt=""
+              fill
+              sizes="(max-width: 1024px) 96px, 144px"
+              className="object-contain"
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+      </div>
 
       {/* Aceternity UI BackgroundLines overlay, transparent and behind content */}
       <div className="pointer-events-none absolute inset-0 z-10">

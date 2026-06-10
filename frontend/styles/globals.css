@@ -651,6 +651,25 @@ img, picture, video, svg {
   transform-origin: center;
 }
 
+@keyframes spin-left {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.hero-gear-clockwise {
+  animation: spin-right 8s linear infinite;
+  transform-origin: center;
+}
+
+.hero-gear-counterclockwise {
+  animation: spin-left 10s linear infinite;
+  transform-origin: center;
+}
+
 @keyframes orbit-left {
   0% {
     transform: translate(0, -18px);
