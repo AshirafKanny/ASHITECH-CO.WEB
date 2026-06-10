@@ -44,11 +44,13 @@ function ServiceFeatureCard({ title, icon: Icon }: FeatureCard) {
 
 export default function CoreDesignFeaturedSection() {
   return (
-    <section
-      className="relative overflow-hidden bg-cover bg-center py-32 text-white lg:py-44"
-      style={{ backgroundImage: "url('/services%20bk.jpg')" }}
-      aria-labelledby="core-design-featured-heading"
-    >
+    <section className="relative overflow-hidden py-32 text-white lg:py-44" aria-labelledby="core-design-featured-heading">
+      {/* Blurred large background image (keeps content sharp on top) */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-cover bg-center filter blur-lg"
+        style={{ backgroundImage: "url('/services%20bk.jpg')" }}
+      />
       <div className="pointer-events-none absolute inset-y-0 left-0 w-80 bg-[radial-gradient(circle_at_left_center,rgba(249,115,22,0.2),rgba(31,31,37,0)_72%)]" />
       <div className="pointer-events-none absolute right-0 top-0 h-128 w-lg bg-[radial-gradient(circle_at_72%_18%,rgba(249,115,22,0.82),rgba(31,31,37,0.9)_40%,rgba(31,31,37,0)_78%)]" />
       <div className="spin-right-loop pointer-events-none absolute right-24 top-48 h-28 w-28 rounded-full bg-[radial-gradient(circle,#ffffff_1.4px,transparent_1.4px)] bg-size-[9px_9px] opacity-45" />
@@ -106,14 +108,14 @@ export default function CoreDesignFeaturedSection() {
               </svg>
 
               <div className="featured-scroll-mask relative overflow-hidden rounded-[999px] bg-[#d9d0c6]">
-                <Image
-                  src="/LLL3.webp"
-                  alt="KENI WEB DESIGN featured central service showcase"
-                  fill
-                  sizes="(max-width: 640px) 70vw, 288px"
-                  priority
-                  className="featured-scroll-image object-cover"
-                />
+                    <Image
+                      src="/LLL3.webp"
+                      alt="KENI WEB DESIGN featured central service showcase"
+                      fill
+                      sizes="(max-width: 640px) 70vw, 288px"
+                      priority
+                      className="featured-scroll-image object-cover"
+                    />
               </div>
             </div>
 

@@ -1,7 +1,10 @@
 
 import { Play } from "lucide-react";
+import { Oswald } from "next/font/google";
 import { BackgroundLines } from "@/components/ui/background-lines";
 import { Button } from "@/components/ui/button";
+
+const oswald = Oswald({ weight: ["700"], subsets: ["latin"], display: "swap" });
 
 export default function Hero() {
   return (
@@ -51,6 +54,12 @@ export default function Hero() {
         <BackgroundLines className="h-full w-full bg-transparent!" svgOptions={{ duration: 14 }}>
           <span className="sr-only" aria-hidden="true" />
         </BackgroundLines>
+      </div>
+
+      <div className="pointer-events-none absolute right-2 top-14 z-20 flex origin-top-right rotate-45 items-start justify-end sm:right-4 sm:top-16 lg:right-6 lg:top-20" aria-hidden="true">
+        <span className={`${oswald.className} keni-zoom`}>
+          Keni
+        </span>
       </div>
 
       {/* Main hero content */}
