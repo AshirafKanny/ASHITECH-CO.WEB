@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   ArrowRight,
   ChartNoAxesColumn,
@@ -108,14 +107,17 @@ export default function CoreDesignFeaturedSection() {
               </svg>
 
               <div className="featured-scroll-mask relative overflow-hidden rounded-[999px] bg-[#d9d0c6]">
-                    <Image
-                      src="/LLL3.webp"
-                      alt="KENI WEB DESIGN featured central service showcase"
-                      fill
-                      sizes="(max-width: 640px) 70vw, 288px"
-                      priority
-                      className="featured-scroll-image object-cover"
-                    />
+                <video
+                  className="featured-scroll-image absolute inset-0 h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  aria-label="Typing video showcase"
+                >
+                  <source src="/typing vd.mp4" type="video/mp4" />
+                </video>
               </div>
             </div>
 
