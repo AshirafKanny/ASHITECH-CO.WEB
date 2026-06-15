@@ -200,7 +200,7 @@ const fallbackPosts: BlogPost[] = [
       "## Building trust for online payments\n" +
       "Shoppers want proof. Reviews, delivery information, return policies, and secure checkout improve confidence and reduce cart abandonment.\n\n" +
       "## Ready to launch?\n" +
-      "If you are selling products, explore /ecommerce-websites-uganda and /services/ecommerce-and-product-selling-development to understand what is required for a winning store.",
+      "If you are selling products, explore /ecommerce-websites-uganda and /services/ecommerce-development to understand what is required for a winning store.",
     ),
   },
   {

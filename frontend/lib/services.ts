@@ -6,19 +6,29 @@ export type ServiceItem = {
 
 export const serviceItems: ServiceItem[] = [
   {
+    title: "Website Design",
+    slug: "website-design",
+    summary: "Professional web design services in Uganda for business growth, SEO, and lead generation.",
+  },
+  {
     title: "Website Creation from Figma, XD or Photoshop",
     slug: "website-creation-from-figma-xd-or-photoshop",
     summary: "Custom website builds from your design files.",
   },
   {
-    title: "Mobile App Development and Website Design",
-    slug: "mobile-app-development-and-website-design",
-    summary: "Mobile app and website experiences that work together.",
+    title: "Mobile App Development",
+    slug: "mobile-app-development",
+    summary: "Mobile apps designed and built for modern businesses.",
   },
   {
-    title: "eCommerce and Product Selling Development",
-    slug: "ecommerce-and-product-selling-development",
+    title: "eCommerce Development",
+    slug: "ecommerce-development",
     summary: "Online stores built to convert and scale.",
+  },
+  {
+    title: "Product Selling Development",
+    slug: "product-selling-development",
+    summary: "Product-selling websites built for simple buying journeys.",
   },
   {
     title: "Responsive Websites (UI/UX) Design",

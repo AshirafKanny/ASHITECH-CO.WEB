@@ -442,7 +442,7 @@ export const seoLandingPages: Record<string, SeoLandingPageContent> = {
       },
     ],
     internalLinks: [
-      { href: "/services/ecommerce-and-product-selling-development", label: "Ecommerce development" },
+      { href: "/services/ecommerce-development", label: "Ecommerce development" },
       { href: "/services/seo-search-engine-optimization", label: "SEO services" },
       { href: "/website-design-uganda", label: "Website design Uganda" },
       { href: "/contact", label: "Request a quote" },

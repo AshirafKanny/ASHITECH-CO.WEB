@@ -14,12 +14,27 @@ type ServicePageProps = {
 type ServiceContent = {
   title: string;
   intro: string;
+  sections?: Array<{
+    heading: string;
+    paragraphs: string[];
+    bullets?: string[];
+  }>;
   includes: string[];
   benefits: string[];
   whyChoose?: string[];
   process?: string[];
   cta: string;
   platforms?: string[];
+  technologies?: string[];
+  industries?: string[];
+  relatedLinks?: Array<{
+    href: string;
+    label: string;
+  }>;
+  faqItems?: Array<{
+    question: string;
+    answer: string;
+  }>;
   heroImage: string;
   heroSubtitle: string;
 };
@@ -39,7 +54,7 @@ const defaultProcess = [
   "Launch and handover",
 ];
 
-const faqItems = [
+const defaultFaqItems = [
   {
     question: "How long does development take?",
     answer: "Typically 1-4 weeks depending on complexity.",
@@ -90,17 +105,15 @@ const serviceContent: Record<string, ServiceContent> = {
     ],
     cta: "Ready to turn your design into a live website? Contact us today.",
   },
-  "mobile-app-development-and-website-design": {
-    title: "Mobile App Development and Website Design",
+  "mobile-app-development": {
+    title: "Mobile App Development",
     intro:
-      "We design and build modern mobile apps and websites that deliver seamless digital experiences across all devices.",
-    heroImage: "/m1.webp",
-    heroSubtitle: "Unified mobile and web experiences built to perform.",
+      "We design and build modern mobile applications that deliver fast, intuitive, and reliable digital experiences for your customers.",
+    heroImage: "/section-image1.webp",
+    heroSubtitle: "Mobile apps designed to feel smooth, useful, and dependable.",
     includes: [
       "Mobile app UI/UX design",
-      "Website design and development",
       "Android app development",
-      "Responsive web design",
       "Backend integration",
       "User authentication systems",
       "API integrations",
@@ -108,10 +121,10 @@ const serviceContent: Record<string, ServiceContent> = {
       "App testing and deployment",
     ],
     benefits: [
-      "Reach users on both mobile and web",
+      "Reach users on their preferred device",
       "Better customer engagement",
       "Improved business accessibility",
-      "Professional digital presence",
+      "Reliable app performance",
     ],
     process: [
       "Requirement gathering",
@@ -121,14 +134,191 @@ const serviceContent: Record<string, ServiceContent> = {
       "Testing",
       "Deployment",
     ],
-    cta: "Let us build your next digital product.",
+    cta: "Let us build your next mobile app.",
   },
-  "ecommerce-and-product-selling-development": {
-    title: "eCommerce and Product Selling Development",
+  "website-design": {
+    title: "Website Design Uganda",
     intro:
-      "We create powerful online stores designed to help businesses sell products efficiently and increase revenue.",
+      "We create strategic website design services in Uganda that help businesses build trust, communicate value clearly, and convert more visitors into enquiries. Every page is planned around your goals, your customers, and the actions you want people to take.",
+    heroImage: "/m2.webp",
+    heroSubtitle: "Professional web design in Uganda that builds trust, improves SEO, and drives more leads.",
+    sections: [
+      {
+        heading: "Why professional web design matters",
+        paragraphs: [
+          "Your website is often the first place a potential customer judges your business. If it looks outdated, loads slowly, or makes it hard to understand what you do, people leave before they contact you. Professional web design changes that by creating a clear, credible experience from the first second a visitor arrives.",
+          "A strong website does more than look modern. It guides attention, reduces confusion, supports your brand story, and helps visitors move from curiosity to action. That is why businesses that invest in web design Uganda services usually see better engagement, more enquiries, and stronger trust across every channel they use online.",
+        ],
+        bullets: [
+          "Builds trust at first glance",
+          "Improves mobile usability and conversions",
+          "Supports search visibility and SEO-friendly content",
+          "Makes your sales and enquiry process easier",
+        ],
+      },
+      {
+        heading: "Our website design services",
+        paragraphs: [
+          "We design business websites that speak clearly to your ideal customer and support your commercial goals. Whether you need a new company site, a redesign, a landing page, or a full custom website development project, we structure each page around results rather than decoration.",
+          "Our website design services Uganda clients rely on include wireframing, user experience design, brand-aligned layouts, responsive build-outs, conversion-focused copy support, and clear calls to action. If you are looking for a professional web design company that understands both design and growth, we build the page experience to match that expectation.",
+        ],
+        bullets: [
+          "Business website design",
+          "Responsive website design",
+          "Custom website development",
+          "Website redesign services",
+          "Landing page design",
+          "SEO-friendly websites",
+        ],
+      },
+      {
+        heading: "Why businesses choose Keni Web Design",
+        paragraphs: [
+          "Keni Web Design focuses on outcomes, not just aesthetics. We think about how your visitors read, what they need to trust you, and what should happen next. That means your site is designed to support enquiries, bookings, quotes, calls, and sales in a more deliberate way.",
+          "We also keep the experience practical for your team. That includes clean content structure, scalable pages, and a design system that can grow as your business expands. The result is a website that feels premium today and still makes sense as your services, campaigns, and content evolve.",
+        ],
+        bullets: [
+          "Business-first thinking",
+          "Clear communication throughout the project",
+          "Design choices tied to conversion goals",
+          "A scalable website foundation",
+        ],
+      },
+      {
+        heading: "Industries we work with",
+        paragraphs: [
+          "We design websites for a wide range of organizations across Uganda, including service businesses, schools, NGOs, hotels, law firms, healthcare providers, startups, and ecommerce brands. Each industry has different customer expectations, and the website has to match those expectations to build trust quickly.",
+          "That is why our process begins with understanding your market. A school website needs simple navigation and admissions clarity. A hotel website needs visual appeal and booking confidence. A law firm needs authority and precision. The design approach changes, but the goal stays the same: help you win better business online.",
+        ],
+        bullets: [
+          "Small businesses and startups",
+          "NGOs and nonprofits",
+          "Schools and educational institutions",
+          "Hotels and hospitality brands",
+          "Healthcare and professional services",
+          "Ecommerce and product-based businesses",
+        ],
+      },
+      {
+        heading: "How the right website improves business growth",
+        paragraphs: [
+          "A well-designed website can improve more than appearance. It can reduce friction in the buying journey, make your offers easier to understand, and support your marketing team with a stronger destination for campaigns. When your website loads quickly, reads clearly, and feels trustworthy, it becomes a practical sales asset.",
+          "That growth effect is especially important in Uganda, where customers often compare several providers before reaching out. If your competitors have clearer messaging, stronger social proof, or better mobile design, they may win the lead. Our role is to make sure your website gives visitors a stronger reason to choose you.",
+        ],
+        bullets: [
+          "More enquiries from qualified visitors",
+          "Better mobile conversion rates",
+          "Stronger brand credibility",
+          "Improved performance for paid ads and SEO",
+        ],
+      },
+    ],
+    includes: [
+      "Business website design",
+      "Information architecture",
+      "Conversion-focused layouts",
+      "Mobile-first responsive design",
+      "Homepage and service page planning",
+      "UI component design",
+      "Landing pages",
+      "Contact and inquiry sections",
+      "Brand-aligned visuals",
+      "SEO-friendly page structure",
+      "SEO-ready structure",
+      "Call-to-action strategy",
+    ],
+    benefits: [
+      "A polished first impression that builds trust quickly",
+      "Clear paths to inquiry, booking, or purchase",
+      "Stronger mobile usability on every screen size",
+      "Better support for SEO and digital marketing",
+      "A design system your team can grow with",
+      "A website that feels aligned with your brand",
+    ],
+    whyChoose: [
+      "Clean layouts and strong visual hierarchy",
+      "Mobile responsive across devices",
+      "Conversion-first content structure",
+      "SEO-aware page planning",
+      "Fast feedback and clear communication",
+    ],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "WordPress",
+      "Sanity CMS",
+      "Node.js",
+      "Vercel",
+    ],
+    industries: [
+      "Small businesses",
+      "Startups",
+      "NGOs",
+      "Schools",
+      "Hotels",
+      "Healthcare providers",
+      "Law firms",
+      "Ecommerce brands",
+      "Real estate companies",
+      "Professional service firms",
+    ],
+    relatedLinks: [
+      { href: "/services/web-development", label: "Web development" },
+      { href: "/services/seo-search-engine-optimization", label: "SEO services" },
+      { href: "/website-design-uganda", label: "Website design Uganda" },
+      { href: "/portfolio", label: "Recent projects" },
+      { href: "/contact", label: "Request a quote" },
+    ],
+    process: [
+      "Discovery and planning",
+      "Wireframes and page structure",
+      "Visual design direction",
+      "Responsive build and review",
+      "Content and SEO refinement",
+      "Launch and support",
+    ],
+    faqItems: [
+      {
+        question: "What makes your website design services in Uganda different?",
+        answer:
+          "We design websites around business outcomes, not just visuals. That means each page is planned to build trust, improve usability, support SEO, and encourage more enquiries from the right audience.",
+      },
+      {
+        question: "How long does a professional website design project take?",
+        answer:
+          "Most website design projects take between two and six weeks depending on the size of the site, the speed of feedback, and how much content or functionality is required.",
+      },
+      {
+        question: "Do you design SEO-friendly websites?",
+        answer:
+          "Yes. We structure pages, headings, content hierarchy, and calls to action with search visibility in mind so the site can support your SEO strategy from the start.",
+      },
+      {
+        question: "Can you redesign my existing website?",
+        answer:
+          "Absolutely. We can refresh outdated websites, improve the layout and messaging, and turn a weak site into a stronger lead-generation asset.",
+      },
+      {
+        question: "Will my website be mobile responsive?",
+        answer:
+          "Yes. Every website we build is designed to adapt cleanly to mobile phones, tablets, laptops, and larger desktop screens.",
+      },
+      {
+        question: "Do you help with content and conversion strategy?",
+        answer:
+          "Yes. We help shape page structure, messaging, and calls to action so the website speaks clearly to customers and supports your sales process.",
+      },
+    ],
+    cta: "Create a website design that feels premium, ranks better, and generates more qualified leads.",
+  },
+  "ecommerce-development": {
+    title: "eCommerce Development",
+    intro:
+      "We build online stores that make it easy to showcase products, manage orders, and create a smooth buying journey for your customers.",
     heroImage: "/m3.webp",
-    heroSubtitle: "Launch a store that converts and scales.",
+    heroSubtitle: "Online stores built to convert and scale.",
     includes: [
       "Online store setup",
       "Product catalog creation",
@@ -148,6 +338,30 @@ const serviceContent: Record<string, ServiceContent> = {
     ],
     platforms: ["Shopify", "WooCommerce", "Custom eCommerce websites"],
     cta: "Start selling online with confidence.",
+  },
+  "product-selling-development": {
+    title: "Product Selling Development",
+    intro:
+      "We create product-selling websites that focus on simple browsing, strong product presentation, and a fast path to checkout or inquiry.",
+    heroImage: "/m1.webp",
+    heroSubtitle: "Product pages and buying journeys that are easy to use.",
+    includes: [
+      "Product page design",
+      "Checkout flow setup",
+      "Lead capture for product inquiries",
+      "Catalog and category structures",
+      "Payment gateway integration",
+      "Mobile-friendly product layouts",
+      "Stock and order management",
+    ],
+    benefits: [
+      "Clear product presentation",
+      "Simpler buying experiences",
+      "Better conversion paths",
+      "Flexible setup for physical or digital products",
+    ],
+    platforms: ["Shopify", "WooCommerce", "Custom product websites"],
+    cta: "Build a product-selling site that makes buying easy.",
   },
   "responsive-websites-ui-ux-design": {
     title: "Responsive Websites (UI/UX) Design",
@@ -253,19 +467,22 @@ const serviceContent: Record<string, ServiceContent> = {
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
+  const details = serviceContent[slug];
 
   if (!service) {
     return {};
   }
 
+  const pageTitle = details?.title ?? service.title;
+
   return {
-    title: service.title,
+    title: pageTitle,
     description: service.summary,
     alternates: {
       canonical: `/services/${service.slug}`,
     },
     openGraph: {
-      title: service.title,
+      title: pageTitle,
       description: service.summary,
       url: `/services/${service.slug}`,
       type: "website",
@@ -274,13 +491,13 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
           url: absoluteUrl(defaultSeoImagePath),
           width: 1200,
           height: 630,
-          alt: service.title,
+          alt: pageTitle,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: service.title,
+      title: pageTitle,
       description: service.summary,
       images: [absoluteUrl(defaultSeoImagePath)],
     },
@@ -296,10 +513,30 @@ export default async function ServicePage({ params }: ServicePageProps) {
     notFound();
   }
 
+  const faqData = details.faqItems ?? defaultFaqItems;
+  const normalizeId = (value: string) =>
+    value
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqData.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <Navbar />
       <main>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
         <section className="pb-20" aria-labelledby="service-heading">
           <div className="relative min-h-screen overflow-hidden bg-[#0b1222]">
             <div
@@ -325,10 +562,38 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <div className="site-container max-w-4xl pt-12">
             <p className="text-lg leading-8 text-[#0F172A]">{details.intro}</p>
 
+            {details.sections ? (
+              <div className="mt-10 grid gap-10">
+                {details.sections.map((section) => (
+                  <section key={section.heading} aria-labelledby={normalizeId(section.heading)}>
+                    <h2 id={normalizeId(section.heading)} className="text-2xl font-semibold text-[#0F172A]">
+                      {section.heading}
+                    </h2>
+                    <div className="mt-4 grid gap-4 text-[#475569]">
+                      {section.paragraphs.map((paragraph) => (
+                        <p key={paragraph} className="leading-8">
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
+                    {section.bullets ? (
+                      <ul className="mt-4 grid gap-3 text-[#475569] sm:grid-cols-2">
+                        {section.bullets.map((bullet) => (
+                          <li key={bullet} className="rounded-lg border border-[#E2E8F0] px-4 py-3">
+                            {bullet}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </section>
+                ))}
+              </div>
+            ) : null}
+
             <div className="mt-12 grid gap-10">
               <section aria-labelledby="service-includes">
                 <h2 id="service-includes" className="text-2xl font-semibold text-[#0F172A]">
-                  What this service includes
+                  Our website design services
                 </h2>
                 <ul className="mt-4 grid gap-3 text-[#475569] sm:grid-cols-2">
                   {details.includes.map((item) => (
@@ -380,6 +645,55 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 </section>
               ) : null}
 
+              {details.technologies ? (
+                <section aria-labelledby="service-technologies">
+                  <h2 id="service-technologies" className="text-2xl font-semibold text-[#0F172A]">
+                    Technologies we use
+                  </h2>
+                  <ul className="mt-4 flex flex-wrap gap-3">
+                    {details.technologies.map((item) => (
+                      <li key={item} className="rounded-full border border-[#E2E8F0] px-4 py-2 text-sm text-[#475569]">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ) : null}
+
+              {details.industries ? (
+                <section aria-labelledby="service-industries">
+                  <h2 id="service-industries" className="text-2xl font-semibold text-[#0F172A]">
+                    Industries we serve
+                  </h2>
+                  <ul className="mt-4 flex flex-wrap gap-3">
+                    {details.industries.map((item) => (
+                      <li key={item} className="rounded-full border border-[#E2E8F0] px-4 py-2 text-sm text-[#475569]">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ) : null}
+
+              {details.relatedLinks ? (
+                <section aria-labelledby="service-related-links">
+                  <h2 id="service-related-links" className="text-2xl font-semibold text-[#0F172A]">
+                    Helpful related pages
+                  </h2>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    {details.relatedLinks.map((link) => (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        className="rounded-full border border-[#E2E8F0] px-4 py-2 text-sm font-medium text-[#0B63F3] transition-colors hover:border-[#0B63F3] hover:bg-[#EFF6FF]"
+                      >
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                </section>
+              ) : null}
+
               <section aria-labelledby="service-process">
                 <h2 id="service-process" className="text-2xl font-semibold text-[#0F172A]">
                   Our process
@@ -414,7 +728,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                   FAQ
                 </h2>
                 <div className="mt-4 grid gap-4">
-                  {faqItems.map((item) => (
+                  {faqData.map((item) => (
                     <div key={item.question} className="rounded-lg border border-[#E2E8F0] px-4 py-4">
                       <p className="font-semibold text-[#0F172A]">{item.question}</p>
                       <p className="mt-2 text-[#475569]">{item.answer}</p>

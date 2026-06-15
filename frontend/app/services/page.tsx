@@ -7,7 +7,6 @@ import Footer from "../../components/Footer";
 import WorkingProcessSection from "../../components/WorkingProcessSection";
 import ScrollReveal from "@/components/ScrollReveal";
 import { absoluteUrl, defaultSeoImagePath } from "../../lib/seo";
-import { serviceItems } from "../../lib/services";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -41,32 +40,32 @@ const popularServices = [
   {
     title: "Website Creation from Figma, XD or Photoshop",
     image: "/service-four1.webp",
-    slug: serviceItems[0].slug,
+    slug: "website-creation-from-figma-xd-or-photoshop",
   },
   {
-    title: "Mobile App Development and Website Design",
+    title: "Mobile App Development",
     image: "/service-four2.webp",
-    slug: serviceItems[1].slug,
+    slug: "mobile-app-development",
   },
   {
-    title: "eCommerce and Product Selling Development",
+    title: "Website Design",
     image: "/service-four3.webp",
-    slug: serviceItems[2].slug,
+    slug: "website-design",
   },
   {
-    title: "Responsive Websites (UI/UX) Design",
+    title: "eCommerce Development",
     image: "/service-four4.webp",
-    slug: serviceItems[3].slug,
+    slug: "ecommerce-development",
+  },
+  {
+    title: "Product Selling Development",
+    image: "/service-four5.webp",
+    slug: "product-selling-development",
   },
   {
     title: "SEO (Search Engine Optimization)",
-    image: "/service-four5.webp",
-    slug: serviceItems[4].slug,
-  },
-  {
-    title: "Digital Product Design and Development",
     image: "/service-four6.webp",
-    slug: serviceItems[5].slug,
+    slug: "seo-search-engine-optimization",
   },
 ];
 

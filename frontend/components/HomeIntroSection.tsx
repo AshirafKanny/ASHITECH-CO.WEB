@@ -54,7 +54,7 @@ export default function HomeIntroSection() {
               SEO strategy and optimization
             </Link>
             <Link
-              href="/services/ecommerce-and-product-selling-development"
+              href="/services/ecommerce-development"
               className="rounded-lg border border-[#dbe4f3] px-4 py-3 hover:border-[#ff5e2e] hover:text-[#ff5e2e]"
             >
               Ecommerce websites
