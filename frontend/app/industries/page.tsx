@@ -1,5 +1,4 @@
 import { industries } from "@/lib/industries";
-import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 import Footer from "@/components/Footer";
@@ -34,26 +33,19 @@ export default function IndustriesPage() {
               <Link
                 key={industry.slug}
                 href={`/industries/${industry.slug}`}
-                className="group overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col"
+                className="group overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 bg-white border border-gray-200 hover:border-purple-300 flex flex-col h-full"
               >
-                <div className="relative h-56 overflow-hidden">
-                  <Image
-                    src={industry.image}
-                    alt={industry.name}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition"></div>
-                </div>
-                <div className="bg-white p-6 flex-grow flex flex-col">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{industry.name}</h3>
-                  <p className="text-gray-600 mb-4 flex-grow text-sm leading-relaxed">
+                <div className="p-8 flex-grow flex flex-col">
+                  <div className="mb-4">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{industry.name}</h3>
+                  </div>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
                     {industry.description}
                   </p>
-                  <div className="pt-4 border-t">
-                    <div className="inline-block text-purple-600 font-semibold group-hover:text-purple-800 transition">
-                      Explore →
-                    </div>
+                  <div className="pt-4 border-t border-gray-100 inline-block">
+                    <span className="text-purple-600 font-semibold text-sm group-hover:text-purple-800 transition flex items-center gap-1">
+                      Explore <span className="group-hover:translate-x-1 transition">→</span>
+                    </span>
                   </div>
                 </div>
               </Link>

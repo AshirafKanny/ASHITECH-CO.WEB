@@ -29,7 +29,7 @@ export default function Footer() {
       </div>
 
       <div className="site-container relative z-10 py-14 lg:py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.15fr_0.95fr_0.85fr_1fr] lg:gap-10">
+        <div className="grid gap-12 lg:grid-cols-5 lg:gap-8">
           <div>
             <Link href="/" className="inline-flex items-center">
               <span className="text-xl font-bold tracking-tight text-[#1F2937] sm:text-2xl">Keni Web design</span>
@@ -97,6 +97,24 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold text-[#1F2937] sm:text-xl">Resources</h3>
+            <ul className="mt-5 space-y-3 text-xs text-[#4f5b70] sm:text-sm">
+              <li>
+                <Link href="/locations" className="inline-flex items-center gap-3 transition-colors hover:text-[#ff6b3d]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#A9B0BD]" aria-hidden="true" />
+                  Locations
+                </Link>
+              </li>
+              <li>
+                <Link href="/industries" className="inline-flex items-center gap-3 transition-colors hover:text-[#ff6b3d]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#A9B0BD]" aria-hidden="true" />
+                  Industries
+                </Link>
+              </li>
             </ul>
           </div>
 

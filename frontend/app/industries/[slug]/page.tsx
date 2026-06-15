@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: industry.heroTitle,
       description: industry.industryOverview,
-      images: [industry.image],
+      images: ["/city2.webp"],
     },
   };
 }
@@ -50,7 +50,7 @@ export default async function IndustryPage({ params }: Props) {
       {/* Hero Section */}
       <section className="relative w-full h-[500px] md:h-[600px] overflow-hidden">
         <Image
-          src={industry.image}
+          src="/city2.webp"
           alt={industry.name}
           fill
           className="object-cover"

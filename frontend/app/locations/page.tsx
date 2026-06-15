@@ -1,5 +1,4 @@
 import { locations } from "@/lib/locations";
-import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 import Footer from "@/components/Footer";
@@ -34,34 +33,30 @@ export default function LocationsPage() {
               <Link
                 key={location.slug}
                 href={`/locations/${location.slug}`}
-                className="group overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300"
+                className="group overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 bg-white border border-gray-200 hover:border-blue-300 flex flex-col h-full"
               >
-                <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src={location.image}
-                    alt={location.name}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition"></div>
-                </div>
-                <div className="bg-white p-6">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">{location.name}</h3>
-                  <p className="text-gray-600 mb-4">{location.region}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                <div className="p-8 flex-grow flex flex-col">
+                  <div className="mb-4">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">{location.name}</h3>
+                    <p className="text-sm font-medium text-blue-600">{location.region}</p>
+                  </div>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">{location.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {location.industries.slice(0, 3).map((ind, idx) => (
-                      <span key={idx} className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
+                      <span key={idx} className="text-xs bg-blue-50 text-blue-700 px-3 py-1.5 rounded-full font-medium border border-blue-200">
                         {ind}
                       </span>
                     ))}
                     {location.industries.length > 3 && (
-                      <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
-                        +{location.industries.length - 3} more
+                      <span className="text-xs bg-gray-100 text-gray-600 px-3 py-1.5 rounded-full font-medium border border-gray-200">
+                        +{location.industries.length - 3}
                       </span>
                     )}
                   </div>
-                  <div className="inline-block text-blue-600 font-semibold group-hover:text-blue-800">
-                    Learn More →
+                  <div className="pt-4 border-t border-gray-100 inline-block">
+                    <span className="text-blue-600 font-semibold text-sm group-hover:text-blue-800 transition flex items-center gap-1">
+                      Learn More <span className="group-hover:translate-x-1 transition">→</span>
+                    </span>
                   </div>
                 </div>
               </Link>
