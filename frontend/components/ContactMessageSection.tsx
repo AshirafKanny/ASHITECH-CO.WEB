@@ -2,6 +2,7 @@
 
 import { Mail, MapPin, PhoneCall } from "lucide-react";
 import { useState } from "react";
+import { FORMSPREE_ENDPOINT } from "@/lib/formspree";
 
 const contactItems = [
   {
@@ -11,9 +12,9 @@ const contactItems = [
   },
   {
     label: "Email Address",
-    value: "ashirafkanny04@gmail.com",
+    value: "info@keniwebdesign.com",
     icon: Mail,
-    href: "mailto:ashirafkanny04@gmail.com",
+    href: "mailto:info@keniwebdesign.com",
   },
   {
     label: "Phone No",
@@ -37,7 +38,7 @@ export default function ContactMessageSection() {
         formData.set("_replyto", String(email));
       }
 
-      const response = await fetch("https://formspree.io/f/xpqnynno", {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -111,10 +112,10 @@ export default function ContactMessageSection() {
 
                     {"href" in item ? (
                       <a
-                        href="mailto:ashirafkanny04@gmail.com"
+                        href="mailto:info@keniwebdesign.com"
                         className="block"
-                        aria-label="Email ashirafkanny04@gmail.com"
-                        title="ashirafkanny04@gmail.com"
+                        aria-label="Email info@keniwebdesign.com"
+                        title="info@keniwebdesign.com"
                       >
                         <p className="text-base font-medium text-white/90">{item.label}</p>
                         <p className="mt-0.5 break-all text-xl text-white transition-colors hover:text-[#ff6b3d] sm:text-2xl">{item.value}</p>

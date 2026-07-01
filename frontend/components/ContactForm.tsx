@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const FORM_ENDPOINT = "https://formspree.io/f/xpqnynno";
+import { FORMSPREE_ENDPOINT } from "@/lib/formspree";
 
 type ContactFormProps = {
   selectedPlan?: string;
@@ -30,7 +29,7 @@ export default function ContactForm({ selectedPlan = "" }: ContactFormProps) {
         formData.set("_replyto", String(email));
       }
 
-      const response = await fetch(FORM_ENDPOINT, {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         headers: {
           Accept: "application/json",
