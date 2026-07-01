@@ -57,7 +57,12 @@ export default function Footer() {
               </div>
               <div className="flex items-start gap-3">
                 <Mail className="mt-0.5 shrink-0" size={16} aria-hidden="true" />
-                <a href="mailto:info@keniwebdesign.com" className="hover:text-[#ff6b3d]">
+                <a
+                  href="mailto:info@keniwebdesign.com"
+                  className="hover:text-[#ff6b3d]"
+                  aria-label="Email info@keniwebdesign.com"
+                  title="Email info@keniwebdesign.com"
+                >
                   info@keniwebdesign.com
                 </a>
               </div>

@@ -2,7 +2,6 @@
 
 import { Mail, MapPin, PhoneCall } from "lucide-react";
 import { useState } from "react";
-import { FORMSPREE_ENDPOINT } from "@/lib/formspree";
 
 const contactItems = [
   {
@@ -28,39 +27,30 @@ export default function ContactMessageSection() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const form = event.currentTarget;
     setStatus("sending");
 
     try {
-      const formData = new FormData(event.currentTarget);
+      const formData = new FormData(form);
       formData.set("_subject", "New Website Inquiry");
       const email = formData.get("email");
       if (email) {
         formData.set("_replyto", String(email));
       }
 
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          Accept: "application/json",
-        },
         body: formData,
       });
 
-      let data: { errors?: Array<{ message?: string }> } | null = null;
-      try {
-        data = await response.json();
-      } catch {
-        data = null;
+      if (!response.ok) {
+        throw new Error("Form submission failed");
       }
 
-      if (data?.errors && data.errors.length > 0) {
-        throw new Error(data.errors.map((err) => err.message).filter(Boolean).join(" "));
-      }
-
-      event.currentTarget.reset();
+      form.reset();
       setStatus("success");
     } catch (error) {
-      setStatus("success");
+      setStatus("error");
     }
   };
 
