@@ -165,49 +165,49 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
 
               <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {pagePosts.map((post) => (
-                  <article
+                  <Link
                     key={post.id}
-                    className="overflow-hidden rounded-3xl border border-[#E3E6ED] bg-white shadow-[0_14px_34px_rgba(15,23,42,0.07)] transition-transform duration-300 hover:-translate-y-1"
+                    href={`/blog/${post.slug}`}
+                    className="group block overflow-hidden rounded-3xl border border-[#E3E6ED] bg-white shadow-[0_14px_34px_rgba(15,23,42,0.07)] transition-transform duration-300 hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6F86FF] focus-visible:ring-offset-2"
                   >
-                    <div className="relative h-56 w-full overflow-hidden">
+                    <article className="h-full">
+                      <div className="relative h-56 w-full overflow-hidden">
                       <Image
                         src={post.mainImageUrl}
                         alt={post.title}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
                       />
-                    </div>
-
-                    <div className="p-6">
-                      <p className="text-sm font-medium text-[#8B5E3C]">{formatBlogDate(post.publishedAt)}</p>
-                      <h3 className="mt-2 text-2xl font-semibold text-[#0F172A]">{post.title}</h3>
-
-                      <div className="mt-4 flex items-center gap-3">
-                        <div className="relative h-10 w-10 overflow-hidden rounded-full">
-                          <Image
-                            src={post.authorImageUrl}
-                            alt={post.authorName}
-                            fill
-                            sizes="40px"
-                            className="object-cover"
-                          />
-                        </div>
-                        <p className="text-sm text-[#6A7486]">
-                          Post by <span className="font-semibold text-[#2A344A]">{post.authorName}</span>
-                        </p>
                       </div>
 
-                      <p className="mt-4 leading-7 text-[#0F172A]">{post.excerpt}</p>
+                      <div className="p-6">
+                        <p className="text-sm font-medium text-[#8B5E3C]">{formatBlogDate(post.publishedAt)}</p>
+                        <h3 className="mt-2 text-2xl font-semibold text-[#0F172A] transition-colors group-hover:text-[#6F86FF]">{post.title}</h3>
 
-                      <Link
-                        href={`/blog/${post.slug}`}
-                        className="mt-5 inline-flex rounded-full bg-[#6F86FF] px-5 py-2 text-sm font-medium text-white! transition-colors hover:bg-[#5d72e8]"
-                      >
-                        Read article
-                      </Link>
-                    </div>
-                  </article>
+                        <div className="mt-4 flex items-center gap-3">
+                          <div className="relative h-10 w-10 overflow-hidden rounded-full">
+                            <Image
+                              src={post.authorImageUrl}
+                              alt={post.authorName}
+                              fill
+                              sizes="40px"
+                              className="object-cover"
+                            />
+                          </div>
+                          <p className="text-sm text-[#6A7486]">
+                            Post by <span className="font-semibold text-[#2A344A]">{post.authorName}</span>
+                          </p>
+                        </div>
+
+                        <p className="mt-4 leading-7 text-[#0F172A]">{post.excerpt}</p>
+
+                        <span className="mt-5 inline-flex rounded-full bg-[#6F86FF] px-5 py-2 text-sm font-medium text-white transition-colors group-hover:bg-[#5d72e8]">
+                          Read article
+                        </span>
+                      </div>
+                    </article>
+                  </Link>
                 ))}
               </div>
 
