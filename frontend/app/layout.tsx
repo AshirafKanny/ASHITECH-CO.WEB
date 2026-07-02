@@ -29,8 +29,12 @@ export const metadata: Metadata = {
     template: "%s | KENI WEB DESIGN",
   },
   icons: {
-    icon: "/keniwebdesign-01.png",
-    apple: "/keniwebdesign-01.png",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/icon.png",
   },
   description:
     "KENI WEB DESIGN is a professional website design company building high-performance websites for modern businesses.",
