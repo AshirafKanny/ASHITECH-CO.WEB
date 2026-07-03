@@ -2,7 +2,7 @@ import type { SeoLandingPageContent } from "@/components/SeoLandingTemplate";
 
 export const seoLandingPages: Record<string, SeoLandingPageContent> = {
   "website-design-uganda": {
-    title: "Website Design Uganda | KENI WEB DESIGN",
+    title: "Website Design Uganda",
     description:
       "Professional website design in Uganda with mobile-first UX, SEO-ready structure, and conversion-focused layouts for Kampala businesses.",
     heroTitle: "Website Design Uganda for Business Growth",
@@ -122,7 +122,7 @@ export const seoLandingPages: Record<string, SeoLandingPageContent> = {
     },
   },
   "website-design-kampala": {
-    title: "Web Design Kampala | KENI WEB DESIGN",
+    title: "Web Design Kampala",
     description:
       "Web design Kampala companies trust for fast, mobile-ready websites that convert visitors into customers.",
     heroTitle: "Web Design Kampala Businesses Can Rely On",
@@ -240,7 +240,7 @@ export const seoLandingPages: Record<string, SeoLandingPageContent> = {
     },
   },
   "seo-services-uganda": {
-    title: "SEO Services Uganda | KENI WEB DESIGN",
+    title: "SEO Services Uganda",
     description:
       "SEO services Uganda businesses trust to rank higher on Google with technical optimization, content strategy, and local search visibility.",
     heroTitle: "SEO Services Uganda Businesses Trust",
@@ -348,7 +348,7 @@ export const seoLandingPages: Record<string, SeoLandingPageContent> = {
     },
   },
   "ecommerce-websites-uganda": {
-    title: "Ecommerce Website Uganda | KENI WEB DESIGN",
+    title: "Ecommerce Website Uganda",
     description:
       "Ecommerce website Uganda businesses trust for fast, secure online stores with mobile-friendly checkout and SEO-ready product pages.",
     heroTitle: "Ecommerce Website Uganda Stores Can Trust",
@@ -456,7 +456,7 @@ export const seoLandingPages: Record<string, SeoLandingPageContent> = {
     },
   },
   "school-websites-uganda": {
-    title: "School Websites Uganda | KENI WEB DESIGN",
+    title: "School Websites Uganda",
     description:
       "School websites Uganda institutions trust for admissions, updates, and parent communication with mobile-first design.",
     heroTitle: "School Websites Uganda Institutions Trust",
@@ -563,7 +563,7 @@ export const seoLandingPages: Record<string, SeoLandingPageContent> = {
     },
   },
   "hotel-websites-uganda": {
-    title: "Hotel Websites Uganda | KENI WEB DESIGN",
+    title: "Hotel Websites Uganda",
     description:
       "Hotel websites Uganda hospitality brands trust for bookings, promotions, and mobile-first guest experiences.",
     heroTitle: "Hotel Websites Uganda Guests Trust",
@@ -670,7 +670,7 @@ export const seoLandingPages: Record<string, SeoLandingPageContent> = {
     },
   },
   "ngo-websites-uganda": {
-    title: "NGO Websites Uganda | KENI WEB DESIGN",
+    title: "NGO Websites Uganda",
     description:
       "NGO websites Uganda organizations trust for storytelling, donor engagement, and program visibility.",
     heroTitle: "NGO Websites Uganda Organizations Can Trust",
@@ -777,7 +777,7 @@ export const seoLandingPages: Record<string, SeoLandingPageContent> = {
     },
   },
   "business-websites-uganda": {
-    title: "Business Websites Uganda | KENI WEB DESIGN",
+    title: "Business Websites Uganda",
     description:
       "Business websites Uganda companies trust for credibility, lead generation, and local search visibility.",
     heroTitle: "Business Websites Uganda Companies Trust",
@@ -885,7 +885,7 @@ export const seoLandingPages: Record<string, SeoLandingPageContent> = {
     },
   },
   "website-maintenance-uganda": {
-    title: "Website Maintenance Uganda | KENI WEB DESIGN",
+    title: "Website Maintenance Uganda",
     description:
       "Website maintenance Uganda businesses trust for updates, security, backups, and ongoing performance improvements.",
     heroTitle: "Website Maintenance Uganda Businesses Depend On",
@@ -992,7 +992,7 @@ export const seoLandingPages: Record<string, SeoLandingPageContent> = {
     },
   },
   "branding-services-uganda": {
-    title: "Branding Services Uganda | KENI WEB DESIGN",
+    title: "Branding Services Uganda",
     description:
       "Branding services Uganda businesses trust for visual identity, messaging, and consistent digital presence.",
     heroTitle: "Branding Services Uganda Businesses Trust",

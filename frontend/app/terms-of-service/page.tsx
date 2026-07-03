@@ -4,6 +4,13 @@ import SiteNavbar from "@/components/Navbar";
 export const metadata = {
   title: "Terms of Service | Keni Web Design",
   description: "Terms of Service for Keni Web Design — terms governing use of our website and services.",
+  alternates: {
+    canonical: "/terms-of-service",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function TermsOfServicePage() {

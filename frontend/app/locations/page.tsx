@@ -1,19 +1,45 @@
 import { locations } from "@/lib/locations";
 import Link from "next/link";
 import { Metadata } from "next";
+import { absoluteUrl, defaultSeoImagePath } from "@/lib/seo";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Web Design Services by Location | Keni Web Design",
   description:
     "Professional web design services for businesses in Kampala, Entebbe, Jinja, and across Uganda. Local expertise, global standards.",
+  alternates: {
+    canonical: "/locations",
+  },
+  openGraph: {
+    title: "Web Design Services by Location | Keni Web Design",
+    description:
+      "Professional web design services for businesses in Kampala, Entebbe, Jinja, and across Uganda. Local expertise, global standards.",
+    url: "/locations",
+    type: "website",
+    images: [
+      {
+        url: absoluteUrl(defaultSeoImagePath),
+        width: 1200,
+        height: 630,
+        alt: "Keni Web Design locations",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web Design Services by Location | Keni Web Design",
+    description:
+      "Professional web design services for businesses in Kampala, Entebbe, Jinja, and across Uganda. Local expertise, global standards.",
+    images: [absoluteUrl(defaultSeoImagePath)],
+  },
 };
 
 export default function LocationsPage() {
   return (
     <main className="w-full">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 md:py-20 px-4 md:px-8">
+      <section className="bg-linear-to-r from-blue-600 to-blue-800 text-white py-16 md:py-20 px-4 md:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Web Design Services by Location
@@ -35,12 +61,12 @@ export default function LocationsPage() {
                 href={`/locations/${location.slug}`}
                 className="group overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 bg-white border border-gray-200 hover:border-blue-300 flex flex-col h-full"
               >
-                <div className="p-8 flex-grow flex flex-col">
+                <div className="p-8 grow flex flex-col">
                   <div className="mb-4">
                     <h3 className="text-2xl font-bold text-gray-900 mb-1">{location.name}</h3>
                     <p className="text-sm font-medium text-blue-600">{location.region}</p>
                   </div>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">{location.description}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-6 grow">{location.description}</p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {location.industries.slice(0, 3).map((ind, idx) => (
                       <span key={idx} className="text-xs bg-blue-50 text-blue-700 px-3 py-1.5 rounded-full font-medium border border-blue-200">

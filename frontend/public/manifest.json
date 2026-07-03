@@ -1,0 +1,22 @@
+{
+  "name": "KENI WEB DESIGN",
+  "short_name": "KENI WEB DESIGN",
+  "description": "Website design, development, and SEO services for businesses in Uganda.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#0b63f3",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

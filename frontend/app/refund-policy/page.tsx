@@ -4,6 +4,13 @@ import SiteNavbar from "@/components/Navbar";
 export const metadata = {
   title: "Refund Policy | Keni Web Design",
   description: "Refund Policy for Keni Web Design — terms for refunds and cancellations.",
+  alternates: {
+    canonical: "/refund-policy",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function RefundPolicyPage() {
@@ -11,7 +18,7 @@ export default function RefundPolicyPage() {
     <main className="bg-white text-[#0f1724]">
       <SiteNavbar />
 
-      <section className="bg-gradient-to-r from-blue-50 to-white py-20">
+      <section className="bg-linear-to-r from-blue-50 to-white py-20">
         <div className="site-container">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="text-4xl font-extrabold tracking-tight text-[#0f1724] sm:text-5xl">Refund Policy</h1>

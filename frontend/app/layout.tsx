@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/icon.png",
   },
+  manifest: "/manifest.json",
   description:
     "KENI WEB DESIGN is a professional website design company building high-performance websites for modern businesses.",
   alternates: {

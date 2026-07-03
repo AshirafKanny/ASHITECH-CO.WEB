@@ -1,4 +1,4 @@
-const LOCAL_DEV_URL = "http://localhost:3000";
+const LOCAL_DEV_URL = "http://localhost:3001";
 const DEFAULT_SITE_URL = "https://keniwebdesign.com";
 const PREFERRED_HOST = "keniwebdesign.com";
 

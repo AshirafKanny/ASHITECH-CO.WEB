@@ -1,12 +1,38 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import AboutTeamSection from "@/components/AboutTeamSection";
 import SiteNavbar from "@/components/Navbar";
 
-export const metadata = {
+import { absoluteUrl, defaultSeoImagePath } from "@/lib/seo";
+
+export const metadata: Metadata = {
   title: "About Us | Keni Web Design",
   description: "Learn more about Keni Web Design, our mission, services, values, and process.",
+  alternates: {
+    canonical: "/about-us",
+  },
+  openGraph: {
+    title: "About Us | Keni Web Design",
+    description: "Learn more about Keni Web Design, our mission, services, values, and process.",
+    url: "/about-us",
+    type: "website",
+    images: [
+      {
+        url: absoluteUrl(defaultSeoImagePath),
+        width: 1200,
+        height: 630,
+        alt: "About Keni Web Design",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | Keni Web Design",
+    description: "Learn more about Keni Web Design, our mission, services, values, and process.",
+    images: [absoluteUrl(defaultSeoImagePath)],
+  },
 };
 
 const coreValues = [

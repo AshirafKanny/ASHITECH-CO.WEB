@@ -4,6 +4,13 @@ import SiteNavbar from "@/components/Navbar";
 export const metadata = {
   title: "Privacy Policy | Keni Web Design",
   description: "Privacy Policy for Keni Web Design — how we collect and use information.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function PrivacyPolicyPage() {

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 import { absoluteUrl, defaultSeoImagePath } from "../../../lib/seo";
-import { getServiceBySlug } from "../../../lib/services";
+import { getServiceBySlug, serviceItems } from "../../../lib/services";
 
 type ServicePageProps = {
   params: Promise<{
@@ -799,4 +799,10 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <Footer />
     </>
   );
+}
+
+export async function generateStaticParams() {
+  return serviceItems
+    .filter((service) => service.slug !== "web-development")
+    .map((service) => ({ slug: service.slug }));
 }

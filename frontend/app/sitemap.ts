@@ -38,7 +38,9 @@ const toUniqueRoutes = (routes: string[]) => Array.from(new Set(routes));
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
-  const serviceRoutes = serviceItems.map((service) => `/services/${service.slug}`);
+  const serviceRoutes = serviceItems
+    .filter((service) => service.slug !== "web-development")
+    .map((service) => `/services/${service.slug}`);
   const caseStudyRoutes = portfolioProjects.map((project) => `/case-studies/${project.slug}`);
   const locationRoutes = getAllLocationSlugs().map((slug) => `/locations/${slug}`);
   const industryRoutes = getAllIndustrySlugs().map((slug) => `/industries/${slug}`);
@@ -53,7 +55,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: absoluteUrl(route),
     lastModified: now,
     changeFrequency: route === "/" ? "weekly" : "monthly",
-    priority: route === "/" ? 1 : route.startsWith("/services") ? 0.75 : route.startsWith("/locations") || route.startsWith("/industries") ? 0.7 : 0.7,
+    priority:
+      route === "/"
+        ? 1
+        : route.startsWith("/services")
+          ? 0.9
+          : route === "/portfolio"
+            ? 0.9
+            : route.startsWith("/locations") || route.startsWith("/industries")
+              ? 0.8
+              : route === "/blog"
+                ? 0.7
+                : route.startsWith("/blog/")
+                  ? 0.6
+                  : route.includes("case-studies")
+                    ? 0.7
+                    : 0.7,
   }));
 
   let slugs: string[] = [];
