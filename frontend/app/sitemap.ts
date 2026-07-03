@@ -28,6 +28,7 @@ const staticRoutes = [
   "/hotel-websites-uganda",
   "/ngo-websites-uganda",
   "/business-websites-uganda",
+  "/services/web-development",
   "/website-maintenance-uganda",
   "/branding-services-uganda",
   "/locations",
