@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSiteUrl } from "./lib/seo";
 
-const preferredHost = new URL(getSiteUrl()).hostname;
-const wwwHost = `www.${preferredHost}`;
-
 export function middleware(request: NextRequest) {
   const { hostname, protocol } = request.nextUrl;
   const isLocalhost = hostname === "localhost" || hostname === "127.0.0.1";
@@ -12,15 +9,13 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const needsHostRedirect = hostname === wwwHost || hostname !== preferredHost;
   const needsProtocolRedirect = protocol !== "https:";
 
-  if (!needsHostRedirect && !needsProtocolRedirect) {
+  if (!needsProtocolRedirect) {
     return NextResponse.next();
   }
 
   const redirectUrl = request.nextUrl.clone();
-  redirectUrl.hostname = preferredHost;
   redirectUrl.protocol = "https:";
 
   return NextResponse.redirect(redirectUrl, 308);
