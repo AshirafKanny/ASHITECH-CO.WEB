@@ -18,7 +18,7 @@ export default function TermsOfServicePage() {
     <main className="bg-white text-[#0f1724]">
       <SiteNavbar />
 
-      <section className="bg-gradient-to-r from-blue-50 to-white py-20">
+      <section className="bg-linear-to-r from-blue-50 to-white py-20">
         <div className="site-container">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="text-4xl font-extrabold tracking-tight text-[#0f1724] sm:text-5xl">Terms of Service</h1>
@@ -51,7 +51,7 @@ export default function TermsOfServicePage() {
             <li>Mobile App Development</li>
             <li>SEO Services</li>
             <li>Website Maintenance</li>
-            <li>Digital Product Development</li>
+            <li>Digital Marketing</li>
             <li>Related Digital Solutions</li>
           </ul>
 

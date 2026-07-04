@@ -111,8 +111,8 @@ const services = [
     text: "Search-ready websites built to improve visibility, traffic, and local rankings.",
   },
   {
-    title: "Digital Product Development",
-    text: "Custom digital products that help turn ideas into practical business solutions.",
+    title: "Digital Marketing",
+    text: "Data-driven campaigns that help brands grow visibility, leads, and sales online.",
   },
 ];
 

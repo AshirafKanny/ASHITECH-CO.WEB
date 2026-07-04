@@ -1085,7 +1085,7 @@ export const seoLandingPages: Record<string, SeoLandingPageContent> = {
       },
     ],
     internalLinks: [
-      { href: "/services/digital-product-design-and-development", label: "Digital design" },
+      { href: "/services/digital-marketing", label: "Digital marketing" },
       { href: "/website-design-uganda", label: "Website design Uganda" },
       { href: "/contact", label: "Start your branding" },
       { href: "/portfolio", label: "Portfolio" },

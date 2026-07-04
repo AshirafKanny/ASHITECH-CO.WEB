@@ -73,11 +73,17 @@ export default function SiteNavbar() {
                           onClick={() => setIsServicesOpen(false)}
                         >
                           <span className="block font-medium">{service.title}</span>
-                          <span className="block text-xs text-[#6b7280]">{service.summary}</span>
                         </Link>
                       </li>
                     ))}
                   </ul>
+                  <Link
+                    href="/services"
+                    className="mt-2 block rounded-xl bg-blue-50 px-3 py-2 text-sm font-semibold text-blue-700 transition-colors hover:bg-blue-100"
+                    onClick={() => setIsServicesOpen(false)}
+                  >
+                    More About Our Services
+                  </Link>
                 </div>
               ) : null}
             </div>

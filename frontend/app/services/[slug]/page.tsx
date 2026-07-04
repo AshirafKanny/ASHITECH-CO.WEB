@@ -70,47 +70,6 @@ const defaultFaqItems = [
 ];
 
 const serviceContent: Record<string, ServiceContent> = {
-  "website-creation-from-figma-xd-or-photoshop": {
-    title: "Website Creation from Figma, XD or Photoshop",
-    intro:
-      "Turn your design files into fully functional, responsive, and high-performance websites. We convert Figma, Adobe XD, and Photoshop (PSD) designs into clean, pixel-perfect websites using modern web technologies.",
-    heroImage: "/m4.webp",
-    heroSubtitle: "Turn visual designs into fast, responsive websites.",
-    includes: [
-      "Figma to HTML/CSS/JavaScript conversion",
-      "Adobe XD to responsive website",
-      "PSD to HTML conversion",
-      "Pixel-perfect design implementation",
-      "Mobile responsiveness",
-      "Cross-browser compatibility",
-      "Clean and optimized code",
-      "Fast loading performance",
-      "SEO-friendly structure",
-      "Contact forms integration",
-    ],
-    benefits: [
-      "Your design looks exactly as intended",
-      "Professional and polished user experience",
-      "Faster project delivery",
-      "Mobile-friendly across all devices",
-      "Easy future updates",
-    ],
-    process: [
-      "Receive your design files",
-      "Review project requirements",
-      "Develop the frontend structure",
-      "Optimize responsiveness",
-      "Test across devices",
-      "Launch your website",
-    ],
-    relatedLinks: [
-      { href: "/services/website-design", label: "Website design services" },
-      { href: "/services/responsive-websites-ui-ux-design", label: "UI/UX design" },
-      { href: "/services/web-development", label: "Web development" },
-      { href: "/contact", label: "Request a quote" },
-    ],
-    cta: "Ready to turn your design into a live website? Contact us today.",
-  },
   "mobile-app-development": {
     title: "Mobile App Development",
     intro:
@@ -144,7 +103,7 @@ const serviceContent: Record<string, ServiceContent> = {
       { href: "/industries/fitness", label: "Fitness app development" },
       { href: "/industries/restaurants", label: "Restaurant app development" },
       { href: "/industries/healthcare", label: "Healthcare mobile apps" },
-      { href: "/services/digital-product-design-and-development", label: "Digital product development" },
+      { href: "/services/digital-marketing", label: "Digital marketing" },
       { href: "/contact", label: "Request a quote" },
     ],
     cta: "Let us build your next mobile app.",
@@ -453,33 +412,64 @@ const serviceContent: Record<string, ServiceContent> = {
     ],
     cta: "Boost your online visibility today.",
   },
-  "digital-product-design-and-development": {
-    title: "Digital Product Design and Development",
+  "digital-marketing": {
+    title: "Digital Marketing",
     intro:
-      "We design and develop digital products that solve real business problems and deliver value to users.",
+      "We plan and run digital marketing campaigns that help your business attract the right audience, generate qualified leads, and turn attention into measurable growth.",
     heroImage: "/m6.webp",
-    heroSubtitle: "From idea to product-ready experience.",
+    heroSubtitle: "Campaigns, content, and strategy built to grow visibility and conversions.",
     includes: [
-      "Product strategy",
-      "UI/UX design",
-      "Web app development",
-      "Dashboard systems",
-      "SaaS platforms",
-      "MVP development",
-      "Testing and iteration",
+      "Digital marketing strategy",
+      "SEO planning and optimization",
+      "Social media campaign support",
+      "Content marketing direction",
+      "Paid advertising planning",
+      "Email marketing setup",
+      "Analytics and reporting",
     ],
     benefits: [
-      "Faster product launch",
-      "Scalable solutions",
-      "Better customer satisfaction",
+      "More visibility in search and social channels",
+      "Qualified leads from higher-intent audiences",
+      "Clearer measurement of campaign performance",
+    ],
+    whyChoose: [
+      "Strategy tied to business goals",
+      "Content that speaks to real customer needs",
+      "Performance tracking that informs next steps",
+      "Campaigns designed for steady improvement",
+    ],
+    process: [
+      "Discovery and goal setting",
+      "Audience and keyword research",
+      "Channel and content planning",
+      "Campaign setup and launch",
+      "Monitoring and optimization",
+      "Reporting and next-step refinement",
     ],
     relatedLinks: [
-      { href: "/industries/healthcare", label: "Healthcare digital products" },
-      { href: "/industries/fitness", label: "Fitness app development" },
-      { href: "/services/web-development", label: "Web app development" },
+      { href: "/services/seo-search-engine-optimization", label: "SEO services" },
+      { href: "/services/website-design", label: "Website design" },
+      { href: "/blog", label: "Digital marketing insights" },
       { href: "/contact", label: "Request a quote" },
     ],
-    cta: "Bring your digital product idea to life.",
+    faqItems: [
+      {
+        question: "What does your digital marketing service include?",
+        answer:
+          "Our digital marketing service can include SEO planning, content direction, social media support, paid campaign guidance, and performance tracking depending on your goals.",
+      },
+      {
+        question: "Can you help us get more leads online?",
+        answer:
+          "Yes. We focus on the channels and messages most likely to bring in qualified enquiries, then measure what works so we can improve results over time.",
+      },
+      {
+        question: "Do you only work with Kampala businesses?",
+        answer:
+          "No. We work with businesses across Uganda and tailor campaigns to the location, audience, and market you want to reach.",
+      },
+    ],
+    cta: "Build a digital marketing engine that grows visibility, traffic, and leads.",
   },
   "web-development": {
     title: "Web Development",

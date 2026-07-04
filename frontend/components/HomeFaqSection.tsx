@@ -98,13 +98,13 @@ const faqs = [
   },
   {
     value: "digital-products",
-    question: "Can you build web apps or digital products in Uganda?",
+    question: "Can you support digital marketing campaigns in Uganda?",
     answer:
-      "Yes. Our digital product development Uganda services cover MVPs, dashboards, and custom web platforms.",
+      "Yes. Our digital marketing services cover SEO, campaign planning, content direction, and lead generation support for businesses in Uganda.",
     details: [
-      "We scope requirements, data flows, and user roles early.",
-      "Tech stacks are chosen for scalability and performance.",
-      "Ongoing iterations are supported after launch.",
+      "We align channels to your business goals and audience.",
+      "Content and keywords are planned around search demand.",
+      "Reporting helps refine campaigns after launch.",
     ],
   },
   {

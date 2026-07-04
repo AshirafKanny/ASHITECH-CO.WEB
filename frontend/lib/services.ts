@@ -11,11 +11,6 @@ export const serviceItems: ServiceItem[] = [
     summary: "Professional web design services in Uganda for business growth, SEO, and lead generation.",
   },
   {
-    title: "Website Creation from Figma, XD or Photoshop",
-    slug: "website-creation-from-figma-xd-or-photoshop",
-    summary: "Custom website builds from your design files.",
-  },
-  {
     title: "Mobile App Development",
     slug: "mobile-app-development",
     summary: "Mobile apps designed and built for modern businesses.",
@@ -41,9 +36,9 @@ export const serviceItems: ServiceItem[] = [
     summary: "Technical and content SEO to improve visibility.",
   },
   {
-    title: "Digital Product Design and Development",
-    slug: "digital-product-design-and-development",
-    summary: "Product design and development for web-based solutions.",
+    title: "Digital Marketing",
+    slug: "digital-marketing",
+    summary: "Strategy-driven digital marketing that grows visibility, traffic, leads, and sales.",
   },
   {
     title: "Web Development",

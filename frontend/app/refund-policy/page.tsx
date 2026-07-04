@@ -70,7 +70,7 @@ export default function RefundPolicyPage() {
             <li>SEO services already performed</li>
             <li>Consultation services</li>
             <li>Website maintenance services already delivered</li>
-            <li>Digital product development work already completed</li>
+            <li>Digital marketing work already completed</li>
             <li>Custom design work created specifically for the client</li>
             <li>Services where substantial work has already commenced</li>
           </ul>

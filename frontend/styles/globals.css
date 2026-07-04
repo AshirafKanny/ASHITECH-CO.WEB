@@ -21,6 +21,10 @@ body {
   color: var(--color-text);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Prevent horizontal page overflow caused by full-bleed elements */
 html, body {
   overflow-x: hidden;

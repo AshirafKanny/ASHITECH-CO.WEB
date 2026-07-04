@@ -6,13 +6,13 @@ import { useMemo, useState } from "react";
 
 const testimonials = [
   {
-    image: "/testimonial1.webp",
+    image: "/joan.webp",
     name: "Joan N.",
     role: "Retail Owner, Kampala",
     quote: "Our new site loads fast on mobile and we now receive steady inquiries from Google search.",
   },
   {
-    image: "/testimonial2.webp",
+    image: "/mk.webp",
     name: "Michael K.",
     role: "Hotel Manager",
     quote: "The booking-focused design helped us increase direct inquiries and reduce reliance on OTAs.",
@@ -22,6 +22,48 @@ const testimonials = [
     name: "Ashiraf Kenny",
     role: "Digital Strategist",
     quote: "Our collaboration model helps businesses validate ideas, execute quickly, and launch reliable digital experiences.",
+  },
+  {
+    image: "/GG.webp",
+    name: "Kiwana C.",
+    role: "Brand Owner",
+    quote: "The new website gave my business a sharper presentation, and customers now understand our offer much faster before they even call.",
+  },
+  {
+    image: "/kiwana.webp",
+    name: "Magezi D.",
+    role: "Operations Lead",
+    quote: "We needed something clean, trustworthy, and easy to navigate. The final result made it simpler for clients to inquire and for our team to manage leads.",
+  },
+  {
+    image: "/mm (2).webp",
+    name: "Marvin T.",
+    role: "Founder",
+    quote: "What stood out most was the attention to detail. The site looks polished on every device and gives our brand a more premium feel.",
+  },
+  {
+    image: "/p1.webp",
+    name: "Mirriam A",
+    role: "Clinic Administrator",
+    quote: "Patients now find our services quickly and book with less back-and-forth, which has reduced pressure on our front desk team.",
+  },
+  {
+    image: "/p4.webp",
+    name: "Abaaho K",
+    role: "School Director",
+    quote: "The website made our admissions process smoother. Parents can view everything clearly and submit inquiries without confusion.",
+  },
+  {
+    image: "/p3.webp",
+    name: "Mercy A",
+    role: "Logistics Manager",
+    quote: "Our new online presence feels professional and reliable, and we have started receiving better quality leads from the contact form.",
+  },
+  {
+    image: "/p2.webp",
+    name: "Musa D",
+    role: "Restaurant Owner",
+    quote: "The refreshed site improved how we present our menu and brand story, and customers now engage more before visiting us.",
   },
 ];
 
@@ -105,7 +147,7 @@ export default function TestimonialsFeedbackSection() {
                     alt={item.name}
                     fill
                     sizes="112px"
-                    className={item.image === "/images/ashitech.webp" ? "rounded-full object-cover object-center" : "object-cover"}
+                    className="rounded-full object-cover object-center"
                   />
                 </div>
                 <span className="absolute -right-3 -top-2 grid h-11 w-11 place-items-center rounded-full bg-[#ff6b3d] text-white shadow-sm">
