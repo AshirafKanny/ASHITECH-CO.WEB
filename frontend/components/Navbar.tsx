@@ -195,7 +195,8 @@ export default function SiteNavbar() {
                           ))}
                           <Link
                             href="/services"
-                            className="inline-flex w-full items-center justify-center rounded-md border border-white/40 bg-white px-3 py-2 text-sm font-bold leading-tight text-black shadow-sm"
+                            className="inline-flex w-full items-center justify-center rounded-md border border-white/40 bg-white px-3 py-2 text-sm font-bold leading-tight shadow-sm"
+                            style={{ color: "#000000" }}
                             onClick={() => {
                               setIsMobileMenuOpen(false);
                               setIsMobileServicesOpen(false);
