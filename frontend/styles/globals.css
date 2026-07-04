@@ -2182,6 +2182,16 @@ img, picture, video, svg {
     display: inline-flex;
   }
 
+  .phone-fab__icon-wrap {
+    height: 3.75rem;
+    width: 3.75rem;
+  }
+
+  .phone-fab__image {
+    height: 3.75rem;
+    width: 3.75rem;
+  }
+
   .phone-fab__label {
     display: none;
   }
