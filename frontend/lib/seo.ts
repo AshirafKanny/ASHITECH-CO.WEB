@@ -1,6 +1,6 @@
 const LOCAL_DEV_URL = "http://localhost:3001";
-const DEFAULT_SITE_URL = "https://keniwebdesign.com";
-const PREFERRED_HOST = "keniwebdesign.com";
+const DEFAULT_SITE_URL = "https://www.keniwebdesign.com";
+const PREFERRED_HOST = "www.keniwebdesign.com";
 
 function trimTrailingSlash(value: string): string {
   return value.endsWith("/") ? value.slice(0, -1) : value;
@@ -10,14 +10,14 @@ function normalizeSiteUrl(value: string): string {
   try {
     const url = new URL(trimTrailingSlash(value));
 
-    if (url.hostname === `www.${PREFERRED_HOST}`) {
+    if (url.hostname === PREFERRED_HOST.replace(/^www\./, "")) {
       url.hostname = PREFERRED_HOST;
     }
 
     return url.toString().replace(/\/$/, "");
   } catch {
     const trimmedValue = trimTrailingSlash(value);
-    return trimmedValue.replace(/^https?:\/\/www\./i, "https://");
+    return trimmedValue.replace(/^https?:\/\/(?!www\.)/i, "https://www.");
   }
 }
 

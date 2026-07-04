@@ -193,6 +193,16 @@ export default function SiteNavbar() {
                               {service.title}
                             </Link>
                           ))}
+                          <Link
+                            href="/services"
+                            className="inline-flex w-full items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-[#0b63f3]"
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              setIsMobileServicesOpen(false);
+                            }}
+                          >
+                            More About Our Services
+                          </Link>
                         </div>
                       ) : null}
                     </div>
