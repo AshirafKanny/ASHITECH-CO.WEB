@@ -9,16 +9,20 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const needsProtocolRedirect = protocol !== "https:";
+  const redirectUrl = request.nextUrl.clone();
+  let shouldRedirect = false;
 
-  if (!needsProtocolRedirect) {
-    return NextResponse.next();
+  if (hostname === "www.keniwebdesign.com") {
+    redirectUrl.hostname = "keniwebdesign.com";
+    shouldRedirect = true;
   }
 
-  const redirectUrl = request.nextUrl.clone();
-  redirectUrl.protocol = "https:";
+  if (protocol !== "https:") {
+    redirectUrl.protocol = "https:";
+    shouldRedirect = true;
+  }
 
-  return NextResponse.redirect(redirectUrl, 308);
+  return shouldRedirect ? NextResponse.redirect(redirectUrl, 308) : NextResponse.next();
 }
 
 export const config = {
